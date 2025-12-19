@@ -1,0 +1,791 @@
+[gd_scene load_steps=46 format=3 uid="uid://prngvo6ycayf"]
+
+[ext_resource type="Script" uid="uid://d31hgc1h10800" path="res://player info/playerContoller.gd" id="1_n5p6r"]
+[ext_resource type="Script" uid="uid://c56l0wv4lygfr" path="res://compents/compent scripts/PrimaryHurtBoxes.gd" id="3_2bl5q"]
+[ext_resource type="PackedScene" uid="uid://d107lsslvidei" path="res://compents/scenes/scale.tscn" id="3_aaaie"]
+[ext_resource type="PackedScene" uid="uid://bsu1mwwab4f52" path="res://compents/scenes/movement.tscn" id="3_coedu"]
+[ext_resource type="Script" uid="uid://dd0phg7lcqqps" path="res://compents/compent scripts/Gravity.gd" id="3_rgd3p"]
+[ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://compents/compent scripts/Attack.gd" id="4_coedu"]
+[ext_resource type="Script" uid="uid://c8qc0j10c563q" path="res://compents/compent scripts/AttackManager.gd" id="5_hhnao"]
+[ext_resource type="PackedScene" uid="uid://ddxhru4jbuvl0" path="res://compents/scenes/InputManager.tscn" id="6_aaaie"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://compents/compent scripts/FrameTimerCompnent.gd" id="6_eeho0"]
+[ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://compents/compent scripts/Frame.gd" id="7_1oqn1"]
+[ext_resource type="Script" uid="uid://dn37qd1n3kapy" path="res://compents/compent scripts/Dash.gd" id="7_7y7to"]
+[ext_resource type="Script" uid="uid://ccxb00gf1jcum" path="res://compents/compent scripts/Health.gd" id="7_eeho0"]
+[ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://compents/compent scripts/HurtBoxArea.gd" id="8_af2j0"]
+[ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://compents/compent scripts/HitBoxArea.gd" id="9_an3v2"]
+[ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://compents/compent scripts/StunManager.gd" id="9_yomqy"]
+[ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://resources/hitbox data resouce.gd" id="14_jilod"]
+[ext_resource type="Script" uid="uid://ckkq3f3j2wj34" path="res://compents/compent scripts/ProjectileArea.gd" id="15_5plvs"]
+[ext_resource type="Script" uid="uid://c6hjod27fe0no" path="res://resources/attack animation resource.gd" id="16_7y7to"]
+[ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://auto load scripts/set cam.gd" id="19_r6qcp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5plvs"]
+size = Vector2(8, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_or5bu"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1oqn1"]
+size = Vector2(16, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhnao"]
+size = Vector2(16, 24)
+
+[sub_resource type="Resource" id="Resource_5plvs"]
+script = ExtResource("14_jilod")
+stun_type = 1
+hit_type = 2
+block_stun_duration = 5
+block_back_distance = 20
+hit_stop_frames = 5
+damage = 100
+air_stun_overide = true
+metadata/_custom_type_script = "uid://c8e0lbybahcxv"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yomqy"]
+size = Vector2(8.71365, 10.3889)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eeho0"]
+size = Vector2(8.71365, 10.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jilod"]
+size = Vector2(8.71365, 11.1111)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aaaie"]
+size = Vector2(10.284, 11.1111)
+
+[sub_resource type="Resource" id="Resource_jilod"]
+script = ExtResource("14_jilod")
+stun_type = 0
+hit_type = 1
+block_stun_duration = 20
+block_back_distance = 30
+hit_stun_duration = 30
+hit_back_distance_vector = Vector2(200, 1)
+hit_stop_frames = 10
+damage = 100
+metadata/_custom_type_script = "uid://c8e0lbybahcxv"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgd3p"]
+size = Vector2(8.5, 8.5)
+
+[sub_resource type="Resource" id="Resource_rgd3p"]
+script = ExtResource("14_jilod")
+stun_type = 2
+hit_type = 3
+block_stun_duration = 10
+block_back_distance = 10
+hit_stun_duration = 40
+hit_back_distance_vector = Vector2(100, -500)
+hit_stop_frames = 5
+damage = 100
+air_stun_overide = true
+metadata/_custom_type_script = "uid://c8e0lbybahcxv"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7y7to"]
+size = Vector2(8, 8)
+
+[sub_resource type="Resource" id="Resource_c0h7f"]
+script = ExtResource("16_7y7to")
+displacement = Vector2(100, 0)
+time_in_frames = 15
+metadata/_custom_type_script = "uid://c6hjod27fe0no"
+
+[sub_resource type="Resource" id="Resource_pcydc"]
+script = ExtResource("16_7y7to")
+displacement = Vector2(0, -100)
+metadata/_custom_type_script = "uid://c6hjod27fe0no"
+
+[sub_resource type="Resource" id="Resource_7y7to"]
+script = ExtResource("14_jilod")
+stun_type = 2
+hit_type = 3
+block_stun_duration = 10
+block_back_distance = 100
+hit_stun_duration = 50
+hit_back_distance_vector = Vector2(5000, -1)
+damage = 100
+metadata/_custom_type_script = "uid://c8e0lbybahcxv"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bl5q"]
+size = Vector2(16, 16)
+
+[sub_resource type="Resource" id="Resource_2bl5q"]
+script = ExtResource("14_jilod")
+stun_type = 0
+metadata/_custom_type_script = "uid://c8e0lbybahcxv"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6qcp"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0h7f"]
+size = Vector2(8, 8)
+
+[sub_resource type="Resource" id="Resource_r6qcp"]
+script = ExtResource("14_jilod")
+stun_type = 0
+block_stun_duration = 10
+block_back_distance = 30
+hit_stun_duration = 20
+hit_back_distance_vector = Vector2(100, -1)
+damage = 100
+metadata/_custom_type_script = "uid://c8e0lbybahcxv"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcydc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3mhv"]
+size = Vector2(16, 16)
+
+[sub_resource type="Resource" id="Resource_3jr14"]
+script = ExtResource("14_jilod")
+stun_type = 2
+hit_type = 2
+block_stun_duration = 10
+block_back_distance = 100
+hit_stun_duration = 50
+hit_back_distance_vector = Vector2(2000, -100)
+damage = 500
+metadata/_custom_type_script = "uid://c8e0lbybahcxv"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24on3"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10cl8"]
+size = Vector2(8, 8)
+
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("colission_box", "scale_component", "input_component", "PrimaryHurtBoxes_component", "stun_manager")]
+script = ExtResource("1_n5p6r")
+colission_box = NodePath("the player colision box")
+scale_component = NodePath("folder/scale")
+input_component = NodePath("folder/inputmanager")
+PrimaryHurtBoxes_component = NodePath("folder/PrimaryHurtBoxes")
+stun_manager = NodePath("folder/stunManager")
+block_type = -1
+
+[node name="the player colision box" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_5plvs")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="staning" type="Area2D" parent="." node_paths=PackedStringArray("health", "stun_manager")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("8_af2j0")
+health = NodePath("../folder/health")
+stun_manager = NodePath("../folder/stunManager")
+
+[node name="standing" type="CollisionShape2D" parent="staning"]
+shape = SubResource("RectangleShape2D_or5bu")
+
+[node name="crouch" type="Area2D" parent="." node_paths=PackedStringArray("health", "stun_manager")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("8_af2j0")
+health = NodePath("../folder/health")
+stun_manager = NodePath("../folder/stunManager")
+
+[node name="crouch" type="CollisionShape2D" parent="crouch"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_1oqn1")
+debug_color = Color(0, 0.648903, 0.164648, 0.42)
+
+[node name="air" type="Area2D" parent="." node_paths=PackedStringArray("health", "stun_manager")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("8_af2j0")
+health = NodePath("../folder/health")
+stun_manager = NodePath("../folder/stunManager")
+
+[node name="airborne" type="CollisionShape2D" parent="air"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_hhnao")
+debug_color = Color(0.650842, 0.519428, 0, 0.42)
+
+[node name="folder" type="Node2D" parent="."]
+
+[node name="PrimaryHurtBoxes" type="Node" parent="folder" node_paths=PackedStringArray("standing_hurt_box_area", "crouching_hurt_box_area", "airborne_hurt_box_area", "host")]
+script = ExtResource("3_2bl5q")
+standing_hurt_box_area = NodePath("../../staning")
+crouching_hurt_box_area = NodePath("../../crouch")
+airborne_hurt_box_area = NodePath("../../air")
+host = NodePath("../..")
+metadata/_custom_type_script = "uid://c56l0wv4lygfr"
+
+[node name="movement folder" type="Node" parent="folder"]
+
+[node name="dash" type="Node" parent="folder/movement folder" node_paths=PackedStringArray("timer", "host")]
+script = ExtResource("7_7y7to")
+timer = NodePath("max duration")
+enabled = true
+host = NodePath("../../..")
+
+[node name="max duration" type="Node" parent="folder/movement folder/dash"]
+script = ExtResource("6_eeho0")
+metadata/_custom_type_script = "uid://dkek8a7podljt"
+
+[node name="gravity" type="Node" parent="folder/movement folder" node_paths=PackedStringArray("host")]
+script = ExtResource("3_rgd3p")
+enabled = true
+host = NodePath("../../..")
+
+[node name="movement" parent="folder/movement folder" node_paths=PackedStringArray("timer", "host") instance=ExtResource("3_coedu")]
+timer = NodePath("prejump delay")
+host = NodePath("../../..")
+
+[node name="prejump delay" type="Node" parent="folder/movement folder/movement"]
+script = ExtResource("6_eeho0")
+
+[node name="coyote timer" type="Node" parent="folder/movement folder"]
+script = ExtResource("6_eeho0")
+
+[node name="scale" parent="folder" node_paths=PackedStringArray("node", "timer", "host") instance=ExtResource("3_aaaie")]
+node = NodePath("..")
+timer = NodePath("turn around delay")
+host = NodePath("../..")
+
+[node name="turn around delay" type="Node" parent="folder/scale"]
+script = ExtResource("6_eeho0")
+
+[node name="inputmanager" parent="folder" node_paths=PackedStringArray("player", "attack_manager", "coyote_timer", "movement_componet", "scale_component", "dash_component", "gravity_component", "lk", "blk", "hk", "lp", "hp", "dqcflk", "dqcflp", "dqcfhp", "fqcdhp", "dqcbhp", "bqcdhp") instance=ExtResource("6_aaaie")]
+player = NodePath("../..")
+attack_manager = NodePath("../attack manager")
+coyote_timer = NodePath("../movement folder/coyote timer")
+movement_componet = NodePath("../movement folder/movement")
+scale_component = NodePath("../scale")
+dash_component = NodePath("../movement folder/dash")
+gravity_component = NodePath("../movement folder/gravity")
+lk = NodePath("../attack manager/LK basic")
+blk = NodePath("../attack manager/bLK basic")
+hk = NodePath("../attack manager/HK launch")
+lp = NodePath("../attack manager/LP knock down")
+hp = NodePath("../attack manager/HP 1")
+dqcflk = NodePath("../attack manager/dqcflk special")
+dqcflp = NodePath("../attack manager/dqcflp projectile")
+dqcfhp = NodePath("../attack manager/LK basic")
+fqcdhp = NodePath("../attack manager/LP knock down")
+dqcbhp = NodePath("../attack manager/LK basic")
+bqcdhp = NodePath("../attack manager/LP knock down")
+
+[node name="health" type="Node" parent="folder" node_paths=PackedStringArray("host")]
+script = ExtResource("7_eeho0")
+max_health = 10000
+host = NodePath("../..")
+metadata/_custom_type_script = "uid://c5ucrpov3ddtq"
+
+[node name="stunManager" type="Node" parent="folder" node_paths=PackedStringArray("host")]
+script = ExtResource("9_yomqy")
+host = NodePath("../..")
+
+[node name="attack manager" type="Node2D" parent="folder" node_paths=PackedStringArray("health", "stun_manager", "host")]
+script = ExtResource("5_hhnao")
+health = NodePath("../health")
+stun_manager = NodePath("../stunManager")
+host = NodePath("../..")
+
+[node name="LP knock down" type="Node2D" parent="folder/attack manager"]
+script = ExtResource("4_coedu")
+
+[node name="frame # 0" type="Node2D" parent="folder/attack manager/LP knock down"]
+script = ExtResource("7_1oqn1")
+
+[node name="hit_box # 100" type="Area2D" parent="folder/attack manager/LP knock down/frame # 0"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("9_an3v2")
+attack_data = SubResource("Resource_5plvs")
+
+[node name="hit_box" type="CollisionShape2D" parent="folder/attack manager/LP knock down/frame # 0/hit_box # 100"]
+position = Vector2(16, 0)
+scale = Vector2(0.918099, 0.72)
+shape = SubResource("RectangleShape2D_yomqy")
+disabled = true
+debug_color = Color(1, 0, 0, 0.686275)
+
+[node name="hurt_box # 300" type="Area2D" parent="folder/attack manager/LP knock down/frame # 0" node_paths=PackedStringArray("health", "stun_manager")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("8_af2j0")
+health = NodePath("../../../../health")
+stun_manager = NodePath("../../../../stunManager")
+
+[node name="hurt_box" type="CollisionShape2D" parent="folder/attack manager/LP knock down/frame # 0/hurt_box # 300"]
+position = Vector2(16, 0)
+scale = Vector2(0.918099, 0.72)
+shape = SubResource("RectangleShape2D_eeho0")
+disabled = true
+debug_color = Color(0, 0, 1, 0.686275)
+
+[node name="frame # 1" type="Node2D" parent="folder/attack manager/LP knock down"]
+script = ExtResource("7_1oqn1")
+
+[node name="hurt_box # 0" type="Area2D" parent="folder/attack manager/LP knock down/frame # 1" node_paths=PackedStringArray("health", "stun_manager")]
+collision_layer = 2
+script = ExtResource("8_af2j0")
+health = NodePath("../../../../health")
+stun_manager = NodePath("../../../../stunManager")
+
+[node name="hurt_box" type="CollisionShape2D" parent="folder/attack manager/LP knock down/frame # 1/hurt_box # 0"]
+position = Vector2(16, 0)
+scale = Vector2(0.918099, 0.72)
+shape = SubResource("RectangleShape2D_jilod")
+disabled = true
+debug_color = Color(0, 0, 1, 0.686275)
+
+[node name="frame # 2" type="Node2D" parent="folder/attack manager/LP knock down"]
+script = ExtResource("7_1oqn1")
+
+[node name="hurt_box # 0" type="Area2D" parent="folder/attack manager/LP knock down/frame # 2" node_paths=PackedStringArray("health", "stun_manager")]
+collision_layer = 2
+script = ExtResource("8_af2j0")
+health = NodePath("../../../../health")
+stun_manager = NodePath("../../../../stunManager")
+
+[node name="hurt_box" type="CollisionShape2D" parent="folder/attack manager/LP knock down/frame # 2/hurt_box # 0"]
+position = Vector2(16, 0)
+scale = Vector2(0.778826, 0.72)
+shape = SubResource("RectangleShape2D_aaaie")
+disabled = true
+debug_color = Color(0, 0, 1, 0.686275)
+
+[node name="LK basic" type="Node2D" parent="folder/attack manager"]
+script = ExtResource("4_coedu")
+
+[node name="frame # 0" type="Node2D" parent="folder/attack manager/LK basic"]
+script = ExtResource("7_1oqn1")
+
+[node name="hit_box # 0" type="Area2D" parent="folder/attack manager/LK basic/frame # 0"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_an3v2")
+attack_data = SubResource("Resource_jilod")
+
+[node name="hit_box" type="CollisionShape2D" parent="folder/attack manager/LK basic/frame # 0/hit_box # 0"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_rgd3p")
+disabled = true
+debug_color = Color(1, 0, 0, 0.686275)
+
+[node name="frame # 1" type="Node2D" parent="folder/attack manager/LK basic"]
+script = ExtResource("7_1oqn1")
+
+[node name="hit_box # 0" type="Area2D" parent="folder/attack manager/LK basic/frame # 1"]
+collision_mask = 2
+script = ExtResource("9_an3v2")
+attack_data = SubResource("Resource_jilod")
+
+[node name="hit_box" type="CollisionShape2D" parent="folder/attack manager/LK basic/frame # 1/hit_box # 0"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_rgd3p")
+disabled = true
+debug_color = Color(1, 0, 0, 0.686275)
+
+[node name="frame # 2" type="Node2D" parent="folder/attack manager/LK basic"]
+script = ExtResource("7_1oqn1")
+
+[node name="hit_box # 0" type="Area2D" parent="folder/attack manager/LK basic/frame # 2"]
+collision_mask = 2
+script = ExtResource("9_an3v2")
+attack_data = SubResource("Resource_jilod")
+
+[node name="hit_box" type="CollisionShape2D" parent="folder/attack manager/LK basic/frame # 2/hit_box # 0"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_rgd3p")
+disabled = true
+debug_color = Color(1, 0, 0, 0.686275)
+
+[node name="frame # 3" type="Node2D" parent="folder/attack manager/LK basic"]
+script = ExtResource("7_1oqn1")
+
+[node name="hit_box # 0" type="Area2D" parent="folder/attack manager/LK basic/frame # 3"]
+collision_mask = 2
+script = ExtResource("9_an3v2")
+attack_data = SubResource("Resource_jilod")
+
+[node name="hit_box" type="CollisionShape2D" parent="folder/attack manager/LK basic/frame # 3/hit_box # 0"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_rgd3p")
+disabled = true
+debug_color = Color(1, 0, 0, 0.686275)
+
+[node name="frame # 4" type="Node2D" parent="folder/attack manager/LK basic"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 5" type="Node2D" parent="folder/attack manager/LK basic"]
+script = ExtResource("7_1oqn1")
+
+[node name="hit_box # 0" type="Area2D" parent="folder/attack manager/LK basic/frame # 5"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_an3v2")
+attack_data = SubResource("Resource_jilod")
+
+[node name="hit_box" type="CollisionShape2D" parent="folder/attack manager/LK basic/frame # 5/hit_box # 0"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_rgd3p")
+disabled = true
+debug_color = Color(1, 0, 0, 0.686275)
+
+[node name="HK launch" type="Node2D" parent="folder/attack manager"]
+visible = false
+script = ExtResource("4_coedu")
+
+[node name="frame # 0" type="Node2D" parent="folder/attack manager/HK launch"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 1" type="Node2D" parent="folder/attack manager/HK launch"]
+script = ExtResource("7_1oqn1")
+
+[node name="hit_box # 0" type="Area2D" parent="folder/attack manager/HK launch/frame # 1"]
+collision_mask = 2
+script = ExtResource("9_an3v2")
+attack_data = SubResource("Resource_rgd3p")
+
+[node name="hit_box" type="CollisionShape2D" parent="folder/attack manager/HK launch/frame # 1/hit_box # 0"]
+position = Vector2(48, 0)
+shape = SubResource("RectangleShape2D_7y7to")
+disabled = true
+debug_color = Color(1, 0, 0, 0.686275)
+
+[node name="frame # 2" type="Node2D" parent="folder/attack manager/HK launch"]
+script = ExtResource("7_1oqn1")
+
+[node name="hit_box # 0" type="Area2D" parent="folder/attack manager/HK launch/frame # 2"]
+collision_mask = 2
+script = ExtResource("9_an3v2")
+attack_data = SubResource("Resource_rgd3p")
+
+[node name="hit_box" type="CollisionShape2D" parent="folder/attack manager/HK launch/frame # 2/hit_box # 0"]
+position = Vector2(48, 0)
+shape = SubResource("RectangleShape2D_7y7to")
+disabled = true
+debug_color = Color(1, 0, 0, 0.686275)
+
+[node name="dqcflk special" type="Node2D" parent="folder/attack manager"]
+position = Vector2(4, 0)
+script = ExtResource("4_coedu")
+attack_animation = Array[ExtResource("16_7y7to")]([SubResource("Resource_c0h7f"), SubResource("Resource_pcydc")])
+
+[node name="frame # 0" type="Node2D" parent="folder/attack manager/dqcflk special"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 1" type="Node2D" parent="folder/attack manager/dqcflk special"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 2" type="Node2D" parent="folder/attack manager/dqcflk special"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 3" type="Node2D" parent="folder/attack manager/dqcflk special"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 4" type="Node2D" parent="folder/attack manager/dqcflk special"]
+script = ExtResource("7_1oqn1")
+
+[node name="hit_box # 0" type="Area2D" parent="folder/attack manager/dqcflk special/frame # 4"]
+collision_mask = 2
+script = ExtResource("9_an3v2")
+attack_data = SubResource("Resource_7y7to")
+
+[node name="hit_box" type="CollisionShape2D" parent="folder/attack manager/dqcflk special/frame # 4/hit_box # 0"]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_2bl5q")
+disabled = true
+debug_color = Color(1, 0, 0, 0.686275)
+
+[node name="frame # 5" type="Node2D" parent="folder/attack manager/dqcflk special"]
+script = ExtResource("7_1oqn1")
+
+[node name="hit_box # 0" type="Area2D" parent="folder/attack manager/dqcflk special/frame # 5"]
+collision_mask = 2
+script = ExtResource("9_an3v2")
+attack_data = SubResource("Resource_7y7to")
+
+[node name="hit_box" type="CollisionShape2D" parent="folder/attack manager/dqcflk special/frame # 5/hit_box # 0"]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_2bl5q")
+disabled = true
+debug_color = Color(1, 0, 0, 0.686275)
+
+[node name="frame # 6" type="Node2D" parent="folder/attack manager/dqcflk special"]
+script = ExtResource("7_1oqn1")
+
+[node name="hit_box # 0" type="Area2D" parent="folder/attack manager/dqcflk special/frame # 6"]
+collision_mask = 2
+script = ExtResource("9_an3v2")
+attack_data = SubResource("Resource_7y7to")
+
+[node name="hit_box" type="CollisionShape2D" parent="folder/attack manager/dqcflk special/frame # 6/hit_box # 0"]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_2bl5q")
+disabled = true
+debug_color = Color(1, 0, 0, 0.686275)
+
+[node name="frame # 7" type="Node2D" parent="folder/attack manager/dqcflk special"]
+script = ExtResource("7_1oqn1")
+
+[node name="hit_box # 0" type="Area2D" parent="folder/attack manager/dqcflk special/frame # 7"]
+collision_mask = 2
+script = ExtResource("9_an3v2")
+attack_data = SubResource("Resource_7y7to")
+
+[node name="hit_box" type="CollisionShape2D" parent="folder/attack manager/dqcflk special/frame # 7/hit_box # 0"]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_2bl5q")
+disabled = true
+debug_color = Color(1, 0, 0, 0.686275)
+
+[node name="frame # 8" type="Node2D" parent="folder/attack manager/dqcflk special"]
+script = ExtResource("7_1oqn1")
+
+[node name="bLK basic" type="Node2D" parent="folder/attack manager"]
+visible = false
+script = ExtResource("4_coedu")
+
+[node name="frame # 1" type="Node2D" parent="folder/attack manager/bLK basic"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 2" type="Node2D" parent="folder/attack manager/bLK basic"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 3" type="Node2D" parent="folder/attack manager/bLK basic"]
+script = ExtResource("7_1oqn1")
+
+[node name="hit_box # 0" type="Area2D" parent="folder/attack manager/bLK basic/frame # 3"]
+collision_mask = 2
+script = ExtResource("9_an3v2")
+attack_data = SubResource("Resource_2bl5q")
+
+[node name="hit_box" type="CollisionShape2D" parent="folder/attack manager/bLK basic/frame # 3/hit_box # 0"]
+position = Vector2(20, 12)
+shape = SubResource("RectangleShape2D_r6qcp")
+disabled = true
+debug_color = Color(1, 0, 0, 0.686275)
+
+[node name="frame # 4" type="Node2D" parent="folder/attack manager/bLK basic"]
+script = ExtResource("7_1oqn1")
+
+[node name="hit_box # 0" type="Area2D" parent="folder/attack manager/bLK basic/frame # 4"]
+collision_mask = 2
+script = ExtResource("9_an3v2")
+attack_data = SubResource("Resource_2bl5q")
+
+[node name="hit_box" type="CollisionShape2D" parent="folder/attack manager/bLK basic/frame # 4/hit_box # 0"]
+position = Vector2(20, 12)
+shape = SubResource("RectangleShape2D_c0h7f")
+disabled = true
+debug_color = Color(1, 0, 0, 0.686275)
+
+[node name="frame # 5" type="Node2D" parent="folder/attack manager/bLK basic"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 6" type="Node2D" parent="folder/attack manager/bLK basic"]
+script = ExtResource("7_1oqn1")
+
+[node name="dqcflp projectile" type="Node2D" parent="folder/attack manager"]
+visible = false
+script = ExtResource("4_coedu")
+
+[node name="frame # 1" type="Node2D" parent="folder/attack manager/dqcflp projectile"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 2" type="Node2D" parent="folder/attack manager/dqcflp projectile"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 3" type="Node2D" parent="folder/attack manager/dqcflp projectile"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 4" type="Node2D" parent="folder/attack manager/dqcflp projectile"]
+script = ExtResource("7_1oqn1")
+
+[node name="Projectile # 0" type="Area2D" parent="folder/attack manager/dqcflp projectile/frame # 4" node_paths=PackedStringArray("timer")]
+top_level = true
+collision_mask = 2
+script = ExtResource("15_5plvs")
+speed_facing_right = Vector2(20, 0)
+active_frames = 300
+timer = NodePath("duration")
+attack_data = SubResource("Resource_r6qcp")
+
+[node name="hit_box" type="CollisionShape2D" parent="folder/attack manager/dqcflp projectile/frame # 4/Projectile # 0"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_pcydc")
+disabled = true
+debug_color = Color(1, 0, 0, 0.686275)
+
+[node name="duration" type="Node" parent="folder/attack manager/dqcflp projectile/frame # 4/Projectile # 0"]
+script = ExtResource("6_eeho0")
+
+[node name="HP 1" type="Node2D" parent="folder/attack manager" node_paths=PackedStringArray("combo_attacks_dictionary")]
+visible = false
+script = ExtResource("4_coedu")
+combo_attacks_dictionary = {
+16: NodePath("../HP 2 w hk"),
+18: NodePath("../HP 2 w hp")
+}
+is_combo_attack = true
+start_frame = 20
+end_frame = 20
+
+[node name="frame # 1" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 2" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 3" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 4" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 5" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 6" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 7" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 8" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 9" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 10" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="hurt_box # 0" type="Area2D" parent="folder/attack manager/HP 1/frame # 10" node_paths=PackedStringArray("health", "stun_manager")]
+collision_layer = 2
+script = ExtResource("8_af2j0")
+health = NodePath("../../../../health")
+stun_manager = NodePath("../../../../stunManager")
+
+[node name="hurt_box" type="CollisionShape2D" parent="folder/attack manager/HP 1/frame # 10/hurt_box # 0"]
+position = Vector2(16, -8)
+shape = SubResource("RectangleShape2D_w3mhv")
+disabled = true
+debug_color = Color(0, 0, 1, 0.686275)
+
+[node name="frame # 11" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 12" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 13" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 14" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 15" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 16" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 17" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 18" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 19" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 20" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 21" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 22" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 23" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 24" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 25" type="Node2D" parent="folder/attack manager/HP 1"]
+script = ExtResource("7_1oqn1")
+
+[node name="HP 2 w hp" type="Node2D" parent="folder/attack manager"]
+visible = false
+script = ExtResource("4_coedu")
+
+[node name="frame # 1" type="Node2D" parent="folder/attack manager/HP 2 w hp"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 2" type="Node2D" parent="folder/attack manager/HP 2 w hp"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 3" type="Node2D" parent="folder/attack manager/HP 2 w hp"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 4" type="Node2D" parent="folder/attack manager/HP 2 w hp"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 5" type="Node2D" parent="folder/attack manager/HP 2 w hp"]
+script = ExtResource("7_1oqn1")
+
+[node name="hit_box # 0" type="Area2D" parent="folder/attack manager/HP 2 w hp/frame # 5"]
+collision_mask = 2
+script = ExtResource("9_an3v2")
+attack_data = SubResource("Resource_3jr14")
+
+[node name="hit_box" type="CollisionShape2D" parent="folder/attack manager/HP 2 w hp/frame # 5/hit_box # 0"]
+position = Vector2(44, -4)
+shape = SubResource("RectangleShape2D_24on3")
+disabled = true
+debug_color = Color(1, 0, 0, 0.686275)
+
+[node name="frame # 6" type="Node2D" parent="folder/attack manager/HP 2 w hp"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 7" type="Node2D" parent="folder/attack manager/HP 2 w hp"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 8" type="Node2D" parent="folder/attack manager/HP 2 w hp"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 9" type="Node2D" parent="folder/attack manager/HP 2 w hp"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 10" type="Node2D" parent="folder/attack manager/HP 2 w hp"]
+script = ExtResource("7_1oqn1")
+
+[node name="HP 2 w hk" type="Node2D" parent="folder/attack manager"]
+visible = false
+script = ExtResource("4_coedu")
+
+[node name="frame # 1" type="Node2D" parent="folder/attack manager/HP 2 w hk"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 2" type="Node2D" parent="folder/attack manager/HP 2 w hk"]
+script = ExtResource("7_1oqn1")
+
+[node name="hurt_box # 0" type="Area2D" parent="folder/attack manager/HP 2 w hk/frame # 2" node_paths=PackedStringArray("health", "stun_manager")]
+collision_layer = 2
+script = ExtResource("8_af2j0")
+health = NodePath("../../../../health")
+stun_manager = NodePath("../../../../stunManager")
+
+[node name="hurt_box" type="CollisionShape2D" parent="folder/attack manager/HP 2 w hk/frame # 2/hurt_box # 0"]
+position = Vector2(36, -12)
+shape = SubResource("RectangleShape2D_10cl8")
+disabled = true
+debug_color = Color(0, 0, 1, 0.686275)
+
+[node name="frame # 3" type="Node2D" parent="folder/attack manager/HP 2 w hk"]
+script = ExtResource("7_1oqn1")
+
+[node name="frame # 4" type="Node2D" parent="folder/attack manager/HP 2 w hk"]
+script = ExtResource("7_1oqn1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+script = ExtResource("19_r6qcp")

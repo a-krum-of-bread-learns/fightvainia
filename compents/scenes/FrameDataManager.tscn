@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnqkcvpwrwgn4"]
+
+[ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://compents/compent scripts/Attack.gd" id="1_28lkm"]
+[ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://compents/compent scripts/Frame.gd" id="2_b6nyp"]
+[ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://compents/compent scripts/HitBoxArea.gd" id="3_f065j"]
+[ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://compents/compent scripts/HurtBoxArea.gd" id="4_x7tx3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xdw6"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohv8h"]
+size = Vector2(16, 16)
+
+[node name="FrameDataManger" type="Node2D"]
+script = ExtResource("1_28lkm")
+metadata/_custom_type_script = "uid://d1jws7mtubjk4"
+
+[node name="frame # 1" type="Node2D" parent="."]
+visible = false
+script = ExtResource("2_b6nyp")
+
+[node name="hit_box # 0" type="Area2D" parent="frame # 1"]
+collision_mask = 4
+script = ExtResource("3_f065j")
+
+[node name="hit_box" type="CollisionShape2D" parent="frame # 1/hit_box # 0"]
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_5xdw6")
+disabled = true
+debug_color = Color(1, 0, 0, 0.686275)
+
+[node name="hurt_box # 0" type="Area2D" parent="frame # 1"]
+position = Vector2(16, 0)
+collision_layer = 2
+script = ExtResource("4_x7tx3")
+
+[node name="hurt_box" type="CollisionShape2D" parent="frame # 1/hurt_box # 0"]
+position = Vector2(-8, 8)
+shape = SubResource("RectangleShape2D_ohv8h")
+disabled = true
+debug_color = Color(0, 0, 1, 0.686275)
+
+[node name="frame # 2" type="Node2D" parent="."]
+script = ExtResource("2_b6nyp")
+
+[node name="frame # 3" type="Node2D" parent="."]
+script = ExtResource("2_b6nyp")
+
+[node name="frame # 4" type="Node2D" parent="."]
+script = ExtResource("2_b6nyp")
+
+[node name="frame # 5" type="Node2D" parent="."]
+script = ExtResource("2_b6nyp")
+
+[node name="frame # 6" type="Node2D" parent="."]
+script = ExtResource("2_b6nyp")

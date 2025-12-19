@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddxhru4jbuvl0"]
+
+[ext_resource type="Script" uid="uid://br4ap3ju1friv" path="res://compents/compent scripts/InputManager.gd" id="1_vdk0h"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_vdk0h")
+enabled = true

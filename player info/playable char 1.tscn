@@ -1,0 +1,149 @@
+[gd_scene load_steps=18 format=3 uid="uid://cwic4qufw2wug"]
+
+[ext_resource type="Script" uid="uid://d31hgc1h10800" path="res://player info/playerContoller.gd" id="1_r76ar"]
+[ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://compents/compent scripts/HurtBoxArea.gd" id="2_njycw"]
+[ext_resource type="Script" uid="uid://c56l0wv4lygfr" path="res://compents/compent scripts/PrimaryHurtBoxes.gd" id="3_g6flb"]
+[ext_resource type="Script" uid="uid://dn37qd1n3kapy" path="res://compents/compent scripts/Dash.gd" id="4_ga2p8"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://compents/compent scripts/FrameTimerCompnent.gd" id="5_a7bmd"]
+[ext_resource type="Script" uid="uid://dd0phg7lcqqps" path="res://compents/compent scripts/Gravity.gd" id="6_1f8sw"]
+[ext_resource type="PackedScene" uid="uid://bsu1mwwab4f52" path="res://compents/scenes/movement.tscn" id="7_dts17"]
+[ext_resource type="PackedScene" uid="uid://d107lsslvidei" path="res://compents/scenes/scale.tscn" id="8_noljj"]
+[ext_resource type="PackedScene" uid="uid://ddxhru4jbuvl0" path="res://compents/scenes/InputManager.tscn" id="9_yntal"]
+[ext_resource type="Script" uid="uid://ccxb00gf1jcum" path="res://compents/compent scripts/Health.gd" id="10_5wxpu"]
+[ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://compents/compent scripts/StunManager.gd" id="11_81k0w"]
+[ext_resource type="Script" uid="uid://c8qc0j10c563q" path="res://compents/compent scripts/AttackManager.gd" id="12_u2nre"]
+[ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://auto load scripts/set cam.gd" id="19_6ppe4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5plvs"]
+size = Vector2(8, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_or5bu"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1oqn1"]
+size = Vector2(16, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhnao"]
+size = Vector2(16, 24)
+
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("colission_box", "scale_component", "input_component", "PrimaryHurtBoxes_component", "stun_manager")]
+script = ExtResource("1_r76ar")
+colission_box = NodePath("the player colision box")
+scale_component = NodePath("folder/scale")
+input_component = NodePath("folder/inputmanager")
+PrimaryHurtBoxes_component = NodePath("folder/PrimaryHurtBoxes")
+stun_manager = NodePath("folder/stunManager")
+block_type = -1
+
+[node name="the player colision box" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_5plvs")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="staning" type="Area2D" parent="." node_paths=PackedStringArray("health", "stun_manager")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_njycw")
+health = NodePath("../folder/health")
+stun_manager = NodePath("../folder/stunManager")
+
+[node name="standing" type="CollisionShape2D" parent="staning"]
+shape = SubResource("RectangleShape2D_or5bu")
+
+[node name="crouch" type="Area2D" parent="." node_paths=PackedStringArray("health", "stun_manager")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_njycw")
+health = NodePath("../folder/health")
+stun_manager = NodePath("../folder/stunManager")
+
+[node name="crouch" type="CollisionShape2D" parent="crouch"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_1oqn1")
+debug_color = Color(0, 0.648903, 0.164648, 0.42)
+
+[node name="air" type="Area2D" parent="." node_paths=PackedStringArray("health", "stun_manager")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_njycw")
+health = NodePath("../folder/health")
+stun_manager = NodePath("../folder/stunManager")
+
+[node name="airborne" type="CollisionShape2D" parent="air"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_hhnao")
+debug_color = Color(0.650842, 0.519428, 0, 0.42)
+
+[node name="folder" type="Node2D" parent="."]
+
+[node name="PrimaryHurtBoxes" type="Node" parent="folder" node_paths=PackedStringArray("standing_hurt_box_area", "crouching_hurt_box_area", "airborne_hurt_box_area", "host")]
+script = ExtResource("3_g6flb")
+standing_hurt_box_area = NodePath("../../staning")
+crouching_hurt_box_area = NodePath("../../crouch")
+airborne_hurt_box_area = NodePath("../../air")
+host = NodePath("../..")
+metadata/_custom_type_script = "uid://c56l0wv4lygfr"
+
+[node name="movement folder" type="Node" parent="folder"]
+
+[node name="dash" type="Node" parent="folder/movement folder" node_paths=PackedStringArray("timer", "host")]
+script = ExtResource("4_ga2p8")
+timer = NodePath("max duration")
+enabled = true
+host = NodePath("../../..")
+
+[node name="max duration" type="Node" parent="folder/movement folder/dash"]
+script = ExtResource("5_a7bmd")
+metadata/_custom_type_script = "uid://dkek8a7podljt"
+
+[node name="gravity" type="Node" parent="folder/movement folder" node_paths=PackedStringArray("host")]
+script = ExtResource("6_1f8sw")
+enabled = true
+host = NodePath("../../..")
+
+[node name="movement" parent="folder/movement folder" node_paths=PackedStringArray("timer", "host") instance=ExtResource("7_dts17")]
+timer = NodePath("prejump delay")
+host = NodePath("../../..")
+
+[node name="prejump delay" type="Node" parent="folder/movement folder/movement"]
+script = ExtResource("5_a7bmd")
+
+[node name="coyote timer" type="Node" parent="folder/movement folder"]
+script = ExtResource("5_a7bmd")
+
+[node name="scale" parent="folder" node_paths=PackedStringArray("node", "timer", "host") instance=ExtResource("8_noljj")]
+node = NodePath("..")
+timer = NodePath("turn around delay")
+host = NodePath("../..")
+
+[node name="turn around delay" type="Node" parent="folder/scale"]
+script = ExtResource("5_a7bmd")
+
+[node name="inputmanager" parent="folder" node_paths=PackedStringArray("player", "attack_manager", "coyote_timer", "movement_componet", "scale_component", "dash_component", "gravity_component") instance=ExtResource("9_yntal")]
+player = NodePath("../..")
+attack_manager = NodePath("../attack manager")
+coyote_timer = NodePath("../movement folder/coyote timer")
+movement_componet = NodePath("../movement folder/movement")
+scale_component = NodePath("../scale")
+dash_component = NodePath("../movement folder/dash")
+gravity_component = NodePath("../movement folder/gravity")
+
+[node name="health" type="Node" parent="folder" node_paths=PackedStringArray("host")]
+script = ExtResource("10_5wxpu")
+max_health = 10000
+host = NodePath("../..")
+metadata/_custom_type_script = "uid://c5ucrpov3ddtq"
+
+[node name="stunManager" type="Node" parent="folder" node_paths=PackedStringArray("host")]
+script = ExtResource("11_81k0w")
+host = NodePath("../..")
+
+[node name="attack manager" type="Node2D" parent="folder" node_paths=PackedStringArray("health", "stun_manager", "host")]
+script = ExtResource("12_u2nre")
+health = NodePath("../health")
+stun_manager = NodePath("../stunManager")
+host = NodePath("../..")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+script = ExtResource("19_6ppe4")

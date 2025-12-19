@@ -1,0 +1,209 @@
+{
+  "main": {
+    "id": "c7dc666b76ad44db",
+    "type": "split",
+    "children": [
+      {
+        "id": "0e55f880f89014da",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2b12194e7829ddc0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "AttackData resource.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "AttackData resource"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b37d75d37b58ea49",
+    "type": "split",
+    "children": [
+      {
+        "id": "ddb364d08b3b8124",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f9185b71964a39d1",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "6b8d5a188cd13393",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#refactor",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "431bf6dc02549ce0",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "b1204e63802ee0a7",
+    "type": "split",
+    "children": [
+      {
+        "id": "d68218de2ae0fbd4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8c918d34fe79073b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "AttackData resource.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for AttackData resource"
+            }
+          },
+          {
+            "id": "1bffbda9b5f6e7cd",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "AttackData resource.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from AttackData resource"
+            }
+          },
+          {
+            "id": "8e2941245bde75ed",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "22949b09e0074e27",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "AttackData resource.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of AttackData resource"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 285.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "2b12194e7829ddc0",
+  "lastOpenFiles": [
+    "game one systems/ActiveHitbox.md",
+    "AttackData resource.md",
+    "game one systems/HitBox.md",
+    "game one systems/StunManager.md",
+    "game one systems/HurtBox.md",
+    "game one systems/HitStop.md",
+    "game one systems/Health.md",
+    "game one systems/Frame.md",
+    "game one systems/EntityBase.md",
+    "game one systems/chose_action function.md",
+    "game one systems/block check function.md",
+    "game one systems/AttackManager.md",
+    "game one systems/Attack.md",
+    "game one systems/tool script.md",
+    "dev log 1 script kinda.md",
+    "TODO's/make a speech to (text to)  speak replacement.md",
+    "TODO's/video making.md",
+    "game one systems/input manager.md",
+    "game one systems/movement.md",
+    "Player.md",
+    "system damage.md",
+    "story stuff/script parts/Everyone except player is killed.md",
+    "sort-able search view.base",
+    "TODO's/TODO list I done list for fighting game.md",
+    "game one systems",
+    "story stuff/charaters.md",
+    "story stuff/miscellaneous world stuff.md",
+    "chars/ideas for chars for their ability.md",
+    "Untitled 1.base",
+    "chars/Untitled.canvas",
+    "TODO's",
+    "story stuff/script parts",
+    "story stuff",
+    "chars",
+    "fighing game taxamony breakdown.canvas"
+  ]
+}

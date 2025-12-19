@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://cca8fe1qvcnch"]
+
+[ext_resource type="Script" uid="uid://bssckwpf2obbe" path="res://base classes/EntityBase.gd" id="1_wr0em"]
+[ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://compents/compent scripts/HurtBoxArea.gd" id="2_kwp60"]
+[ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://compents/compent scripts/StunManager.gd" id="3_efw5k"]
+[ext_resource type="Script" uid="uid://ccxb00gf1jcum" path="res://compents/compent scripts/Health.gd" id="4_bsvvr"]
+[ext_resource type="Script" uid="uid://dd0phg7lcqqps" path="res://compents/compent scripts/Gravity.gd" id="5_wr0em"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7li3v"]
+size = Vector2(16, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8ujk"]
+size = Vector2(16, 24)
+
+[node name="hurt able" type="CharacterBody2D" node_paths=PackedStringArray("stun_manager")]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_wr0em")
+stun_manager = NodePath("StunManager")
+block_type = -1
+metadata/_custom_type_script = "uid://bssckwpf2obbe"
+
+[node name="hurt_box" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_7li3v")
+debug_color = Color(0, 0, 1, 0.686275)
+
+[node name="HurtBoxArea2" type="Area2D" parent="." node_paths=PackedStringArray("health", "stun_manager")]
+script = ExtResource("2_kwp60")
+health = NodePath("../Health")
+stun_manager = NodePath("../StunManager")
+metadata/_custom_type_script = "uid://bmbi4lyfgdixu"
+
+[node name="hurt_box" type="CollisionShape2D" parent="HurtBoxArea2"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_m8ujk")
+debug_color = Color(0, 0, 1, 0.686275)
+
+[node name="HurtBoxArea" type="Area2D" parent="." node_paths=PackedStringArray("health", "stun_manager")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_kwp60")
+health = NodePath("../Health")
+stun_manager = NodePath("../StunManager")
+metadata/_custom_type_script = "uid://bmbi4lyfgdixu"
+
+[node name="hurt_box" type="CollisionShape2D" parent="HurtBoxArea"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_7li3v")
+debug_color = Color(0, 0, 1, 0.686275)
+
+[node name="StunManager" type="Node" parent="." node_paths=PackedStringArray("host")]
+script = ExtResource("3_efw5k")
+enabled = true
+host = NodePath("..")
+metadata/_custom_type_script = "uid://b8564hciniqu3"
+
+[node name="Health" type="Node" parent="." node_paths=PackedStringArray("host")]
+script = ExtResource("4_bsvvr")
+max_health = 10000
+enabled = true
+host = NodePath("..")
+metadata/_custom_type_script = "uid://ccxb00gf1jcum"
+
+[node name="Gravity" type="Node" parent="." node_paths=PackedStringArray("host")]
+script = ExtResource("5_wr0em")
+enabled = true
+host = NodePath("..")
+metadata/_custom_type_script = "uid://dd0phg7lcqqps"

@@ -1,0 +1,9 @@
+views:
+  - type: list
+    name: View
+    order:
+      - file.tags
+      - file.name
+    sort:
+      - property: file.tags
+        direction: ASC

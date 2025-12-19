@@ -1,0 +1,77 @@
+#TODO
+- [x] jump
+- [x] double jump
+- [x] 3 primary hurt boxes
+- [x] flip player (uses scale)
+- [x] the attack manager for putting things together
+- [x] input manager basics 
+- [x] sequence reader
+- [x] make motion inputs stuff optimized
+- [x] add check for motion plus attack
+- [x] bug fixes 1
+- [x] make a forwards 
+- [x] pre-jump frames technically
+- [x] make turn around stuff better 5 frames min
+- [x] make attacks not spam able 
+- [x] add null check for the input manager statement
+- [x] raise mic volume
+- [x] finish frame timer
+- [x] make players not stand on each other but still collide
+- [x] make health kinda
+- [x] make attacks deal damage 
+- [x] add knock back 
+- [x] make a good forwards '
+- [x] make stun and forwards do the math
+- [x] write a bit of documentation 1
+- [x] move start stun from health compent to the hitbox compnent
+- [x] projectiles
+- [x] top level in visibility to work with projectile
+- [x] blocking left right with projectile jank
+- [x] block high low stuff
+- [x] fix dash to be fixed distance 
+- [x] remove triple jump
+- [x] add dash cancelable jump
+- [x] jump cancelable dash
+- [x] jump handler2
+- [x] fix dash handler
+- [x] cancel able attacks
+- [x] target combos
+- [x] dash
+- [x] forward movement while attacking animation player?
+- [x] hit stop 
+- [x] screen shake
+- [x] add difference for air stun and ground stun
+- [x] move child is a function can be used for rename function
+- [x] used tweens for animation
+- [x] make animation interuptable by geting hit
+- [x] make animation not intraptabe by input during attack exept when attack is canacalbe at that time
+- [x] use tweens in stun manager 
+- [x] fix error given when tween not used for air stun
+- [x] need to make a contiune stun working with tweens
+- [ ] save system
+- [ ] healing could just be a negatve hitbox damage?  this needs an expetion to self exeption
+- [ ] consideration motion attacks? like motion inputs for directions rhythm character or something
+- [ ] decide these 4 where they should be jump_velocityY:, move_speed, fast_move_speed, gravity
+- [ ] combine player and input manager?
+- [ ] run?
+- [ ] stop some stuff from processing that don't need it when running
+- [ ] give the hurt able player text over head saying is stunned 
+- [ ] a bit of combo ui
+- [ ] do i want air blocking ?
+- [ ] fix hurt boxes for ground air and crouch may want a new component
+- [ ] fix colsions so i can push another player using if im beign detected then i will be pushing
+the layer pushes the maskwitch means i need 2 player layers needs a worka rounf to have bothe palyers push each other 
+- [ ] try an attack with the animation player need to watch vids 
+- [ ] make grabs and command grabs (related to above)
+- [ ] change basic stun to custom based on attack data extra?
+- [ ] re making the chose action function 
+- [ ] make simple boolens for modifiers of hurt and hit boxes
+
+
+can use array inside of a dictionary  for buttion + sequence + direction
+- [ ] make a character now 
+- [ ] add input release option
+- [ ] for combo attacks add option to start from not frame 0 or 1 witch ever it is 
+are all normals cancel-able ?
+
+- [ ] ==make a system map to see how it all fits right now== when i return to it

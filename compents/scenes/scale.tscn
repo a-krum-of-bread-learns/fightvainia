@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d107lsslvidei"]
+
+[ext_resource type="Script" uid="uid://tmh27lp4axxe" path="res://compents/compent scripts/Scale.gd" id="1_682of"]
+
+[node name="scale" type="Node"]
+script = ExtResource("1_682of")
+enabled = true
