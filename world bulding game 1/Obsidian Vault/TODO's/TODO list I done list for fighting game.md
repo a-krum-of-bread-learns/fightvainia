@@ -75,3 +75,4 @@ can use array inside of a dictionary  for buttion + sequence + direction
 are all normals cancel-able ?
 
 - [ ] ==make a system map to see how it all fits right now== when i return to it
+- [ ] lable some varables as private vars with _ prefix doesnt make them prrivent tho

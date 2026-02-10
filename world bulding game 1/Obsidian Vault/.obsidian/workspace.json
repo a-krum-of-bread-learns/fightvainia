@@ -13,15 +13,44 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AttackData resource.md",
+                "file": "analysis/study people based on ELI 3000.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AttackData resource"
+              "title": "study people based on ELI 3000"
+            }
+          },
+          {
+            "id": "56c12f7903285702",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "story stuff/writing practice/(0) ideas/list of ideas for writing practice.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "list of ideas for writing practice"
+            }
+          },
+          {
+            "id": "efe0257016a9ca18",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "story stuff/writing practice/(0) ideas/list of ideas for writing practice.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "list of ideas for writing practice"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -53,7 +82,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#refactor",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -94,8 +123,8 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AttackData resource.md",
-                "collapseAll": false,
+                "file": "story stuff/writing practice/wordless/dramatic entrance at place.md",
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -104,7 +133,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for AttackData resource"
+              "title": "Backlinks for dramatic entrance at place"
             }
           },
           {
@@ -142,16 +171,17 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AttackData resource.md",
+                "file": "story stuff/writing practice/(0) ideas/list of ideas for writing practice.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of AttackData resource"
+              "title": "Outline of list of ideas for writing practice"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -168,42 +198,45 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "2b12194e7829ddc0",
+  "active": "efe0257016a9ca18",
   "lastOpenFiles": [
-    "game one systems/ActiveHitbox.md",
-    "AttackData resource.md",
-    "game one systems/HitBox.md",
-    "game one systems/StunManager.md",
-    "game one systems/HurtBox.md",
-    "game one systems/HitStop.md",
-    "game one systems/Health.md",
-    "game one systems/Frame.md",
-    "game one systems/EntityBase.md",
-    "game one systems/chose_action function.md",
-    "game one systems/block check function.md",
-    "game one systems/AttackManager.md",
-    "game one systems/Attack.md",
-    "game one systems/tool script.md",
-    "dev log 1 script kinda.md",
-    "TODO's/make a speech to (text to)  speak replacement.md",
-    "TODO's/video making.md",
-    "game one systems/input manager.md",
-    "game one systems/movement.md",
-    "Player.md",
-    "system damage.md",
-    "story stuff/script parts/Everyone except player is killed.md",
-    "sort-able search view.base",
-    "TODO's/TODO list I done list for fighting game.md",
-    "game one systems",
-    "story stuff/charaters.md",
-    "story stuff/miscellaneous world stuff.md",
     "chars/ideas for chars for their ability.md",
-    "Untitled 1.base",
+    "story stuff/writing practice/Emotions.md",
+    "story stuff/writing practice/critique of common or important.md",
+    "game one systems/Attack.md",
+    "story stuff/writing practice/places.md",
+    "story stuff/writing practice/(0) ideas/list of ideas for writing practice.md",
+    "story stuff/charaters.md",
+    "(0) templates/write practice template.md",
+    "story stuff/writing practice/(0) ideas",
+    "story stuff/writing practice/wordless/dramatic entrance at place.md",
+    "analysis/study people based on ELI 3000.md",
+    "writing practice/conversations/Untitled.md",
+    "Untitled.md",
+    "writing practice/relations/Untitled.md",
+    "writing practice/wordless/Untitled.md",
+    "(0) templates",
+    "writing practice/Untitled.md",
+    "story stuff/writing practice/conversations",
+    "story stuff/writing practice/relations",
+    "story stuff/writing practice/wordless",
+    "story stuff/plot order + game progression.md",
+    "story stuff/writing practice",
+    "story stuff/setting.md",
+    "story stuff/some story questions to help or confuse.md",
+    "story stuff/summry plot.md",
+    "story stuff/script parts/Everyone except player is killed.md",
+    "dev log 1 script kinda.md",
+    "TODO's/TODO list I done list for fighting game.md",
+    "sort-able search view.base",
+    "analysis/analysis tools.md",
+    "analysis/the need statements.md",
+    "analysis/table analysis.md",
+    "analysis/Untitled",
+    "analysis",
+    "TODO's/make a speech to (text to)  speak replacement.md",
+    "game one systems",
     "chars/Untitled.canvas",
-    "TODO's",
-    "story stuff/script parts",
-    "story stuff",
-    "chars",
     "fighing game taxamony breakdown.canvas"
   ]
 }

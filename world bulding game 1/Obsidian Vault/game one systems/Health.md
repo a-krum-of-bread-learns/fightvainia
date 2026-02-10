@@ -1,3 +1,4 @@
+
 has vars 
 max health 
 current health

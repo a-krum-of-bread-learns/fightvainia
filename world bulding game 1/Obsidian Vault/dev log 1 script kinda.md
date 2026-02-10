@@ -5,6 +5,7 @@ things i want to talk about
 	pull images regarding an attack from an existing video game to make the visual tree
 	simplified version of the variable management for a single button
 	a dictionary tree visual to explain what is happening at the end of the code 
+	==addtions not on receord yet use an anlogy of doors each with  a few key holes  and a tree of doors yuo can figout out more details later==
 - combo attacks system
 - basic fighting game num-pad notation 
 - responsible/ respectful usage of AI in code development  could be a video on its own

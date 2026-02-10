@@ -1,3 +1,4 @@
+#add_docs
 has tool scripts for adding the[collision shapes] and fixing color
 contains the [[AttackData resource]] from inheritance [[ActiveHitbox]]
 
@@ -8,5 +9,6 @@ contains the [[AttackData resource]] from inheritance [[ActiveHitbox]]
 grabs the [[EntityBase|entity's]] [[HurtBox]] it collides with then checks hit exceptions 
 
 
+#add_docs
 #refactor 
 does [[block check function]] is here checks high/low and side of the hit that also decide the knock back
