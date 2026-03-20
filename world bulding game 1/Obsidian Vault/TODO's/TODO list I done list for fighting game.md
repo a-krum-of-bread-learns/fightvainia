@@ -70,11 +70,11 @@
 
 - [ ] fix collisions so i can push another player using if im being detected then i will be pushing
 	the layer pushes the mask witch means i need 2 player layers needs a work a round to have both the players push each other 
-- [ ] try an attack with the animation player need to watch vids 
-- [ ] make grabs and command grabs (related to above)
+- [ ] try an attack with the animation player need to watch vids or dont and skip this
+- [ ] make grabs and command grabs (related to above) or dont and skip this 
 
 
-- [ ] make simple boolens for modifiers of hurt and hit boxes?
+- [ ] make simple boolens for modifiers of hurt and hit boxes? skip this scopecreep
 
 
 can use array inside of a dictionary  for buttion + sequence + direction
@@ -87,6 +87,15 @@ are all normal cancel-able ?
 - [ ] make the last script for the current list of scripts 
 - [ ] make animation node or thing work from stun manager may be or from scratch 
 
-- [ ] sepratet x and y compnets
+- [x] sepratet x and y compnets of animations
 - [ ] add a loop functionality 
 - [ ] do a documentation check 
+- [ ] do a charater journy map for values when doing things like doing damage via function names to see the information paths 
+- [x] add the licnece i want for the game 
+- [x] make gitub public
+- [ ] consider the health and other similar components that are nodes as resources instead
+- [ ] make a scope limit 
+- [ ] make a danger zone section 
+- [ ] learn conditional editor tools or separate projectile animation and entity animation
+- [ ] 
+- [ ] make a demo (limits: 1 char 1-3 basic enemy 1 boss that is the same char and a bit of ability to unlock and put it on itch if you use boxes then do it see [[Demo scope ToDo for summer test release of a char|demo scope]] 

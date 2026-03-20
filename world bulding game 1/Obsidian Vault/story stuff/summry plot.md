@@ -16,3 +16,7 @@ should the story end with victory or should it end with reflection ????????????
 total game length
 min 166
 max 194
+
+
+possible changes one make the mentor only important bond early and the pet dies min game for some reason during the revenge by the player attacking it on instinct in an animal fight or something
+the game needs to be doable 
