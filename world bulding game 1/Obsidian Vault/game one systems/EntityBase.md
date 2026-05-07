@@ -1,3 +1,4 @@
+
 often called the host as well 
 usually is the node that holds all other nodes for an entity like [[Player]] or [[Enemy]] 
 has the following vars 

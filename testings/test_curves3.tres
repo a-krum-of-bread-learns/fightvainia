@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AnimationResource" load_steps=4 format=3 uid="uid://dcrwgqqu6o0gg"]
+[gd_resource type="Resource" script_class="AnimationResource" format=3 uid="uid://dcrwgqqu6o0gg"]
 
 [ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://testings/animation resource.gd" id="1_7wdmh"]
 

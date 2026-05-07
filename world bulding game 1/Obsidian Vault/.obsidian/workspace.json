@@ -4,53 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "0e55f880f89014da",
+        "id": "4fdee95453efa40e",
         "type": "tabs",
         "children": [
           {
-            "id": "2b12194e7829ddc0",
+            "id": "80db0000a5532e38",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "game one systems/input manager.md",
+                "file": "ideas for game stuff/Events or alternate game modes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "input manager"
-            }
-          },
-          {
-            "id": "8a26190fa9d6c2e8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "game one systems/input manager.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "input manager"
-            }
-          },
-          {
-            "id": "40812c50167a4fd5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "game one systems/HitBoxData resource.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "HitBoxData resource"
+              "title": "Events or alternate game modes"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -82,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#worldbulding/script",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -198,42 +169,45 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "40812c50167a4fd5",
+  "active": "80db0000a5532e38",
   "lastOpenFiles": [
-    "game one systems/AnimationTool.md",
-    "TODO's/TODO list I done list for fighting game.md",
-    "game one systems/input manager.md",
-    "game one systems/StunManager.md",
-    "game one systems/Projectile.md",
-    "game one systems/movement.md",
+    "TODO's/Demo scope ToDo for summer test release of a char.md",
+    "core game values.md",
     "dev log 1 script kinda.md",
     "TODO's/video making.md",
-    "game one systems/MoveList.md",
-    "game one systems/Attack.md",
-    "game one systems/ActiveHitbox.md",
-    "game one systems/EntityBase.md",
-    "sequence_reader function.md",
-    "game one systems/HitBoxData resource.md",
-    "game one systems/AttackManager.md",
-    "game one systems/block check function.md",
-    "game one systems/HitBox.md",
-    "game one systems/chose_action function.md",
-    "game one systems/HurtBox.md",
-    "game one systems/HitStop.md",
-    "game one systems/Health.md",
-    "game one systems/Frame.md",
-    "game one systems/tool script.md",
+    "TODO's/TODO list I done list for fighting game.md",
     "TODO's/make a speech to (text to)  speak replacement.md",
-    "Player.md",
-    "system damage.md",
+    "TODO's/FIXME or known errors.md",
+    "analysis/notes form 3000 and list of videos.md",
+    "analysis/analysis tools.md",
+    "ideas for game stuff/streamer lols.md",
+    "analysis/facade notes and plan.md",
+    "analysis/study people based on ELI 3000.md",
+    "analysis/table analysis.md",
+    "analysis/testing table.md",
+    "analysis/the need statements.md",
+    "ideas for game stuff/ideas for chars for their ability.md",
+    "story stuff/charaters.md",
+    "ideas for game stuff/other games.md",
+    "ideas for game stuff/Events or alternate game modes.md",
+    "dev log stuff/dev log 1 script kinda.md",
+    "chars/ideas for chars for their ability.md",
+    "ideas for game stuff/educational enemys.md",
+    "game one systems/ActiveHitbox.md",
+    "game one systems/chose_action function.md",
+    "story stuff/writing practice/(0) ideas/list of ideas for writing practice.md",
+    "story stuff/writing practice/places.md",
+    "story stuff/writing practice/(0) ideas",
+    "story stuff/writing practice",
+    "ideas for game stuff",
+    "dev log stuff",
+    "analysis",
+    "(0) templates",
+    "chars",
     "sort-able search view.base",
     "game one systems",
     "Untitled 1.base",
     "chars/Untitled.canvas",
-    "TODO's",
-    "story stuff/script parts",
-    "story stuff",
-    "chars",
     "fighing game taxamony breakdown.canvas"
   ]
 }

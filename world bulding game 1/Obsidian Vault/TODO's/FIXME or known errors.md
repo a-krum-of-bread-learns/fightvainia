@@ -1,0 +1,3 @@
+- [ ] stop player from being hit multiple times when there hurt box changes  for the fixed hurt box
+- [ ] make an object that can be hit without extra baggage
+- [ ] force stop animations when hit

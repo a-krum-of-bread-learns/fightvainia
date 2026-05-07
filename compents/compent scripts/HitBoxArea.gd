@@ -7,7 +7,7 @@ class_name HitBoxArea extends ActiveHitBox
 #TODO consider removing this?
 @onready var attack_manager: AttackManager = get_parent().get_parent().get_parent()## easy refence of the attack manager
 # TODO consider puting a signal here for the damage function to tell projectiles to stop when enity is his sometimes
-
+#FIXME the attaking code is broken
 #changed from colison shape to an area so now area need to have dirent thid coded
 ## conects singals and is just to warn the hit box has no info and where 
 func _ready():
@@ -83,8 +83,6 @@ func block_check2(attacked_entity: EntityBase, area: HurtBoxArea):
 	area.health.change_health(attack_data.damage)
 	area.stun_manager.start_stun_with_tween(attack_data,vector_direction, block_check_look_up[bit_index])
 	print(area.health.current_health)
-
-
 
 
 

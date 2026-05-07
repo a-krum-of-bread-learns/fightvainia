@@ -1,3 +1,4 @@
+#add_docs
 checks if attacks are high/mid/low against the blocking 
 checks if the entity is blocking from the correct side 
 blocks based on the hitbox location not on the global player postion

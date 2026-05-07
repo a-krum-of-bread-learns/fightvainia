@@ -1,3 +1,4 @@
+#add_docs
 contains functionary for 
 adding an attack [[Attack]] via tool scripts
 

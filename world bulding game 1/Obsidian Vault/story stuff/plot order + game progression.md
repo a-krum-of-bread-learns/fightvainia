@@ -66,7 +66,7 @@ next area not tiny town
 	first job is given and a few can be done in a selected order by player?.
 		what are the jobs: 
 			==exterminate thing (boss)==
-			==find mcguffin (gives item traded for ability (double jump or dash)) whoops a boss ==
+			==find mcguffin (gives item traded for ability (double jump or dash)) whoops a boss quest given by the witch and she teaches an ability==
 			==search some place for things and learn story info + key ability as reward (library or ruins (village ruins?))==
 			exterminate group
 			guard person who gets to know char and get an ability or key item ?

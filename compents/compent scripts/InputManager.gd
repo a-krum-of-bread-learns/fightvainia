@@ -282,6 +282,7 @@ func get_attack_button() -> int:
 		elif Input.is_action_just_pressed("HK"): return HK
 	return 0
 
+#TODO FIXME de nest this funtion by turing interal code into a funtion 
 ## choses what attack is to be used based on player state and the most recent sequenc
 ## howver ther is a workaround where a sequence must be at least 3 inputs otherwize
 ## the prioraity is not the first attack but is intseat the first in the dictionary  
@@ -301,7 +302,7 @@ func chose_action3():
 			if (attack[0] == attack_partial_key[0] 
 			and attack[1] == attack_partial_key[1] 
 			and single_input_check(buffered_array, attack[3])):
-				valids.merge(get_vaild_sequences(input_history, attack[2],),true)# the 4th key chech that also grabs the index of the seqxnrex 
+				valids.merge(get_vaild_sequences(input_history, attack[2],),true)# the 4th key check that also grabs the index of the seqxnrex 
 				# add the most recent attack 
 				if valids: 
 					index = valids.keys().min() # edit the most recent index if it needs to change

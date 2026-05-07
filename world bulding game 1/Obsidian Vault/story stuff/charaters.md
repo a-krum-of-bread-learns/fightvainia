@@ -28,10 +28,11 @@ voice of reason : antagonist ?
 	doesn't lie?
 	no one listens to them because no one asked for their opinion in this story
 tiny military unit leader (tanya the evil as reference)
-	uses gun  
+	uses gun 
 	shows up for destroying village and that's about it?
 	could show up during a job as a boss fight 
-
+witch and wizard
+	both are mentors to the character but the wizard is the early mentor and the witch is the second. the witch only agrees because of the relationship she had with the mentor and because the player does a small task for her 
 
 
 
