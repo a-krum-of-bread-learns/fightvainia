@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://eehghwqfhi3w"]
+
+[ext_resource type="Script" uid="uid://cw1p1ehiwg0gs" path="res://testings/spawnable_projectile.gd" id="1_55bpw"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/player components and systems/FrameTimerCompnent.gd" id="2_86nvh"]
+[ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="2_hn6qk"]
+[ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="3_6wiry"]
+[ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://new org/systems/auto load scripts/set cam.gd" id="3_86nvh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hn6qk"]
+size = Vector2(4, 3)
+
+[sub_resource type="Curve" id="Curve_0o64c"]
+_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 1, Vector2(1, 0.5), 0.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_6r80q"]
+_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 1, Vector2(1, 0.5), 0.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_r5hd3"]
+script = ExtResource("2_hn6qk")
+smoothing_curve_x = SubResource("Curve_0o64c")
+smoothing_curve_y = SubResource("Curve_6r80q")
+metadata/_custom_type_script = "uid://sx7qv8babvbw"
+
+[sub_resource type="Resource" id="Resource_skon6"]
+script = ExtResource("3_6wiry")
+stun_type = 0
+hit_type = 2
+block_stun_duration = 10
+block_back_distance = 30
+hit_stun_duration = 50
+hit_back_distance_vector = Vector2(0, -100)
+damage = 1000
+air_stun_overide = true
+metadata/_custom_type_script = "uid://c8e0lbybahcxv"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yd555"]
+size = Vector2(20, 10)
+
+[node name="Node2D" type="Node2D" unique_id=1330124320]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=273921438]
+lock_rotation = true
+linear_velocity = Vector2(100, 0)
+
+[node name="Collision box" type="CollisionShape2D" parent="RigidBody2D" unique_id=1639868338]
+shape = SubResource("RectangleShape2D_hn6qk")
+
+[node name="ActiveHitBox" type="Area2D" parent="RigidBody2D" unique_id=1899423434 node_paths=PackedStringArray("timer")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_55bpw")
+max_lifespan_in_frames = 1000
+timer = NodePath("FrameTimer")
+disappear_on_hit = true
+hit_to_disappear = 1
+animation_stuff = Array[ExtResource("2_hn6qk")]([SubResource("Resource_r5hd3")])
+attack_data = SubResource("Resource_skon6")
+metadata/_custom_type_script = "uid://cses1qk0s7kii"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/ActiveHitBox" unique_id=2073623135]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_yd555")
+
+[node name="FrameTimer" type="Node" parent="RigidBody2D/ActiveHitBox" unique_id=1312407493]
+script = ExtResource("2_86nvh")
+metadata/_custom_type_script = "uid://dkek8a7podljt"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1917913399]
+script = ExtResource("3_86nvh")
+
+[connection signal="area_entered" from="RigidBody2D/ActiveHitBox" to="RigidBody2D/ActiveHitBox" method="damage"]
+[connection signal="body_entered" from="RigidBody2D/ActiveHitBox" to="RigidBody2D/ActiveHitBox" method="damage"]

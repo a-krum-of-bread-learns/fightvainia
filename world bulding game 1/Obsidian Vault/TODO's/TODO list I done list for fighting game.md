@@ -92,15 +92,23 @@ are all normal cancel-able ?
 - [ ] make animation node or thing work from stun manager may be or from scratch 
 
 - [x] sepratet x and y compnets of animations
-- [ ] add a loop functionality 
+- [x] add a loop functionality 
 - [ ] do a documentation check 
 - [ ] do a charater journy map for values when doing things like doing damage via function names to see the information paths 
 - [x] add the licnece i want for the game 
 - [x] make gitub public
 - [ ] consider the health and other similar components that are nodes as resources instead
-- [ ] make a scope limit 
+- [x] make a scope limit 
 - [ ] make a danger zone section 
 - [ ] learn conditional editor tools or separate projectile animation and entity animation
 - [ ] decide on state based movement or fluid movement 
 - [ ] make a demo (limits: 1 char 1-3 basic enemy 1 boss that is the same char and a bit of ability to unlock and put it on itch if you use boxes then do it see [[Demo scope ToDo for summer test release of a char|demo scope]] 
 - [ ] make the attacks a resource that can be loaded so random select can be done
+- [ ] make combo only property for hit boxes 
+- [ ] make on hit condition check 
+- [ ] add flexablity to combo attacks so that if i have a 2 hit attack it can follow up differently on hir 1 and hit 2 
+- [x] make a spawn object thing
+- [ ] add spawn object under frames with a button
+- [ ] stuns of type like fire and electricty or ice here
+- [ ] review all process/ physics process functions for witch one is right to use
+- [ ] fix stun manager logic so that the thing works on y stun

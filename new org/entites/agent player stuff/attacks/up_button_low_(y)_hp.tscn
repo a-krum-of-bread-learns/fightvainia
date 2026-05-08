@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://ci8cd0kwoplqn"]
+
+[ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="1_2pb3m"]
+[ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="2_q15th"]
+[ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="3_tmup4"]
+[ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://new org/systems/attack components/HitBoxArea.gd" id="4_fd2rx"]
+[ext_resource type="Texture2D" uid="uid://bhn4w2idgg11o" path="res://art/copy right free art assets/crouch.png" id="4_tmup4"]
+[ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="5_e6xyj"]
+[ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="6_8wvil"]
+[ext_resource type="Texture2D" uid="uid://m6lptdl5apmt" path="res://art/copy right free art assets/step forward baton swing low.png" id="7_q15th"]
+
+[sub_resource type="Curve" id="Curve_yc487"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="Curve" id="Curve_2vilf"]
+_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 1, Vector2(1, 0.5), 0.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_dhck0"]
+script = ExtResource("2_q15th")
+smoothing_curve_x = SubResource("Curve_yc487")
+smoothing_curve_y = SubResource("Curve_2vilf")
+time_in_frames = 14
+displacement = Vector2(15, 0)
+metadata/_custom_type_script = "uid://sx7qv8babvbw"
+
+[sub_resource type="Resource" id="Resource_wagu1"]
+script = ExtResource("5_e6xyj")
+stun_type = 0
+hit_type = 1
+block_stun_duration = 30
+block_back_distance = 120
+hit_stun_duration = 36
+hit_back_distance_vector = Vector2(400, 0)
+hit_stop_frames = 7
+damage = 1000
+metadata/_custom_type_script = "uid://c8e0lbybahcxv"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhck0"]
+size = Vector2(7, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fd2rx"]
+size = Vector2(9, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ule2"]
+size = Vector2(9, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6xyj"]
+size = Vector2(7, 8)
+
+[node name="up button low (Y) Hp" type="Node2D" unique_id=2086936221]
+script = ExtResource("1_2pb3m")
+animation_stuff = Array[ExtResource("2_q15th")]([SubResource("Resource_dhck0")])
+
+[node name="frame # 1-8" type="Node2D" parent="." unique_id=112982367]
+script = ExtResource("3_tmup4")
+repeat_this_frame = 7
+
+[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 1-8" unique_id=137038604]
+position = Vector2(8, 0)
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("4_tmup4")
+
+[node name="frame # 9-12" type="Node2D" parent="." unique_id=2049909166]
+script = ExtResource("3_tmup4")
+repeat_this_frame = 3
+
+[node name="hit_box # 100" type="Area2D" parent="frame # 9-12" unique_id=1203803402]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_fd2rx")
+attack_data = SubResource("Resource_wagu1")
+
+[node name="hit_box" type="CollisionShape2D" parent="frame # 9-12/hit_box # 100" unique_id=1338534771]
+position = Vector2(20.5, 12)
+shape = SubResource("RectangleShape2D_dhck0")
+disabled = true
+debug_color = Color(1, 0, 0, 0.6862745)
+
+[node name="hit_box2" type="CollisionShape2D" parent="frame # 9-12/hit_box # 100" unique_id=1355838923]
+position = Vector2(12.5, 8)
+shape = SubResource("RectangleShape2D_fd2rx")
+disabled = true
+debug_color = Color(1, 0, 0, 0.6862745)
+
+[node name="hurt_box # 300" type="Area2D" parent="frame # 9-12" unique_id=2006424160]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("6_8wvil")
+
+[node name="hurt_box" type="CollisionShape2D" parent="frame # 9-12/hurt_box # 300" unique_id=1972915035]
+position = Vector2(12.5, 8)
+shape = SubResource("RectangleShape2D_2ule2")
+disabled = true
+debug_color = Color(0, 0, 1, 0.6862745)
+
+[node name="hurt_box2" type="CollisionShape2D" parent="frame # 9-12/hurt_box # 300" unique_id=421292381]
+position = Vector2(20.5, 12)
+shape = SubResource("RectangleShape2D_e6xyj")
+disabled = true
+debug_color = Color(0, 0, 1, 0.6862745)
+
+[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 9-12" unique_id=47522226]
+position = Vector2(16, 0)
+scale = Vector2(0.041666653, 0.0625)
+texture = ExtResource("7_q15th")
+
+[node name="frame # 13-28" type="Node2D" parent="." unique_id=130018966]
+script = ExtResource("3_tmup4")
+repeat_this_frame = 15
+
+[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 13-28" unique_id=1748184444]
+position = Vector2(8, 0)
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("4_tmup4")

@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://bcdh8iiy8oa3c"]
+
+[ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="1_mpnq5"]
+[ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="2_hslo8"]
+[ext_resource type="Script" uid="uid://ckkq3f3j2wj34" path="res://new org/systems/attack components/ProjectileArea.gd" id="3_fxeu5"]
+[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://art/copy right free art assets/stating stick.png" id="3_gctcy"]
+[ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="4_gctcy"]
+[ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="5_ltga2"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/player components and systems/FrameTimerCompnent.gd" id="6_bsih0"]
+[ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new org/systems/animation/AnimationTool.gd" id="7_wxbti"]
+[ext_resource type="Texture2D" uid="uid://d3ouypsble60q" path="res://art/copy right free art assets/electic ball.png" id="8_hslo8"]
+
+[sub_resource type="Curve" id="Curve_5m182"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_2vilf"]
+_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 1, Vector2(1, 0.5), 0.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_ni0l1"]
+script = ExtResource("4_gctcy")
+smoothing_curve_x = SubResource("Curve_5m182")
+smoothing_curve_y = SubResource("Curve_2vilf")
+time_in_frames = 100
+displacement = Vector2(1600, 0)
+metadata/_custom_type_script = "uid://sx7qv8babvbw"
+
+[sub_resource type="Resource" id="Resource_xf6kq"]
+script = ExtResource("5_ltga2")
+stun_type = 0
+hit_type = 2
+block_stun_duration = 30
+block_back_distance = 40
+hit_stun_duration = 70
+hit_back_distance_vector = Vector2(0, 0)
+damage = 400
+air_stun_overide = true
+metadata/_custom_type_script = "uid://c8e0lbybahcxv"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqpfs"]
+size = Vector2(15.125, 9.5)
+
+[node name="electric stun projectile" type="Node2D" unique_id=1859951945]
+script = ExtResource("1_mpnq5")
+
+[node name="frame # 1-12" type="Node2D" parent="." unique_id=1210223522]
+script = ExtResource("2_hslo8")
+repeat_this_frame = 11
+
+[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 1-12" unique_id=636569242]
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("3_gctcy")
+
+[node name="frame # 13-13" type="Node2D" parent="." unique_id=790718731]
+script = ExtResource("2_hslo8")
+
+[node name="Projectile # 200" type="Area2D" parent="frame # 13-13" unique_id=1748326035 node_paths=PackedStringArray("timer")]
+top_level = true
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_fxeu5")
+timer = NodePath("frame timer")
+max_lifespan_in_frames = 100
+animation_stuff = Array[ExtResource("4_gctcy")]([SubResource("Resource_ni0l1")])
+attack_data = SubResource("Resource_xf6kq")
+
+[node name="frame timer" type="Node" parent="frame # 13-13/Projectile # 200" unique_id=458294406]
+script = ExtResource("6_bsih0")
+
+[node name="projectile animateor" type="Node" parent="frame # 13-13/Projectile # 200" unique_id=1434495255 node_paths=PackedStringArray("thing_to_animate")]
+script = ExtResource("7_wxbti")
+thing_to_animate = NodePath("..")
+
+[node name="hit_box" type="CollisionShape2D" parent="frame # 13-13/Projectile # 200" unique_id=1834756916]
+scale = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_rqpfs")
+disabled = true
+debug_color = Color(1, 0, 0, 0.6862745)
+
+[node name="fire ball" type="Sprite2D" parent="frame # 13-13/Projectile # 200" unique_id=1203832496]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_hslo8")
+region_enabled = true
+region_rect = Rect2(144, 176, 224, 160)
+
+[node name="frame # 14-45" type="Node2D" parent="." unique_id=2122010253]
+script = ExtResource("2_hslo8")
+repeat_this_frame = 31
+
+[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 14-45" unique_id=1337333378]
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("3_gctcy")
+
+[connection signal="animate" from="frame # 13-13/Projectile # 200" to="frame # 13-13/Projectile # 200/projectile animateor" method="animate"]

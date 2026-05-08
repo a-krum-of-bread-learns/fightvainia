@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu0muf30j86l6"]
-
-[ext_resource type="Script" uid="uid://c8qc0j10c563q" path="res://compents/compent scripts/AttackManager.gd" id="1_8ew44"]
-
-[node name="attack_manger" type="Node2D"]
-script = ExtResource("1_8ew44")
-metadata/_custom_type_script = "uid://c8qc0j10c563q"

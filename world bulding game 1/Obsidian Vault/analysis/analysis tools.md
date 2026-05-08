@@ -3,7 +3,7 @@ need study  [[the need statements]]
 table  [[table analysis]]
 costumer journey map
 study people
-problem tree 
+problem tree [[problem tree]]
 notes from 3000 and video notes [[notes form 3000 and list of videos]] 
 what group is a mode for
 	metriodvaina single

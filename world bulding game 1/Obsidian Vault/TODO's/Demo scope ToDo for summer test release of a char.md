@@ -16,14 +16,36 @@ what i could do
 	make my own but without any direction then i can turn them into a char what is the original char in the fighting game but with a few adjustments 
 
 
-- [ ] make a jab jab jab special 
-- [ ] make special into special
-- [ ] make attack attack special forced dash attack
-- [ ] make a low, mid, high, light 
+- [x] make a jab jab jab special partial 
+- [x] make special into special grappling hook attack
+- [x] make attack attack special forced dash attack on acadnent 
+- [x] make a low, mid, high, light 
 - [x] controller support this was a problem by not installing Godot properly using the binary but the snap package
-- [ ] decide on whiff cancels if they should exist
-- [ ] make player moves lock out 
-- [ ] make at least something visual with the Godot icon or transparent colors 
-- [ ] make a system to show attacks without the editor to help
+- [x] decide on whiff cancels if they should exist by defult no 
+- [x] make player moves lock out 
+- [x] make at least something visual with the Godot icon or transparent colors debug tool ???????
+- [x] make a system to show attacks without the editor to help just add spites and edit them 
 - [ ] release on itch
+	- [ ] make godot export 
+	- [x] pick /make a thumbnail
+	- [x] add socials / channels 
+	- [ ] add an audio hit affect 
+	- [x] add / make contol list 
+	- [x] add move list menu
+		
+		L H jump 
+		5L  air ok
+		2L
+		8L
+		5H air ok
+		2H
+		8H
+		632 L
+		698 L
+		698 or 896 jump
+		236 L
+		236 H
+		236 block 
+	- [ ] try to contact people in the fgc to advertise or take a look
+	- [ ] make itch account 
 that is 10 points

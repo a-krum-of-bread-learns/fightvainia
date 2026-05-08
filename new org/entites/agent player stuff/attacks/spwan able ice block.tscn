@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://vkfk7yujh2nn"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v52by"]
+
+[sub_resource type="Gradient" id="Gradient_6h5lk"]
+colors = PackedColorArray(0, 0, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iobyf"]
+gradient = SubResource("Gradient_6h5lk")
+width = 32
+height = 32
+fill_from = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvcv8"]
+size = Vector2(32, 32)
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1899469363]
+physics_material_override = SubResource("PhysicsMaterial_v52by")
+lock_rotation = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=356089801]
+scale = Vector2(4, 4)
+texture = SubResource("GradientTexture2D_iobyf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1461499196]
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_rvcv8")

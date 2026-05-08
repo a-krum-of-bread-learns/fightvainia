@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://cwic4qufw2wug"]
+
+[ext_resource type="Script" uid="uid://d31hgc1h10800" path="res://new org/systems/player components and systems/playerContoller.gd" id="1_8it8p"]
+[ext_resource type="PackedScene" uid="uid://btufeyfuqt18p" path="res://new org/entites/agent player stuff/primary_hurt_boxes.tscn" id="2_7bb02"]
+[ext_resource type="Script" uid="uid://dn37qd1n3kapy" path="res://new org/systems/movement related/Dash.gd" id="4_lxi42"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/player components and systems/FrameTimerCompnent.gd" id="5_7ia2k"]
+[ext_resource type="Script" uid="uid://dbsvrd6tasmbw" path="res://new org/systems/movement related/Movement.gd" id="6_e1a3v"]
+[ext_resource type="Script" uid="uid://dd0phg7lcqqps" path="res://new org/systems/movement related/Gravity.gd" id="6_kpemt"]
+[ext_resource type="Script" uid="uid://tmh27lp4axxe" path="res://new org/systems/movement related/Scale.gd" id="7_8it8p"]
+[ext_resource type="Script" uid="uid://br4ap3ju1friv" path="res://new org/systems/player components and systems/InputManager.gd" id="8_e1a3v"]
+[ext_resource type="Script" uid="uid://ccxb00gf1jcum" path="res://new org/systems/player components and systems/Health.gd" id="10_3bh1v"]
+[ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://new org/systems/player components and systems/StunManager.gd" id="11_x2twk"]
+[ext_resource type="Script" uid="uid://c8qc0j10c563q" path="res://new org/systems/attack components/AttackManager.gd" id="12_167us"]
+[ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://new org/systems/auto load scripts/set cam.gd" id="13_2vsw6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e1a3v"]
+radius = 4.0
+height = 16.0
+
+[node name="player" type="CharacterBody2D" unique_id=2023579452 node_paths=PackedStringArray("colission_box", "scale_component", "input_component", "PrimaryHurtBoxes_component", "stun_manager", "health_component")]
+script = ExtResource("1_8it8p")
+colission_box = NodePath("the player colision box")
+scale_component = NodePath("folder/scale")
+input_component = NodePath("folder/inputmanager")
+PrimaryHurtBoxes_component = NodePath("player primary hurt boxes")
+stun_manager = NodePath("folder/stunManager")
+health_component = NodePath("folder/health")
+block_type = -1
+
+[node name="player primary hurt boxes" parent="." unique_id=994631848 node_paths=PackedStringArray("player") instance=ExtResource("2_7bb02")]
+player = NodePath("..")
+
+[node name="the player colision box" type="CollisionShape2D" parent="." unique_id=693442404]
+position = Vector2(0, 48)
+scale = Vector2(8, 8)
+shape = SubResource("CapsuleShape2D_e1a3v")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="folder" type="Node2D" parent="." unique_id=1784953174]
+
+[node name="movement folder" type="Node" parent="folder" unique_id=1037400380]
+
+[node name="dash" type="Node" parent="folder/movement folder" unique_id=838071016 node_paths=PackedStringArray("timer", "host")]
+script = ExtResource("4_lxi42")
+timer = NodePath("max duration")
+enabled = true
+host = NodePath("../../..")
+
+[node name="max duration" type="Node" parent="folder/movement folder/dash" unique_id=1776512625]
+script = ExtResource("5_7ia2k")
+metadata/_custom_type_script = "uid://dkek8a7podljt"
+
+[node name="gravity" type="Node" parent="folder/movement folder" unique_id=1590230677 node_paths=PackedStringArray("host")]
+script = ExtResource("6_kpemt")
+enabled = true
+host = NodePath("../../..")
+
+[node name="movement" type="Node" parent="folder/movement folder" unique_id=538386796 node_paths=PackedStringArray("timer", "host")]
+script = ExtResource("6_e1a3v")
+timer = NodePath("prejump delay")
+jump_velocityY = -2400.0
+move_speed = 200.0
+enabled = true
+host = NodePath("../../..")
+
+[node name="prejump delay" type="Node" parent="folder/movement folder/movement" unique_id=627670931]
+script = ExtResource("5_7ia2k")
+
+[node name="coyote timer" type="Node" parent="folder/movement folder" unique_id=319577096]
+script = ExtResource("5_7ia2k")
+
+[node name="scale" type="Node" parent="folder" unique_id=349905362 node_paths=PackedStringArray("node", "timer", "host")]
+script = ExtResource("7_8it8p")
+node = NodePath("..")
+timer = NodePath("turn around delay")
+enabled = true
+host = NodePath("../..")
+
+[node name="turn around delay" type="Node" parent="folder/scale" unique_id=1916318394]
+script = ExtResource("5_7ia2k")
+
+[node name="inputmanager" type="Node" parent="folder" unique_id=1544145854 node_paths=PackedStringArray("player", "attack_manager", "coyote_timer", "movement_componet", "scale_component", "dash_component", "gravity_component", "host")]
+script = ExtResource("8_e1a3v")
+player = NodePath("../..")
+attack_manager = NodePath("../attack manager")
+coyote_timer = NodePath("../movement folder/coyote timer")
+movement_componet = NodePath("../movement folder/movement")
+scale_component = NodePath("../scale")
+dash_component = NodePath("../movement folder/dash")
+gravity_component = NodePath("../movement folder/gravity")
+enabled = true
+host = NodePath("../..")
+
+[node name="health" type="Node" parent="folder" unique_id=187061200 node_paths=PackedStringArray("host")]
+script = ExtResource("10_3bh1v")
+max_health = 10000
+host = NodePath("../..")
+metadata/_custom_type_script = "uid://c5ucrpov3ddtq"
+
+[node name="stunManager" type="Node" parent="folder" unique_id=845563521 node_paths=PackedStringArray("host")]
+script = ExtResource("11_x2twk")
+host = NodePath("../..")
+
+[node name="attack manager" type="Node2D" parent="folder" unique_id=1555584615 node_paths=PackedStringArray("host")]
+scale = Vector2(8, 8)
+script = ExtResource("12_167us")
+host = NodePath("../..")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1374441659]
+position = Vector2(0, -17)
+script = ExtResource("13_2vsw6")

@@ -28,5 +28,16 @@ telling = giving some instruction but not really much else
 | mortal combat     |                                           |                        |                       |                   |                     | y                |
 | skull girls       |                                           |                        |                       |                   |                     | y                |
 | hunter x hunter   |                                           |                        |                       |                   |                     | y                |
-| dnf duel          |                                           |                        |                       | .                 |                     | y                |
+| dnf duel          |                                           |                        |                       |                   |                     | y                |
 | killer instinct   |                                           |                        |                       |                   |                     | y                |
+
+
+
+
+## game load on players
+
+| game                    | number of attack buttons | number of universal system mechanics                                                            | # of controllable chars |
+| ----------------------- | ------------------------ | ----------------------------------------------------------------------------------------------- | ----------------------- |
+| sf6                     | 6                        | 5 (rush, parry, reversal, impact, supper)                                                       | 1                       |
+| melty blood type lamina | 3                        | ? shield RPS, drive, skill, dash macro                                                          | 1 with 1 exception      |
+| gg stive                | 4.5 dust is weird to me  | 7.5 (just defense, burst, counter blitz, red defense, supper, roman cancels, dust?, dash macro) | 1                       |

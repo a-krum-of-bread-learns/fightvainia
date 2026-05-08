@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="AnimationResource" format=3 uid="uid://5a0w77oo3wf5"]
+
+[ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="1_2jnrb"]
+
+[sub_resource type="Curve" id="Curve_5m182"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_2jnrb"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[resource]
+script = ExtResource("1_2jnrb")
+smoothing_curve_x = SubResource("Curve_5m182")
+smoothing_curve_y = SubResource("Curve_2jnrb")
+time_in_frames = 50
+displacement = Vector2(20, 50)
+metadata/_custom_type_script = "uid://sx7qv8babvbw"

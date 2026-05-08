@@ -1,0 +1,1 @@
+pick a char and try them out in training made the game tutorial and see how long it take to learn keeping in mind button difference and system mechanics load

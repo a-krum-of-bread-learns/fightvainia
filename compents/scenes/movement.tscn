@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsu1mwwab4f52"]
-
-[ext_resource type="Script" uid="uid://dbsvrd6tasmbw" path="res://compents/compent scripts/Movement.gd" id="1_vidct"]
-
-[node name="movement" type="Node" node_paths=PackedStringArray("host")]
-script = ExtResource("1_vidct")
-speed = 200.0
-enabled = true
-host = NodePath("")

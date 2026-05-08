@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://bht2askiamrv1"]
+
+[ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="1_ir3hp"]
+[ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="2_qwngo"]
+[ext_resource type="Texture2D" uid="uid://b2t3qtr1cy383" path="res://art/copy right free art assets/steel grapling hook.png" id="3_33jvn"]
+[ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://new org/systems/attack components/HitBoxArea.gd" id="3_r1ten"]
+[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://art/copy right free art assets/stating stick.png" id="3_ynnf3"]
+[ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="4_33jvn"]
+[ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="5_ynnf3"]
+[ext_resource type="Texture2D" uid="uid://dminbco6164xr" path="res://art/copy right free art assets/shoot up.png" id="7_ynnf3"]
+
+[sub_resource type="Resource" id="Resource_er1ep"]
+script = ExtResource("4_33jvn")
+stun_type = 0
+hit_type = 2
+block_stun_duration = 25
+block_back_distance = 20
+hit_stun_duration = 33
+hit_back_distance_vector = Vector2(200, 400)
+hit_stop_frames = 2
+damage = 1000
+air_stun_overide = true
+metadata/_custom_type_script = "uid://c8e0lbybahcxv"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5bsa"]
+size = Vector2(6.901924, 35.28461)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3upj7"]
+size = Vector2(4.25, 6.84375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wwvx"]
+size = Vector2(4.25, 6.84375)
+
+[node name="grapling hook" type="Node2D" unique_id=154535348]
+script = ExtResource("1_ir3hp")
+
+[node name="frame # 1-14" type="Node2D" parent="." unique_id=855000482]
+script = ExtResource("2_qwngo")
+repeat_this_frame = 13
+
+[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 1-14" unique_id=1877017252]
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("3_ynnf3")
+
+[node name="frame # 15-26" type="Node2D" parent="." unique_id=826686302]
+script = ExtResource("2_qwngo")
+repeat_this_frame = 11
+
+[node name="Sprite2D # 401" type="Sprite2D" parent="frame # 15-26" unique_id=1743026829]
+position = Vector2(25, -24)
+rotation = 0.21118484
+scale = Vector2(0.032, 0.032)
+texture = ExtResource("3_33jvn")
+
+[node name="hit_box # 100" type="Area2D" parent="frame # 15-26" unique_id=1116772027]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_r1ten")
+attack_data = SubResource("Resource_er1ep")
+
+[node name="hit_box" type="CollisionShape2D" parent="frame # 15-26/hit_box # 100" unique_id=1886708601]
+position = Vector2(24.995836, -24.167469)
+rotation = 1.0471976
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_s5bsa")
+disabled = true
+debug_color = Color(1, 0, 0, 0.6862745)
+
+[node name="hurt_box # 300" type="Area2D" parent="frame # 15-26" unique_id=1985027550]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("5_ynnf3")
+
+[node name="hurt_box" type="CollisionShape2D" parent="frame # 15-26/hurt_box # 300" unique_id=1674598772]
+position = Vector2(10.125, -11.421875)
+shape = SubResource("RectangleShape2D_3upj7")
+disabled = true
+debug_color = Color(0, 0, 1, 0.6862745)
+
+[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 15-26" unique_id=786655519]
+position = Vector2(3, 0)
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("7_ynnf3")
+region_enabled = true
+region_rect = Rect2(48, 0, 296, 512)
+
+[node name="frame # 27-48" type="Node2D" parent="." unique_id=262509831]
+script = ExtResource("2_qwngo")
+repeat_this_frame = 21
+
+[node name="hurt_box # 300" type="Area2D" parent="frame # 27-48" unique_id=511481454]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("5_ynnf3")
+
+[node name="hurt_box" type="CollisionShape2D" parent="frame # 27-48/hurt_box # 300" unique_id=1536274756]
+position = Vector2(10.125, -11.421875)
+shape = SubResource("RectangleShape2D_6wwvx")
+disabled = true
+debug_color = Color(0, 0, 1, 0.6862745)
+
+[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 27-48" unique_id=1273337130]
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("3_ynnf3")

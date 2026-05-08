@@ -92,28 +92,42 @@ mirage
 	make clones of both players and and they move automatically but since they players control they can tell what is real on their end but not the other and after a bit it happens again if its known
 a char that swims in the air
 instrument/ music that can be played
-jjk todo clap teleport instead tag ability
+JJK todo clap teleport instead tag ability
 quick time events in 1v1
 stance 
 flow chart character 
 secert agent
-	batton main attack 
-	fire/explosion 1 attack button, 
-	ice bullet / platforming tools on block button, ice block  on block button
-	electrical tools / gadgets floor trap, grappling hook, tasers, position teleport watch/ dash and upgrade
+	baton main attack 2 batons
+	X: fire/explosion fqcd,fqcu,  fire ball dqcf
+	Y: electrical tools (zap form jinx form 2xko ) / gadgets ~~floor trap(enticing trap form caitlyn form 2xko )~~, tasers, 
+	A: grappling hook uqcf
+	dash = RT
+	B: ice bullet / platforming tools on block button, ice block on block button
+	what are the upgrades floor trap, grapling hook(rope dart from the mesanger but angled up up with attack follow ups and air ok), air jump/dash
+	add single button follow ups for some moves
 	5 levels for game
 master chef that combos you while cooking a meal on the side
 	some combo routes heal or some other benefit could make salad, bake cookies, make pasta or noodles, sandwich, smoothie, nachos, dipping sauce, some could require super a move to eat current/ throw the unfinished food or it could be levels of how well made the meal is
-	full mimics in general
-		they should have some kind of small buff for learning all characters and an interesting balance decision  
-		give guaranteed 4-6 match up or 3-7 match up for play testing purposes/ player choice of disadvantage
-		give guaranteed 6-4 match up 
-		give one additional move
-		make the mimic move set locked behind what the opponent uses (they can only mimic what they see/ is used) gives very interesting decision for the players
-		immunity to something small like chip damage? or is chip a big thing
-		change mimic per round
-		random char
-		shape shiftier with own move set as well
-		amalgamation combo of some chars moves at random 
-		 
+full mimics in general (the versions of bread)
+	they should have some kind of small buff for learning all characters and an interesting balance decision  
+	give guaranteed 4-6 match up or 3-7 match up for play testing purposes/ player choice of disadvantage
+	give guaranteed 6-4 match up 
+	give one additional move
+	make the mimic move set locked behind what the opponent uses (they can only mimic what they see/ is used) gives very interesting decision for the players
+	immunity to something small like chip damage? or is chip a big thing
+	change mimic per round
+	random char
+	shape shiftier with own move set as well
+	amalgamation combo of some chars moves at random 
+make aoko form melty blood type lamina
+	why orb cool but some design varaitions of the orbs could be :
+	negative edge / proximity witch is already used
+	when pressed again 
+	a separate button added (or use block button orb can be seen as defensive mechanics )
+	
 
+### balance decisions to consider that other games don't have
+balance anti airs that cover both sides with half circle inputs
+I could have a redundant special move button on block so that all of one button has its specials duplicated since a lot of fighters have 3 or more attacks
+give regular block recovery or start up but can be canceled into from some attacks 
+do i allow for air attacks when landed to cancel into grounded special moves? (example may 7 around or before 4)

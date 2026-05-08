@@ -1,12 +1,6 @@
 extends Resource
 
 var forward_walk_speed
-var back_walk_speed#?
+var back_walk_speed
 var dash_distance
 var hurtbox_hight
-var normal_attacks_list
-var comand_nomral_attacks_list
-var special_attacks_list
-var air_attacks_list
-var air_special_attacks_list
-var super_special_attack_list

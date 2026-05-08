@@ -1,29 +1,29 @@
 [gd_scene format=3 uid="uid://prngvo6ycayf"]
 
-[ext_resource type="Script" uid="uid://d31hgc1h10800" path="res://player info/playerContoller.gd" id="1_n5p6r"]
-[ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://testings/AnimationTool.gd" id="2_6he74"]
-[ext_resource type="Script" uid="uid://c56l0wv4lygfr" path="res://compents/compent scripts/PrimaryHurtBoxes.gd" id="3_2bl5q"]
-[ext_resource type="PackedScene" uid="uid://d107lsslvidei" path="res://compents/scenes/scale.tscn" id="3_aaaie"]
-[ext_resource type="PackedScene" uid="uid://bsu1mwwab4f52" path="res://compents/scenes/movement.tscn" id="3_coedu"]
-[ext_resource type="Script" uid="uid://dd0phg7lcqqps" path="res://compents/compent scripts/Gravity.gd" id="3_rgd3p"]
-[ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://compents/compent scripts/Attack.gd" id="4_coedu"]
-[ext_resource type="Script" uid="uid://c8qc0j10c563q" path="res://compents/compent scripts/AttackManager.gd" id="5_hhnao"]
-[ext_resource type="PackedScene" uid="uid://ddxhru4jbuvl0" path="res://compents/scenes/InputManager.tscn" id="6_aaaie"]
-[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://compents/compent scripts/FrameTimerCompnent.gd" id="6_eeho0"]
-[ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://compents/compent scripts/Frame.gd" id="7_1oqn1"]
-[ext_resource type="Script" uid="uid://dn37qd1n3kapy" path="res://compents/compent scripts/Dash.gd" id="7_7y7to"]
-[ext_resource type="Script" uid="uid://ccxb00gf1jcum" path="res://compents/compent scripts/Health.gd" id="7_eeho0"]
-[ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://compents/compent scripts/HurtBoxArea.gd" id="8_af2j0"]
-[ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://compents/compent scripts/HitBoxArea.gd" id="9_an3v2"]
-[ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://compents/compent scripts/StunManager.gd" id="9_yomqy"]
-[ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://resources/hitbox data resouce.gd" id="14_jilod"]
-[ext_resource type="Script" uid="uid://ckkq3f3j2wj34" path="res://compents/compent scripts/ProjectileArea.gd" id="15_5plvs"]
-[ext_resource type="Resource" uid="uid://ct5kbj6vs60fb" path="res://testings/test_curves1.tres" id="18_gqyel"]
-[ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://testings/animation resource.gd" id="19_6he74"]
-[ext_resource type="Resource" uid="uid://5a0w77oo3wf5" path="res://testings/test_curves2.tres" id="19_7d36n"]
-[ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://auto load scripts/set cam.gd" id="19_r6qcp"]
-[ext_resource type="Resource" uid="uid://dcrwgqqu6o0gg" path="res://testings/test_curves3.tres" id="20_jxblt"]
-[ext_resource type="Resource" uid="uid://x8doshw2cu3h" path="res://testings/test_curves4.tres" id="21_x7ehb"]
+[ext_resource type="Script" uid="uid://d31hgc1h10800" path="res://new org/systems/player components and systems/playerContoller.gd" id="1_n5p6r"]
+[ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new org/systems/animation/AnimationTool.gd" id="2_6he74"]
+[ext_resource type="Script" uid="uid://c56l0wv4lygfr" path="res://new org/systems/player components and systems/PrimaryHurtBoxes.gd" id="3_2bl5q"]
+[ext_resource type="Script" uid="uid://dd0phg7lcqqps" path="res://new org/systems/movement related/Gravity.gd" id="3_rgd3p"]
+[ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="4_coedu"]
+[ext_resource type="Script" uid="uid://c8qc0j10c563q" path="res://new org/systems/attack components/AttackManager.gd" id="5_hhnao"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/player components and systems/FrameTimerCompnent.gd" id="6_eeho0"]
+[ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="7_1oqn1"]
+[ext_resource type="Script" uid="uid://dn37qd1n3kapy" path="res://new org/systems/movement related/Dash.gd" id="7_7y7to"]
+[ext_resource type="Script" uid="uid://ccxb00gf1jcum" path="res://new org/systems/player components and systems/Health.gd" id="7_eeho0"]
+[ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="8_af2j0"]
+[ext_resource type="Script" uid="uid://dbsvrd6tasmbw" path="res://new org/systems/movement related/Movement.gd" id="8_gqyel"]
+[ext_resource type="Script" uid="uid://tmh27lp4axxe" path="res://new org/systems/movement related/Scale.gd" id="9_7d36n"]
+[ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://new org/systems/attack components/HitBoxArea.gd" id="9_an3v2"]
+[ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://new org/systems/player components and systems/StunManager.gd" id="9_yomqy"]
+[ext_resource type="Script" uid="uid://br4ap3ju1friv" path="res://new org/systems/player components and systems/InputManager.gd" id="10_gqyel"]
+[ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="14_jilod"]
+[ext_resource type="Script" uid="uid://ckkq3f3j2wj34" path="res://new org/systems/attack components/ProjectileArea.gd" id="15_5plvs"]
+[ext_resource type="Resource" uid="uid://ct5kbj6vs60fb" path="res://animations/test animations/test_curves1.tres" id="18_gqyel"]
+[ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="19_6he74"]
+[ext_resource type="Resource" uid="uid://5a0w77oo3wf5" path="res://animations/test animations/test_curves2.tres" id="19_7d36n"]
+[ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://new org/systems/auto load scripts/set cam.gd" id="19_r6qcp"]
+[ext_resource type="Resource" uid="uid://dcrwgqqu6o0gg" path="res://animations/test animations/test_curves3.tres" id="20_jxblt"]
+[ext_resource type="Resource" uid="uid://x8doshw2cu3h" path="res://animations/test animations/test_curves4.tres" id="21_x7ehb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5plvs"]
 size = Vector2(8, 20)
@@ -163,6 +163,14 @@ size = Vector2(8, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3mhv"]
 size = Vector2(16, 16)
 
+[sub_resource type="Resource" id="Resource_gqyel"]
+script = ExtResource("14_jilod")
+stun_type = 0
+hit_type = 2
+metadata/_custom_type_script = "uid://c8e0lbybahcxv"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7d36n"]
+
 [sub_resource type="Resource" id="Resource_3jr14"]
 script = ExtResource("14_jilod")
 stun_type = 2
@@ -180,13 +188,14 @@ size = Vector2(8, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10cl8"]
 size = Vector2(8, 8)
 
-[node name="player" type="CharacterBody2D" unique_id=1379696201 node_paths=PackedStringArray("colission_box", "scale_component", "input_component", "PrimaryHurtBoxes_component", "stun_manager")]
+[node name="player" type="CharacterBody2D" unique_id=1379696201 node_paths=PackedStringArray("colission_box", "scale_component", "input_component", "PrimaryHurtBoxes_component", "stun_manager", "health_component")]
 script = ExtResource("1_n5p6r")
 colission_box = NodePath("the player colision box")
 scale_component = NodePath("folder/scale")
 input_component = NodePath("folder/inputmanager")
 PrimaryHurtBoxes_component = NodePath("folder/PrimaryHurtBoxes")
 stun_manager = NodePath("folder/stunManager")
+health_component = NodePath("folder/health")
 block_type = -1
 
 [node name="player animation tool" type="Node" parent="." unique_id=858811889 node_paths=PackedStringArray("thing_to_animate")]
@@ -235,12 +244,11 @@ debug_color = Color(0.650842, 0.519428, 0, 0.42)
 
 [node name="folder" type="Node2D" parent="." unique_id=677573718]
 
-[node name="PrimaryHurtBoxes" type="Node" parent="folder" unique_id=1071917369 node_paths=PackedStringArray("standing_hurt_box_area", "crouching_hurt_box_area", "airborne_hurt_box_area", "host")]
+[node name="PrimaryHurtBoxes" type="Node" parent="folder" unique_id=1071917369 node_paths=PackedStringArray("standing_hurt_box_area", "crouching_hurt_box_area", "airborne_hurt_box_area")]
 script = ExtResource("3_2bl5q")
 standing_hurt_box_area = NodePath("../../staning")
 crouching_hurt_box_area = NodePath("../../crouch")
 airborne_hurt_box_area = NodePath("../../air")
-host = NodePath("../..")
 metadata/_custom_type_script = "uid://c56l0wv4lygfr"
 
 [node name="movement folder" type="Node" parent="folder" unique_id=756740371]
@@ -260,8 +268,10 @@ script = ExtResource("3_rgd3p")
 enabled = true
 host = NodePath("../../..")
 
-[node name="movement" parent="folder/movement folder" unique_id=2001820885 node_paths=PackedStringArray("timer", "host") instance=ExtResource("3_coedu")]
+[node name="movement" type="Node" parent="folder/movement folder" unique_id=2001820885 node_paths=PackedStringArray("timer", "host")]
+script = ExtResource("8_gqyel")
 timer = NodePath("prejump delay")
+enabled = true
 host = NodePath("../../..")
 
 [node name="prejump delay" type="Node" parent="folder/movement folder/movement" unique_id=1630927643]
@@ -270,15 +280,18 @@ script = ExtResource("6_eeho0")
 [node name="coyote timer" type="Node" parent="folder/movement folder" unique_id=1232542153]
 script = ExtResource("6_eeho0")
 
-[node name="scale" parent="folder" unique_id=1056709450 node_paths=PackedStringArray("node", "timer", "host") instance=ExtResource("3_aaaie")]
+[node name="scale" type="Node" parent="folder" unique_id=1056709450 node_paths=PackedStringArray("node", "timer", "host")]
+script = ExtResource("9_7d36n")
 node = NodePath("..")
 timer = NodePath("turn around delay")
+enabled = true
 host = NodePath("../..")
 
 [node name="turn around delay" type="Node" parent="folder/scale" unique_id=1540809775]
 script = ExtResource("6_eeho0")
 
-[node name="inputmanager" parent="folder" unique_id=1418133064 node_paths=PackedStringArray("player", "attack_manager", "coyote_timer", "movement_componet", "scale_component", "dash_component", "gravity_component", "light_kick", "light_punch", "heavy_punch", "down_quarter_circle_forward_light_kick", "down_quarter_circle_forward_light_punch", "forward_quarter_circle_down_light_kick") instance=ExtResource("6_aaaie")]
+[node name="inputmanager" type="Node" parent="folder" unique_id=1418133064 node_paths=PackedStringArray("player", "attack_manager", "coyote_timer", "movement_componet", "scale_component", "dash_component", "gravity_component")]
+script = ExtResource("10_gqyel")
 player = NodePath("../..")
 attack_manager = NodePath("../attack manager")
 coyote_timer = NodePath("../movement folder/coyote timer")
@@ -286,12 +299,6 @@ movement_componet = NodePath("../movement folder/movement")
 scale_component = NodePath("../scale")
 dash_component = NodePath("../movement folder/dash")
 gravity_component = NodePath("../movement folder/gravity")
-light_kick = NodePath("../attack manager/LK basic")
-light_punch = NodePath("../attack manager/LP knock down")
-heavy_punch = NodePath("../attack manager/HP 1")
-down_quarter_circle_forward_light_kick = NodePath("../attack manager/dqcflk special")
-down_quarter_circle_forward_light_punch = NodePath("../attack manager/dqcflp projectile")
-forward_quarter_circle_down_light_kick = NodePath("../attack manager/HK launch")
 
 [node name="health" type="Node" parent="folder" unique_id=1995988555 node_paths=PackedStringArray("host")]
 script = ExtResource("7_eeho0")
@@ -304,10 +311,8 @@ script = ExtResource("9_yomqy")
 player_animation_tool = NodePath("../../player animation tool")
 host = NodePath("../..")
 
-[node name="attack manager" type="Node2D" parent="folder" unique_id=1413457510 node_paths=PackedStringArray("health", "stun_manager", "host")]
+[node name="attack manager" type="Node2D" parent="folder" unique_id=1413457510 node_paths=PackedStringArray("host")]
 script = ExtResource("5_hhnao")
-health = NodePath("../health")
-stun_manager = NodePath("../stunManager")
 host = NodePath("../..")
 
 [node name="dqcflp projectile" type="Node2D" parent="folder/attack manager" unique_id=686735474]
@@ -347,10 +352,8 @@ metadata/_custom_type_script = "uid://ia0tuvmco8v8"
 script = ExtResource("7_1oqn1")
 repeat_this_frame = 30
 
-[node name="frame # 34-34" type="Node2D" parent="folder/attack manager/dqcflp projectile" unique_id=1395790190]
-script = ExtResource("7_1oqn1")
-
 [node name="LP knock down" type="Node2D" parent="folder/attack manager" unique_id=1884963270]
+visible = false
 script = ExtResource("4_coedu")
 
 [node name="frame # 1-1" type="Node2D" parent="folder/attack manager/LP knock down" unique_id=624631255]
@@ -416,6 +419,7 @@ disabled = true
 debug_color = Color(0, 0, 1, 0.686275)
 
 [node name="LK basic" type="Node2D" parent="folder/attack manager" unique_id=1680360500]
+visible = false
 script = ExtResource("4_coedu")
 
 [node name="frame # 1-1" type="Node2D" parent="folder/attack manager/LK basic" unique_id=1520075416]
@@ -529,6 +533,7 @@ disabled = true
 debug_color = Color(1, 0, 0, 0.686275)
 
 [node name="dqcflk special" type="Node2D" parent="folder/attack manager" unique_id=291329986]
+visible = false
 position = Vector2(14, 0)
 script = ExtResource("4_coedu")
 animation_stuff = Array[ExtResource("19_6he74")]([SubResource("Resource_valns"), SubResource("Resource_jxblt")])
@@ -598,13 +603,13 @@ script = ExtResource("7_1oqn1")
 [node name="HP 1" type="Node2D" parent="folder/attack manager" unique_id=762792362 node_paths=PackedStringArray("combo_attacks_dictionary")]
 visible = false
 script = ExtResource("4_coedu")
+is_combo_attack = true
 combo_attacks_dictionary = {
 16: NodePath("../HP 2 w hk"),
 18: NodePath("../HP 2 w hp")
 }
-is_combo_attack = true
-start_frame = 20
-end_frame = 20
+start_frame_combo = 10
+end_frame_combo = 24
 
 [node name="frame # 1" type="Node2D" parent="folder/attack manager/HP 1" unique_id=1966158150]
 script = ExtResource("7_1oqn1")
@@ -636,17 +641,28 @@ script = ExtResource("7_1oqn1")
 [node name="frame # 10" type="Node2D" parent="folder/attack manager/HP 1" unique_id=1683314753]
 script = ExtResource("7_1oqn1")
 
-[node name="hurt_box # 0" type="Area2D" parent="folder/attack manager/HP 1/frame # 10" unique_id=1415722461 node_paths=PackedStringArray("health", "stun_manager")]
+[node name="hurt_box # 300" type="Area2D" parent="folder/attack manager/HP 1/frame # 10" unique_id=1415722461 node_paths=PackedStringArray("health", "stun_manager")]
 collision_layer = 2
 script = ExtResource("8_af2j0")
 health = NodePath("../../../../health")
 stun_manager = NodePath("../../../../stunManager")
 
-[node name="hurt_box" type="CollisionShape2D" parent="folder/attack manager/HP 1/frame # 10/hurt_box # 0" unique_id=464756950]
+[node name="hurt_box" type="CollisionShape2D" parent="folder/attack manager/HP 1/frame # 10/hurt_box # 300" unique_id=464756950]
 position = Vector2(16, -8)
 shape = SubResource("RectangleShape2D_w3mhv")
 disabled = true
 debug_color = Color(0, 0, 1, 0.686275)
+
+[node name="hit_box # 100" type="Area2D" parent="folder/attack manager/HP 1/frame # 10" unique_id=1925561619]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_an3v2")
+attack_data = SubResource("Resource_gqyel")
+
+[node name="hit_box" type="CollisionShape2D" parent="folder/attack manager/HP 1/frame # 10/hit_box # 100" unique_id=582983498]
+shape = SubResource("RectangleShape2D_7d36n")
+disabled = true
+debug_color = Color(1, 0, 0, 0.6862745)
 
 [node name="frame # 11" type="Node2D" parent="folder/attack manager/HP 1" unique_id=1502907565]
 script = ExtResource("7_1oqn1")

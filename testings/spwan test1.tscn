@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b7poxv1jmn217"]
+
+[ext_resource type="Script" uid="uid://c07awirmkkk7k" path="res://new org/entites/enemies/non moving/turret.gd" id="1_saglm"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/player components and systems/FrameTimerCompnent.gd" id="6_yrusv"]
+[ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://new org/systems/auto load scripts/set cam.gd" id="8_prbi6"]
+
+[node name="Node2D" type="Node2D" unique_id=304602988 node_paths=PackedStringArray("frame_timer")]
+script = ExtResource("1_saglm")
+frame_timer = NodePath("FrameTimer")
+delay = 10
+overwrite_on_max = true
+
+[node name="FrameTimer" type="Node" parent="." unique_id=1606804538]
+script = ExtResource("6_yrusv")
+metadata/_custom_type_script = "uid://dkek8a7podljt"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1923637188]
+script = ExtResource("8_prbi6")

@@ -147,7 +147,7 @@ Study the Quran
 		Sul-Kifl
 	Surahs
 		1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114
-for games
+for games 
 	character loses everyone they cared about so they seek revenge they get it what now who do they become what makes them who they are now how do they see the world who have they become. who tells them to stop or whether its pointless ~~(could be too long would have to see)~~ 
 	a frozen assassin that skates
 	flow ice ride with fire as boost
@@ -158,6 +158,8 @@ for games
 	soon.
 just ideas
 	story without names or writing descriptors other or kept to a bare minimum may use different font for each characters in a book and nameless in visual media 
+	charaters that are multifaced based on who they are interaticn with so char a and b act very difrtnyl from b and c  and very diffrent form a and c tho that may just be charater interation with spical relatiosn ships but it may help with working form a charater blue print
+	write in past tense for a char who can see into the future or for the certainty of a future event declared by such a character (bread could occasionally)
 i just think it funny
 	you ain't (insert slang here) turns into person being extremely (insert slang here) to the point of absurdity  causing mass destruction and fighting Goku or something in the relevant (insert hobby/sport here)
 	overly murderous and torturous description of a spa treatment

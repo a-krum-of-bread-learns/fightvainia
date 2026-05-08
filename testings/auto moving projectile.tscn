@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cxweje6fy3ucg"]
+
+[ext_resource type="Script" uid="uid://cw1p1ehiwg0gs" path="res://testings/spawnable_projectile.gd" id="1_d2x3j"]
+[ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="2_3y8fu"]
+[ext_resource type="Resource" uid="uid://b2eh4wty7ne67" path="res://new org/entites/agent player stuff/animations/basic_forward_moving_projectile.tres" id="3_vak0n"]
+[ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="4_6rrxl"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/player components and systems/FrameTimerCompnent.gd" id="5_w00jd"]
+[ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new org/systems/animation/AnimationTool.gd" id="6_dxe6q"]
+
+[sub_resource type="Resource" id="Resource_emhlm"]
+script = ExtResource("4_6rrxl")
+metadata/_custom_type_script = "uid://c8e0lbybahcxv"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fhmc"]
+
+[node name="spawn test" type="Area2D" unique_id=120639539 node_paths=PackedStringArray("timer")]
+top_level = true
+script = ExtResource("1_d2x3j")
+max_lifespan_in_frames = 100
+is_facing_right = true
+timer = NodePath("FrameTimer")
+animation_stuff = Array[ExtResource("2_3y8fu")]([ExtResource("3_vak0n")])
+attack_data = SubResource("Resource_emhlm")
+metadata/_custom_type_script = "uid://ckkq3f3j2wj34"
+
+[node name="FrameTimer" type="Node" parent="." unique_id=230492380]
+script = ExtResource("5_w00jd")
+metadata/_custom_type_script = "uid://dkek8a7podljt"
+
+[node name="AnimationTool" type="Node" parent="." unique_id=1703432872 node_paths=PackedStringArray("thing_to_animate")]
+script = ExtResource("6_dxe6q")
+thing_to_animate = NodePath("..")
+metadata/_custom_type_script = "uid://ia0tuvmco8v8"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=529722161]
+shape = SubResource("RectangleShape2D_5fhmc")
+
+[connection signal="animate" from="." to="AnimationTool" method="animate"]

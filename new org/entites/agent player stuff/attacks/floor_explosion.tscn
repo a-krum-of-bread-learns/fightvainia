@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://i07c3uwydhut"]
+
+[ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="1_3v780"]
+[ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="2_0jgns"]
+[ext_resource type="Texture2D" uid="uid://go1s0hxf847i" path="res://art/copy right free art assets/explosion.png" id="3_aopyl"]
+[ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://new org/systems/attack components/HitBoxArea.gd" id="3_fc13a"]
+[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://art/copy right free art assets/stating stick.png" id="3_wvac4"]
+[ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="4_aopyl"]
+[ext_resource type="Texture2D" uid="uid://t7yhrw883fmk" path="res://art/copy right free art assets/shoot down.png" id="6_wvac4"]
+
+[sub_resource type="Resource" id="Resource_jd4bm"]
+script = ExtResource("4_aopyl")
+stun_type = 0
+hit_type = 2
+block_stun_duration = 15
+block_back_distance = 100
+hit_stun_duration = 30
+hit_back_distance_vector = Vector2(120, 300)
+hit_stop_frames = 5
+damage = 800
+air_stun_overide = true
+metadata/_custom_type_script = "uid://c8e0lbybahcxv"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jd4bm"]
+size = Vector2(31.5, 25)
+
+[node name="floor explision" type="Node2D" unique_id=2123794268]
+script = ExtResource("1_3v780")
+
+[node name="frame # 1-12" type="Node2D" parent="." unique_id=1869193931]
+script = ExtResource("2_0jgns")
+repeat_this_frame = 11
+
+[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 1-12" unique_id=498639014]
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("3_wvac4")
+
+[node name="frame # 13-16" type="Node2D" parent="." unique_id=465926002]
+script = ExtResource("2_0jgns")
+repeat_this_frame = 3
+
+[node name="Sprite2D # 401" type="Sprite2D" parent="frame # 13-16" unique_id=785255514]
+position = Vector2(22.999998, 4)
+scale = Vector2(0.126, 0.126)
+texture = ExtResource("3_aopyl")
+region_enabled = true
+region_rect = Rect2(120, 112, 256, 200)
+
+[node name="hit_box # 100" type="Area2D" parent="frame # 13-16" unique_id=359171754]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_fc13a")
+attack_data = SubResource("Resource_jd4bm")
+
+[node name="hit_box" type="CollisionShape2D" parent="frame # 13-16/hit_box # 100" unique_id=200566316]
+position = Vector2(23.25, 4)
+shape = SubResource("RectangleShape2D_jd4bm")
+disabled = true
+debug_color = Color(1, 0, 0, 0.6862745)
+
+[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 13-16" unique_id=1346976970]
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("6_wvac4")
+region_enabled = true
+region_rect = Rect2(30, 0, 256, 512)
+
+[node name="frame # 17-36" type="Node2D" parent="." unique_id=550977541]
+script = ExtResource("2_0jgns")
+repeat_this_frame = 19
+
+[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 17-36" unique_id=1565465653]
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("3_wvac4")

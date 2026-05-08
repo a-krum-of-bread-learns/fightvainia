@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="AnimationResource" format=3 uid="uid://b2eh4wty7ne67"]
+
+[ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="1_a4t5e"]
+
+[sub_resource type="Curve" id="Curve_5m182"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_2vilf"]
+_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 1, Vector2(1, 0.5), 0.0, 0.0, 1, 0]
+point_count = 2
+
+[resource]
+script = ExtResource("1_a4t5e")
+smoothing_curve_x = SubResource("Curve_5m182")
+smoothing_curve_y = SubResource("Curve_2vilf")
+time_in_frames = 100
+displacement = Vector2(2400, 0)
+metadata/_custom_type_script = "uid://sx7qv8babvbw"
