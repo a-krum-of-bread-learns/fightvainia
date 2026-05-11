@@ -8,3 +8,5 @@ how Frerien teaches you media literacy
 	reading comprehension levels
 	1st literal 2nd inference 3rd application
 - more symbolism/ symbols 
+a thing about path to no where recently 
+	it seems to me that they are treating different cultures to interpret the same mania system that runs the world differently Discity has sinners Eastia has seers and this north area has martial artists

@@ -54,3 +54,4 @@ func disable_all_pimary_sprites():
 func set_sprite(sprite: Sprite2D):
 	disable_all_pimary_sprites()
 	sprite.visible = true
+	

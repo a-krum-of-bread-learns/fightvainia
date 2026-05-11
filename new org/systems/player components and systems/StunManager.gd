@@ -1,14 +1,17 @@
 ## holds stun information and moves the entity as well 
 class_name StunManager extends BehaviourBase
-enum STUN_TYPE {BASIC, DEFUALT_KNOCK_DOWN, DEFUALT_AIR, BLOCK = 40} ## type of stun
+enum STUN_TYPE {BASIC, DEFUALT_KNOCK_DOWN, DEFUALT_LAUNCH, DEFUALT_AIR, BLOCK = 40} ## type of stun
 @export var player_animation_tool: AnimationTool
 @export var sprite: Sprite2D
 var remaining_duration: int ## frames remaining
 var speed: Vector2 ## the speed per frame
 var is_stuned: bool = false
 var current_type: int ## type need to be tracked
+var defualt_air_stun: Vector2 =Vector2(400,-2400)
+var defualt_knockdown_stun: Vector2 = Vector2(0,1600)
+var defualt_launch_stun: Vector2 =Vector2(200,-2400) 
 
-#TODO use the new animation tool for the stun manager if it makes sense other wize keep as is
+#TODO use the new animation tool for the stun manager if it makes sensef other wize keep as is
 #TODO make a way to have the huratble player stop when on ground so it stops sliding 
 #TODO have an option for aninmation type stun
 #TODO make the viusals for stuns of type like fire and electricty or ice here
@@ -57,47 +60,45 @@ func start_stun_with_tween(attack_data: HitBoxData, default_dir: Vector2, blocke
 			host.tween.tween_property(host,"velocity",Vector2(0,0),0)
 
 		STUN_TYPE.DEFUALT_KNOCK_DOWN:
-			host.tween.tween_property(host,"velocity",Vector2(0,1600),0)
-			host.tween.tween_property(host,"velocity",Vector2(0,1600),get_time(99))
+			host.tween.tween_property(host,"velocity",defualt_knockdown_stun,0)
+			host.tween.tween_property(host,"velocity",defualt_knockdown_stun,get_time(99))
 			
 		STUN_TYPE.DEFUALT_AIR:
-			host.velocity = Vector2(50*stun_dir.x,-300)
+			host.velocity = Vector2(defualt_air_stun.x*stun_dir.x,defualt_air_stun.y)
 			remaining_duration = 30
-			
+		
+		STUN_TYPE.DEFUALT_LAUNCH:
+			host.velocity = Vector2(defualt_launch_stun.x*stun_dir.x,defualt_launch_stun.y)
+			remaining_duration = 45
+
 
 
 ## contiues stun for the duration proied or other condtion based on type
 func continue_stun():
 	match current_type:
-		#STUN_TYPE.BLOCK, STUN_TYPE.BASIC: 
-			#if not remaining_duration == 0:
-				#remaining_duration-=1
-				#host.velocity = speed
-			#else: end_stun()
-			## set state airborne
 		STUN_TYPE.DEFUALT_KNOCK_DOWN: 
-			if host.is_on_floor():
-				current_type = STUN_TYPE.BASIC
-				remaining_duration = 60
-				speed = Vector2.ZERO
-				
-		#STUN_TYPE.DEFUALT_LAUNCH:
-			#if not remaining_duration == 0:
-				#remaining_duration-=1
-				#host.velocity = speed
-			#else: end_stun()
-			#
-		STUN_TYPE.DEFUALT_AIR:
-			if not remaining_duration == 0:
+			if host.is_on_floor() and remaining_duration >= 0:
+				remaining_duration -= 1
+				host.velocity = defualt_knockdown_stun
+			else: end_stun()
+			
+		STUN_TYPE.DEFUALT_AIR, STUN_TYPE.DEFUALT_LAUNCH:
+			if remaining_duration >= 0:
 				print("stun is air type")
 				remaining_duration -= 1
-			else: end_stun()
+			elif host.is_on_floor(): 
+				current_type = STUN_TYPE.DEFUALT_KNOCK_DOWN
+				host.velocity = Vector2.ZERO
+				remaining_duration = 45
+			else: 
+				end_stun()
+			
+
 
 ## ends the stun and clears info here
 func end_stun():
-	remaining_duration = 0
-	speed = Vector2.ZERO
 	is_stuned = false
+	remaining_duration = 0
 
 
 func set_stun_color():
@@ -109,11 +110,4 @@ func set_stun_color():
 func _process(_delta):
 	if is_stuned: 
 		continue_stun()
-		
-	else: end_stun()
 	set_stun_color()
-	
-	
-
-	
-	

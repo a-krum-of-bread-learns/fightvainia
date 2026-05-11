@@ -119,12 +119,12 @@ full mimics in general (the versions of bread)
 	random char
 	shape shiftier with own move set as well
 	amalgamation combo of some chars moves at random 
-make aoko form melty blood type lamina
+make aoko form melty blood type lamina (this is also a char that fern could be as an alternet costume sorta)
 	why orb cool but some design varaitions of the orbs could be :
 	negative edge / proximity witch is already used
 	when pressed again 
 	a separate button added (or use block button orb can be seen as defensive mechanics )
-	
+a character with crouch only or crouch optimal combos
 
 ### balance decisions to consider that other games don't have
 balance anti airs that cover both sides with half circle inputs

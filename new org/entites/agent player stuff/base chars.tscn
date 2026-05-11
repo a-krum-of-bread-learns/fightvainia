@@ -22,13 +22,10 @@ script = ExtResource("1_8it8p")
 colission_box = NodePath("the player colision box")
 scale_component = NodePath("folder/scale")
 input_component = NodePath("folder/inputmanager")
-PrimaryHurtBoxes_component = NodePath("player primary hurt boxes")
+PrimaryHurtBoxes_component = NodePath("folder/player primary hurt boxes")
 stun_manager = NodePath("folder/stunManager")
 health_component = NodePath("folder/health")
 block_type = -1
-
-[node name="player primary hurt boxes" parent="." unique_id=994631848 node_paths=PackedStringArray("player") instance=ExtResource("2_7bb02")]
-player = NodePath("..")
 
 [node name="the player colision box" type="CollisionShape2D" parent="." unique_id=693442404]
 position = Vector2(0, 48)
@@ -38,11 +35,15 @@ debug_color = Color(1, 1, 1, 0.42)
 
 [node name="folder" type="Node2D" parent="." unique_id=1784953174]
 
+[node name="player primary hurt boxes" parent="folder" unique_id=994631848 node_paths=PackedStringArray("player") instance=ExtResource("2_7bb02")]
+player = NodePath("../..")
+
 [node name="movement folder" type="Node" parent="folder" unique_id=1037400380]
 
 [node name="dash" type="Node" parent="folder/movement folder" unique_id=838071016 node_paths=PackedStringArray("timer", "host")]
 script = ExtResource("4_lxi42")
 timer = NodePath("max duration")
+dash_speed = 1200
 enabled = true
 host = NodePath("../../..")
 
@@ -58,8 +59,6 @@ host = NodePath("../../..")
 [node name="movement" type="Node" parent="folder/movement folder" unique_id=538386796 node_paths=PackedStringArray("timer", "host")]
 script = ExtResource("6_e1a3v")
 timer = NodePath("prejump delay")
-jump_velocityY = -2400.0
-move_speed = 200.0
 enabled = true
 host = NodePath("../../..")
 

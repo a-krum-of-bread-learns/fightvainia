@@ -44,18 +44,18 @@ size = Vector2(15.125, 9.5)
 [node name="electric stun projectile" type="Node2D" unique_id=1859951945]
 script = ExtResource("1_mpnq5")
 
-[node name="frame # 1-12" type="Node2D" parent="." unique_id=1210223522]
+[node name="frame # 1-16" type="Node2D" parent="." unique_id=1210223522]
 script = ExtResource("2_hslo8")
-repeat_this_frame = 11
+repeat_this_frame = 15
 
-[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 1-12" unique_id=636569242]
+[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 1-16" unique_id=636569242]
 scale = Vector2(0.063, 0.063)
 texture = ExtResource("3_gctcy")
 
-[node name="frame # 13-13" type="Node2D" parent="." unique_id=790718731]
+[node name="frame # 17-17" type="Node2D" parent="." unique_id=790718731]
 script = ExtResource("2_hslo8")
 
-[node name="Projectile # 200" type="Area2D" parent="frame # 13-13" unique_id=1748326035 node_paths=PackedStringArray("timer")]
+[node name="Projectile # 200" type="Area2D" parent="frame # 17-17" unique_id=1748326035 node_paths=PackedStringArray("timer")]
 top_level = true
 collision_layer = 0
 collision_mask = 2
@@ -65,31 +65,31 @@ max_lifespan_in_frames = 100
 animation_stuff = Array[ExtResource("4_gctcy")]([SubResource("Resource_ni0l1")])
 attack_data = SubResource("Resource_xf6kq")
 
-[node name="frame timer" type="Node" parent="frame # 13-13/Projectile # 200" unique_id=458294406]
+[node name="frame timer" type="Node" parent="frame # 17-17/Projectile # 200" unique_id=458294406]
 script = ExtResource("6_bsih0")
 
-[node name="projectile animateor" type="Node" parent="frame # 13-13/Projectile # 200" unique_id=1434495255 node_paths=PackedStringArray("thing_to_animate")]
+[node name="projectile animateor" type="Node" parent="frame # 17-17/Projectile # 200" unique_id=1434495255 node_paths=PackedStringArray("thing_to_animate")]
 script = ExtResource("7_wxbti")
 thing_to_animate = NodePath("..")
 
-[node name="hit_box" type="CollisionShape2D" parent="frame # 13-13/Projectile # 200" unique_id=1834756916]
+[node name="hit_box" type="CollisionShape2D" parent="frame # 17-17/Projectile # 200" unique_id=1834756916]
 scale = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_rqpfs")
 disabled = true
 debug_color = Color(1, 0, 0, 0.6862745)
 
-[node name="fire ball" type="Sprite2D" parent="frame # 13-13/Projectile # 200" unique_id=1203832496]
+[node name="fire ball" type="Sprite2D" parent="frame # 17-17/Projectile # 200" unique_id=1203832496]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_hslo8")
 region_enabled = true
 region_rect = Rect2(144, 176, 224, 160)
 
-[node name="frame # 14-45" type="Node2D" parent="." unique_id=2122010253]
+[node name="frame # 18-49" type="Node2D" parent="." unique_id=2122010253]
 script = ExtResource("2_hslo8")
 repeat_this_frame = 31
 
-[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 14-45" unique_id=1337333378]
+[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 18-49" unique_id=1337333378]
 scale = Vector2(0.063, 0.063)
 texture = ExtResource("3_gctcy")
 
-[connection signal="animate" from="frame # 13-13/Projectile # 200" to="frame # 13-13/Projectile # 200/projectile animateor" method="animate"]
+[connection signal="animate" from="frame # 17-17/Projectile # 200" to="frame # 17-17/Projectile # 200/projectile animateor" method="animate"]

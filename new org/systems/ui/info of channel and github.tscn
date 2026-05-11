@@ -25,7 +25,8 @@ layout_mode = 0
 offset_left = 24.0
 offset_right = 256.0
 offset_bottom = 439.0
-text = "buttons: L, H, J, B,
+text = "
+buttons: L, H, J, B,
 move list in numpad notation when facing right
 normals:
 5L air ok
@@ -36,7 +37,6 @@ normals:
 8H
 special moves:
 632 L
-698 L
 (698 or 896) J
 236 L
 236 H

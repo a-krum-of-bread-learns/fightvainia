@@ -46,3 +46,4 @@ melty blood system testing
 	wall boucnes dont have a cap 2
 	2 extions maximum 
 	on knockdown hit damage it greatly reduced
+

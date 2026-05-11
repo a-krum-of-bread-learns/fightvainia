@@ -18,8 +18,10 @@ scale = Vector2(8, 8)
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_wr0em")
+is_blocking = true
 stun_manager = NodePath("StunManager")
 health_component = NodePath("Health")
+block_type = 1
 metadata/_custom_type_script = "uid://bssckwpf2obbe"
 
 [node name="colison box" type="CollisionShape2D" parent="." unique_id=2049379602]
@@ -62,7 +64,7 @@ metadata/_custom_type_script = "uid://b8564hciniqu3"
 
 [node name="Health" type="Node" parent="." unique_id=913288797 node_paths=PackedStringArray("host")]
 script = ExtResource("4_bsvvr")
-max_health = 100000000
+max_health = 10000000000000
 enabled = true
 host = NodePath("..")
 metadata/_custom_type_script = "uid://ccxb00gf1jcum"

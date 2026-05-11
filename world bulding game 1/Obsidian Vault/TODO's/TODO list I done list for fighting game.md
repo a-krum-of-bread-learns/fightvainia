@@ -56,10 +56,10 @@
 - [x] fix the problem with is_attacking in 2 places at the same time (attack manager and entity base) 
  - [x] decide these 2 where they should be jump_velocityY:, move_speed, 
  - [x] add a add projectie under frames
+- [ ] accessibility options
 - [ ] save system
 - [ ] healing could just be a negative hit box damage?  this needs an exception to self exception
 - [ ] consideration motion attacks? like motion inputs for directions rhythm character or something
-
 - [ ] decide these 2 where they should be fast_move_speed, gravity
 - [ ] combine player and input manager?
 - [ ] run?

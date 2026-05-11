@@ -11,8 +11,8 @@
 script = ExtResource("4_v8p7c")
 stun_type = 0
 hit_type = 2
-block_stun_duration = 21
-block_back_distance = 40
+block_stun_duration = 20
+block_back_distance = 60
 hit_stun_duration = 30
 hit_back_distance_vector = Vector2(80, 0)
 hit_stop_frames = 3
@@ -20,7 +20,7 @@ damage = 700
 metadata/_custom_type_script = "uid://c8e0lbybahcxv"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ule2"]
-size = Vector2(20, 10.75)
+size = Vector2(20, 13)
 
 [node name="up buttion anti air (Y) hp" type="Node2D" unique_id=1455710997]
 script = ExtResource("1_vxa7i")
@@ -44,7 +44,7 @@ script = ExtResource("3_odemy")
 attack_data = SubResource("Resource_dhck0")
 
 [node name="hit_box" type="CollisionShape2D" parent="frame # 9-14/hit_box # 100" unique_id=1579803207]
-position = Vector2(0, -15.625)
+position = Vector2(0, -14.5)
 shape = SubResource("RectangleShape2D_2ule2")
 disabled = true
 debug_color = Color(1, 0, 0, 0.6862745)

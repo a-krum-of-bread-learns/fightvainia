@@ -5,5 +5,5 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("menu"):
-		self.visible = !self.visible
+	self.visible = FrameByFrameMode.frame_by_frame_mode_endabled
+		

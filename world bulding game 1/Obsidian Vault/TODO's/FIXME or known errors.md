@@ -3,3 +3,4 @@
 - [x] force stop animations when hit
 - [ ] fix the active hurt box or see if an update fixes the signal 
 - [ ] kill_momnetum_of_tween is unused
+- [x] fix crouch walking 

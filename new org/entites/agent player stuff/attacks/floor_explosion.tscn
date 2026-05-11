@@ -10,7 +10,7 @@
 
 [sub_resource type="Resource" id="Resource_jd4bm"]
 script = ExtResource("4_aopyl")
-stun_type = 0
+stun_type = 2
 hit_type = 2
 block_stun_duration = 15
 block_back_distance = 100

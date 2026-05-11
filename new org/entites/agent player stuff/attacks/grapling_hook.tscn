@@ -2,24 +2,22 @@
 
 [ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="1_ir3hp"]
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="2_qwngo"]
+[ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://art/copy right free audio assets/session.mp3" id="2_ynnf3"]
 [ext_resource type="Texture2D" uid="uid://b2t3qtr1cy383" path="res://art/copy right free art assets/steel grapling hook.png" id="3_33jvn"]
 [ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://new org/systems/attack components/HitBoxArea.gd" id="3_r1ten"]
 [ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://art/copy right free art assets/stating stick.png" id="3_ynnf3"]
-[ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="4_33jvn"]
 [ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="5_ynnf3"]
+[ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="6_33jvn"]
 [ext_resource type="Texture2D" uid="uid://dminbco6164xr" path="res://art/copy right free art assets/shoot up.png" id="7_ynnf3"]
 
-[sub_resource type="Resource" id="Resource_er1ep"]
-script = ExtResource("4_33jvn")
-stun_type = 0
+[sub_resource type="Resource" id="Resource_ynnf3"]
+script = ExtResource("6_33jvn")
+stun_type = 3
 hit_type = 2
-block_stun_duration = 25
-block_back_distance = 20
-hit_stun_duration = 33
-hit_back_distance_vector = Vector2(200, 400)
-hit_stop_frames = 2
-damage = 1000
-air_stun_overide = true
+block_stun_duration = 15
+block_back_distance = 50
+hit_stop_frames = 3
+damage = 900
 metadata/_custom_type_script = "uid://c8e0lbybahcxv"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5bsa"]
@@ -33,6 +31,7 @@ size = Vector2(4.25, 6.84375)
 
 [node name="grapling hook" type="Node2D" unique_id=154535348]
 script = ExtResource("1_ir3hp")
+hit_sound = ExtResource("2_ynnf3")
 
 [node name="frame # 1-14" type="Node2D" parent="." unique_id=855000482]
 script = ExtResource("2_qwngo")
@@ -56,7 +55,7 @@ texture = ExtResource("3_33jvn")
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_r1ten")
-attack_data = SubResource("Resource_er1ep")
+attack_data = SubResource("Resource_ynnf3")
 
 [node name="hit_box" type="CollisionShape2D" parent="frame # 15-26/hit_box # 100" unique_id=1886708601]
 position = Vector2(24.995836, -24.167469)

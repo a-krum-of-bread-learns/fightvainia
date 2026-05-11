@@ -6,7 +6,8 @@ class_name HitBoxArea extends ActiveHitBox
 @export var fix_color_buttion: bool = false
 #TODO consider removing this refrence and doing it difrently?
 @onready var attack_manager: AttackManager = get_parent().get_parent().get_parent()## easy refence of the attack manager
-# TODO consider puting a signal here for the damage function to tell projectiles to stop when enity is his sometimes
+
+# TODO consider puting a signal here for the damage function to tell projectiles to stop when enity is hit sometimes
 
 ## conects singals and is just to warn the hit box has no info and where 
 func _ready():
@@ -18,9 +19,9 @@ func _ready():
 		push_error("block stun duration not assigned in " + get_parent().name + " of attack " + get_parent().get_parent().name)
 	if attack_data.block_back_distance == -1:
 		push_error("block back distance not assigned in " + get_parent().name + " of attack " + get_parent().get_parent().name)
-	if attack_data.hit_stun_duration == -1:
+	if attack_data.hit_stun_duration == -1 and not attack_data.stun_type in [1,2,3]:
 		push_error("hit stun duration not assigned in " + get_parent().name + " of attack " + get_parent().get_parent().name)
-	if attack_data.hit_back_distance_vector == Vector2(-1,-1):
+	if attack_data.hit_back_distance_vector == Vector2(-1,-1) and not attack_data.stun_type in [1,2,3]:
 		push_error("hit back distance vector not assigned in " + get_parent().name + " of attack " + get_parent().get_parent().name)
 	if attack_data.hit_stop_frames == 0:
 		push_warning("hit stop frames set to 0 in " + get_parent().name + " of attack " + get_parent().get_parent().name)
@@ -46,22 +47,32 @@ func damage(area):
 			#stun and damage calls are inside
 			block_check2(attacked_entity, area)
 			attack_manager.current_attack.has_hit = true
+			OnHitAudioManager.play_hit_sound(attack_manager.current_attack.hit_sound)
 			
 			
 ## true means blocked
 func high_low_block_check(attacked_entity: EntityBase)-> bool:
-	if attack_data.hit_type == attacked_entity.block_type:
-		return true
-	elif attack_data.hit_type != attacked_entity.block_type:
-		if attack_data.hit_type == attack_data.HIT_TYPE.MID:
+	if attack_manager.host.is_on_floor() == true: ## this if statment forces all attacks in the air to be over head regardless of type set even if its a grab right now but grab is not implemted
+		if attack_data.hit_type == attacked_entity.block_type:
 			return true
-		else: return false
+		elif attack_data.hit_type != attacked_entity.block_type:
+			if attack_data.hit_type == attack_data.HIT_TYPE.MID:
+				return true
+			else:# block failed can also be used for grab with an if or not needed
+				return false # error or grab
+	elif attack_manager.host.is_on_floor() == false:
+		#FIXME air peojectiles would be considered overhead witch may be bad 
+		if attacked_entity.block_type == attack_data.HIT_TYPE.OVER:
+			return true
+		else: 
+			return false
+		
+		
 	# error
 	push_error("block has done somthing that has borken it")
 	return false
-
+#TODO decide on air block
 func block_check2(attacked_entity: EntityBase, area: HurtBoxArea):
-	
 	var position_check: float = self.global_position.x # if self .get parent then it would be based off of the player posion not the fire ball directon regarding the pro8jectile case 
 	#var is facing right
 	var attack_from_right: bool = position_check > attacked_entity.global_position.x
@@ -77,10 +88,16 @@ func block_check2(attacked_entity: EntityBase, area: HurtBoxArea):
 	if attack_from_right: vector_direction = Vector2.UP+Vector2.LEFT
 	elif attack_from_right==false: vector_direction = Vector2.UP+Vector2.RIGHT
 	else: push_error("blocking is broken")
+	#print("bit index for blocking: "+str(bit_index))
+	if block_check_look_up[bit_index] == true:
+		pass
+		#print("blocked is "+str(true))
+	else:
+		area.health.change_health(attack_data.damage)
 	
-	area.health.change_health(attack_data.damage)
 	area.stun_manager.start_stun_with_tween(attack_data,vector_direction, block_check_look_up[bit_index])
 	print(area.health.current_health)
+	
 
 
 

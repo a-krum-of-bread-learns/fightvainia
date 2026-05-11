@@ -9,7 +9,7 @@ class_name Player extends EntityBase
 @export var PrimaryHurtBoxes_component: PlayerPrimaryHurtBoxesAndSprites
 
 #the is somthing varables
-var is_crouching: bool = (Input.is_action_pressed("down") and is_on_floor()) ## tells if player is crouching
+var is_crouching: bool 
 
 func primary_hurt_box_manager():
 	if is_on_floor() and Input.is_action_pressed("down"):
@@ -22,21 +22,23 @@ func primary_hurt_box_manager():
 		PrimaryHurtBoxes_component.set_box(PrimaryHurtBoxes_component.airborne_hurt_box)
 
 ## sets the variables that are used else where in code
-#func set_important_vars():
-	#is_crouching = Input.is_action_pressed("down") and is_on_floor()
-	#print("crouching " + str(is_crouching))
+func set_important_vars():
+	is_crouching = Input.is_action_pressed("down") and is_on_floor()
+	print("crouching " + str(is_crouching))
 	
 ## its _process what else to say (1) 
 ## this calls most of the fucinss that are needed to be used every frame
 func _physics_process(_delta):
 	if input_component == null:
 		print(is_on_floor())
-	#set_important_vars()
+	set_important_vars()
 	#not my function
 	move_and_slide()
-	
 	#print("player postion "+str(global_position))
+	#dsssssprint("player velcoity "+str(velocity))
+	#print("player scale " + str(scale))
 
-func _process(_delta):
-	print("player velcoity "+str(velocity))
+
+
+	
 	

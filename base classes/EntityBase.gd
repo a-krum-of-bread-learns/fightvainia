@@ -14,5 +14,5 @@ var is_actionable = true
 func _physics_process(_delta):
 	if stun_manager.is_stuned == false and is_on_floor():
 		velocity.x = 0
-	print(self.name + " velocity " + str(self.velocity))
+	#print(self.name + " velocity " + str(self.velocity))
 	move_and_slide()

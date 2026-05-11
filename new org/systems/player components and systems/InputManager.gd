@@ -34,7 +34,8 @@ var direction_look_up_array = [
 
 var input_history: Array[Array] = [[5],[5]] ## holds the full input history up to [member max_check_frames]
 var buffered_array: Array[Array] = [[5],[5]]## holds the buffer input history up to [member max_buffer_frames]
-var inputs_of_curent_frame: Array[int] ## the single frame of input that is used in [members input_history] and [member buffered_array]
+var inputs_of_curent_frame_for_attacks: Array[int] ## the single frame of input that is used in [members input_history] and [member buffered_array]
+#var inputs_of_curent_frame_for_display: Array[int]
 var max_check_frames: int = 20 ## the frame cap for motion inputs to be checked used with [method resize_and_append_to_array]
 var max_buffer_frames: int = 5 ## the frame cap for the final input of an action to be checked used with [method resize_and_append_to_array]
 
@@ -116,7 +117,8 @@ func jump_handler2():
 		#or buffer_check(buffered_array,UR,UR)
 		#or buffer_check(buffered_array,UL,UL))
 		#or 
-		Input.is_action_pressed("jump")):
+		Input.is_action_just_pressed("jump")
+		or (Input.is_action_pressed("jump") and FrameByFrameMode.frame_by_frame_mode_endabled)):
 		#ground 
 		if player.is_on_floor() and movement_componet.is_jumping == false:
 			can_air_action_jump = true
@@ -241,35 +243,74 @@ func resize_and_append_to_array(array: Array, max_size: int, this_frame_inputs: 
 
 ## filters the inputs to get the needed and valid ones first should allways be running
 func input_filter():
-	inputs_of_curent_frame.clear()
+	inputs_of_curent_frame_for_attacks.clear()
+	#inputs_of_curent_frame_for_display.clear()
 	#optimized by ai useing vars to not need to call the function a milion times 
 	var up: bool = Input.is_action_pressed("up")
 	var down: bool = Input.is_action_pressed("down")
 	var left: bool = Input.is_action_pressed("left")
 	var right: bool = Input.is_action_pressed("right")
+	var light_punch: bool = Input.is_action_just_pressed("LP")
+	var light_kick: bool = Input.is_action_just_pressed("LK")
+	var heavy_punch: bool = Input.is_action_just_pressed("HP") 
+	var heavy_kick: bool = Input.is_action_just_pressed("HK") 
+	var light_punch_hold: bool = Input.is_action_pressed("LP")
+	var light_kick_hold: bool = Input.is_action_pressed("LK")
+	var heavy_punch_hold: bool = Input.is_action_pressed("HP") 
+	var heavy_kick_hold: bool = Input.is_action_pressed("HK") 
+	
+	
 	#picking a direction with binary math
 	var bit_index =(int(up) << 3) | (int(down) << 2) | (int(left) << 1) | int(right)
-	inputs_of_curent_frame.append(direction_look_up_array[bit_index])
+	inputs_of_curent_frame_for_attacks.append(direction_look_up_array[bit_index])
+	#inputs_of_curent_frame_for_display.append(direction_look_up_array[bit_index])
 	# end of ai work
 	if Input.is_action_pressed("fake inputs enabled"):
 		press() 
 	# Attacks
-	if (Input.is_action_pressed("LK") and Input.is_action_pressed("HK")):
-		inputs_of_curent_frame.append(EXK) 
-	if (Input.is_action_pressed("LP") and Input.is_action_pressed("HP")):
-		inputs_of_curent_frame.append(EXP)
-	if (Input.is_action_pressed("LK") and Input.is_action_pressed("LP")):
-		inputs_of_curent_frame.append(LPK)
-	if (Input.is_action_pressed("HK") and Input.is_action_pressed("HP")):
-		inputs_of_curent_frame.append(HPK)
-	if Input.is_action_pressed("LP"): inputs_of_curent_frame.append(LP)
-	if Input.is_action_pressed("LK"): inputs_of_curent_frame.append(LK)
-	if Input.is_action_pressed("HP"): inputs_of_curent_frame.append(HP)
-	if Input.is_action_pressed("HK"): inputs_of_curent_frame.append(HK)
+	if FrameByFrameMode.frame_by_frame_mode_endabled:
+		if (light_kick_hold and heavy_kick_hold):
+			inputs_of_curent_frame_for_attacks.append(EXK) 
+		if (light_punch_hold and heavy_punch_hold):
+			inputs_of_curent_frame_for_attacks.append(EXP)
+		if (light_kick_hold and light_punch_hold):
+			inputs_of_curent_frame_for_attacks.append(LPK)
+		if (heavy_kick_hold and heavy_punch_hold):
+			inputs_of_curent_frame_for_attacks.append(HPK)
+		if light_punch_hold: inputs_of_curent_frame_for_attacks.append(LP)
+		if light_kick_hold: inputs_of_curent_frame_for_attacks.append(LK)
+		if heavy_punch_hold: inputs_of_curent_frame_for_attacks.append(HP)
+		if heavy_kick_hold: inputs_of_curent_frame_for_attacks.append(HK)
 	
+	if (light_kick and heavy_kick):
+		inputs_of_curent_frame_for_attacks.append(EXK) 
+	if (light_punch and heavy_punch):
+		inputs_of_curent_frame_for_attacks.append(EXP)
+	if (light_kick and light_punch):
+		inputs_of_curent_frame_for_attacks.append(LPK)
+	if (heavy_kick and heavy_punch):
+		inputs_of_curent_frame_for_attacks.append(HPK)
+	if light_punch: inputs_of_curent_frame_for_attacks.append(LP)
+	if light_kick: inputs_of_curent_frame_for_attacks.append(LK)
+	if heavy_punch: inputs_of_curent_frame_for_attacks.append(HP)
+	if heavy_kick: inputs_of_curent_frame_for_attacks.append(HK)
+	
+	# for the display version
+	#if (Input.is_action_pressed("LK") and Input.is_action_pressed("HK")):
+		#inputs_of_curent_frame_for_display.append(EXK) 
+	#if (Input.is_action_pressed("LP") and Input.is_action_pressed("HP")):
+		#inputs_of_curent_frame_for_display.append(EXP)
+	#if (Input.is_action_pressed("LK") and Input.is_action_pressed("LP")):
+		#inputs_of_curent_frame_for_display.append(LPK)
+	#if (Input.is_action_pressed("HK") and Input.is_action_pressed("HP")):
+		#inputs_of_curent_frame_for_display.append(HPK)
+	#if Input.is_action_pressed("LP"): inputs_of_curent_frame_for_display.append(LP)
+	#if Input.is_action_pressed("LK"): inputs_of_curent_frame_for_display.append(LK)
+	#if Input.is_action_pressed("HP"): inputs_of_curent_frame_for_display.append(HP)
+	#if Input.is_action_pressed("HK"): inputs_of_curent_frame_for_display.append(HK)
 
-	resize_and_append_to_array(input_history,max_check_frames,inputs_of_curent_frame) # or call it rezise 
-	resize_and_append_to_array(buffered_array,max_buffer_frames,inputs_of_curent_frame)
+	resize_and_append_to_array(input_history,max_check_frames,inputs_of_curent_frame_for_attacks) # or call it rezise 
+	resize_and_append_to_array(buffered_array,max_buffer_frames,inputs_of_curent_frame_for_attacks)
 
 #--------------------------------------------------------end of array manamgent
 
@@ -349,7 +390,7 @@ func chose_action3():
 				print("you did it")
 				attack_manager.start_attack(attack_manager.current_attack.combo_attacks_dictionary[key])
 
-func _process(_delta):
+func _physics_process(_delta: float) -> void:
 	input_filter()
 	#print(input_history)
 	#state_print()

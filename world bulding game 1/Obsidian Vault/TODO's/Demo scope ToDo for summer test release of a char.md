@@ -29,7 +29,7 @@ what i could do
 	- [ ] make godot export 
 	- [x] pick /make a thumbnail
 	- [x] add socials / channels 
-	- [ ] add an audio hit affect 
+	- [x] add an audio hit affect 
 	- [x] add / make contol list 
 	- [x] add move list menu
 		
@@ -46,6 +46,9 @@ what i could do
 		236 L
 		236 H
 		236 block 
+		
 	- [ ] try to contact people in the fgc to advertise or take a look
+	- [ ] tuning of attacks
+		for simplify crouch and standing will be the same 
 	- [ ] make itch account 
 that is 10 points

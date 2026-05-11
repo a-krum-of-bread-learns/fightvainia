@@ -2,8 +2,8 @@
 class_name Movement extends BehaviourBase
 @export var prejump_frames: int = 4 ##prejump delay
 @export var timer: FrameTimer ## the timer fro prejumping 
-@export var jump_velocityY: float = -300 ## vertacial jump speed value 
-@export var move_speed: float = 100 ## horazontall speed value
+@export var jump_velocityY: float = -2400 ## vertacial jump speed value 
+@export var move_speed: float = 200 ## horazontall speed value
 var current_jump_direction: int ## saves the value for the jump while the delay happens
 var is_jumping: bool = false## tracks if the entity is trying to jump
 

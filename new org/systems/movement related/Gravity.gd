@@ -1,6 +1,6 @@
 ## holds all the main movemnt opptions may want to splitit up into separte compents
 class_name Gravity extends BehaviourBase
-@export var gravity: int = 8000
+@export var gravity: int = 7000
 @export var terminal_velocity: int = 2000
 @export var is_falling: bool = false
 
