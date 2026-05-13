@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="1_x314h"]
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="2_70b7h"]
-[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://art/copy right free art assets/stating stick.png" id="3_38vii"]
+[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://new org/art/copy right free art assets/stating stick.png" id="3_38vii"]
 [ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://new org/systems/attack components/HitBoxArea.gd" id="3_w7qro"]
 [ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="4_38vii"]
-[ext_resource type="Texture2D" uid="uid://go1s0hxf847i" path="res://art/copy right free art assets/explosion.png" id="4_r8v8b"]
-[ext_resource type="Texture2D" uid="uid://dminbco6164xr" path="res://art/copy right free art assets/shoot up.png" id="5_ckf6m"]
+[ext_resource type="Texture2D" uid="uid://go1s0hxf847i" path="res://new org/art/copy right free art assets/explosion.png" id="4_r8v8b"]
+[ext_resource type="Texture2D" uid="uid://dminbco6164xr" path="res://new org/art/copy right free art assets/shoot up.png" id="5_ckf6m"]
 [ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="5_r8v8b"]
 
 [sub_resource type="Resource" id="Resource_djpfx"]

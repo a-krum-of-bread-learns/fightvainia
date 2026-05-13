@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cpx7476smhscn"
+path="res://.godot/imported/freesound_community-punch-2-37333.mp3-ea417ec64b16e6da42859581494840e9.mp3str"
+
+[deps]
+
+source_file="res://new org/art/copy right free audio assets/freesound_community-punch-2-37333.mp3"
+dest_files=["res://.godot/imported/freesound_community-punch-2-37333.mp3-ea417ec64b16e6da42859581494840e9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

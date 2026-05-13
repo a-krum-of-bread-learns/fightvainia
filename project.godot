@@ -19,6 +19,10 @@ run/main_scene="uid://qxbhnmphixub"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://new org/systems/audio/default_bus_layout.tres"
+
 [autoload]
 
 FrameByFrameMode="*res://new org/systems/auto load scripts/frame by frame mode.gd"
@@ -46,10 +50,11 @@ enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://animations/": "teal",
-"res://base classes/": "orange",
+"res://new org/art/": "purple",
 "res://new org/entites/": "blue",
 "res://new org/systems/": "orange",
+"res://new org/systems/animation/defults/": "teal",
+"res://new org/systems/base classes/": "orange",
 "res://new org/systems/ui/": "green",
 "res://testings/": "gray"
 }
@@ -147,3 +152,7 @@ menu={
 [physics]
 
 2d/default_gravity=9800.0
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bdtukeecviv7x"]
+
+[ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://new org/systems/auto load scripts/set cam.gd" id="1_nuj0t"]
+[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://new org/art/copy right free art assets/stating stick.png" id="2_wrtpe"]
+
+[node name="Node2D" type="Node2D" unique_id=967490963]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1067626096]
+script = ExtResource("1_nuj0t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1179971029]
+scale = Vector2(0.008, 0.008)
+texture = ExtResource("2_wrtpe")

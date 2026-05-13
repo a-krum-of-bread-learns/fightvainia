@@ -60,30 +60,26 @@ func start_attack(an_attack: Attack):
 #TODO add a check for a child that reenables the dealt damage boolen in the parent 
 ##checks is attacking varable so that it can stop or contine 
 func continue_attack():
-	print(current_attack.active_frame + 1) # print from 1 but code its from 0  
 	if current_attack == null:
 		push_error("attack is null")
 		return
-	# end of the attack on last frame
-	if current_attack.active_frame == current_attack.frames.size()-1:
+	print(current_attack.active_frame + 1)
+	
+	if current_attack.active_frame == current_attack.frames.size():
 		is_attacking = false 
 		current_attack.frames[current_attack.active_frame-1].set_frame_disabled(true)
 		reset_values(current_attack)
 	else:
-		#to diable previous frame
 		if current_attack.active_frame != 0:
 			current_attack.frames[current_attack.active_frame-1].set_frame_disabled(true)
-		#incremnt frame
 		current_attack.frames[current_attack.active_frame].set_frame_disabled(false)
 		current_attack.active_frame += 1
-		
-	#projectile case
+
 	for node in current_attack.frames[current_attack.active_frame-1].get_children():
 		if node is ProjectileArea:
+			print("PROJECTILE FOUND ON FRAME: ", current_attack.active_frame-1)
 			node.is_active = true
 			current_attack.frames[current_attack.active_frame-1].set_frame_disabled(false)
-			
-
 
 
 

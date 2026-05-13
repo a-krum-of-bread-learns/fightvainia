@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cca8fe1qvcnch"]
 
-[ext_resource type="Script" uid="uid://bssckwpf2obbe" path="res://base classes/EntityBase.gd" id="1_wr0em"]
+[ext_resource type="Script" uid="uid://bssckwpf2obbe" path="res://new org/systems/base classes/EntityBase.gd" id="1_wr0em"]
 [ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="2_kwp60"]
 [ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://new org/systems/player components and systems/StunManager.gd" id="3_efw5k"]
 [ext_resource type="Script" uid="uid://ccxb00gf1jcum" path="res://new org/systems/player components and systems/Health.gd" id="4_bsvvr"]
@@ -18,7 +18,6 @@ scale = Vector2(8, 8)
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_wr0em")
-is_blocking = true
 stun_manager = NodePath("StunManager")
 health_component = NodePath("Health")
 block_type = 1

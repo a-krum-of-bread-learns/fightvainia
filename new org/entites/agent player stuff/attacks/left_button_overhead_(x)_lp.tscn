@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="1_vjtxn"]
 [ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="2_fgdgw"]
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="2_hel6n"]
-[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://art/copy right free art assets/stating stick.png" id="3_7vpiy"]
-[ext_resource type="Curve" uid="uid://dyio4lhjl3s7l" path="res://animations/defaults/decresing velocity or constant deceleration.tres" id="3_fgdgw"]
+[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://new org/art/copy right free art assets/stating stick.png" id="3_7vpiy"]
+[ext_resource type="Curve" uid="uid://dyio4lhjl3s7l" path="res://new org/systems/animation/defults/defaults/decresing velocity or constant deceleration.tres" id="3_fgdgw"]
 [ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://new org/systems/attack components/HitBoxArea.gd" id="3_re2id"]
 [ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="4_7vpiy"]
-[ext_resource type="Curve" uid="uid://c42e5g30q0cp2" path="res://animations/defaults/constant velocity.tres" id="4_j3do2"]
+[ext_resource type="Curve" uid="uid://c42e5g30q0cp2" path="res://new org/systems/animation/defults/defaults/constant velocity.tres" id="4_j3do2"]
 [ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="5_6xhqk"]
-[ext_resource type="Texture2D" uid="uid://b5b21kjb78lex" path="res://art/copy right free art assets/over head stick.png" id="7_6xhqk"]
+[ext_resource type="Texture2D" uid="uid://b5b21kjb78lex" path="res://new org/art/copy right free art assets/over head stick.png" id="7_6xhqk"]
 
 [sub_resource type="Resource" id="Resource_mxo3j"]
 script = ExtResource("2_fgdgw")

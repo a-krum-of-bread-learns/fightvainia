@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="1_2pb3m"]
 [ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="2_q15th"]
-[ext_resource type="Curve" uid="uid://dyio4lhjl3s7l" path="res://animations/defaults/decresing velocity or constant deceleration.tres" id="3_fd2rx"]
+[ext_resource type="Curve" uid="uid://dyio4lhjl3s7l" path="res://new org/systems/animation/defults/defaults/decresing velocity or constant deceleration.tres" id="3_fd2rx"]
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="3_tmup4"]
 [ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://new org/systems/attack components/HitBoxArea.gd" id="4_fd2rx"]
-[ext_resource type="Texture2D" uid="uid://bhn4w2idgg11o" path="res://art/copy right free art assets/crouch.png" id="4_tmup4"]
+[ext_resource type="Texture2D" uid="uid://bhn4w2idgg11o" path="res://new org/art/copy right free art assets/crouch.png" id="4_tmup4"]
 [ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="5_e6xyj"]
 [ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="6_8wvil"]
-[ext_resource type="Texture2D" uid="uid://m6lptdl5apmt" path="res://art/copy right free art assets/step forward baton swing low.png" id="7_q15th"]
+[ext_resource type="Texture2D" uid="uid://m6lptdl5apmt" path="res://new org/art/copy right free art assets/step forward baton swing low.png" id="7_q15th"]
 
 [sub_resource type="Curve" id="Curve_2vilf"]
 _data = [Vector2(0, 0.5), 0.0, 0.0, 0, 1, Vector2(1, 0.5), 0.0, 0.0, 1, 0]

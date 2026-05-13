@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="1_p6j57"]
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="2_0hrwv"]
-[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://art/copy right free art assets/stating stick.png" id="3_bi02m"]
+[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://new org/art/copy right free art assets/stating stick.png" id="3_bi02m"]
 [ext_resource type="Script" uid="uid://ckkq3f3j2wj34" path="res://new org/systems/attack components/ProjectileArea.gd" id="3_nvrr7"]
 [ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="4_bi02m"]
 [ext_resource type="Resource" uid="uid://b2eh4wty7ne67" path="res://new org/entites/agent player stuff/animations/basic_forward_moving_projectile.tres" id="5_adlkj"]
 [ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="6_tyke0"]
 [ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/player components and systems/FrameTimerCompnent.gd" id="7_07rc4"]
 [ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new org/systems/animation/AnimationTool.gd" id="8_26ngb"]
-[ext_resource type="Texture2D" uid="uid://go1s0hxf847i" path="res://art/copy right free art assets/explosion.png" id="9_0hrwv"]
+[ext_resource type="Texture2D" uid="uid://go1s0hxf847i" path="res://new org/art/copy right free art assets/explosion.png" id="9_0hrwv"]
 
 [sub_resource type="Resource" id="Resource_3pm7c"]
 script = ExtResource("6_tyke0")

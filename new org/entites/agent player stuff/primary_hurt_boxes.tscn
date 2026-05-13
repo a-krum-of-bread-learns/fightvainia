@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c56l0wv4lygfr" path="res://new org/systems/player components and systems/PrimaryHurtBoxes.gd" id="1_4gmxm"]
 [ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="1_rj2pn"]
-[ext_resource type="Texture2D" uid="uid://bhn4w2idgg11o" path="res://art/copy right free art assets/crouch.png" id="3_o6v2u"]
-[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://art/copy right free art assets/stating stick.png" id="4_kldvp"]
+[ext_resource type="Texture2D" uid="uid://bhn4w2idgg11o" path="res://new org/art/copy right free art assets/crouch.png" id="3_o6v2u"]
+[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://new org/art/copy right free art assets/stating stick.png" id="4_kldvp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_or5bu"]
 size = Vector2(16, 32)

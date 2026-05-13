@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="1_ir3hp"]
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="2_qwngo"]
-[ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://art/copy right free audio assets/session.mp3" id="2_ynnf3"]
-[ext_resource type="Texture2D" uid="uid://b2t3qtr1cy383" path="res://art/copy right free art assets/steel grapling hook.png" id="3_33jvn"]
+[ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://new org/art/copy right free audio assets/session.mp3" id="2_ynnf3"]
+[ext_resource type="Texture2D" uid="uid://b2t3qtr1cy383" path="res://new org/art/copy right free art assets/steel grapling hook.png" id="3_33jvn"]
 [ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://new org/systems/attack components/HitBoxArea.gd" id="3_r1ten"]
-[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://art/copy right free art assets/stating stick.png" id="3_ynnf3"]
+[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://new org/art/copy right free art assets/stating stick.png" id="3_ynnf3"]
 [ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="5_ynnf3"]
 [ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="6_33jvn"]
-[ext_resource type="Texture2D" uid="uid://dminbco6164xr" path="res://art/copy right free art assets/shoot up.png" id="7_ynnf3"]
+[ext_resource type="Texture2D" uid="uid://dminbco6164xr" path="res://new org/art/copy right free art assets/shoot up.png" id="7_ynnf3"]
 
 [sub_resource type="Resource" id="Resource_ynnf3"]
 script = ExtResource("6_33jvn")

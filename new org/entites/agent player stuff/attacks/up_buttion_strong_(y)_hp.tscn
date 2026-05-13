@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="1_v7s2t"]
 [ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="2_ysjwp"]
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="3_8gwc7"]
-[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://art/copy right free art assets/stating stick.png" id="4_8gwc7"]
+[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://new org/art/copy right free art assets/stating stick.png" id="4_8gwc7"]
 [ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://new org/systems/attack components/HitBoxArea.gd" id="4_f85x7"]
 [ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="5_q0r3t"]
 [ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="6_jlkwf"]
-[ext_resource type="Texture2D" uid="uid://bm8pg1kvvr0d2" path="res://art/copy right free art assets/step forward baton swing normal.png" id="8_f85x7"]
+[ext_resource type="Texture2D" uid="uid://bm8pg1kvvr0d2" path="res://new org/art/copy right free art assets/step forward baton swing normal.png" id="8_f85x7"]
 
 [sub_resource type="Curve" id="Curve_lueer"]
 _data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]

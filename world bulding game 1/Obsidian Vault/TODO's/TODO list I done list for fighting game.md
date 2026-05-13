@@ -63,17 +63,13 @@
 - [ ] decide these 2 where they should be fast_move_speed, gravity
 - [ ] combine player and input manager?
 - [ ] run?
-- [ ] stop some stuff from processing that don't need it when running
-- [ ] give the hurt able player text over head saying is stunned 
+- [x] give the hurt able player text over head saying is stunned 
 - [ ] a bit of combo ui
 - [ ] do i want air blocking ?
 
 - [ ] fix collisions so i can push another player using if im being detected then i will be pushing
 	the layer pushes the mask witch means i need 2 player layers needs a work a round to have both the players push each other 
-- [ ] try an attack with the animation player need to watch vids or dont and skip this
 - [ ] make grabs and command grabs (related to above) or dont and skip this 
-
-
 - [ ] make simple boolens for modifiers of hurt and hit boxes? skip this scopecreep
 
 
@@ -100,15 +96,19 @@ are all normal cancel-able ?
 - [ ] consider the health and other similar components that are nodes as resources instead
 - [x] make a scope limit 
 - [ ] make a danger zone section 
-- [ ] learn conditional editor tools or separate projectile animation and entity animation
+- [x] learn conditional editor tools or separate projectile animation and entity animation
 - [ ] decide on state based movement or fluid movement 
 - [ ] make a demo (limits: 1 char 1-3 basic enemy 1 boss that is the same char and a bit of ability to unlock and put it on itch if you use boxes then do it see [[Demo scope ToDo for summer test release of a char|demo scope]] 
 - [ ] make the attacks a resource that can be loaded so random select can be done
 - [ ] make combo only property for hit boxes 
-- [ ] make on hit condition check 
+- [x] make on hit condition check 
 - [ ] add flexablity to combo attacks so that if i have a 2 hit attack it can follow up differently on hir 1 and hit 2 
 - [x] make a spawn object thing
 - [ ] add spawn object under frames with a button
 - [ ] stuns of type like fire and electricty or ice here
 - [ ] review all process/ physics process functions for witch one is right to use
-- [ ] fix stun manager logic so that the thing works on y stun
+- [x] fix stun manager logic so that the thing works on y stun
+- [ ] pick one block the projectile or block the player
+
+if both camera and art are scaled most of the art will still render at high quality 
+- [ ] do an art scale again things taht do: primary hurt boxes, colsion shape, attack manager,  the projectile hit box  colison shapes, spites should

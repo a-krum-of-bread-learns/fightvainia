@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="1_762u3"]
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="2_bcnd8"]
-[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://art/copy right free art assets/stating stick.png" id="3_5eyyj"]
+[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://new org/art/copy right free art assets/stating stick.png" id="3_5eyyj"]
 [ext_resource type="Script" uid="uid://c8jj0n7q3gi8d" path="res://new org/systems/attack components/spawn_object.gd" id="3_bshs3"]
 [ext_resource type="PackedScene" uid="uid://vkfk7yujh2nn" path="res://new org/entites/agent player stuff/attacks/spwan able ice block.tscn" id="4_5eyyj"]
-[ext_resource type="Texture2D" uid="uid://t7yhrw883fmk" path="res://art/copy right free art assets/shoot down.png" id="6_riw80"]
+[ext_resource type="Texture2D" uid="uid://t7yhrw883fmk" path="res://new org/art/copy right free art assets/shoot down.png" id="6_riw80"]
 
 [node name="spawn ice block" type="Node2D" unique_id=1932217704]
 script = ExtResource("1_762u3")

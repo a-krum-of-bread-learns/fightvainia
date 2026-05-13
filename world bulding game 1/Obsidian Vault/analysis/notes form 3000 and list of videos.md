@@ -184,7 +184,15 @@ trash talk vid on tekken 8 season 3
 	make a during combo interaction for the defender maybe DI. mid level play is when people start to feel connected to the game longer term and having a tool to support that like drive rush in sf6 may help
 trash talk on invincible vs and rage quit culture
 	https://youtu.be/vjp4EqrEBUk?si=koZT6cK7h7bsrwx0
-	auto combo stuff if the combo comes out on whiff then it may not have a mind game or decision. so it may be better to have the auto combo be partly cancel on whiff with a punishable point. but there should be some punish able point so that spammers learn something. it may be better to develop games in expansions if i want semi live service and like character packs .
+	auto combo stuff if the combo comes out on whiff then it may not have a mind game or decision. so it may be better to have the auto combo be partly cancel on whiff with a punishable point. but there should be some punish able point so that spammers learn something. it may be better to develop games in expansions if i want semi live service and like character packs.
+the true value of invincible reversal (broski video nice)
+	https://youtu.be/d1iu8gkpo6w?si=elFxUDfeGIH4zY0c
+	reduces bad situations
+	reversal oki terry can beat wake up back roll jab 
+	DP option selects reduces the mixups  
+	reversals can completely ignore some chars specific interaction negation sequences that can go into a frame trap so they can be worse
+	reversal supers are worse in almost every situation
+	super flash can eat inputs they cost a lot and are often slow
    
 ## sajam play list of stuff up to 8 years ago I should watch
 video numbered some may have been watched already

@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://bj2ky72inaiq4"]
 
 [ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="1_oc6v4"]
-[ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://art/copy right free audio assets/session.mp3" id="2_co7ac"]
+[ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://new org/art/copy right free audio assets/session.mp3" id="2_co7ac"]
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="3_4qoby"]
-[ext_resource type="Texture2D" uid="uid://bhn4w2idgg11o" path="res://art/copy right free art assets/crouch.png" id="4_u4hjg"]
+[ext_resource type="Texture2D" uid="uid://bhn4w2idgg11o" path="res://new org/art/copy right free art assets/crouch.png" id="4_u4hjg"]
 [ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://new org/systems/attack components/HitBoxArea.gd" id="5_qxupb"]
 [ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="6_aotru"]
 [ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="7_f6n0p"]
-[ext_resource type="Texture2D" uid="uid://m6lptdl5apmt" path="res://art/copy right free art assets/step forward baton swing low.png" id="8_fgmjq"]
+[ext_resource type="Texture2D" uid="uid://m6lptdl5apmt" path="res://new org/art/copy right free art assets/step forward baton swing low.png" id="8_fgmjq"]
 
 [sub_resource type="Resource" id="Resource_fc1wu"]
 script = ExtResource("6_aotru")

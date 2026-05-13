@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://gu4f3xo60xh2" path="res://new org/entites/agent player stuff/attacks/up_buttion_strong_(y)_hp.tscn" id="4_1e7bk"]
 [ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new org/systems/animation/AnimationTool.gd" id="5_1e7bk"]
 [ext_resource type="PackedScene" uid="uid://od41351s0ekc" path="res://new org/entites/agent player stuff/attacks/left_button_low_(x)_lp.tscn" id="6_g61p2"]
-[ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://art/copy right free audio assets/session.mp3" id="6_yc487"]
+[ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://new org/art/copy right free audio assets/session.mp3" id="6_yc487"]
 [ext_resource type="PackedScene" uid="uid://ci8cd0kwoplqn" path="res://new org/entites/agent player stuff/attacks/up_button_low_(y)_hp.tscn" id="8_6wa2j"]
 [ext_resource type="PackedScene" uid="uid://b50dutlc1lhd4" path="res://new org/entites/agent player stuff/attacks/up_buttion_anti_air_(y)_hp.tscn" id="9_emola"]
 [ext_resource type="PackedScene" uid="uid://cw5fnq8vbjalr" path="res://new org/entites/agent player stuff/attacks/left_button_overhead_(x)_lp.tscn" id="10_emola"]
@@ -81,10 +81,9 @@ hit_sound = ExtResource("6_yc487")
 
 [node name="spawn ice block" parent="folder/attack manager" index="9" unique_id=1932217704 instance=ExtResource("14_anoxa")]
 
-[node name="fire ball" parent="folder/attack manager" index="10" unique_id=1979542474 instance=ExtResource("13_j33lb")]
+[node name="electric stun projectile" parent="folder/attack manager" index="10" unique_id=1859951945 instance=ExtResource("15_yc487")]
 hit_sound = ExtResource("6_yc487")
 
-[node name="electric stun projectile" parent="folder/attack manager" index="11" unique_id=1859951945 instance=ExtResource("15_yc487")]
-hit_sound = ExtResource("6_yc487")
+[node name="fire ball" parent="folder/attack manager" index="11" unique_id=1979542474 instance=ExtResource("13_j33lb")]
 
 [connection signal="animate" from="folder/attack manager" to="AnimationTool" method="animate"]

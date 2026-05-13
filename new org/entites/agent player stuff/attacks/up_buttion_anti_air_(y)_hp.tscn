@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="1_vxa7i"]
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="2_opap8"]
 [ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://new org/systems/attack components/HitBoxArea.gd" id="3_odemy"]
-[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://art/copy right free art assets/stating stick.png" id="3_v8p7c"]
+[ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://new org/art/copy right free art assets/stating stick.png" id="3_v8p7c"]
 [ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="4_v8p7c"]
-[ext_resource type="Texture2D" uid="uid://bolfd0wud2j18" path="res://art/copy right free art assets/anti air.png" id="6_ptdg8"]
+[ext_resource type="Texture2D" uid="uid://bolfd0wud2j18" path="res://new org/art/copy right free art assets/anti air.png" id="6_ptdg8"]
 
 [sub_resource type="Resource" id="Resource_dhck0"]
 script = ExtResource("4_v8p7c")
