@@ -139,7 +139,7 @@ func rename_frames():
 	for frame in get_children():
 		move_child(frame, frame.name.to_int()-1)
 		frame.name = "frame # " + str(count) + "-" +str(count+(frame.repeat_this_frame))
-		count = count +1  + frame.repeat_this_frame
+		count = count + 1 + frame.repeat_this_frame
 
 # main place to call functions here 
 func _physics_process(_delta):

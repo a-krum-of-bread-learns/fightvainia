@@ -2,10 +2,18 @@
 
 [ext_resource type="Script" uid="uid://bssckwpf2obbe" path="res://new org/entites/basic parts/EntityBase.gd" id="1_wr0em"]
 [ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="2_kwp60"]
+[ext_resource type="Script" uid="uid://c8s3fam83coqj" path="res://new org/entites/basic parts/entity_stats_resource.gd" id="2_m8xwp"]
 [ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://new org/systems/player components and systems/StunManager.gd" id="3_efw5k"]
 [ext_resource type="Script" uid="uid://ccxb00gf1jcum" path="res://new org/systems/player components and systems/Health.gd" id="4_bsvvr"]
 [ext_resource type="Script" uid="uid://dd0phg7lcqqps" path="res://new org/systems/movement related/Gravity.gd" id="5_wr0em"]
 [ext_resource type="Texture2D" uid="uid://dxxtu2redxtmm" path="res://icon.svg" id="6_lx4nb"]
+
+[sub_resource type="Resource" id="Resource_juid5"]
+script = ExtResource("2_m8xwp")
+max_health = 10000000000000
+gravity = 7000
+terminal_velocity = 2000
+metadata/_custom_type_script = "uid://c8s3fam83coqj"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7li3v"]
 size = Vector2(16, 24)
@@ -20,9 +28,10 @@ collision_mask = 3
 script = ExtResource("1_wr0em")
 is_facing_right = null
 is_blocking = true
-block_type = 1
 stun_manager = NodePath("StunManager")
 health_component = NodePath("Health")
+stats = SubResource("Resource_juid5")
+block_type = 1
 metadata/_custom_type_script = "uid://bssckwpf2obbe"
 
 [node name="colison box" type="CollisionShape2D" parent="." unique_id=2049379602]
@@ -65,7 +74,6 @@ metadata/_custom_type_script = "uid://b8564hciniqu3"
 
 [node name="Health" type="Node" parent="." unique_id=913288797 node_paths=PackedStringArray("host")]
 script = ExtResource("4_bsvvr")
-max_health = 10000000000000
 enabled = true
 host = NodePath("..")
 metadata/_custom_type_script = "uid://ccxb00gf1jcum"

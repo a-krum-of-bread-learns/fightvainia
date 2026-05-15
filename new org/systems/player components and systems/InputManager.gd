@@ -41,17 +41,12 @@ var max_buffer_frames: int = 5 ## the frame cap for the final input of an action
 
 
 var input_direction: int = 0 ## tells us the direstion the playre wants to move
-var can_air_action_jump: bool = false ## tracks if the player can jump again in air
-var can_air_action_dash: bool = false  ## tracks if the player can dach again in air
 var jump_relesed: bool = false
 
 # combining player script with input manager
 @export_group("player info")
 @export var player: Player ## the player see [Player]
 @export var attack_manager: AttackManager ##see [AttackManger]
-@export var coyote_timer: FrameTimer ## a timer to check if we can still jump without it being considerd in air see [TimerComponet]
-@export var c_timer_length: int = 6 # same as .1 seconds
-var can_c_jump: bool = false# can coyote jump
 @export var movement_componet: Movement ## see [Movement] 
 @export var scale_component: Scale ## see [Scale] 
 @export var dash_component: Dash ## see [Dash]
@@ -95,90 +90,14 @@ func state_print():
 	
 #TODO add more conditons to tuitning around  # this may be consederd done else whare
 ## identifies when to flip player on ground
-func flip_x_logic():
-	if scale_component:
-		if player.is_on_floor() and input_direction == -1:
-			scale_component.set_scale(Vector2(-1,1))
-		elif player.is_on_floor() and input_direction == 1:
-			scale_component.set_scale(Vector2(1,1))
+
 #-------------------------------------------------------------start of movemnt handling 
 
-func jump_handler2():
-	#bit of set up 
-	if player.is_on_floor() and movement_componet.is_jumping == false: 
-		coyote_timer.start_frame_timer(c_timer_length)
-		can_c_jump = true
-	elif movement_componet.is_jumping:
-		can_c_jump = false
-		gravity_component.is_falling = true
-		dash_component.is_dashing = false
-		
-	if (#(buffer_check(buffered_array,U,U)
-		#or buffer_check(buffered_array,UR,UR)
-		#or buffer_check(buffered_array,UL,UL))
-		#or 
-		Input.is_action_just_pressed("jump")
-		or (Input.is_action_pressed("jump") and FrameByFrameMode.frame_by_frame_mode_endabled)):
-		#ground 
-		if player.is_on_floor() and movement_componet.is_jumping == false:
-			can_air_action_jump = true
-			movement_componet.jump(input_direction)
-			coyote_timer.frames_left = 0
-			print("g")
-		
-		#coyote jump
-		elif (player.is_on_floor() == false
-		and coyote_timer.frames_left > 0 
-		and can_c_jump 
-		and (Input.is_action_just_pressed("up") or 
-		Input.is_action_pressed("jump"))): 
-			coyote_timer.frames_left = 0
-			movement_componet.jump(input_direction)
-			print("c")
-		
-		#air jump
-		elif (can_air_action_jump
-		 and movement_componet.is_jumping == false
-		 and (Input.is_action_just_pressed("up") or 
-		Input.is_action_pressed("jump"))):
-			can_air_action_jump = false
-			movement_componet.jump(input_direction)
-			print("a")
 
-
-func dash_handler2():
-	#some set up 
-	if dash_component.is_dashing:
-		gravity_component.is_falling = false
-	else: gravity_component.is_falling = true
-	if player.is_on_floor(): can_air_action_dash = true
-	
-	if (buffer_check(input_history, DASHR,R)
-		and dash_component.is_dashing == false):
-		if player.is_on_floor():
-			print("ground dash")
-			dash_component.dash(Vector2.RIGHT)
-			dash_component.is_dashing = true
-		elif can_air_action_dash:
-			dash_component.dash(Vector2.RIGHT)
-			dash_component.is_dashing = true
-			can_air_action_dash = false
-
-	elif (buffer_check(input_history, DASHL,L)
-		and dash_component.is_dashing == false):
-		if player.is_on_floor():
-			print("ground dash")
-			dash_component.dash(Vector2.LEFT)
-			dash_component.is_dashing = true
-		elif can_air_action_dash:
-			dash_component.dash(Vector2.LEFT )
-			dash_component.is_dashing = true
-			can_air_action_dash = false
-		
-
-## handels logic for when to move
+## handels logic for when to move removes the crouch checks for crouch walk
 func movement_manager():
-	if player.is_on_floor() and (player.is_crouching or attack_manager.is_attacking):
+	if player.is_on_floor() and (player.is_crouching or 
+	attack_manager.is_attacking):
 		player.velocity.x = 0
 		dash_component.is_dashing = false
 	elif (player.is_on_floor()
@@ -314,35 +233,6 @@ func input_filter():
 
 #--------------------------------------------------------end of array manamgent
 
-func get_attack_button() -> int:
-	if FrameByFrameMode.frame_by_frame_mode_endabled == true:# for if so that when it unfecese you can use the attack by holding the butiion
-		if (Input.is_action_pressed("LK") and Input.is_action_pressed("HK")):
-			return EXK
-		elif (Input.is_action_pressed("LP") and Input.is_action_pressed("HP")):
-			return EXP
-		elif (Input.is_action_pressed("LK") and Input.is_action_pressed("LP")):
-			return LPK
-		elif (Input.is_action_pressed("HK") and Input.is_action_pressed("HP")):
-			return HPK
-		elif Input.is_action_pressed("LP"): return LP
-		elif Input.is_action_pressed("LK"): return LK
-		elif Input.is_action_pressed("HP"): return HP
-		elif Input.is_action_pressed("HK"): return HK
-	else:
-		if (Input.is_action_just_pressed("LK") and Input.is_action_just_pressed("HK")):
-			return EXK
-		elif (Input.is_action_just_pressed("LP") and Input.is_action_just_pressed("HP")):
-			return EXP
-		elif (Input.is_action_just_pressed("LK") and Input.is_action_just_pressed("LP")):
-			return LPK
-		elif (Input.is_action_just_pressed("HK") and Input.is_action_just_pressed("HP")):
-			return HPK
-		elif Input.is_action_just_pressed("LP"): return LP
-		elif Input.is_action_just_pressed("LK"): return LK
-		elif Input.is_action_just_pressed("HP"): return HP
-		elif Input.is_action_just_pressed("HK"): return HK
-	return 0
-
 func chose_actions_get_attack(dic: Dictionary[Array, Attack]):
 	var index: int
 	var most_recent_attack: Attack
@@ -403,9 +293,9 @@ func _physics_process(_delta: float) -> void:
 		chose_action3()
 	if attack_manager.is_attacking == false:
 		player.primary_hurt_box_manager()
-		flip_x_logic()
-		dash_handler2()
-		jump_handler2()
+		scale_component.flip_x_logic()
+		dash_component.dash_handler2()
+		movement_componet.jump_handler2()
 	else: player.PrimaryHurtBoxes_component.disable_all_pimary_sprites()
 
 	

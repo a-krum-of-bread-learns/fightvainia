@@ -131,3 +131,4 @@ balance anti airs that cover both sides with half circle inputs
 I could have a redundant special move button on block so that all of one button has its specials duplicated since a lot of fighters have 3 or more attacks
 give regular block recovery or start up but can be canceled into from some attacks 
 do i allow for air attacks when landed to cancel into grounded special moves? (example may 7 around or before 4)
+universal design of reversal dp's especially the invincible ones

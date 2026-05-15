@@ -35,7 +35,7 @@ func _physics_process(_delta):
 	#not my function
 	move_and_slide()
 	#print("player postion "+str(global_position))
-	#dsssssprint("player velcoity "+str(velocity))
+	#print("player velcoity "+str(velocity))
 	#print("player scale " + str(scale))
 
 

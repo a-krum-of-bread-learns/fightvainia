@@ -25,8 +25,8 @@ what i could do
 - [x] make player moves lock out 
 - [x] make at least something visual with the Godot icon or transparent colors debug tool ???????
 - [x] make a system to show attacks without the editor to help just add spites and edit them 
-- [ ] release on itch
-	- [ ] make godot export 
+- [x] release on itch
+	- [x] make godot export 
 	- [x] pick /make a thumbnail
 	- [x] add socials / channels 
 	- [x] add an audio hit affect 
@@ -47,8 +47,12 @@ what i could do
 		236 H
 		236 block 
 		
-	- [ ] try to contact people in the fgc to advertise or take a look
-	- [ ] tuning of attacks
+	- [x] try to contact people in the fgc to advertise or take a look
+	- [x] tuning of attacks
 		for simplify crouch and standing will be the same 
-	- [ ] make itch account 
+	- [x] make itch account 
 that is 10 points
+
+## scope part 2: 3 enemys
+- [ ] learn iai / cpu
+- [ ] make an iai class or something 

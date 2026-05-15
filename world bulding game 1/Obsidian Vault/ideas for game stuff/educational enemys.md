@@ -42,7 +42,8 @@ character lockout
 	for example mages cant really fight in an anti magic area or some chars may have been taken out or trapped by the environment like floor traps pit falls etc
 	probably best for tag games to force players to learn each char in a metroidvania 
 
-
+basic enemy
+	random block and attack
 
 ## random enemies 
 blindness

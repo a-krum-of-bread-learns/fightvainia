@@ -76,4 +76,4 @@ repeat_this_frame = 31
 scale = Vector2(0.063, 0.063)
 texture = ExtResource("3_bi02m")
 
-[connection signal="animate" from="frame # 13-13/Projectile # 200" to="frame # 13-13/Projectile # 200/projectile animateor" method="animate"]
+[connection signal="start_animation" from="frame # 13-13/Projectile # 200" to="frame # 13-13/Projectile # 200/projectile animateor" method="animate"]

@@ -14,10 +14,9 @@ var boxes: Array[CollisionShape2D]
 var sprites_array: Array[Sprite2D]
 # animation stuff
 @export var animation_stuff: Array[AnimationResource]
-signal animate(is_facing_right: bool, animation_stuff: Array[AnimationResource])
+signal start_animation(is_facing_right: bool, animation_stuff: Array[AnimationResource])
 
-func start_animation(is_facing_right: bool):
-		animate.emit(is_facing_right,animation_stuff)
+
 
 func _ready():
 	for child in get_children():
@@ -25,7 +24,7 @@ func _ready():
 	super._ready()
 	if attached_to_entity: top_level = false
 	else: top_level = true
-	if animate.has_connections() == false:
+	if start_animation.has_connections() == false:
 		push_error("signal animate not conected to an animation too for " +str(get_parent().name) + " in " +str(get_parent().get_parent().name))
 	for node in get_children():
 		if node is Sprite2D:
@@ -60,7 +59,7 @@ func enable_disable_boxes():
 func lifespan_check():
 	if is_active == true and is_active_changed():
 		timer.start_frame_timer(max_lifespan_in_frames)
-		start_animation(attack_manager.host.is_facing_right)
+		start_animation.emit(attack_manager.host.is_facing_right,animation_stuff)
 	elif timer.is_stoped():
 		reset_postion_detached()
 		timer.reset()

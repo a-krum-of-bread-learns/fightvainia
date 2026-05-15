@@ -1,5 +1,4 @@
 class_name PlayerStats extends EntityStats
-
 @export var prejump_frames: int
 @export var jump_velocityY: float
 @export var move_speed: float
