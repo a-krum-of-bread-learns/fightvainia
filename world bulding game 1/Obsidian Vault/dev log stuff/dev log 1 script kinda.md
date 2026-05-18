@@ -19,6 +19,7 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 	if we want to do this in code (godot editor or similar) we can have an if statement check for each condition starting with the 4 button case and going down to the 3 then 2 then 1 then 0 button case like this ==(image)==
 	this can also be done with a binary look up table (or truth table or Bit mask lookup table) like this ==(image and truth table image)== corresponding to the table as shown
 	now lets consider the player decides to use a joy stick instead of a d-pad or hit box. the joy stick doesn't give whole as it is an analog input  ==(clip with joy stick and position values)== values so we need to account for that by rounding or adjusting the value to be working
+	however when working with attack buttons we do want more then 1 input to be read at the same time for things like L punch + L kick = grab in sf6  or 3 buttons in guilty gear  = roman cancel ==(then show stock footage)== here is a visual example of how i did it for my project ==(show the 4 attack buttons)==  staring with 4 attack buttons when i press 2 of them i read that at both pressed at the same time i read it as 3 inputs ==(show the expanded buttons for the 2 pressed)==
 - basic fighting game num-pad notation **not sure if i should explain it**
 	num-pad notation can be used as one way to represent inputs in fighting games we can also use it to help us in code for people who are familiar with it or just have a number pad next to them when developing the motion in puts her are a few examples ==(examples 3 -5 one with a change example even tho i dont plan to have charge moves in my game )== 
 	now that you have seen a few examples lets try a few for you to test you self if you understand it ==(a few for practice)==
@@ -41,10 +42,16 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 	buffered allowance
 	
 	one of the most common things in fighting games are motion inputs ==(image)== but how do we make them in our own games. in this video i will go through the process of making a input sequence reader that starts reading only exactly one case then starts to add more flexibility *such as reading the most recent sequence as the priority and adding an attack buttion*.
-	lets start with what the main concept  ==(images/ clips)==  the basics are we look at a set of inputs and read them then check against a reference to see if they match  then we can decide if we want to do something entire with it or not.
+	let me start by stating the outline of this video
+	A. just taking in inputs form d-pad and joy buttons
+		- mention previous video 
+	B. saving direction information in list / array / input history 
+	C. using direction information to may a special move
+	lets begin with reading the inputs our player gives us. d-pad and buttons in godot this is faily easy the main lines we would need are Input.get_action_pressed("input name") and Input.get_action_just_pressed("input name")
+	lets start with what the main concept  ==(images/ clips)==  the basics are we look at a set of inputs and read them then check against a reference to see if they match then we can decide if we want to do something entire with it or not.
 	assumptions 
-	1. you must have an array with input history
-	2. you need to pick weather you will have the inputs given in rvers or you read in revers
+	2. you must have an array with input history
+	3. you need to pick weather you will have the inputs given in rvers or you read in revers
 	for the example of reading 236 from the sequne of 525236525
 	```python
 		
@@ -100,25 +107,97 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 		
 		func get_vaild_sequences(input_h: Array[Array], sequence: int) -> Dictionary[int, int]:
 		var valid: Dictionary[int,int]
-		var curent_index: int = 0
 		var corect_digits: int = 0
 		var digits: Array[int] = sequence_spliter(sequence)
 		var total_digits: int = digits.size()
 		digits.reverse()
 		
-		for inputs in input_h:
-			curent_index += 1
-			if inputs.has(digits.get(curent_digit)):# check if an input is vaild for that sqeuence 
+		for index in input_h.size:
+			if inputs[index].has(digits.get(curent_digit)):# check if an input is vaild for that sqeuence 
 				corect_digits += 1
 				if curent_digit == total_digits:
-					valid.get_or_add(curent_index,sequence)
-					curent_index = 0
+					valid.get_or_add(index,sequence)
 					corect_digits = 0
 				else: pass
 		return valid
 	```
-	some things to remember a sequence can be as long as you want it is up to the devlosepr and it can also be used to take in even siingel inputs to be checked like a jump 
-- combo attacks system
+	some things to remember a sequence can be as long as you want it is up to the devlosepr and it can also be used to take in even single inputs to be checked like a jump 
+	==**script parts**==
+	part 1 first lets try to understand an existing system by looking at it. we can see on any given frame 1 direction and any number of attack buttons can be pressed. we also know that this list updates each frame to make a input history. if we break it into its components we have individual inputs that make a set of inputs for a given frame that make a full input history over time   ==(a visual aid)== input history that contains all inputs press on that frame (inputs of frame) that then contain individual inputs. what does this look like anser in your quiz thing on youtube. (answer nested array or nested list )
+	now that we know we are using a nested array we can start setting it up so the first thing to decide is what the data should look like for the input directions i used numpad notion ==(visual aids)==  as well as setting them to constants for the sake of code that is a little more readable so if you see any of these they are the same (the 3 versions of directions numpad notation and UL style notation) for the attack buttons i use the numpad notion + 10 since i only have 4 buttons to take in but any number will work as long as you are constants witch is why you may want a enumeration or constants that represent each attack button by name. ==(visual aid)==
+	next we can put all the data from our players input into a list each frame. for 2 inputs it looks like this in godot. we just check if the input is pressed then add it to the frame 
+	```
+	var inputs_of_curent_frame: Array[int]
+	const U = 8
+	const D = 2
+	cosnt NEUTRAL = 5
+	# enum {D=2, NEUTRAL=5 ,U=8} 
+	
+	
+	func take_in_inputs():
+    var up: bool = Input.is_action_pressed("ui_up")
+    var down: bool = Input.is_action_pressed("ui_down")
+    
+    if up and down:
+        inputs_of_curent_frame.append(NEUTRAL)
+    elif up:
+        inputs_of_curent_frame.append(U)
+    elif down:
+        inputs_of_curent_frame.append(D)
+    else:
+        inputs_of_curent_frame.append(NEUTRAL)
+
+	```
+	
+	you can adapt this as you like or if you are also making a fighing game like me then it would probably look like this for the expanded code  (video clip)
+	for me it looks like this if you want more detailed information on how it works i have a managing inputs video witch goes over conversion of directional inputs.
+	so far we have this
+	```
+	TAKE IN INPUTS -> MANNAGE INPUTS -> STORE IN LIST FOR THIS FRAME. 
+	```
+	next we save each the list each frame be careful of how it is done as you need to duplicate and the direction of witch the values are saved also matters  as you will need to be careful so that the values can be read properly the array so that it updates independently from past values. 
+	quiz 
+	```
+	input_history.append(inputs_of_curent_frame)
+	input_history.append(inputs_of_curent_frame.duplicate())
+	i dont know 
+	```
+	==(show sample code )==
+	==(smile face visuals)== and explanation of each of us looking at different boxes showed visually so no need to show with code but do show current progress
+	
+	```	
+	var input_history: Array[Array]
+	var inputs_of_curent_frame: Array[int]
+	const U = 8
+	const D = 2
+	cosnt NEUTRAL = 5
+	# enum {D=2, NEUTRAL=5 ,U=8} 
+	
+	
+	func take_in_inputs():
+		inputs_of_curent_frame.clear
+	    var up: bool = Input.is_action_pressed("ui_up")
+	    var down: bool = Input.is_action_pressed("ui_down")
+    
+	    if up and down:
+	        inputs_of_curent_frame.append(NEUTRAL)
+	    elif up:
+	        inputs_of_curent_frame.append(U)
+	    elif down:
+	        inputs_of_curent_frame.append(D)
+	    else:
+	        inputs_of_curent_frame.append(NEUTRAL)
+   
+	    input_history.push_to_front(inputs_of_curent_frame.duplicate())
+	    
+	```
+	we now are taking in the input history of our players inputs we can start with making a sequence reader to verify that the player has input a special move correctly 
+	*reading from oldest to newest*
+	how this works is we take a look at our input history looking for a specific sequence ill jsu pick my new favorite fqcu can then look at the oldest frame and check if the forward input is pressed if not we can move on to the next frame and check again. once we find our first input we can check it off the continue checking the newer frames. we do this until we have the full sequence or we reach the end of the history. if we find a valid sequence we mark it and can use it for other things. ==(code example)==
+	*what if we have 2 or more valid sequences then we want the most recent*
+	*attack button support*
+	*buffering*
+- combo attacks system (target combo)
 	in games like devil may cry, highfi rush, Metal Gear Rising: Revengeance, Beyoneta and many ==(sevral images or clips)== fighting games and more they have what i am calling a combo attack but may be known as  or target combo or rhythm attack or special cancel system 
 	to put it simply it is an attack that is followed by another attack within some time frame 
 	for a visual representation that is not an example ==(put a frame bar with x length show it normally then do it again but start a combo attack before ending it )==
@@ -247,3 +326,5 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 			await get_tree().process_frame# this must be the same process tiype
 			get_tree().paused = true
 	```
+
+script 

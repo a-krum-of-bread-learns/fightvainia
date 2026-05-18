@@ -1,5 +1,5 @@
 extends Node
-
+#TODO make sure audo has a range
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	

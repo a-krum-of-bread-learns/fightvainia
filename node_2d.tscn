@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dxkw6h1aq7i2c"]
+
+[ext_resource type="Script" uid="uid://b8aqj6s61omus" path="res://arraynote for vid.gd" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://new org/systems/auto load scripts/set cam.gd" id="2_epypp"]
+
+[node name="Node2D" type="Node2D" unique_id=338208151]
+script = ExtResource("1_0e48y")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1840283533]
+script = ExtResource("2_epypp")

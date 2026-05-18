@@ -24,7 +24,7 @@ func primary_hurt_box_manager():
 ## sets the variables that are used else where in code
 func set_important_vars():
 	is_crouching = Input.is_action_pressed("down") and is_on_floor()
-	print("crouching " + str(is_crouching))
+	#print("crouching " + str(is_crouching))
 	
 ## its _process what else to say (1) 
 ## this calls most of the fucinss that are needed to be used every frame

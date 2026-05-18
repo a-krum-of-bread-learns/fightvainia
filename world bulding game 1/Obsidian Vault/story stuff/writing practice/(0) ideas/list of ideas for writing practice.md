@@ -1,4 +1,8 @@
 #list 
+
+writing /story  design in everything
+	look for color in word emotions in color and things in thing that are unintuitive in each other for analysis maybe it could be a thing o could write with
+	such as texture emotions light color speed, frame rate, religion, # of viewing angles, shape
 describing emotions
 	fear 
 	happy

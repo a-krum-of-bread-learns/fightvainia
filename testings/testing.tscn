@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d0iwhuvde8w6y" path="res://new org/systems/ui/info of channel and github.tscn" id="3_32i3w"]
 [ext_resource type="TileSet" uid="uid://c8rfgs3xlqyue" path="res://new org/art/copy right free art assets/terain/godot icon tile set.tres" id="4_7dbss"]
 [ext_resource type="Script" uid="uid://jav8ndnndy6" path="res://new org/systems/auto load scripts/frame_by_frame_mode_hint.gd" id="5_p47xe"]
+[ext_resource type="PackedScene" uid="uid://b11h2uyr6b47l" path="res://new org/entites/enemies/cpu/cpu_1.tscn" id="6_b04fu"]
 
 [node name="Node2D" type="Node2D" unique_id=1655691674]
 
@@ -35,3 +36,6 @@ script = ExtResource("5_p47xe")
 offset_right = 40.0
 offset_bottom = 23.0
 text = "      frame by frame mode enabled press f to diable or the left menu button "
+
+[node name="EntityBase" parent="." unique_id=718906405 instance=ExtResource("6_b04fu")]
+position = Vector2(-856, 160)

@@ -212,24 +212,20 @@ func sequence_spliter(sequence: int) -> Array[int]:
 		@warning_ignore("integer_division")# that is intedned 
 		sequence = sequence / 10
 	return digits
-
+#FIXME accept the cahnge in main for the sequnce reader 
 ## retuns the index of the sequnce if its vaild
 func get_vaild_sequences(input_h: Array[Array], sequence: int) -> Dictionary[int, int]:
 	var valid: Dictionary[int,int]
-	var curent_index: int = 0
 	var curent_digit: int = 0
 	var digits: Array[int] = sequence_spliter(sequence)
 	var total_digits: int = digits.size()
 	digits.reverse()
-	for inputs in input_h:
-		curent_index += 1
-		if inputs.has(digits.get(curent_digit)):# check if an input is vaild for that sqeuence 
+	for index in input_h.size():
+		if input_h[index].has(digits.get(curent_digit)):# check if an input is vaild for that sqeuence 
 			curent_digit += 1
 			if curent_digit == total_digits:
-				valid.get_or_add(curent_index,sequence)
-				curent_index = 0
+				valid.get_or_add(index,sequence)
 				curent_digit = 0
-			else: pass
 	return valid
 
 ## cuts array size to the max that was decided and appends the newest frame of info 
@@ -313,35 +309,35 @@ func input_filter():
 	resize_and_append_to_array(buffered_array,max_buffer_frames,inputs_of_curent_frame_for_attacks)
 
 #--------------------------------------------------------end of array manamgent
-
-func get_attack_button() -> int:
-	if FrameByFrameMode.frame_by_frame_mode_endabled == true:# for if so that when it unfecese you can use the attack by holding the butiion
-		if (Input.is_action_pressed("LK") and Input.is_action_pressed("HK")):
-			return EXK
-		elif (Input.is_action_pressed("LP") and Input.is_action_pressed("HP")):
-			return EXP
-		elif (Input.is_action_pressed("LK") and Input.is_action_pressed("LP")):
-			return LPK
-		elif (Input.is_action_pressed("HK") and Input.is_action_pressed("HP")):
-			return HPK
-		elif Input.is_action_pressed("LP"): return LP
-		elif Input.is_action_pressed("LK"): return LK
-		elif Input.is_action_pressed("HP"): return HP
-		elif Input.is_action_pressed("HK"): return HK
-	else:
-		if (Input.is_action_just_pressed("LK") and Input.is_action_just_pressed("HK")):
-			return EXK
-		elif (Input.is_action_just_pressed("LP") and Input.is_action_just_pressed("HP")):
-			return EXP
-		elif (Input.is_action_just_pressed("LK") and Input.is_action_just_pressed("LP")):
-			return LPK
-		elif (Input.is_action_just_pressed("HK") and Input.is_action_just_pressed("HP")):
-			return HPK
-		elif Input.is_action_just_pressed("LP"): return LP
-		elif Input.is_action_just_pressed("LK"): return LK
-		elif Input.is_action_just_pressed("HP"): return HP
-		elif Input.is_action_just_pressed("HK"): return HK
-	return 0
+#
+#func get_attack_button() -> int:
+	#if FrameByFrameMode.frame_by_frame_mode_endabled == true:# for if so that when it unfecese you can use the attack by holding the butiion
+		#if (Input.is_action_pressed("LK") and Input.is_action_pressed("HK")):
+			#return EXK
+		#elif (Input.is_action_pressed("LP") and Input.is_action_pressed("HP")):
+			#return EXP
+		#elif (Input.is_action_pressed("LK") and Input.is_action_pressed("LP")):
+			#return LPK
+		#elif (Input.is_action_pressed("HK") and Input.is_action_pressed("HP")):
+			#return HPK
+		#elif Input.is_action_pressed("LP"): return LP
+		#elif Input.is_action_pressed("LK"): return LK
+		#elif Input.is_action_pressed("HP"): return HP
+		#elif Input.is_action_pressed("HK"): return HK
+	#else:
+		#if (Input.is_action_just_pressed("LK") and Input.is_action_just_pressed("HK")):
+			#return EXK
+		#elif (Input.is_action_just_pressed("LP") and Input.is_action_just_pressed("HP")):
+			#return EXP
+		#elif (Input.is_action_just_pressed("LK") and Input.is_action_just_pressed("LP")):
+			#return LPK
+		#elif (Input.is_action_just_pressed("HK") and Input.is_action_just_pressed("HP")):
+			#return HPK
+		#elif Input.is_action_just_pressed("LP"): return LP
+		#elif Input.is_action_just_pressed("LK"): return LK
+		#elif Input.is_action_just_pressed("HP"): return HP
+		#elif Input.is_action_just_pressed("HK"): return HK
+	#return 0
 
 func chose_actions_get_attack(dic: Dictionary[Array, Attack]):
 	var index: int
@@ -407,6 +403,7 @@ func _physics_process(_delta: float) -> void:
 		dash_handler2()
 		jump_handler2()
 	else: player.PrimaryHurtBoxes_component.disable_all_pimary_sprites()
+	print(input_history)
 
 	
 	
