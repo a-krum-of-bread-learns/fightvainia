@@ -597,3 +597,15 @@ func _ready():
 	print("Command Normals: ", command_normals.size())
 	print("Neutral Normals: ", neutral_normals.size())
 	print("Total Attacks: ", all_attacks.size())
+
+#class AttackKey extends  Resource:
+	#var is_on_floor: bool
+	#var is_facing_right: bool
+	#var sequence: int
+	#var attack_button: int
+	#func _init(_on_floor: bool, right: bool, sequnce: int, attack_b: int) -> void:
+		#is_on_floor = _on_floor
+		#is_facing_right = right
+		#sequence = sequnce
+		#attack_button = attack_b
+		

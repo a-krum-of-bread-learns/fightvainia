@@ -31,7 +31,7 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 	then in fighting they have motion input witch basically mean up to infinity attack options
 	simplified version of the variable management for a single button when explaining 
 	a dictionary tree visual to explain what is happening at the end of the code 
-- how to handle motion inputs  like 236 lp not  5 lk 2 hp
+- how to code a fighting game input system
 	assumptions
 	1. you know num-pad notation
 	2. you understand some games have motion inputs for attacks
@@ -112,8 +112,8 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 		var total_digits: int = digits.size()
 		digits.reverse()
 		
-		for index in input_h.size:
-			if inputs[index].has(digits.get(curent_digit)):# check if an input is vaild for that sqeuence 
+		for index in input_h.size():
+			if input_h[index].has(digits.get(curent_digit)):# check if an input is vaild for that sqeuence 
 				corect_digits += 1
 				if curent_digit == total_digits:
 					valid.get_or_add(index,sequence)
@@ -123,14 +123,14 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 	```
 	some things to remember a sequence can be as long as you want it is up to the devlosepr and it can also be used to take in even single inputs to be checked like a jump 
 	==**script parts**==
-	part 1 first lets try to understand an existing system by looking at it. we can see on any given frame 1 direction and any number of attack buttons can be pressed. we also know that this list updates each frame to make a input history. if we break it into its components we have individual inputs that make a set of inputs for a given frame that make a full input history over time   ==(a visual aid)== input history that contains all inputs press on that frame (inputs of frame) that then contain individual inputs. what does this look like anser in your quiz thing on youtube. (answer nested array or nested list )
+	part 1 first lets try to understand an existing system by looking at it. we can see on any given frame 1 direction and any number of attack buttons can be pressed. we also know that this list updates each frame to make a input history. if we break it into its components we have individual inputs that make a set of inputs for a given frame that make a full input history over time   ==(a visual aid)== input history that contains all inputs press on that frame (inputs of frame) that then contain individual inputs. what does this look like anser in your ==quiz== thing on youtube. (answer nested array or nested list )
 	now that we know we are using a nested array we can start setting it up so the first thing to decide is what the data should look like for the input directions i used numpad notion ==(visual aids)==  as well as setting them to constants for the sake of code that is a little more readable so if you see any of these they are the same (the 3 versions of directions numpad notation and UL style notation) for the attack buttons i use the numpad notion + 10 since i only have 4 buttons to take in but any number will work as long as you are constants witch is why you may want a enumeration or constants that represent each attack button by name. ==(visual aid)==
 	next we can put all the data from our players input into a list each frame. for 2 inputs it looks like this in godot. we just check if the input is pressed then add it to the frame 
 	```
 	var inputs_of_curent_frame: Array[int]
 	const U = 8
 	const D = 2
-	cosnt NEUTRAL = 5
+	const NEUTRAL = 5
 	# enum {D=2, NEUTRAL=5 ,U=8} 
 	
 	
@@ -149,14 +149,14 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 
 	```
 	
-	you can adapt this as you like or if you are also making a fighing game like me then it would probably look like this for the expanded code  (video clip)
+	you can adapt this as you like or if you are also making a fighing game like me then it would probably look like this for the expanded code  ==(video clip)==
 	for me it looks like this if you want more detailed information on how it works i have a managing inputs video witch goes over conversion of directional inputs.
 	so far we have this
 	```
 	TAKE IN INPUTS -> MANNAGE INPUTS -> STORE IN LIST FOR THIS FRAME. 
 	```
 	next we save each the list each frame be careful of how it is done as you need to duplicate and the direction of witch the values are saved also matters  as you will need to be careful so that the values can be read properly the array so that it updates independently from past values. 
-	quiz 
+	==quiz==
 	```
 	input_history.append(inputs_of_curent_frame)
 	input_history.append(inputs_of_curent_frame.duplicate())
@@ -188,15 +188,93 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 	    else:
 	        inputs_of_curent_frame.append(NEUTRAL)
    
-	    input_history.push_to_front(inputs_of_curent_frame.duplicate())
+	    input_history.append(inputs_of_curent_frame.duplicate())
 	    
 	```
 	we now are taking in the input history of our players inputs we can start with making a sequence reader to verify that the player has input a special move correctly 
 	*reading from oldest to newest*
 	how this works is we take a look at our input history looking for a specific sequence ill jsu pick my new favorite fqcu can then look at the oldest frame and check if the forward input is pressed if not we can move on to the next frame and check again. once we find our first input we can check it off the continue checking the newer frames. we do this until we have the full sequence or we reach the end of the history. if we find a valid sequence we mark it and can use it for other things. ==(code example)==
-	*what if we have 2 or more valid sequences then we want the most recent*
+	```
+	func reader(input_h: Array[Array], digits: Array [int]):
+		var correct_digits: int = 0
+		var total_digits: int = digits.size()
+		
+		for index in input_h.size():
+			if input_h[index].has(digits.get(correct_digits)):# check if an input is vaild for that sqeuence 
+				correct_digits += 1
+				if correct_digits == total_digits:
+					print("vaild sequnce found")
+					return true
+		return false
+		
+		
+		
+		
+	```
+	==quiz==
+	a. first come first serve 
+	b. attack buttons
+	c. both 
+	d. nither
+	*what if we have 2 or more valid sequences then we want the most recent*.
+	to do this wee need to track what is the most recent valid sequence input witch we will find  at the end of our list. I do this by using a dictionary that stores the index as the key and the sequence we read as valid as the value. i store the sequence as a value because we are now tracking more than one sequence we need something that makes them unique witch is the sequence its self.
+
+	code explain from previous code we need to declare a dictionary then when we find a valid sequence we add it to the dictionary.  we can then return the dictionary  
+	```
+	func get_vaild_sequences(input_h: Array[Array], digits: Array[int]) -> Dictionary[int, int]:
+		var corect_digits: int = 0
+		var total_digits: int = sequence.size()
+		
+		for index in input_h.size():
+			if input_h[index].has(digits.get(curent_digit)):# check if an input is vaild for that sqeuence 
+				corect_digits += 1
+				if curent_digit == total_digits:
+					return {index: digits}
+					corect_digits = 0
+		return {}
+	```
+	for a demo we will make a simplifed verison of my chose action function start by 
+	making a fuction add the diconary of attacks
+	`var move_list: Diconarty = {[2,3,6]: "attack dqcf", [6,9,8]: "attack fqcu"}
+	then make a for loop that goes through it 
+	```
+	func choose_action():
+		var most_recent_attack: String 
+		var valids: Dictionary [int,Array]
+		var move_list: Dictionary [Array, String] = {[2,3,6]: "attack dqcf", [6,9,8]: "attack fqcu"}
+	for move_key in move_list:
+		valids.merge(sequnce_reader(input_history, move_key),true)
+	
+	if valids:
+		most_recent_attack = move_list.get(valids.get(valids.keys().min()))
+	print(most_recent_attack)
+	```
+	*the edge case* 
+	when recording this video i discoverd an edge case where if 2 sequnces have the same start index the would then have the same index. this is caused by reading from newst to oldest but not keeping track of the last digit of the sequence. the fix for it is simple when we find the first correct digit when reading newest to oldest save that index specifically 
+	==(final code version of sequence reader)==
+	we can then test this version but just using the process function make sure we are calling our function for taking in inputs then we can call a print to see if the reader returns the values properly print.
+	part on calling the most recent 
 	*attack button support*
+	now that we know the input directions are working we can start to add support for attack buttons witch 
+	if attack button pressed then check valid sequences 
 	*buffering*
+
+	this is the base of an input system for fighting games or any game that wants special moves like fighting games. a few things you can do to expand this is have more conditions like if the player is on the floor or in the air  you can have crazy sequences how ever you like. im sure if you want to you will be able to expand this core how you want or you could just take mine off of git hub 
+	==make sure to explain why you used a dictionary  in this vid==
+		i use it becue of key value paring 
+		==(imgaes key and somthing)==
+	my next video will probably be about the move list class witch is about 600 lines of just variable management 
+	chose action things 
+	loop through keys of the attacks  checking with the sequence reader then save the valid ones
+	expanding saving to a dicoanrty
+	we then save the sequences that we found valid and save it with its position in the history. we can then use that position in history to pick the correct attack
+	attack button support with resource in the class
+	currently we check if the sequence is valid but we can add any number of checks along side it we also want to standardize these checks so they are consistent and can be used in code easily.  in godot for this we will use a resoruce
+	lets start by making our resource for this ill be doing it in the same script since i don't use it anywhere else. start by declaring the class attack key then add the conditions  the first being the sequence  he second being the attack button witch i put as type string to use with input.get_action_just_pressed later 
+	in the chose action function we edit the move list key to be format of the Attack Key we just made and edit the parameters to match. next for clarity we add a type declaration to the for loop witch may just be a Godot thing. then we add an input check for the attack buttons before we check the sequence  
+	editors note when i did the test i had digits as type Array not Array[int] its changed back to Array[int] a little later. then a little later we also edit how we call the sequence reader and here we can fix the typing for the sequcne reader
+	buffered redo i make a function that takes in the buffed history and a single input. i then loop though  that history and check if it has the input we are taking in. if it does return true otherwise return false. next we edit the attack button parameter in attack key form a sting to the type we really want to use in my case i use int. we then make this change to the move list as well. we then replace when we check for an attack button to be pressed  with a call for the function we just made
+	
 - combo attacks system (target combo)
 	in games like devil may cry, highfi rush, Metal Gear Rising: Revengeance, Beyoneta and many ==(sevral images or clips)== fighting games and more they have what i am calling a combo attack but may be known as  or target combo or rhythm attack or special cancel system 
 	to put it simply it is an attack that is followed by another attack within some time frame 
@@ -327,4 +405,8 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 			get_tree().paused = true
 	```
 
-script 
+== lessons learned==
+from how to code a fighting game input system
+	when i tried to simplify it we found a few problems but made it more versatile 
+	the same thing can be done in 2 different ways and still have the same result
+	making a tutorial video that works is hard

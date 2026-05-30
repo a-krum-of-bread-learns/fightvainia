@@ -42,7 +42,22 @@ character lockout
 	for example mages cant really fight in an anti magic area or some chars may have been taken out or trapped by the environment like floor traps pit falls etc
 	probably best for tag games to force players to learn each char in a metroidvania 
 
+Wizard Enemy 
+	detect player condition be in a range near by either side.
+	shoots ranged projectiles and moves back away from the player to the edge of the screen. 
+	If the player gets closer, it tries to use a blowback explosive attack. 
+	Do they block
 
+Boss design for Game 1 — more technical design decisions:
+	The player is locked in with the boss fight. 
+	The boss detects in front of itself to decide if it should attack, based on player state and distance, or with some randomness.
+	Detects above and has a chance to counter — higher difficulty counters more consistently and or more precisely. 
+	At different ranges from the player Blocks projectiles consistently or inconsistently. 
+	Combo shield requires a minimum 3 hit combo or more to deal damage.
+	when player attacks blocks with some randomness and a low chance to block overhead on the ground 
+	blocks frame traps with decnet %
+	doesn't block well spacing traps 
+	
 
 ## random enemies 
 blindness

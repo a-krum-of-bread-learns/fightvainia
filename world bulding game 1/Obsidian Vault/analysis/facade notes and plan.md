@@ -71,14 +71,15 @@ tut basic movement
 	big lighing slash spam (qcb b)~~ 
 tut attacking / you first combo
 	general/ universal stuff
-		1. for each point try in the game the inputs and see what happens 
+		1. for each state try in the game the inputs and see what happens 
 		2. there are a lot of attack buttions int his game at 5 abxy and  rb we will ignore rb entirely and focus on the 4 main ones a and x are fast and short y and b are farther reaching and slower. 
 		3. you can also attack in the air try out the moves one at a time and see.
-		4. holding a direction like forward and attacking is called a command normal you can try it out try other directions 
-		5. next up is special moves each charter is mostly defined by their special moves and special moves require motion inputs such as quarter circles. you may call akrum for a demonstration using in game input reader for some attack inpace of the game ()
+		4. holding a direction like forward and attacking is called a command normal you can try it out try other directions but not all directions have a command normal
+		5. next up is special moves, each charter is mainly defined by their special moves and special moves require motion inputs such as quarter circles. you may call akrum for a demonstration using in game input reader for some attack in pace of the game 
 		6. and your first combo see char below get it 5 time in a row 
+		7. ~~not tested is now lets try it while i move around ~~
 	sol bad guy 
-		attack qcf a a 
+		attack qcf+a a 
 	elphelt valentine
 		b qcb +y any any
 start fighting cpu / people of similar skill

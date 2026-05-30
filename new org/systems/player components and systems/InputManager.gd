@@ -198,7 +198,9 @@ func buffer_check(input_h: Array, sequence: int, Attack_buttion: int) -> bool:
 
 ## checks if there is a matcing value in the provided array this is uded to buffer things 
 func single_input_check(array: Array, what: int)-> bool:
-	if array == null: return false #TODO check if this is a good idea 
+	if array == null:
+		push_error("Array empty when calling single input check")
+		return false #TODO check if this is a good idea 
 	for inputs in array:
 		if inputs.has(what):
 			return true
@@ -212,25 +214,30 @@ func sequence_spliter(sequence: int) -> Array[int]:
 		@warning_ignore("integer_division")# that is intedned 
 		sequence = sequence / 10
 	return digits
-#FIXME accept the cahnge in main for the sequnce reader 
+#FIXME accept the cahnge in main for the sequnce reader over the one in ai review
 ## retuns the index of the sequnce if its vaild
 func get_vaild_sequences(input_h: Array[Array], sequence: int) -> Dictionary[int, int]:
 	var valid: Dictionary[int,int]
 	var curent_digit: int = 0
 	var digits: Array[int] = sequence_spliter(sequence)
 	var total_digits: int = digits.size()
+	var index_of_most_recent: int  =0 
 	digits.reverse()
 	for index in input_h.size():
 		if input_h[index].has(digits.get(curent_digit)):# check if an input is vaild for that sqeuence 
+			if curent_digit == 0:
+				index_of_most_recent = index
 			curent_digit += 1
 			if curent_digit == total_digits:
-				valid.get_or_add(index,sequence)
+				valid.get_or_add(index_of_most_recent,sequence)
 				curent_digit = 0
 	return valid
 
 ## cuts array size to the max that was decided and appends the newest frame of info 
 func resize_and_append_to_array(array: Array, max_size: int, this_frame_inputs: Array[int]):
-	if array.size() >= max_size:
+	if array.size() > max_size + 1:
+		push_error("input history exceeded max size by more than 1 frame, something is adding to it externally")
+	while array.size() >= max_size:
 		array.remove_at(-1) # last index
 		
 		#add the new input the end
@@ -340,27 +347,25 @@ func input_filter():
 	#return 0
 
 func chose_actions_get_attack(dic: Dictionary[Array, Attack]):
-	var index: int
 	var most_recent_attack: Attack
 	var valids: Dictionary[int,int]
 	var attack_partial_key: Array = [# the 2/4 keys
 	player.is_on_floor(),
 	player.is_facing_right]
-	
-	for attack in dic:
+	for attack: Array in dic:
 		#this if stamnted does 3 / 4 of the key checks 
 		if (attack[0] == attack_partial_key[0] 
 		and attack[1] == attack_partial_key[1] 
 		and single_input_check(buffered_array, attack[3])):
-			valids.merge(get_vaild_sequences(input_history, attack[2],),true)# the 4th key check that also grabs the index of the seqxnrex 
+			valids.merge(get_vaild_sequences(input_history, attack[2]),true)# the 4th key check that also grabs the index of the seqxnrex 
 			# add the most recent attack 
 			if valids: 
-				index = valids.keys().min() # edit the most recent index if it needs to change
+				var index = valids.keys().min() # edit the most recent index if it needs to change
 				most_recent_attack = dic.get([attack[0],attack[1],valids.get(index),attack[3]])
 		#loop end
 		if most_recent_attack: attack_manager.start_attack(most_recent_attack)#stars the attack
 		
-	#print(valids)
+	print(valids)
 	
 ## choses what attack is to be used based on player state and the most recent sequenc
 ## howver ther is a workaround where a sequence must be at least 3 inputs otherwize
@@ -403,7 +408,9 @@ func _physics_process(_delta: float) -> void:
 		dash_handler2()
 		jump_handler2()
 	else: player.PrimaryHurtBoxes_component.disable_all_pimary_sprites()
-	print(input_history)
+	#input_history.reverse()
+	#print(input_history)
+	#input_history.reverse()
 
 	
 	

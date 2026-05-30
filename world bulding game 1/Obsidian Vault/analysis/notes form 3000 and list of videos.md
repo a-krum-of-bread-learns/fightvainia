@@ -193,7 +193,10 @@ the true value of invincible reversal (broski video nice)
 	reversals can completely ignore some chars specific interaction negation sequences that can go into a frame trap so they can be worse
 	reversal supers are worse in almost every situation
 	super flash can eat inputs they cost a lot and are often slow
-   
+## emergent game play videos
+lets look a this and see how we can track these
+	1.  sajam video # 25, 33
+	2. Maximilian - **i like  my games... loose - emergent game play 'real talk'**. more options the more decisions the more emergent game play. loose allows many cancels at any point part of the moves tight game play very specific options skull girls lets you pick what the assist move input is. if 2 people play akuma in different ways then its really loose the loose games make things last longer to figure things out  morph mode is a loose system
 ## sajam play list of stuff up to 8 years ago I should watch
 video numbered some may have been watched already
     https://www.youtube.com/playlist?list=PL6Zpep0TMBYTKddT-qgPmHIfx8fQ6tMRW

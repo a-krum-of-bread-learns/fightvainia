@@ -44,8 +44,8 @@ magic mage witch wizard and them
 		flame imbued attacks
 		explosive area 
 		explosive jump
-	drawing mage
-		the motion inputs are drawings for spells and the larger more powerful ones require drawing well and fast
+	drawing mage (bread variant) an dcan be its own game
+		the motion inputs are drawings for spells and the larger more powerful ones require drawing well and fast see drawing book for more notes  this is really cool idea but would  be hard to implement
 take char form other games that aren't fighting games and make an interpenetration 
 	path to nowhere chars or other games of my intrest
 		Eve - could be a puppeteer with summons or the adventures party like teddy tank, cuckoo clock mage, chicken rush down, snow ball and gun man magic and eve as the healer/ support 
@@ -125,6 +125,9 @@ make aoko form melty blood type lamina (this is also a char that fern could be a
 	when pressed again 
 	a separate button added (or use block button orb can be seen as defensive mechanics )
 a character with crouch only or crouch optimal combos
+a char with running block / parry but only for projectiles (some types of projectiles maybe) so they can approach 
+	funny line in this game block is an offence mechanic that lets you rush down your opponents if you can parry their fire balls
+
 
 ### balance decisions to consider that other games don't have
 balance anti airs that cover both sides with half circle inputs
@@ -132,3 +135,5 @@ I could have a redundant special move button on block so that all of one button 
 give regular block recovery or start up but can be canceled into from some attacks 
 do i allow for air attacks when landed to cancel into grounded special moves? (example may 7 around or before 4)
 block blocks low and high so cross ups are required
+air parry give an additional air action 
+walk and block what about run and block
