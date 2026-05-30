@@ -74,9 +74,9 @@ texture = ExtResource("10_0jry0")
 
 [node name="Scale" type="Node" parent="folder" unique_id=1965261556 node_paths=PackedStringArray("node", "timer", "host")]
 script = ExtResource("2_snyop")
+enabled = true
 node = NodePath("../../folder2")
 timer = NodePath("FrameTimer")
-enabled = true
 host = NodePath("../..")
 metadata/_custom_type_script = "uid://tmh27lp4axxe"
 
@@ -86,7 +86,6 @@ metadata/_custom_type_script = "uid://dkek8a7podljt"
 
 [node name="Health" type="Node" parent="folder" unique_id=80105627 node_paths=PackedStringArray("host")]
 script = ExtResource("2_8c73w")
-max_health = 10000
 enabled = true
 host = NodePath("../..")
 metadata/_custom_type_script = "uid://ccxb00gf1jcum"

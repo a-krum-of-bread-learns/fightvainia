@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://b5ftsm53y81tl"]
+[gd_scene format=3 uid="uid://cdo5gcnq4fdic"]
 
-[ext_resource type="Script" uid="uid://b26vqr4fhycpk" path="res://mini input manger.gd" id="1_ibsen"]
+[ext_resource type="Script" path="res://mini input manger.gd" id="1_ibsen"]
 [ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://new org/systems/auto load scripts/set cam.gd" id="2_65njr"]
 
 [node name="Node2D" type="Node2D" unique_id=592739168]

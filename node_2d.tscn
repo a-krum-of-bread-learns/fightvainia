@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dxkw6h1aq7i2c"]
+[gd_scene format=3 uid="uid://cmvaweqkiyo5a"]
 
-[ext_resource type="Script" uid="uid://b8aqj6s61omus" path="res://arraynote for vid.gd" id="1_0e48y"]
+[ext_resource type="Script" path="res://arraynote for vid.gd" id="1_0e48y"]
 [ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://new org/systems/auto load scripts/set cam.gd" id="2_epypp"]
 
 [node name="Node2D" type="Node2D" unique_id=338208151]
