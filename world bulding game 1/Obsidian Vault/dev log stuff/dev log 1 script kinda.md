@@ -11,7 +11,7 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 	1. *you know what a fighting game is* 
 	2. *you may have an interest in coding a fighting game* 
 	3. you have an input system
-	for the input direction we only want one direction each frame. 
+	for the input direction we only want one direction each frame otherwise there may be unexpected behavior. 
 	this could be any of the 9 values UL, U, UR, L, N, R, DL, D, DR ==(images)== that make sense
 	to do this with only 4 buttons for the 4 buttons in a d-pad ==(image)== 
 	if i press 2 buttons i should get the one resultant out put ==(image)==

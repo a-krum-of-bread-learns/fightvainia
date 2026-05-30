@@ -4,6 +4,7 @@ class_name EntityBase extends CharacterBody2D
 @export var is_blocking: bool = false
 @export var stun_manager: StunManager
 @export var health_component: Health
+@export var stats: EntityStats
 
 @export_enum("error:-1","LOW:1","OVERHEAD:3") var block_type: int = 2
 enum BLOCK_TYPE {LOW=1, OVER=3} ## type of block

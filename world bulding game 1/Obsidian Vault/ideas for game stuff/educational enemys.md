@@ -42,6 +42,7 @@ character lockout
 	for example mages cant really fight in an anti magic area or some chars may have been taken out or trapped by the environment like floor traps pit falls etc
 	probably best for tag games to force players to learn each char in a metroidvania 
 
+
 Wizard Enemy 
 	detect player condition be in a range near by either side.
 	shoots ranged projectiles and moves back away from the player to the edge of the screen. 
@@ -58,6 +59,9 @@ Boss design for Game 1 — more technical design decisions:
 	blocks frame traps with decnet %
 	doesn't block well spacing traps 
 	
+basic enemy
+	random block and attack
+
 
 ## random enemies 
 blindness

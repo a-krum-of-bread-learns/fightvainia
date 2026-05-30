@@ -137,3 +137,4 @@ do i allow for air attacks when landed to cancel into grounded special moves? (e
 block blocks low and high so cross ups are required
 air parry give an additional air action 
 walk and block what about run and block
+universal design of reversal dp's especially the invincible ones

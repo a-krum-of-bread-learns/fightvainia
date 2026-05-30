@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d31hgc1h10800" path="res://new org/systems/player components and systems/playerContoller.gd" id="1_8it8p"]
 [ext_resource type="PackedScene" uid="uid://btufeyfuqt18p" path="res://new org/entites/agent player stuff/primary_hurt_boxes.tscn" id="2_7bb02"]
+[ext_resource type="Resource" uid="uid://3x15qdhxammi" path="res://new org/entites/agent player stuff/resources?/agent_stats.tres" id="2_8it8p"]
 [ext_resource type="Script" uid="uid://dn37qd1n3kapy" path="res://new org/systems/movement related/Dash.gd" id="4_lxi42"]
 [ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/player components and systems/FrameTimerCompnent.gd" id="5_7ia2k"]
 [ext_resource type="Script" uid="uid://dbsvrd6tasmbw" path="res://new org/systems/movement related/Movement.gd" id="6_e1a3v"]
@@ -25,6 +26,7 @@ input_component = NodePath("folder/inputmanager")
 PrimaryHurtBoxes_component = NodePath("folder/player primary hurt boxes")
 stun_manager = NodePath("folder/stunManager")
 health_component = NodePath("folder/health")
+stats = ExtResource("2_8it8p")
 block_type = -1
 
 [node name="the player colision box" type="CollisionShape2D" parent="." unique_id=693442404]
@@ -40,10 +42,11 @@ player = NodePath("../..")
 
 [node name="movement folder" type="Node" parent="folder" unique_id=1037400380]
 
-[node name="dash" type="Node" parent="folder/movement folder" unique_id=838071016 node_paths=PackedStringArray("timer", "host")]
+[node name="dash" type="Node" parent="folder/movement folder" unique_id=838071016 node_paths=PackedStringArray("timer", "input_manager", "gravity_component", "host")]
 script = ExtResource("4_lxi42")
 timer = NodePath("max duration")
-dash_speed = 1200
+input_manager = NodePath("../../inputmanager")
+gravity_component = NodePath("../gravity")
 enabled = true
 host = NodePath("../../..")
 
@@ -56,33 +59,35 @@ script = ExtResource("6_kpemt")
 enabled = true
 host = NodePath("../../..")
 
-[node name="movement" type="Node" parent="folder/movement folder" unique_id=538386796 node_paths=PackedStringArray("timer", "host")]
+[node name="movement" type="Node" parent="folder/movement folder" unique_id=538386796 node_paths=PackedStringArray("prejump_timer", "coyote_timer", "input_manager", "host")]
 script = ExtResource("6_e1a3v")
-timer = NodePath("prejump delay")
+prejump_timer = NodePath("prejump delay")
+coyote_timer = NodePath("coyote timer")
+input_manager = NodePath("../../inputmanager")
 enabled = true
 host = NodePath("../../..")
 
 [node name="prejump delay" type="Node" parent="folder/movement folder/movement" unique_id=627670931]
 script = ExtResource("5_7ia2k")
 
-[node name="coyote timer" type="Node" parent="folder/movement folder" unique_id=319577096]
+[node name="coyote timer" type="Node" parent="folder/movement folder/movement" unique_id=319577096]
 script = ExtResource("5_7ia2k")
 
-[node name="scale" type="Node" parent="folder" unique_id=349905362 node_paths=PackedStringArray("node", "timer", "host")]
+[node name="scale" type="Node" parent="folder" unique_id=349905362 node_paths=PackedStringArray("node", "timer", "input_manager", "host")]
 script = ExtResource("7_8it8p")
 node = NodePath("..")
 timer = NodePath("turn around delay")
+input_manager = NodePath("../inputmanager")
 enabled = true
 host = NodePath("../..")
 
 [node name="turn around delay" type="Node" parent="folder/scale" unique_id=1916318394]
 script = ExtResource("5_7ia2k")
 
-[node name="inputmanager" type="Node" parent="folder" unique_id=1544145854 node_paths=PackedStringArray("player", "attack_manager", "coyote_timer", "movement_componet", "scale_component", "dash_component", "gravity_component", "host")]
+[node name="inputmanager" type="Node" parent="folder" unique_id=1544145854 node_paths=PackedStringArray("player", "attack_manager", "movement_componet", "scale_component", "dash_component", "gravity_component", "host")]
 script = ExtResource("8_e1a3v")
 player = NodePath("../..")
 attack_manager = NodePath("../attack manager")
-coyote_timer = NodePath("../movement folder/coyote timer")
 movement_componet = NodePath("../movement folder/movement")
 scale_component = NodePath("../scale")
 dash_component = NodePath("../movement folder/dash")
@@ -92,7 +97,6 @@ host = NodePath("../..")
 
 [node name="health" type="Node" parent="folder" unique_id=187061200 node_paths=PackedStringArray("host")]
 script = ExtResource("10_3bh1v")
-max_health = 10000
 host = NodePath("../..")
 metadata/_custom_type_script = "uid://c5ucrpov3ddtq"
 

@@ -2,3 +2,5 @@ pick a char and try them out in training made the game tutorial and see how long
 
 test negative edge special moves and the settings that exist with them
 test look at push back in melty and in sf6 for jabs 
+
+try the tutorial you made but with cpu in melty blood

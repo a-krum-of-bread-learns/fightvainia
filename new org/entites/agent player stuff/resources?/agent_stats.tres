@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PlayerStats" format=3 uid="uid://3x15qdhxammi"]
+
+[ext_resource type="Script" uid="uid://bb5lwdc0ivd5v" path="res://new org/entites/basic parts/player_stats_resource.gd" id="1_yxt5y"]
+
+[resource]
+script = ExtResource("1_yxt5y")
+prejump_frames = 4
+jump_velocityY = -2400.0
+move_speed = 200.0
+dash_speed = 2400
+max_dash_duration_frames = 20
+prescale_frames = 3
+c_timer_length = 6
+max_health = 1000
+gravity = 7000
+terminal_velocity = 2000
+metadata/_custom_type_script = "uid://bb5lwdc0ivd5v"

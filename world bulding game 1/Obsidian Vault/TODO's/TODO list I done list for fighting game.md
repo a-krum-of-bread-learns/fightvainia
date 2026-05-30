@@ -54,56 +54,76 @@
 - [x] make a repeating frame class that extends frame just added a property 
 - [x] re making the chose action function to be clearer
 - [x] fix the problem with is_attacking in 2 places at the same time (attack manager and entity base) 
- - [x] decide these 2 where they should be jump_velocityY:, move_speed, 
- - [x] add a add projectie under frames
+- [x] decide these 2 where they should be jump_velocityY:, move_speed, 
+- [x] add a add projectie under frames
+- [x] combine player and input manager : no
+
+- [x] stop some stuff from processing that don't need it when running: nothing
+- [x] give the hurt able player text over head saying is stunned: color used instead
+- [x] try an attack with the animation player need to watch vids or dont and skip this: skip this
+- [x] make a character now ?
+- [x] lable some varables as private vars with _ prefix doesnt make them prrivent tho: not needed
+- [x] add the licnece i want for the game 
+- [x] make gitub public
+- [x] consider the health and other similar components that are nodes as resources instead
+- [x] make a scope limit 
+- [x] sepratet x and y compnets of animations
+- [x] add a loop functionality 
+- [x] decide these 2 where they should be fast_move_speed, gravity: a resource
+- [x] for combo attacks add option to start from not frame 0 or 1 witch ever it is 
+- [x] are all normal cancel-able? they could but don't have to as its a per move 
+- [x] make animation node or thing work from stun manager may be or from scratch 
+- [x] learn conditional editor tools or separate projectile animation and entity animation
+- [x] make the attacks a scene that can be loaded so random select can be done
+- [x] make on hit condition check 
+- [x] make a spawn object thing
+- [x] do a character journey map for values when doing things like doing damage via function names to see the information paths: organize things into a single source of truth and use resources
+- [ ] run?
 - [ ] accessibility options
 - [ ] save system
 - [ ] healing could just be a negative hit box damage?  this needs an exception to self exception
+
 - [ ] consideration motion attacks? like motion inputs for directions rhythm character or something
 - [ ] decide these 2 where they should be fast_move_speed, gravity
 - [ ] combine player and input manager?
 - [ ] run?
 - [x] give the hurt able player text over head saying is stunned 
+
+- [ ] consideration motion attacks? like motion inputs for directions rhythm character or something scope creep and doesn't work with current sequence reader
+
 - [ ] a bit of combo ui
 - [ ] do i want air blocking ?
-
 - [ ] fix collisions so i can push another player using if im being detected then i will be pushing
 	the layer pushes the mask witch means i need 2 player layers needs a work a round to have both the players push each other 
+
 - [ ] make grabs and command grabs (related to above) or dont and skip this 
+
+- [ ] make grabs and command grabs or dont and skip this 
+
 - [ ] make simple boolens for modifiers of hurt and hit boxes? skip this scopecreep
-
-
-can use array inside of a dictionary  for buttion + sequence + direction
-- [ ] make a character now ?
 - [ ] add input release option
-- [ ] for combo attacks add option to start from not frame 0 or 1 witch ever it is 
-
-
 - [ ] ==make a system map to see how it all fits right now== when i return to it
-- [ ] lable some varables as private vars with _ prefix doesnt make them prrivent tho
-
-are all normal cancel-able ?
-
 - [ ] make the last script for the current list of scripts 
-- [ ] make animation node or thing work from stun manager may be or from scratch 
-
-- [x] sepratet x and y compnets of animations
-- [x] add a loop functionality 
 - [ ] do a documentation check 
-- [ ] do a charater journy map for values when doing things like doing damage via function names to see the information paths 
-- [x] add the licnece i want for the game 
-- [x] make gitub public
-- [ ] consider the health and other similar components that are nodes as resources instead
-- [x] make a scope limit 
 - [ ] make a danger zone section 
+
 - [x] learn conditional editor tools or separate projectile animation and entity animation
+
 - [ ] decide on state based movement or fluid movement 
 - [ ] make a demo (limits: 1 char 1-3 basic enemy 1 boss that is the same char and a bit of ability to unlock and put it on itch if you use boxes then do it see [[Demo scope ToDo for summer test release of a char|demo scope]] 
-- [ ] make the attacks a resource that can be loaded so random select can be done
-- [ ] make combo only property for hit boxes 
+	- [x] 1 char
+	- [ ] 3 enemy 
+		- [ ] low only smol guys or animals 
+		- [ ] basic enemy random block and attacks (small combo maybe)
+		- [ ] too much reach jump on em spear man 
+	- [ ] 1 boss: must be combed 
+
 - [x] make on hit condition check 
 - [ ] add flexablity to combo attacks so that if i have a 2 hit attack it can follow up differently on hir 1 and hit 2 
 - [x] make a spawn object thing
+
+- [ ] add flexibility to combo attacks so that if i have a 2 hit attack it can follow up differently on hit 1 and hit 2 (example Jamie 4 drink forward heavy kick 3 followups)
+
 - [ ] add spawn object under frames with a button
 - [ ] stuns of type like fire and electricty or ice here
 - [ ] review all process/ physics process functions for witch one is right to use
