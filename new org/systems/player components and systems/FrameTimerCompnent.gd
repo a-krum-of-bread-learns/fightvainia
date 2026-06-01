@@ -4,10 +4,15 @@ class_name FrameTimer extends Node
 var running: bool
 var frames_left: int = 0
 
-## begins the timer 
+
+## begins the timer with an error check
 func start_frame_timer(wait_frames: int):
-		frames_left = wait_frames
-		running = true
+	if wait_frames <= 0:
+		push_error("FrameTimer: wait_frames must be positive, got " + str(wait_frames))
+		return
+	frames_left = wait_frames
+	running = true
+	
 ## similar to a regular timer tells us if the timer has stoped
 func is_stoped() -> bool:
 	if frames_left == 0: return true

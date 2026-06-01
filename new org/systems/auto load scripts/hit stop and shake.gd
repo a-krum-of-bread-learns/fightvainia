@@ -9,7 +9,7 @@ func _ready() -> void:
 func set_cam(camera: Camera2D):
 	cam = camera
 
-#TODO off= 0 low = 1 or less high is 10 nid is 5
+#TODO off= 0 low = 1 or less high is 10 mid is 5
 func screen_shake():
 	cam.offset = Vector2(randf(),randf())*1
 

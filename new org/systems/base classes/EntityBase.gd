@@ -11,6 +11,13 @@ enum BLOCK_TYPE {LOW=1, OVER=3} ## type of block
 var tween: Tween = null
 var is_actionable = true
 
+func _ready() -> void:
+	if stats == null:
+		push_error("stats not set on "+str(self.name))
+	if health_component == null:
+		push_error("health component not set on "+str(self.name))
+	if stun_manager == null:
+		push_error("stun manager component not set on "+str(self.name))
 
 func _physics_process(_delta):
 	if stun_manager.is_stuned == false and is_on_floor():

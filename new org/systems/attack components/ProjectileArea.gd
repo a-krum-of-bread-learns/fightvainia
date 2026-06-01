@@ -32,6 +32,10 @@ func _ready():
 				node.visible = true
 			else: node.visible = false
 			sprites_array.append(node)
+	if animation_stuff.is_empty():
+		push_error("ProjectileArea: animation_stuff is empty on " +str(get_parent().name) + " in " +str(get_parent().get_parent().name) + ", projectile will not move")
+	if timer == null:
+		push_error("ProjectileArea: timer not assigned on " + str(get_parent().name) + " in " +str(get_parent().get_parent().name))
 
 
 func reset_postion_detached():
@@ -41,7 +45,6 @@ func reset_postion_detached():
 	elif not attack_manager.host.is_facing_right: 
 		self.scale = Vector2(-1,1)
 	
-#TODO add sprite support
 #FIXME when attached to entiy projectile flips when it may not make sense depending on how move is imagened 
 func enable_disable_boxes():
 	if is_active == true:

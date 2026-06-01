@@ -62,13 +62,18 @@ var jump_relesed: bool = false
 
 # filters ou nulls to reduce processing whan chosceing Attack 
 ## filters out uneccary Attacks ????
-func _ready():
+func _ready() -> void:
 	self.name= "input_manager"
 	super._ready()
-
+	if attack_manager == null: push_error("InputManager: attack_manager not assigned")
+	if movement_componet == null: push_error("InputManager: movement_componet not assigned")
+	if scale_component == null: push_error("InputManager: scale_component not assigned")
+	if dash_component == null: push_error("InputManager: dash_component not assigned")
+	if gravity_component == null: push_error("InputManager: gravity_component not assigned")
+	
 ## used to alow for false butions because keybard is bad as many butions at the same time 
 ## waring this has relse sp if a bution is held and this is called the buttion is relsed 
-func press():
+func press() -> void:
 	if fake_D: Input.action_press("down")
 	else: Input.action_release("down")
 	if fake_L: Input.action_press("left")
@@ -78,7 +83,7 @@ func press():
 	if fake_U: Input.action_press("up")
 	else: Input.action_release("up")
 ## debug function to hel see what the stae of the player is
-func state_print():
+func state_print() -> void:
 	print("dash: " + str(dash_component.is_dashing))
 	print("jumping: " + str(movement_componet.is_jumping))
 	print("attacking: " + str(attack_manager.is_attacking))
@@ -88,14 +93,11 @@ func state_print():
 	print("stun: "+ str(player.stun_manager.is_stuned))
 	print("falling: "+ str( gravity_component.is_falling))
 	
-#TODO add more conditons to tuitning around  # this may be consederd done else whare
-## identifies when to flip player on ground
-
 #-------------------------------------------------------------start of movemnt handling 
 
 
 ## handels logic for when to move removes the crouch checks for crouch walk
-func movement_manager():
+func movement_manager() -> void:
 	if player.is_on_floor() and (player.is_crouching or 
 	attack_manager.is_attacking):
 		player.velocity.x = 0
@@ -133,14 +135,14 @@ func sequence_spliter(sequence: int) -> Array[int]:
 		@warning_ignore("integer_division")# that is intedned 
 		sequence = sequence / 10
 	return digits
-#FIXME accept the cahnge in main for the sequnce reader over the one in ai review
+
 ## retuns the index of the sequnce if its vaild
 func get_vaild_sequences(input_h: Array[Array], sequence: int) -> Dictionary[int, int]:
 	var valid: Dictionary[int,int]
 	var curent_digit: int = 0
 	var digits: Array[int] = sequence_spliter(sequence)
 	var total_digits: int = digits.size()
-	var index_of_most_recent: int  =0 
+	var index_of_most_recent: int = 0 
 	digits.reverse()
 	for index in input_h.size():
 		if input_h[index].has(digits.get(curent_digit)):# check if an input is vaild for that sqeuence 
@@ -153,7 +155,7 @@ func get_vaild_sequences(input_h: Array[Array], sequence: int) -> Dictionary[int
 	return valid
 
 ## cuts array size to the max that was decided and appends the newest frame of info 
-func resize_and_append_to_array(array: Array, max_size: int, this_frame_inputs: Array[int]):
+func resize_and_append_to_array(array: Array, max_size: int, this_frame_inputs: Array[int]) -> void:
 	if array.size() > max_size + 1:
 		push_error("input history exceeded max size by more than 1 frame, something is adding to it externally")
 	while array.size() >= max_size:
@@ -164,7 +166,7 @@ func resize_and_append_to_array(array: Array, max_size: int, this_frame_inputs: 
 	
 
 ## filters the inputs to get the needed and valid ones first should allways be running
-func input_filter():
+func input_filter() -> void:
 	inputs_of_curent_frame_for_attacks.clear()
 	#inputs_of_curent_frame_for_display.clear()
 	#optimized by ai useing vars to not need to call the function a milion times 
@@ -203,19 +205,19 @@ func input_filter():
 		if light_kick_hold: inputs_of_curent_frame_for_attacks.append(LK)
 		if heavy_punch_hold: inputs_of_curent_frame_for_attacks.append(HP)
 		if heavy_kick_hold: inputs_of_curent_frame_for_attacks.append(HK)
-	
-	if (light_kick and heavy_kick):
-		inputs_of_curent_frame_for_attacks.append(EXK) 
-	if (light_punch and heavy_punch):
-		inputs_of_curent_frame_for_attacks.append(EXP)
-	if (light_kick and light_punch):
-		inputs_of_curent_frame_for_attacks.append(LPK)
-	if (heavy_kick and heavy_punch):
-		inputs_of_curent_frame_for_attacks.append(HPK)
-	if light_punch: inputs_of_curent_frame_for_attacks.append(LP)
-	if light_kick: inputs_of_curent_frame_for_attacks.append(LK)
-	if heavy_punch: inputs_of_curent_frame_for_attacks.append(HP)
-	if heavy_kick: inputs_of_curent_frame_for_attacks.append(HK)
+	else:
+		if (light_kick and heavy_kick):
+			inputs_of_curent_frame_for_attacks.append(EXK) 
+		if (light_punch and heavy_punch):
+			inputs_of_curent_frame_for_attacks.append(EXP)
+		if (light_kick and light_punch):
+			inputs_of_curent_frame_for_attacks.append(LPK)
+		if (heavy_kick and heavy_punch):
+			inputs_of_curent_frame_for_attacks.append(HPK)
+		if light_punch: inputs_of_curent_frame_for_attacks.append(LP)
+		if light_kick: inputs_of_curent_frame_for_attacks.append(LK)
+		if heavy_punch: inputs_of_curent_frame_for_attacks.append(HP)
+		if heavy_kick: inputs_of_curent_frame_for_attacks.append(HK)
 	
 	# for the display version
 	#if (Input.is_action_pressed("LK") and Input.is_action_pressed("HK")):
@@ -236,7 +238,7 @@ func input_filter():
 
 #--------------------------------------------------------end of array manamgent
 
-func chose_actions_get_attack(dic: Dictionary[Array, Attack]):
+func chose_actions_get_attack(dic: Dictionary[Array, Attack]) -> void:
 	var most_recent_attack: Attack
 	var valids: Dictionary[int,int]
 	var attack_partial_key: Array = [# the 2/4 keys
@@ -260,7 +262,7 @@ func chose_actions_get_attack(dic: Dictionary[Array, Attack]):
 ## choses what attack is to be used based on player state and the most recent sequenc
 ## howver ther is a workaround where a sequence must be at least 3 inputs otherwize
 ## the prioraity is not the first attack but is intseat the first in the dictionary  
-func chose_action3():
+func chose_action3() -> void:
 	# check orrder is specials then comand noramls then nurtal normals and if attacking then combo attacks
 	if attack_manager.is_attacking == false:
 		chose_actions_get_attack(attack_manager.all_specials)
@@ -301,10 +303,3 @@ func _physics_process(_delta: float) -> void:
 	#input_history.reverse()
 	#print(input_history)
 	#input_history.reverse()
-
-	
-	
-		
-	
-	
-	

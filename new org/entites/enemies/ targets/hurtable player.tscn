@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bssckwpf2obbe" path="res://new org/systems/base classes/EntityBase.gd" id="1_wr0em"]
 [ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="2_kwp60"]
+[ext_resource type="Resource" uid="uid://3x15qdhxammi" path="res://new org/entites/agent player stuff/resources?/agent_stats.tres" id="2_m8xwp"]
 [ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://new org/systems/player components and systems/StunManager.gd" id="3_efw5k"]
 [ext_resource type="Script" uid="uid://ccxb00gf1jcum" path="res://new org/systems/player components and systems/Health.gd" id="4_bsvvr"]
 [ext_resource type="Script" uid="uid://dd0phg7lcqqps" path="res://new org/systems/movement related/Gravity.gd" id="5_wr0em"]
@@ -20,6 +21,7 @@ collision_mask = 3
 script = ExtResource("1_wr0em")
 stun_manager = NodePath("StunManager")
 health_component = NodePath("Health")
+stats = ExtResource("2_m8xwp")
 block_type = 1
 metadata/_custom_type_script = "uid://bssckwpf2obbe"
 
@@ -63,7 +65,6 @@ metadata/_custom_type_script = "uid://b8564hciniqu3"
 
 [node name="Health" type="Node" parent="." unique_id=913288797 node_paths=PackedStringArray("host")]
 script = ExtResource("4_bsvvr")
-max_health = 10000000000000
 enabled = true
 host = NodePath("..")
 metadata/_custom_type_script = "uid://ccxb00gf1jcum"

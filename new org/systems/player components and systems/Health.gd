@@ -1,8 +1,14 @@
 ##holds helth info and the call on death
 class_name Health extends BehaviourBase
-var current_health: int## self explantoy
+
+var current_health: int ## self explantoy
 ## sets health to max at start 
 func _ready():
+	if host.stats == null:
+		push_error("Health: stats not set on " + host.name)
+		return
+	if host.stats.max_health <= 0:
+		push_error("Health: max_health must be positive on " + host.name)
 	current_health = host.stats.max_health
 
 ## changes helth has option to set to a number currently can make it more than max

@@ -11,6 +11,9 @@ class_name HitBoxArea extends ActiveHitBox
 
 ## conects singals and is just to warn the hit box has no info and where 
 func _ready():
+	if attack_data == null:
+		push_error("attack_data is null on " + get_parent().name + " of attack " + get_parent().get_parent().name)
+		return
 	if attack_data.stun_type == -1:
 		push_error("stun type not assigned in " + get_parent().name + " of attack " + get_parent().get_parent().name)
 	if attack_data.hit_type == -1:
@@ -94,7 +97,6 @@ func block_check2(attacked_entity: EntityBase, area: HurtBoxArea):
 		#print("blocked is "+str(true))
 	else:
 		area.health.change_health(attack_data.damage)
-	
 	area.stun_manager.start_stun_with_tween(attack_data,vector_direction, block_check_look_up[bit_index])
 	print(area.health.current_health)
 	

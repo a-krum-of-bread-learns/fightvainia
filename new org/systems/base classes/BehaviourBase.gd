@@ -10,6 +10,8 @@ class_name BehaviourBase extends Node
 # affected and has the main script
 ##ready set go (4) ##used to rename the node a bit to hep find it 
 func _ready():
-	if !name: name= "change name"
+	if !name: 
+		name = "change name"
+		push_warning("BehaviourBase: node has no name, consider naming it")
 	print(name+ " enabled is " + str(enabled)) 
 	if !host: push_error("host is not defined for " +name)

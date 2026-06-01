@@ -10,7 +10,17 @@ class_name Player extends EntityBase
 
 #the is somthing varables
 var is_crouching: bool 
-
+func _ready() -> void:
+	super._ready()
+	if colission_box == null:
+		push_error("colission_box not set on "+str(self.name))
+	if scale_component == null:
+		push_error("scale_component not set on "+str(self.name))
+	if input_component == null:
+		push_error("input_component not set on "+str(self.name))
+	if PrimaryHurtBoxes_component == null:
+		push_error("PrimaryHurtBoxes_component not set on "+str(self.name))
+	
 func primary_hurt_box_manager():
 	if is_on_floor() and Input.is_action_pressed("down"):
 		PrimaryHurtBoxes_component.set_box(PrimaryHurtBoxes_component.crouching_hurt_box)

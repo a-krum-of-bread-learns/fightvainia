@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new org/systems/animation/AnimationTool.gd" id="2_0jry0"]
 [ext_resource type="Script" uid="uid://ccxb00gf1jcum" path="res://new org/systems/player components and systems/Health.gd" id="2_8c73w"]
 [ext_resource type="Script" uid="uid://dd0phg7lcqqps" path="res://new org/systems/movement related/Gravity.gd" id="2_8luck"]
+[ext_resource type="Resource" uid="uid://3x15qdhxammi" path="res://new org/entites/agent player stuff/resources?/agent_stats.tres" id="2_b0i3f"]
 [ext_resource type="Script" uid="uid://tmh27lp4axxe" path="res://new org/systems/movement related/Scale.gd" id="2_snyop"]
 [ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://new org/systems/player components and systems/StunManager.gd" id="2_ywtyg"]
 [ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/player components and systems/FrameTimerCompnent.gd" id="3_bc2l7"]
@@ -63,6 +64,7 @@ timer = NodePath("folder2/IAI folder2/FrameTimer")
 combo_1_attacks = [NodePath("folder2/AttackManager/slash"), NodePath("folder2/AttackManager/slash 2")]
 stun_manager = NodePath("folder/StunManager")
 health_component = NodePath("folder/Health")
+stats = ExtResource("2_b0i3f")
 metadata/_custom_type_script = "uid://bssckwpf2obbe"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1361850207]
@@ -74,9 +76,9 @@ texture = ExtResource("10_0jry0")
 
 [node name="Scale" type="Node" parent="folder" unique_id=1965261556 node_paths=PackedStringArray("node", "timer", "host")]
 script = ExtResource("2_snyop")
-enabled = true
 node = NodePath("../../folder2")
 timer = NodePath("FrameTimer")
+enabled = true
 host = NodePath("../..")
 metadata/_custom_type_script = "uid://tmh27lp4axxe"
 

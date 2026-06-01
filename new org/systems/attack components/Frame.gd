@@ -49,6 +49,8 @@ func _ready():
 				node.visible = true
 			else: node.visible = false
 			sprites_array.append(node)
+	if box_shapes.is_empty() and sprites_array.is_empty():
+		push_warning("Frame: " + name + " of attack " + get_parent().name + " has no boxes or sprites, is this intentional?")
 
 ## setts all CollisionShape2D to be the same disabled state as the first on in the list to make it easier to show a spasific box
 func toggle_this_frames_boxes():

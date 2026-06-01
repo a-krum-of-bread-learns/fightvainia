@@ -17,9 +17,26 @@ var is_turning: bool = false
 func _ready():
 	self.name= "scale"
 	super._ready()
-
-
-
+	if host.stats == null:
+		push_error("Scale: stats not set on "+ str(host.name))
+		return
+	
+## this sets the new scale of the [member node] after the delay from the [meber timer]
+func set_scale(new_scale: Vector2):
+	if !enabled: 
+		return
+	if is_turning == false:
+		is_turning = true
+		timer.start_frame_timer(host.stats.prescale_frames)
+		current_flip_direction = new_scale
+	elif timer.is_stoped():
+		node.scale = new_scale
+		if node.scale.x>0: host.is_facing_right = true
+		elif node.scale.x<0: host.is_facing_right = false
+		is_turning = false
+		
+#TODO add more conditons to tuitning around  # this may be consederd done else whare
+## identifies when to flip player on ground
 ## this sets the new scale of the [member node] after the delay from the [meber timer]
 func flip_x_logic():
 	if !enabled: 
@@ -31,12 +48,4 @@ func flip_x_logic():
 	elif host.is_on_floor() and input_manager.input_direction == 1:
 		new_scale = Vector2(1,1)
 	
-	if is_turning == false:
-		is_turning = true
-		timer.start_frame_timer(host.stats.prescale_frames)
-		current_flip_direction = new_scale
-	elif timer.is_stoped():
-		node.scale = new_scale
-		if node.scale.x>0: host.is_facing_right = true
-		elif node.scale.x<0: host.is_facing_right = false
-		is_turning = false
+	set_scale(new_scale)

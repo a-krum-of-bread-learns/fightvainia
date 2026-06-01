@@ -2,3 +2,5 @@
 .godot/
 /android/
 /addons/Todo_Manager/readme/
+# LibreOffice lock files
+.~lock.*#

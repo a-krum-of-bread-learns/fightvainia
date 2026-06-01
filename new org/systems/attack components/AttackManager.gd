@@ -37,6 +37,10 @@ func reset_values(attack: Attack):
 	
 ## starts an attack and sets [member is_attacking]
 func start_attack(an_attack: Attack):
+	if an_attack == null:
+		push_error("AttackManager: tried to start a null attack")
+		return
+		
 	if current_attack: 
 		current_attack.frames[current_attack.active_frame-1].set_frame_disabled(true)
 		reset_values(current_attack)
@@ -60,6 +64,9 @@ func start_attack(an_attack: Attack):
 #TODO add a check for a child that reenables the dealt damage boolen in the parent 
 ##checks is attacking varable so that it can stop or contine 
 func continue_attack():
+	if current_attack.frames.is_empty():
+		push_error("AttackManager: attack has no frames in " + current_attack.name)
+		return
 	if current_attack == null:
 		push_error("attack is null")
 		return

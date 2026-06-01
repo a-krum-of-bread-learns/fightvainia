@@ -34,8 +34,16 @@ func get_time()-> float:
 	return time_in_frames/60.0
 	
 func get_velocty_x(is_facing_right: bool) -> float:
+	if smoothing_curve_x == null:
+		push_error("AnimationResource: smoothing_curve_x not assigned")
+		return 0.0
+	if get_time() == 0:
+		push_error("AnimationResource: time_in_frames is 0, will cause division by zero")
+		return 0.0
+	
 	if displacement.x/get_time()/get_corection(smoothing_curve_x,corection_x) == INF or displacement.x/get_time()/get_corection(smoothing_curve_x,corection_x) == NAN:
-		push_error("NAN or infity velocity")
+		push_error("NAN or infity velocity edit the curves")
+		return 0.0
 		
 	if is_facing_right:
 		return displacement.x/get_time()/get_corection(smoothing_curve_x,corection_x)     				#buggy line
@@ -47,6 +55,11 @@ func get_velocty_x(is_facing_right: bool) -> float:
 
 
 func get_velocty_y() -> float:
+	if smoothing_curve_y == null:
+		push_error("AnimationResource: smoothing_curve_y not assigned")
+		return 0.0
+		
 	if displacement.y/get_time()/get_corection(smoothing_curve_y,corection_y) == INF or displacement.y/get_time()/get_corection(smoothing_curve_y,corection_y) == NAN:
-		push_error("NAN or infity velocity")
+		push_error("NAN or infity velocity edit the curves")
+		return 0.0
 	return displacement.y/get_time()/get_corection(smoothing_curve_y,corection_y)    

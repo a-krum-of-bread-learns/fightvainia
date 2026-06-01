@@ -14,6 +14,7 @@ var can_air_action_jump: bool = false ## tracks if the player can jump again in 
 func _ready():
 	self.name= "movement"
 	super._ready()
+	if coyote_timer == null: push_error("InputManager: coyote_timer not assigned")
 	
 ## this fucntion alows side ways movement based on speed ans direction
 func movement_update(desired_dir: int):

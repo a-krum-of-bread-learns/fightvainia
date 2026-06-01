@@ -603,7 +603,7 @@ func _ready():
 	#var is_facing_right: bool
 	#var sequence: int
 	#var attack_button: int
-	#func _init(_on_floor: bool, right: bool, sequnce: int, attack_b: int) -> void:
+	#func _init(_is_on_floor: bool, _is_facing_right: bool, _sequnce: int, attack_b: int) -> void:
 		#is_on_floor = _on_floor
 		#is_facing_right = right
 		#sequence = sequnce

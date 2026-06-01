@@ -5,5 +5,4 @@ class_name PlayerStats extends EntityStats
 @export var dash_speed: int
 @export var max_dash_duration_frames: int
 @export var run_speed: int
-@export var prescale_frames: int
 @export var c_timer_length: int
