@@ -110,13 +110,13 @@ func movement_manager():
 #--------------------------------------------------------------end of movemnt hadling 
 #--------------------------------------------------------------start of array managent 
 #this doent implie dash can work how i want
-func buffer_check(input_h: Array, sequence: int, Attack_buttion: int) -> bool:
+func buffer_check(input_h: Array, sequence: Array[int], Attack_buttion: Array[int]) -> bool:
 	if get_vaild_sequences(input_h,sequence).size() > 0 and single_input_check(buffered_array,Attack_buttion):
 		return true
 	return false
 
 ## checks if there is a matcing value in the provided array this is uded to buffer things 
-func single_input_check(array: Array, what: int)-> bool:
+func single_input_check(array: Array, what: Array[int])-> bool:
 	if array == null:
 		push_error("Array empty when calling single input check")
 		return false #TODO check if this is a good idea 
@@ -125,25 +125,17 @@ func single_input_check(array: Array, what: int)-> bool:
 			return true
 	return false
 
-##spilts a sequnce into indicaul digits to be used by otehr functions
-func sequence_spliter(sequence: int) -> Array[int]:
-	var digits: Array[int]
-	while (sequence):
-		digits.push_front(sequence%10)
-		@warning_ignore("integer_division")# that is intedned 
-		sequence = sequence / 10
-	return digits
+
 #FIXME accept the cahnge in main for the sequnce reader over the one in ai review
 ## retuns the index of the sequnce if its vaild
-func get_vaild_sequences(input_h: Array[Array], sequence: int) -> Dictionary[int, int]:
+func get_vaild_sequences(input_h: Array[Array], sequence: Array[int]) -> Dictionary[int, int]:
 	var valid: Dictionary[int,int]
 	var curent_digit: int = 0
-	var digits: Array[int] = sequence_spliter(sequence)
-	var total_digits: int = digits.size()
+	var total_digits: int = sequence.size()
 	var index_of_most_recent: int  =0 
-	digits.reverse()
+	sequence.reverse()
 	for index in input_h.size():
-		if input_h[index].has(digits.get(curent_digit)):# check if an input is vaild for that sqeuence 
+		if input_h[index].has(sequence.get(curent_digit)):# check if an input is vaild for that sqeuence 
 			if curent_digit == 0:
 				index_of_most_recent = index
 			curent_digit += 1
@@ -236,22 +228,23 @@ func input_filter():
 
 #--------------------------------------------------------end of array manamgent
 
-func chose_actions_get_attack(dic: Dictionary[Array, Attack]):
+func chose_actions_get_attack(dic: Dictionary[MoveList.AttackKey, Attack]):
 	var most_recent_attack: Attack
-	var valids: Dictionary[int,int]
-	var attack_partial_key: Array = [# the 2/4 keys
+	var valids: Dictionary[int,Array]
+	var attack_partial_key: MoveList.AttackKey = MoveList.AttackKey.new(# the 2/4 keys
 	player.is_on_floor(),
-	player.is_facing_right]
-	for attack: Array in dic:
+	player.is_facing_right,[],[])
+	for attack: MoveList.AttackKey in dic:
 		#this if stamnted does 3 / 4 of the key checks 
-		if (attack[0] == attack_partial_key[0] 
-		and attack[1] == attack_partial_key[1] 
-		and single_input_check(buffered_array, attack[3])):
-			valids.merge(get_vaild_sequences(input_history, attack[2]),true)# the 4th key check that also grabs the index of the seqxnrex 
+		if (attack.is_on_floor == attack_partial_key.is_on_floor 
+		and attack.is_facing_right == attack_partial_key.is_facing_right 
+		and single_input_check(buffered_array, attack.attack_button)):
+			valids.merge(get_vaild_sequences(input_history, attack.sequence),true)# the 4th key check that also grabs the index of the seqxnrex 
 			# add the most recent attack 
 			if valids: 
 				var index = valids.keys().min() # edit the most recent index if it needs to change
-				most_recent_attack = dic.get([attack[0],attack[1],valids.get(index),attack[3]])
+				var key: MoveList.AttackKey = MoveList.AttackKey.new(attack.is_on_floor,attack.is_facing_right,valids.get(index),attack.attack_button)
+				most_recent_attack = dic.get(key)
 		#loop end
 		if most_recent_attack: attack_manager.start_attack(most_recent_attack)#stars the attack
 		
@@ -274,12 +267,12 @@ func chose_action3():
 		and attack_manager.current_attack.has_hit):
 			chose_actions_get_attack(attack_manager.all_specials)
 		
-		for key in attack_manager.current_attack.combo_attacks_dictionary:
-			if (single_input_check(buffered_array,key) 
-			and attack_manager.current_attack.can_combo
-			and attack_manager.current_attack.has_hit):
-				print("you did it")
-				attack_manager.start_attack(attack_manager.current_attack.combo_attacks_dictionary[key])
+		#for key in attack_manager.current_attack.combo_attacks_dictionary:
+			#if (single_input_check(buffered_array,key) 
+			#and attack_manager.current_attack.can_combo
+			#and attack_manager.current_attack.has_hit):
+				#print("you did it")
+				#attack_manager.start_attack(attack_manager.current_attack.combo_attacks_dictionary[key])
 
 func _physics_process(_delta: float) -> void:
 	input_filter()

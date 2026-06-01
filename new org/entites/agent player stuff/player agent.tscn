@@ -25,13 +25,22 @@ script = ExtResource("5_1e7bk")
 thing_to_animate = NodePath("..")
 metadata/_custom_type_script = "uid://ia0tuvmco8v8"
 
+[node name="the player colision box" parent="." index="2" unique_id=693442404]
+position = Vector2(0, 6)
+scale = Vector2(1, 1)
+
 [node name="inputmanager" parent="folder" parent_id_path=PackedInt32Array(1784953174) index="3" unique_id=1544145854]
-enabled = false
+fake_U = null
+fake_R = null
+fake_D = null
+fake_L = null
+enabled = null
 
 [node name="stunManager" parent="folder" parent_id_path=PackedInt32Array(1784953174) index="5" unique_id=845563521 node_paths=PackedStringArray("sprite")]
 sprite = NodePath("../../not needed yet")
 
 [node name="attack manager" parent="folder" parent_id_path=PackedInt32Array(1784953174) index="6" unique_id=1555584615 node_paths=PackedStringArray("light_punch", "down_light_punch", "up_right_light_punch", "air_light_punch", "heavy_punch", "down_heavy_punch", "up_heavy_punch", "air_heavy_punch", "dqcf_light_punch", "dqcf_heavy_kick", "dqcf_heavy_punch", "fqcd_light_punch", "uqcf_light_kick", "fqcu_light_kick")]
+scale = Vector2(1, 1)
 light_punch = NodePath("left buttion (X) lp")
 down_light_punch = NodePath("left button low (X) lp")
 up_right_light_punch = NodePath("left button overhead (X) lp")
@@ -85,5 +94,8 @@ hit_sound = ExtResource("6_yc487")
 hit_sound = ExtResource("6_yc487")
 
 [node name="fire ball" parent="folder/attack manager" index="11" unique_id=1979542474 instance=ExtResource("13_j33lb")]
+
+[node name="Camera2D" parent="." index="4" unique_id=1374441659]
+zoom = Vector2(4, 4)
 
 [connection signal="animate" from="folder/attack manager" to="AnimationTool" method="animate"]

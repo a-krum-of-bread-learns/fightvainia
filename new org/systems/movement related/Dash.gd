@@ -17,7 +17,7 @@ func dash_handler2():
 	else: gravity_component.is_falling = true
 	if host.is_on_floor(): can_air_action_dash = true
 	
-	if (input_manager.buffer_check(input_manager.input_history, input_manager.DASHR,input_manager.R)
+	if (input_manager.buffer_check(input_manager.input_history, MoveList.DASHR,MoveList.R)
 		and is_dashing == false):
 		if host.is_on_floor():
 			print("ground dash")
@@ -28,7 +28,7 @@ func dash_handler2():
 			is_dashing = true
 			can_air_action_dash = false
 
-	elif (input_manager.buffer_check(input_manager.input_history, input_manager.DASHL,input_manager.L)
+	elif (input_manager.buffer_check(input_manager.input_history, MoveList.DASHL,MoveList.L)
 		and is_dashing == false):
 		if host.is_on_floor():
 			print("ground dash")
