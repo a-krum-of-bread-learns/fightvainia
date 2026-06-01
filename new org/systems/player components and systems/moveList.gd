@@ -31,12 +31,30 @@
 ## This enum holds all constants for motion inputs and attacks as sequences or numbers.
 ## For example: DL=1 for down-left as a number, DQCR=236 as a sequence.
 class_name MoveList extends Node2D
+
+#FIXME ask ai to rewtie
+#first re write the enum into the form of const DL: Array[int] =[1] cosnt DASHL: Array[int]= [5,4,5,4]
+# for the attack buttons keep them as 2 digits them bing 12 to 19 then repplace all of the arrays
+# being uses as a key to use the resource attack key int the form of attackkey.new(bool,bool,Array[int], Array[int])
+
+#FIXME verify enum is repaced corectly make a single source of truth
 enum {DL=1,D=2,DR=3,L=4,NEUTRAL=5,R=6,UL=7,U=8,UR=9, # input directions
 LK=12,HK=16,EXK=13,LP=14,HP=18,EXP=17,LPK=11,HPK=19, #attack buttons
 DQCR=236,DQCL=214,UQCR=896,UQCL=874,LQCD=412,RQCD=632,LQCU=478,RQCU=698, #quarter circle motions
 RDPD=623,LDPD=421,RDPU=689,LDPU=487, #dragon punch motions
 DASHR=5656,DASHL=5454} 
 
+class AttackKey extends Resource:
+	var is_on_floor: bool
+	var is_facing_right: bool
+	var sequence: Array[int]
+	var attack_button: Array[int]
+	func _init(_is_on_floor: bool, _is_facing_right: bool, _sequnce: Array[int], _attack_button: Array[int]) -> void:
+		is_on_floor = _is_on_floor
+		is_facing_right = _is_facing_right
+		sequence = _sequnce
+		attack_button = _attack_button
+	
 ## all of these are individual Attacks
 @export_group("normal Attacks")
 
@@ -598,14 +616,6 @@ func _ready():
 	print("Neutral Normals: ", neutral_normals.size())
 	print("Total Attacks: ", all_attacks.size())
 
-#class AttackKey extends  Resource:
-	#var is_on_floor: bool
-	#var is_facing_right: bool
-	#var sequence: int
-	#var attack_button: int
-	#func _init(_is_on_floor: bool, _is_facing_right: bool, _sequnce: int, attack_b: int) -> void:
-		#is_on_floor = _on_floor
-		#is_facing_right = right
-		#sequence = sequnce
-		#attack_button = attack_b
+
+		
 		

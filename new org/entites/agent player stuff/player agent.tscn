@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://bwrmodlels1kk" path="res://new org/entites/agent player stuff/attacks/fire_ball.tscn" id="13_j33lb"]
 [ext_resource type="PackedScene" uid="uid://cw6ku76l6qttd" path="res://new org/entites/agent player stuff/attacks/spawn_ice_block.tscn" id="14_anoxa"]
 [ext_resource type="PackedScene" uid="uid://bj2ky72inaiq4" path="res://new org/entites/agent player stuff/attacks/up_button_air_(y)_hp.tscn" id="15_2ule2"]
-[ext_resource type="PackedScene" uid="uid://bcdh8iiy8oa3c" path="res://new org/entites/agent player stuff/attacks/electric_stun_projectile.tscn" id="15_yc487"]
 
 [node name="player" unique_id=1999747051 instance=ExtResource("1_a6hav")]
 
@@ -31,7 +30,7 @@ enabled = false
 [node name="stunManager" parent="folder" parent_id_path=PackedInt32Array(1784953174) index="5" unique_id=845563521 node_paths=PackedStringArray("sprite")]
 sprite = NodePath("../../not needed yet")
 
-[node name="attack manager" parent="folder" parent_id_path=PackedInt32Array(1784953174) index="6" unique_id=1555584615 node_paths=PackedStringArray("light_punch", "down_light_punch", "up_right_light_punch", "air_light_punch", "heavy_punch", "down_heavy_punch", "up_heavy_punch", "air_heavy_punch", "dqcf_light_punch", "dqcf_heavy_kick", "dqcf_heavy_punch", "fqcd_light_punch", "uqcf_light_kick", "fqcu_light_kick")]
+[node name="attack manager" parent="folder" parent_id_path=PackedInt32Array(1784953174) index="6" unique_id=1555584615 node_paths=PackedStringArray("light_punch", "down_light_punch", "up_right_light_punch", "air_light_punch", "heavy_punch", "down_heavy_punch", "up_heavy_punch", "air_heavy_punch", "dqcf_light_punch", "dqcf_heavy_kick", "fqcd_light_punch", "uqcf_light_kick", "fqcu_light_kick", "air_uqcf_light_kick", "air_fqcu_light_kick")]
 light_punch = NodePath("left buttion (X) lp")
 down_light_punch = NodePath("left button low (X) lp")
 up_right_light_punch = NodePath("left button overhead (X) lp")
@@ -42,10 +41,11 @@ up_heavy_punch = NodePath("up buttion anti air (Y) hp")
 air_heavy_punch = NodePath("up button air (Y)")
 dqcf_light_punch = NodePath("fire ball")
 dqcf_heavy_kick = NodePath("spawn ice block")
-dqcf_heavy_punch = NodePath("electric stun projectile")
 fqcd_light_punch = NodePath("ground explsion")
 uqcf_light_kick = NodePath("grapling hook")
 fqcu_light_kick = NodePath("grapling hook")
+air_uqcf_light_kick = NodePath("grapling hook")
+air_fqcu_light_kick = NodePath("grapling hook")
 
 [node name="left buttion (X) lp" parent="folder/attack manager" index="0" unique_id=508514690 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("2_pk7ux")]
 combo_attacks_dictionary = {
@@ -81,9 +81,6 @@ hit_sound = ExtResource("6_yc487")
 
 [node name="spawn ice block" parent="folder/attack manager" index="9" unique_id=1932217704 instance=ExtResource("14_anoxa")]
 
-[node name="electric stun projectile" parent="folder/attack manager" index="10" unique_id=1859951945 instance=ExtResource("15_yc487")]
-hit_sound = ExtResource("6_yc487")
-
-[node name="fire ball" parent="folder/attack manager" index="11" unique_id=1979542474 instance=ExtResource("13_j33lb")]
+[node name="fire ball" parent="folder/attack manager" index="10" unique_id=1979542474 instance=ExtResource("13_j33lb")]
 
 [connection signal="animate" from="folder/attack manager" to="AnimationTool" method="animate"]

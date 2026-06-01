@@ -57,13 +57,12 @@ script = ExtResource("8_26ngb")
 thing_to_animate = NodePath("..")
 
 [node name="hit_box" type="CollisionShape2D" parent="frame # 13-13/Projectile # 200" unique_id=1812580329]
-scale = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_anoxa")
 disabled = true
 debug_color = Color(1, 0, 0, 0.6862745)
 
 [node name="fire ball" type="Sprite2D" parent="frame # 13-13/Projectile # 200" unique_id=505360771]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.063, 0.063)
 texture = ExtResource("9_0hrwv")
 region_enabled = true
 region_rect = Rect2(128, 112, 248, 200)

@@ -3,7 +3,7 @@
 ## Does not use MoveList by design
 class_name EnemyBase extends EntityBase
 
-enum IdleState { WALKING, PAUSING }
+enum State { WALKING, PAUSING, CHASING }
 
 @export_group("components")
 @export var rays: Array[RayCast2D]
@@ -15,16 +15,15 @@ enum IdleState { WALKING, PAUSING }
 @export_range(1, 9223372036854775807) var minimum_time_before_attacks_in_frames: int = 60
 @export var combo_1_attacks: Array[Attack]
 
-@export_group("idle patrol settings")
+@export_group("settings")
 @export var walk_velocity_x: float = 100
 @export_range(1, 9223372036854775807) var walk_time: int = 200
 @export_range(1, 9223372036854775807) var pause_time: int = 30
-
-@export_group("chase settings")
 @export var chase_velocity_x: float = 300
 @export var chase_range: float = 2000
+@export var attack_range: float = 100
 
-var idle_state: IdleState = IdleState.WALKING
+var next_state: State = State.WALKING
 var current_attack_index: int = 0
 var thing_to_chase: EntityBase
 var is_chasing: bool = false
@@ -33,83 +32,79 @@ var is_chasing: bool = false
 func _ready() -> void:
 	for ray in rays:
 		ray.hit_from_inside = true
-	_start_walking()
-
-
-# --- idle patrol ---
-
-func _start_walking() -> void:
-	idle_state = IdleState.WALKING
-	timer.start_frame_timer(walk_time)
-	if is_facing_right: velocity.x = walk_velocity_x 
-	else:velocity.x = -walk_velocity_x
-	_update_scale()
-
-func _start_pausing() -> void:
-	idle_state = IdleState.PAUSING
+	start_wait_state()
+	
+func start_wait_state():
+	next_state = State.WALKING
 	timer.start_frame_timer(pause_time)
 	velocity.x = 0
 
-func _flip_direction() -> void:
+
+func start_walk_state():
 	is_facing_right = !is_facing_right
-	_update_scale()
-
-func _update_scale() -> void:
-	scale_component.set_scale(Vector2(1, 1) if is_facing_right else Vector2(-1, 1))
-
-func idle_behaviour() -> void:
-	if not timer.is_stoped():
-		return
-	match idle_state:
-		IdleState.WALKING:
-			_start_pausing()
-		IdleState.PAUSING:
-			_flip_direction()
-			_start_walking()
+	next_state = State.PAUSING
+	timer.start_frame_timer(walk_time)
+	
+	velocity.x = walk_velocity_x if is_facing_right else -walk_velocity_x
+	scale_component.set_scale(Scale.RIGHT if is_facing_right else Scale.LEFT)
 
 
-# --- chase ---
+func behaviour() -> void:
+	match next_state:
+		State.WALKING when timer.is_stoped():
+			start_walk_state()
+		State.PAUSING when timer.is_stoped():
+			start_wait_state()
+		State.CHASING:
+			chase_state()
+		_: pass
 
-func chase_behaviour() -> void:
+func check_chase():
 	for ray in rays:
 		if ray.is_colliding() and ray.get_collider() is HurtBoxArea:
 			thing_to_chase = (ray.get_collider() as HurtBoxArea).health.host
 			is_chasing = true
+			next_state = State.CHASING
 
-	if not thing_to_chase or not is_chasing:
-		return
-
+# --- chase ---
+func chase_state() -> void:
 	var delta: Vector2 = self.global_position - thing_to_chase.global_position
+	is_facing_right = delta.x < 0
+	scale_component.set_scale(Scale.RIGHT if is_facing_right else Scale.LEFT)
+	velocity.x = chase_velocity_x * -sign(delta.x)
+	if attack_range >= abs(delta.x): 
+		start_attack_check(combo_1_attacks)
+
 	if abs(delta.x) >= chase_range:
 		is_chasing = false
+		thing_to_chase = null
+		next_state = State.PAUSING
 		return
-
-	is_facing_right = delta.x < 0
-	_update_scale()
-	velocity.x = chase_velocity_x * -sign(delta.x)
 
 
 # --- attacks ---
 
-func when_to_attack(combo_attacks: Array):
+func start_attack_check(combo_attacks: Array):
 	if attack_manager.is_attacking == false:
 		current_attack_index = 0
 		for ray in rays:
 			if ray.is_colliding() and timer.is_stoped(): 
 				timer.start_frame_timer(minimum_time_before_attacks_in_frames)
+				velocity.x = 0
 			elif ray.is_colliding():
+				velocity.x = 0
 				attack_manager.start_attack(combo_attacks[current_attack_index])
 	else: 
 		if combo_attacks[current_attack_index].has_hit and combo_attacks[current_attack_index].can_combo:
 			current_attack_index += 1
 			attack_manager.start_attack(combo_attacks[current_attack_index])
 			
+			
 
 
 
 func _physics_process(_delta: float) -> void:
-	chase_behaviour()
-	when_to_attack(combo_1_attacks)
-	if not attack_manager.is_attacking and not is_chasing:
-		idle_behaviour()
+	check_chase()
+	if not attack_manager.is_attacking:
+		behaviour()
 	move_and_slide()

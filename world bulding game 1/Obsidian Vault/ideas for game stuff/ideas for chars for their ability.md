@@ -138,3 +138,4 @@ block blocks low and high so cross ups are required
 air parry give an additional air action 
 walk and block what about run and block
 universal design of reversal dp's especially the invincible ones
+pick one block the projectile or block the player

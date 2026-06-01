@@ -3,30 +3,26 @@
 ## and uses numpad notation +10 for Attack buttons
 #TODO decide if i call this player contoller instead 
 class_name InputManager extends BehaviourBase
-enum {DL=1,D=2,DR=3,L=4,NEUTRAL=5,R=6,UL=7,U=8,UR=9, # input directions
-LK=12,HK=16,EXK=13,LP=14,HP=18,EXP=17,LPK=11,HPK=19, #attack buttons
-DQCR=236,DQCL=214,UQCR=896,UQCL=874,LQCD=412,RQCD=632,LQCU=478,RQCU=698, #quarter circle motions
-RDPD=623,LDPD=421,RDPU=689,LDPU=487, #dragon punch motions
-DASHR=5656,DASHL=5454} 
+
 # array made by ai
 ## this array helps to select a motion input using binary math see [method input_filter]
 var direction_look_up_array = [
-		NEUTRAL,  # 0000 - no input
-		R,        # 0001 - right only
-		L,        # 0010 - left only
-		NEUTRAL,  # 0011 - left + right conflict
-		D,        # 0100 - down only
-		DR,       # 0101 - down + right
-		DL,       # 0110 - down + left
-		D,        # 0111 - down + left + right (priority to down)
-		U,        # 1000 - up only
-		UR,       # 1001 - up + right
-		UL,       # 1010 - up + left
-		U,        # 1011 - up + left + right (priority to up)
-		NEUTRAL,  # 1100 - up + down conflict
-		R,        # 1101 - up + down + right (priority to right)
-		L,        # 1110 - up + down + left (priority to left)
-		NEUTRAL   # 1111 - all directions pressed
+		MoveList.NEUTRAL,  # 0000 - no input
+		MoveList.R,        # 0001 - right only
+		MoveList.L,        # 0010 - left only
+		MoveList.NEUTRAL,  # 0011 - left + right conflict
+		MoveList.D,        # 0100 - down only
+		MoveList.DR,       # 0101 - down + right
+		MoveList.DL,       # 0110 - down + left
+		MoveList.D,        # 0111 - down + left + right (priority to down)
+		MoveList.U,        # 1000 - up only
+		MoveList.UR,       # 1001 - up + right
+		MoveList.UL,       # 1010 - up + left
+		MoveList.U,        # 1011 - up + left + right (priority to up)
+		MoveList.NEUTRAL,  # 1100 - up + down conflict
+		MoveList.R,        # 1101 - up + down + right (priority to right)
+		MoveList.L,        # 1110 - up + down + left (priority to left)
+		MoveList.NEUTRAL   # 1111 - all directions pressed
 	]
 
 #TODO add a boolen to tell me when i can do somthing?
@@ -116,7 +112,7 @@ func buffer_check(input_h: Array, sequence: int, Attack_buttion: int) -> bool:
 	if get_vaild_sequences(input_h,sequence).size() > 0 and single_input_check(buffered_array,Attack_buttion):
 		return true
 	return false
-
+#FIXME for when i do the ai rewrite move move list with attack key resource
 ## checks if there is a matcing value in the provided array this is uded to buffer things 
 func single_input_check(array: Array, what: int)-> bool:
 	if array == null:
@@ -126,7 +122,7 @@ func single_input_check(array: Array, what: int)-> bool:
 		if inputs.has(what):
 			return true
 	return false
-
+#FIXME delete when i do the ai rewrite move move list with attack key resource 
 ##spilts a sequnce into indicaul digits to be used by otehr functions
 func sequence_spliter(sequence: int) -> Array[int]:
 	var digits: Array[int]
@@ -135,7 +131,8 @@ func sequence_spliter(sequence: int) -> Array[int]:
 		@warning_ignore("integer_division")# that is intedned 
 		sequence = sequence / 10
 	return digits
-
+	
+#FIXME for when i do the ai rewrite move move list with attack key resource
 ## retuns the index of the sequnce if its vaild
 func get_vaild_sequences(input_h: Array[Array], sequence: int) -> Dictionary[int, int]:
 	var valid: Dictionary[int,int]
@@ -194,30 +191,30 @@ func input_filter() -> void:
 	# Attacks
 	if FrameByFrameMode.frame_by_frame_mode_endabled:
 		if (light_kick_hold and heavy_kick_hold):
-			inputs_of_curent_frame_for_attacks.append(EXK) 
+			inputs_of_curent_frame_for_attacks.append(MoveList.EXK) 
 		if (light_punch_hold and heavy_punch_hold):
-			inputs_of_curent_frame_for_attacks.append(EXP)
+			inputs_of_curent_frame_for_attacks.append(MoveList.EXP)
 		if (light_kick_hold and light_punch_hold):
-			inputs_of_curent_frame_for_attacks.append(LPK)
+			inputs_of_curent_frame_for_attacks.append(MoveList.LPK)
 		if (heavy_kick_hold and heavy_punch_hold):
-			inputs_of_curent_frame_for_attacks.append(HPK)
-		if light_punch_hold: inputs_of_curent_frame_for_attacks.append(LP)
-		if light_kick_hold: inputs_of_curent_frame_for_attacks.append(LK)
-		if heavy_punch_hold: inputs_of_curent_frame_for_attacks.append(HP)
-		if heavy_kick_hold: inputs_of_curent_frame_for_attacks.append(HK)
+			inputs_of_curent_frame_for_attacks.append(MoveList.HPK)
+		if light_punch_hold: inputs_of_curent_frame_for_attacks.append(MoveList.LP)
+		if light_kick_hold: inputs_of_curent_frame_for_attacks.append(MoveList.LK)
+		if heavy_punch_hold: inputs_of_curent_frame_for_attacks.append(MoveList.HP)
+		if heavy_kick_hold: inputs_of_curent_frame_for_attacks.append(MoveList.HK)
 	else:
 		if (light_kick and heavy_kick):
-			inputs_of_curent_frame_for_attacks.append(EXK) 
+			inputs_of_curent_frame_for_attacks.append(MoveList.EXK) 
 		if (light_punch and heavy_punch):
-			inputs_of_curent_frame_for_attacks.append(EXP)
+			inputs_of_curent_frame_for_attacks.append(MoveList.EXP)
 		if (light_kick and light_punch):
-			inputs_of_curent_frame_for_attacks.append(LPK)
+			inputs_of_curent_frame_for_attacks.append(MoveList.LPK)
 		if (heavy_kick and heavy_punch):
-			inputs_of_curent_frame_for_attacks.append(HPK)
-		if light_punch: inputs_of_curent_frame_for_attacks.append(LP)
-		if light_kick: inputs_of_curent_frame_for_attacks.append(LK)
-		if heavy_punch: inputs_of_curent_frame_for_attacks.append(HP)
-		if heavy_kick: inputs_of_curent_frame_for_attacks.append(HK)
+			inputs_of_curent_frame_for_attacks.append(MoveList.HPK)
+		if light_punch: inputs_of_curent_frame_for_attacks.append(MoveList.LP)
+		if light_kick: inputs_of_curent_frame_for_attacks.append(MoveList.LK)
+		if heavy_punch: inputs_of_curent_frame_for_attacks.append(MoveList.HP)
+		if heavy_kick: inputs_of_curent_frame_for_attacks.append(MoveList.HK)
 	
 	# for the display version
 	#if (Input.is_action_pressed("LK") and Input.is_action_pressed("HK")):
@@ -237,7 +234,7 @@ func input_filter() -> void:
 	resize_and_append_to_array(buffered_array,max_buffer_frames,inputs_of_curent_frame_for_attacks)
 
 #--------------------------------------------------------end of array manamgent
-
+#FIXME for when i do the ai rewrite move move list with attack key resource
 func chose_actions_get_attack(dic: Dictionary[Array, Attack]) -> void:
 	var most_recent_attack: Attack
 	var valids: Dictionary[int,int]

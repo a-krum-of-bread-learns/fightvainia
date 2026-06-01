@@ -15,7 +15,6 @@ size = Vector2(16, 20)
 size = Vector2(16, 24)
 
 [node name="Player primary hurtboxes and sprites" type="Node2D" unique_id=994631848 node_paths=PackedStringArray("standing_hurt_box_area", "crouching_hurt_box_area", "airborne_hurt_box_area", "standing_sprite", "crouching_sprite")]
-scale = Vector2(8, 8)
 script = ExtResource("1_4gmxm")
 standing_hurt_box_area = NodePath("staning")
 crouching_hurt_box_area = NodePath("crouch")

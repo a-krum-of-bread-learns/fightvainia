@@ -1,6 +1,9 @@
 ## this is used to change the size of a node and may be used to flip direction as well
 ##
 class_name Scale extends BehaviourBase
+const RIGHT = Vector2(1,1)
+const LEFT = Vector2(-1,1) 
+
 ## the thing you want to scacle
 @export var node: Node2D
 ##the delay for the scale to be used by a [FrameTimer]
@@ -25,15 +28,10 @@ func _ready():
 func set_scale(new_scale: Vector2):
 	if !enabled: 
 		return
-	if is_turning == false:
-		is_turning = true
-		timer.start_frame_timer(host.stats.prescale_frames)
-		current_flip_direction = new_scale
-	elif timer.is_stoped():
-		node.scale = new_scale
-		if node.scale.x>0: host.is_facing_right = true
-		elif node.scale.x<0: host.is_facing_right = false
-		is_turning = false
+	node.scale = new_scale
+	if node.scale.x>0: host.is_facing_right = true
+	elif node.scale.x<0: host.is_facing_right = false
+	is_turning = false
 		
 #TODO add more conditons to tuitning around  # this may be consederd done else whare
 ## identifies when to flip player on ground

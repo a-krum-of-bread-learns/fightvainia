@@ -15,7 +15,6 @@ size = Vector2(16, 24)
 size = Vector2(16, 24)
 
 [node name="hurt able" type="CharacterBody2D" unique_id=373821748 node_paths=PackedStringArray("stun_manager", "health_component")]
-scale = Vector2(8, 8)
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_wr0em")

@@ -10,10 +10,10 @@
 [node name="Node2D" type="Node2D" unique_id=1655691674]
 
 [node name="hurt able" parent="." unique_id=910393293 instance=ExtResource("1_ydgiy")]
-position = Vector2(184, 4)
+position = Vector2(-56, 216)
 
 [node name="player" parent="." unique_id=1999747051 instance=ExtResource("2_b04fu")]
-position = Vector2(-384, -20)
+position = Vector2(-128, 192)
 
 [node name="CanvasLayer" parent="." unique_id=891357048 instance=ExtResource("3_32i3w")]
 visible = false
@@ -37,5 +37,5 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "      frame by frame mode enabled press f to diable or the left menu button "
 
-[node name="EntityBase" parent="." unique_id=718906405 instance=ExtResource("6_b04fu")]
-position = Vector2(-856, 160)
+[node name="cpu1" parent="." unique_id=718906405 instance=ExtResource("6_b04fu")]
+position = Vector2(-328, 216)

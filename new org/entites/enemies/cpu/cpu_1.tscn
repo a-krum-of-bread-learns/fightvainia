@@ -18,10 +18,10 @@
 [ext_resource type="Script" uid="uid://b26tsti3xbnx7" path="res://new org/systems/cpu systems/iai.gd" id="16_bx61f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8lew8"]
-size = Vector2(256, 128)
+size = Vector2(32, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8c73w"]
-size = Vector2(128, 128)
+size = Vector2(16, 16)
 
 [sub_resource type="Resource" id="Resource_5tbk8"]
 script = ExtResource("8_k1v7u")
@@ -35,10 +35,10 @@ damage = 100
 metadata/_custom_type_script = "uid://c8e0lbybahcxv"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bggwf"]
-size = Vector2(128, 128)
+size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bc2l7"]
-size = Vector2(192, 128)
+size = Vector2(24, 16)
 
 [sub_resource type="Resource" id="Resource_h3rpu"]
 script = ExtResource("8_k1v7u")
@@ -52,7 +52,7 @@ damage = 100
 metadata/_custom_type_script = "uid://c8e0lbybahcxv"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5e8x"]
-size = Vector2(192, 128)
+size = Vector2(24, 16)
 
 [node name="cpu1" type="CharacterBody2D" unique_id=718906405 node_paths=PackedStringArray("rays", "attack_manager", "scale_component", "timer", "combo_1_attacks", "stun_manager", "health_component")]
 collision_layer = 0
@@ -62,6 +62,10 @@ attack_manager = NodePath("folder2/AttackManager")
 scale_component = NodePath("folder/Scale")
 timer = NodePath("folder2/IAI folder2/FrameTimer")
 combo_1_attacks = [NodePath("folder2/AttackManager/slash"), NodePath("folder2/AttackManager/slash 2")]
+walk_velocity_x = 50.0
+chase_velocity_x = 100.0
+chase_range = 200.0
+attack_range = 30.0
 stun_manager = NodePath("folder/StunManager")
 health_component = NodePath("folder/Health")
 stats = ExtResource("2_b0i3f")
@@ -69,7 +73,7 @@ metadata/_custom_type_script = "uid://bssckwpf2obbe"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1361850207]
 position = Vector2(0, 7.212162e-06)
-scale = Vector2(1.4222221, 0.7111111)
+scale = Vector2(0.178, 0.089)
 texture = ExtResource("10_0jry0")
 
 [node name="folder" type="Node" parent="." unique_id=2079923595]
@@ -148,7 +152,7 @@ health = NodePath("../../../../../folder/Health")
 stun_manager = NodePath("../../../../../folder/StunManager")
 
 [node name="hurt_box" type="CollisionShape2D" parent="folder2/AttackManager/slash/frame # 32-37/hurt_box # 300" unique_id=1327573256]
-position = Vector2(192, 0)
+position = Vector2(24, 0)
 shape = SubResource("RectangleShape2D_8c73w")
 disabled = true
 debug_color = Color(0, 0, 1, 0.6862745)
@@ -160,7 +164,7 @@ script = ExtResource("7_0jry0")
 attack_data = SubResource("Resource_5tbk8")
 
 [node name="hit_box" type="CollisionShape2D" parent="folder2/AttackManager/slash/frame # 32-37/hit_box # 100" unique_id=1414677899]
-position = Vector2(192, 0)
+position = Vector2(24, 0)
 shape = SubResource("RectangleShape2D_bggwf")
 disabled = true
 debug_color = Color(1, 0, 0, 0.6862745)
@@ -189,7 +193,7 @@ health = NodePath("../../../../../folder/Health")
 stun_manager = NodePath("../../../../../folder/StunManager")
 
 [node name="hurt_box" type="CollisionShape2D" parent="folder2/AttackManager/slash 2/frame # 12-14/hurt_box # 300" unique_id=72750978]
-position = Vector2(224, 0)
+position = Vector2(28, 0)
 shape = SubResource("RectangleShape2D_bc2l7")
 disabled = true
 debug_color = Color(0, 0, 1, 0.6862745)
@@ -201,7 +205,7 @@ script = ExtResource("7_0jry0")
 attack_data = SubResource("Resource_h3rpu")
 
 [node name="hit_box" type="CollisionShape2D" parent="folder2/AttackManager/slash 2/frame # 12-14/hit_box # 100" unique_id=1460549776]
-position = Vector2(224, 0)
+position = Vector2(28, 0)
 shape = SubResource("RectangleShape2D_p5e8x")
 disabled = true
 debug_color = Color(1, 0, 0, 0.6862745)
@@ -217,8 +221,7 @@ script = ExtResource("3_bc2l7")
 metadata/_custom_type_script = "uid://dkek8a7podljt"
 
 [node name="RayCast2D" type="RayCast2D" parent="folder2/IAI folder2" unique_id=1499053996]
-position = Vector2(128, 0)
-target_position = Vector2(192, 0)
+target_position = Vector2(56, 0)
 collision_mask = 2
 hit_from_inside = true
 collide_with_areas = true

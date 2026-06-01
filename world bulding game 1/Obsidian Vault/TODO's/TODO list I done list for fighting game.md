@@ -84,19 +84,11 @@
 - [ ] healing could just be a negative hit box damage?  this needs an exception to self exception
 
 - [ ] consideration motion attacks? like motion inputs for directions rhythm character or something
-- [ ] decide these 2 where they should be fast_move_speed, gravity
 - [ ] combine player and input manager?
-- [ ] run?
-- [x] give the hurt able player text over head saying is stunned 
-
-- [ ] consideration motion attacks? like motion inputs for directions rhythm character or something scope creep and doesn't work with current sequence reader
 
 - [ ] a bit of combo ui
-- [ ] do i want air blocking ?
 - [ ] fix collisions so i can push another player using if im being detected then i will be pushing
 	the layer pushes the mask witch means i need 2 player layers needs a work a round to have both the players push each other 
-
-- [ ] make grabs and command grabs (related to above) or dont and skip this 
 
 - [ ] make grabs and command grabs or dont and skip this 
 
@@ -119,16 +111,15 @@
 	- [ ] 1 boss: must be combed 
 
 - [x] make on hit condition check 
-- [ ] add flexablity to combo attacks so that if i have a 2 hit attack it can follow up differently on hir 1 and hit 2 
 - [x] make a spawn object thing
 
 - [ ] add flexibility to combo attacks so that if i have a 2 hit attack it can follow up differently on hit 1 and hit 2 (example Jamie 4 drink forward heavy kick 3 followups)
-
-- [ ] add spawn object under frames with a button
+- [x] add spawn object under frames with a button
 - [ ] stuns of type like fire and electricty or ice here
 - [ ] review all process/ physics process functions for witch one is right to use
 - [x] fix stun manager logic so that the thing works on y stun
-- [ ] pick one block the projectile or block the player
 
-if both camera and art are scaled most of the art will still render at high quality 
-- [ ] do an art scale again things taht do: primary hurt boxes, colsion shape, attack manager,  the projectile hit box  colison shapes, spites should
+
+
+- [x] do an art scale again things taht do: primary hurt boxes, colsion shape, attack manager,  the projectile hit box  colison shapes, spites should
+- [ ] fix jumping before starting a special move that is grounded (don't apply to grappling hook)
