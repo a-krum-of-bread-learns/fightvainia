@@ -1,0 +1,12 @@
+- [ ] stop player from being hit multiple times when there hurt box changes for the fixed hurt box
+- [x] make an object that can be hit without extra baggage
+- [x] force stop animations when hit
+- [ ] fix the active hurt box or see if an update fixes the signal 
+- [ ] kill_momnetum_of_tween is unused?
+- [x] fix crouch walking 
+- [ ] projectiles do not habe uninq hit expetions so theritly it may pass right through or hit the same thing twice on one instance
+- [ ] fix what the active hurt box is when attacking 
+- [ ] fix cancels being only on the very first frame when using hit stop 
+- [ ] add bounus frmaes for input history to allow resopnive but delayed cancels 
+	for example input on frame 8 but the move gets cancels on frame 22 where the cancel window is  defined
+- [ ] command normal come out when the direction is in history  and buttion is pressed after outside of buffered array

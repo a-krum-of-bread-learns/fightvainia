@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d31hgc1h10800" path="res://new org/systems/player components and systems/playerContoller.gd" id="1_8it8p"]
 [ext_resource type="PackedScene" uid="uid://btufeyfuqt18p" path="res://new org/entites/agent player stuff/primary_hurt_boxes.tscn" id="2_7bb02"]
 [ext_resource type="Resource" uid="uid://3x15qdhxammi" path="res://new org/entites/agent player stuff/resources?/agent_stats.tres" id="2_8it8p"]
+[ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new org/systems/animation/AnimationTool.gd" id="3_7bb02"]
 [ext_resource type="Script" uid="uid://dn37qd1n3kapy" path="res://new org/systems/movement related/Dash.gd" id="4_lxi42"]
 [ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/player components and systems/FrameTimerCompnent.gd" id="5_7ia2k"]
 [ext_resource type="Script" uid="uid://dbsvrd6tasmbw" path="res://new org/systems/movement related/Movement.gd" id="6_e1a3v"]
@@ -18,26 +19,32 @@
 radius = 4.0
 height = 16.0
 
-[node name="player" type="CharacterBody2D" unique_id=2023579452 node_paths=PackedStringArray("colission_box", "scale_component", "input_component", "PrimaryHurtBoxes_component", "stun_manager", "health_component")]
+[node name="player" type="CharacterBody2D" unique_id=2023579452 node_paths=PackedStringArray("colission_box", "input_component", "PrimaryHurtBoxes_component", "stun_manager", "attack_manager", "scale_component", "health_component")]
 script = ExtResource("1_8it8p")
 colission_box = NodePath("the player colision box")
-scale_component = NodePath("folder/scale")
 input_component = NodePath("folder/inputmanager")
 PrimaryHurtBoxes_component = NodePath("folder/player primary hurt boxes")
 stun_manager = NodePath("folder/stunManager")
+attack_manager = NodePath("folder/attack manager")
+scale_component = NodePath("folder/scale")
 health_component = NodePath("folder/health")
 stats = ExtResource("2_8it8p")
 block_type = -1
 
+[node name="AnimationTool" type="Node" parent="." unique_id=1033031355 node_paths=PackedStringArray("thing_to_animate")]
+script = ExtResource("3_7bb02")
+thing_to_animate = NodePath("..")
+metadata/_custom_type_script = "uid://ia0tuvmco8v8"
+
 [node name="the player colision box" type="CollisionShape2D" parent="." unique_id=693442404]
-position = Vector2(0, 6)
+position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_e1a3v")
 debug_color = Color(1, 1, 1, 0.42)
 
 [node name="folder" type="Node2D" parent="." unique_id=1784953174]
 
-[node name="player primary hurt boxes" parent="folder" unique_id=994631848 node_paths=PackedStringArray("player") instance=ExtResource("2_7bb02")]
-player = NodePath("../..")
+[node name="player primary hurt boxes" parent="folder" unique_id=994631848 node_paths=PackedStringArray("entity") instance=ExtResource("2_7bb02")]
+entity = NodePath("../..")
 
 [node name="movement folder" type="Node" parent="folder" unique_id=1037400380]
 
@@ -72,16 +79,12 @@ script = ExtResource("5_7ia2k")
 [node name="coyote timer" type="Node" parent="folder/movement folder/movement" unique_id=319577096]
 script = ExtResource("5_7ia2k")
 
-[node name="scale" type="Node" parent="folder" unique_id=349905362 node_paths=PackedStringArray("node", "timer", "input_manager", "host")]
+[node name="scale" type="Node" parent="folder" unique_id=349905362 node_paths=PackedStringArray("node", "input_manager", "host")]
 script = ExtResource("7_8it8p")
 node = NodePath("..")
-timer = NodePath("turn around delay")
 input_manager = NodePath("../inputmanager")
 enabled = true
 host = NodePath("../..")
-
-[node name="turn around delay" type="Node" parent="folder/scale" unique_id=1916318394]
-script = ExtResource("5_7ia2k")
 
 [node name="inputmanager" type="Node" parent="folder" unique_id=1544145854 node_paths=PackedStringArray("player", "attack_manager", "movement_componet", "scale_component", "dash_component", "gravity_component", "host")]
 script = ExtResource("8_e1a3v")
@@ -103,8 +106,9 @@ metadata/_custom_type_script = "uid://c5ucrpov3ddtq"
 script = ExtResource("11_x2twk")
 host = NodePath("../..")
 
-[node name="attack manager" type="Node2D" parent="folder" unique_id=1555584615 node_paths=PackedStringArray("host")]
+[node name="attack manager" type="Node2D" parent="folder" unique_id=1555584615 node_paths=PackedStringArray("animation_tool", "host")]
 script = ExtResource("12_167us")
+animation_tool = NodePath("../../AnimationTool")
 host = NodePath("../..")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1374441659]

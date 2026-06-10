@@ -56,7 +56,9 @@ func damage(area):
 ## true means blocked
 func high_low_block_check(attacked_entity: EntityBase)-> bool:
 	if attack_manager.host.is_on_floor() == true: ## this if statment forces all attacks in the air to be over head regardless of type set even if its a grab right now but grab is not implemted
-		if attack_data.hit_type == attacked_entity.block_type:
+		if attacked_entity.block_type == attacked_entity.BLOCK_TYPE.ALL:
+			return true
+		elif attack_data.hit_type == attacked_entity.block_type:
 			return true
 		elif attack_data.hit_type != attacked_entity.block_type:
 			if attack_data.hit_type == attack_data.HIT_TYPE.MID:
@@ -69,11 +71,11 @@ func high_low_block_check(attacked_entity: EntityBase)-> bool:
 			return true
 		else: 
 			return false
-		
-		
 	# error
 	push_error("block has done somthing that has borken it")
 	return false
+	
+	
 #TODO decide on air block
 func block_check2(attacked_entity: EntityBase, area: HurtBoxArea):
 	var position_check: float = self.global_position.x # if self .get parent then it would be based off of the player posion not the fire ball directon regarding the pro8jectile case 
@@ -83,7 +85,7 @@ func block_check2(attacked_entity: EntityBase, area: HurtBoxArea):
 	var is_blocking: bool = attacked_entity.is_blocking
 	var bit_index = (int(is_blocking) <<3 ) |(int(high_low_check) << 2) | (int(attacked_entity.is_facing_right) << 1) | int(attack_from_right)
 	var block_check_look_up: Array[bool] = [
-		false, false, false, false,false, false, false, false,# not blocking
+		false, false, false, false, false, false, false, false,# not blocking
 		false, false, false, false,# blocking but highlow fails
 		true,  false, false, true] # if accteced entity is facing right and attack_from_right are the same
 	
@@ -94,7 +96,7 @@ func block_check2(attacked_entity: EntityBase, area: HurtBoxArea):
 	#print("bit index for blocking: "+str(bit_index))
 	if block_check_look_up[bit_index] == true:
 		pass
-		#print("blocked is "+str(true))
+		print("blocked is "+str(true))
 	else:
 		area.health.change_health(attack_data.damage)
 	area.stun_manager.start_stun_with_tween(attack_data,vector_direction, block_check_look_up[bit_index])

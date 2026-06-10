@@ -19,7 +19,7 @@ block_stun_duration = 30
 block_back_distance = 40
 hit_stun_duration = 32
 hit_back_distance_vector = Vector2(160, 0)
-damage = 500
+damage = 50
 metadata/_custom_type_script = "uid://c8e0lbybahcxv"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_anoxa"]

@@ -20,6 +20,18 @@ var sprites_array: Array[Sprite2D]
 @onready var attack_manager: AttackManager = self.get_parent().get_parent()
 #TODO add use default sprite support
 
+func get_hitboxarea() -> HitBoxArea:
+	for child in get_children():
+		if child is HitBoxArea:
+			return child
+	return null
+
+func get_hurtboxarea() -> HurtBoxArea:
+	for child in get_children():
+		if child is HurtBoxArea:
+			return child
+	return null
+	
 ## sets this frames box_shapes diabled
 func set_frame_disabled(value: bool):
 	for shape in box_shapes:
@@ -64,7 +76,7 @@ func toggle_this_frames_boxes():
 func add_new_hit_box(): 
 	var hit_box: HitBoxArea = HitBoxArea.new()
 	add_child(hit_box) 
-	hit_box.collision_layer = 0
+	hit_box.collision_layer = 2
 	hit_box.collision_mask = 2
 	hit_box.owner = get_tree().edited_scene_root
 	print(get_children(true))
@@ -84,7 +96,7 @@ func add_new_projectile_box():
 	projectile_box.add_child(animation_tool)
 	animation_tool.thing_to_animate = projectile_box
 	animation_tool.name = "projectile animateor"
-	projectile_box.collision_layer = 0
+	projectile_box.collision_layer = 2
 	projectile_box.collision_mask = 2
 	projectile_box.owner = get_tree().edited_scene_root
 	frame_timer.owner = get_tree().edited_scene_root

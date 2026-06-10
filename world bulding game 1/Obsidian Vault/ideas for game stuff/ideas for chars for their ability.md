@@ -44,8 +44,9 @@ magic mage witch wizard and them
 		flame imbued attacks
 		explosive area 
 		explosive jump
-	drawing mage (bread variant) an dcan be its own game
+	drawing mage (bread variant) and can be its own game
 		the motion inputs are drawings for spells and the larger more powerful ones require drawing well and fast see drawing book for more notes  this is really cool idea but would  be hard to implement
+		could have refresh crystals be a special move too that you throw them to be placed for later may also be more interesting if they were not fixed and floating or affected by wind boxes
 take char form other games that aren't fighting games and make an interpenetration 
 	path to nowhere chars or other games of my intrest
 		Eve - could be a puppeteer with summons or the adventures party like teddy tank, cuckoo clock mage, chicken rush down, snow ball and gun man magic and eve as the healer/ support 
@@ -127,15 +128,11 @@ make aoko form melty blood type lamina (this is also a char that fern could be a
 a character with crouch only or crouch optimal combos
 a char with running block / parry but only for projectiles (some types of projectiles maybe) so they can approach 
 	funny line in this game block is an offence mechanic that lets you rush down your opponents if you can parry their fire balls
+hold (negative edge) charge
+	a char with a charge move that stops charging when released can then be activated later but not on release 
+per frame hit type (lvl 1 super min restriction)
+	fame one low frame 2 overhead and with correct frame timing you can make an evil meaty using the same move
+a char with inteonal unituive inputs 
+	for a optimal combo you must do forwad lp then dqcf lp for the speical same with down lp with fqcd lp
 
 
-### balance decisions to consider that other games don't have
-balance anti airs that cover both sides with half circle inputs
-I could have a redundant special move button on block so that all of one button has its specials duplicated since a lot of fighters have 3 or more attacks
-give regular block recovery or start up but can be canceled into from some attacks 
-do i allow for air attacks when landed to cancel into grounded special moves? (example may 7 around or before 4)
-block blocks low and high so cross ups are required
-air parry give an additional air action 
-walk and block what about run and block
-universal design of reversal dp's especially the invincible ones
-pick one block the projectile or block the player

@@ -7,40 +7,85 @@ class_name AttackManager extends MoveList
 @export var clear_button1: bool = false## tool buttion 3 for insurence if all are pressed all childeren will be deleted
 @export var clear_button2: bool = false## tool buttion 3 for insurence 
 @export var clear_button3: bool = false## tool buttion 3 for insurence 
+ 
 # var that matter usaly from the player 
 @export_category("")
+@export var animation_tool: AnimationTool
 @export var host: EntityBase ## this is here to be an easy refence for child nodes
 var hit_expetions: Array[EntityBase] ## prevents hitting the same thing twice with one attack 
 var current_attack: Attack
 var is_attacking: = false
 
-signal animate(is_facing_right: bool, animation_stuff: Array[AnimationResource])
-
 func start_animation(is_facing_right: bool, animation_stuff: Array[AnimationResource]):
-		animate.emit(is_facing_right,animation_stuff)
+		animation_tool.animate(is_facing_right,animation_stuff)
 		
 ## sets the hurtboxes to link with the health compnet and stun manager
 func _ready():
+	if (HelperFuncs.check_if_null(host, "AttackManager host", self)
+	or HelperFuncs.check_if_null(animation_tool, "animation tool ", self)):
+		return
 	super._ready()
 	for child in get_children():
 		if child is Attack:
-			for frame in child.frames:
-				if frame is Frame:
-					for box in frame.get_children():
-						if box is HurtBoxArea:
-							box.health = host.health_component
-							box.stun_manager = host.stun_manager
+			for frame: Frame in child.frames:
+				var box = frame.get_hurtboxarea()
+				if box:
+					box.health = host.health_component
+					box.stun_manager = host.stun_manager
+					box.collision_layer = 2
+				box = frame.get_hitboxarea()
+				if box:
+					box.collision_layer = 2
+					box.collision_mask = 2
+				
+
 ## resets the attack prorpreties and clears [member hit_exeptions]
 func reset_values(attack: Attack):
 	hit_expetions.clear()
 	attack.reset()
+
+func is_attack_safe_to_read() -> bool:
+	if is_attacking == false:
+		return false
+	return current_attack.active_frame < current_attack.frames.size()
+
+func get_current_hitboxarea() -> HitBoxArea:
+	if not is_attack_safe_to_read():
+		return null
+	return current_attack.frames[current_attack.active_frame].get_hitboxarea()
+
+func get_current_hurtboxarea() -> HurtBoxArea:
+	if not is_attack_safe_to_read():
+		return null
+	return current_attack.frames[current_attack.active_frame].get_hurtboxarea()
+
+func get_next_hitboxarea() -> HitBoxArea:
+	if not is_attack_safe_to_read():
+		return null
+	if current_attack.active_frame + 1 >= current_attack.frames.size():
+		return null
+	return current_attack.frames[current_attack.active_frame + 1].get_hitboxarea()
+
+func get_next_hurtboxarea() -> HurtBoxArea:
+	if not is_attack_safe_to_read():
+		return null
+	if current_attack.active_frame + 1 >= current_attack.frames.size():
+		return null
+	return current_attack.frames[current_attack.active_frame + 1].get_hurtboxarea()
+	
+func get_frames_remaining():
+	if is_attack_safe_to_read():
+		return current_attack.frames.size() - current_attack.active_frame
+	else: return 0
+	
+
 	
 ## starts an attack and sets [member is_attacking]
 func start_attack(an_attack: Attack):
+	if host.stun_manager.is_stuned: return
 	if an_attack == null:
 		push_error("AttackManager: tried to start a null attack")
 		return
-		
 	if current_attack: 
 		current_attack.frames[current_attack.active_frame-1].set_frame_disabled(true)
 		reset_values(current_attack)
@@ -70,9 +115,15 @@ func continue_attack():
 	if current_attack == null:
 		push_error("attack is null")
 		return
+	if host.stun_manager.is_stuned: 
+		for frame: Frame in current_attack.frames:
+			frame.set_frame_disabled(true)
+			reset_values(current_attack)
+			is_attacking = false
+		return
 	print(current_attack.active_frame + 1)
 	
-	if current_attack.active_frame == current_attack.frames.size():
+	if current_attack.active_frame+1 >= current_attack.frames.size():
 		is_attacking = false 
 		current_attack.frames[current_attack.active_frame-1].set_frame_disabled(true)
 		reset_values(current_attack)
@@ -81,12 +132,13 @@ func continue_attack():
 			current_attack.frames[current_attack.active_frame-1].set_frame_disabled(true)
 		current_attack.frames[current_attack.active_frame].set_frame_disabled(false)
 		current_attack.active_frame += 1
-
-	for node in current_attack.frames[current_attack.active_frame-1].get_children():
-		if node is ProjectileArea:
-			print("PROJECTILE FOUND ON FRAME: ", current_attack.active_frame-1)
-			node.is_active = true
-			current_attack.frames[current_attack.active_frame-1].set_frame_disabled(false)
+	
+	if is_attack_safe_to_read():
+		for node in current_attack.frames[current_attack.active_frame-1].get_children():
+			if node is ProjectileArea:
+				print("PROJECTILE FOUND ON FRAME: ", current_attack.active_frame-1)
+				node.is_active = true
+				current_attack.frames[current_attack.active_frame-1].set_frame_disabled(false)
 
 
 
@@ -120,7 +172,9 @@ func _physics_process(_delta):
 		if clear_button1 and clear_button2 and clear_button3:
 			clear_all_attacks()
 	else:
-		if is_attacking: continue_attack()
+		if is_attacking: 
+			continue_attack()
+			#print("remain " +str(get_frames_remaining()))
 	
 	
 	

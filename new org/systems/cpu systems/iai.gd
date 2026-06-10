@@ -1,19 +1,10 @@
 ## Enemy AI with idle patrol and chase behaviour
 ## Enemies should be contained in boxes like in Guacamelee
 ## Does not use MoveList by design
-class_name EnemyBase extends EntityBase
+class_name WolfCPU extends EnemyBase
 
-enum State { WALKING, PAUSING, CHASING }
-
-@export_group("components")
-@export var rays: Array[RayCast2D]
-@export var attack_manager: AttackManager
-@export var scale_component: Scale
+enum STATE { WALKING, PAUSING, CHASING }
 @export var timer: FrameTimer
-
-@export_group("attack settings")
-@export_range(1, 9223372036854775807) var minimum_time_before_attacks_in_frames: int = 60
-@export var combo_1_attacks: Array[Attack]
 
 @export_group("settings")
 @export var walk_velocity_x: float = 100
@@ -23,11 +14,10 @@ enum State { WALKING, PAUSING, CHASING }
 @export var chase_range: float = 2000
 @export var attack_range: float = 100
 
-var next_state: State = State.WALKING
-var current_attack_index: int = 0
-var thing_to_chase: EntityBase
-var is_chasing: bool = false
 
+var next_state: STATE =STATE.WALKING
+var is_chasing: bool = false
+var current_target: EntityBase
 
 func _ready() -> void:
 	for ray in rays:
@@ -35,14 +25,14 @@ func _ready() -> void:
 	start_wait_state()
 	
 func start_wait_state():
-	next_state = State.WALKING
+	next_state = STATE.WALKING
 	timer.start_frame_timer(pause_time)
 	velocity.x = 0
 
 
 func start_walk_state():
 	is_facing_right = !is_facing_right
-	next_state = State.PAUSING
+	next_state = STATE.PAUSING
 	timer.start_frame_timer(walk_time)
 	
 	velocity.x = walk_velocity_x if is_facing_right else -walk_velocity_x
@@ -51,34 +41,34 @@ func start_walk_state():
 
 func behaviour() -> void:
 	match next_state:
-		State.WALKING when timer.is_stoped():
+		STATE.WALKING when timer.is_stoped():
 			start_walk_state()
-		State.PAUSING when timer.is_stoped():
+		STATE.PAUSING when timer.is_stoped():
 			start_wait_state()
-		State.CHASING:
+		STATE.CHASING:
 			chase_state()
 		_: pass
 
 func check_chase():
 	for ray in rays:
 		if ray.is_colliding() and ray.get_collider() is HurtBoxArea:
-			thing_to_chase = (ray.get_collider() as HurtBoxArea).health.host
+			current_target = (ray.get_collider() as HurtBoxArea).health.host
 			is_chasing = true
-			next_state = State.CHASING
+			next_state = STATE.CHASING
 
 # --- chase ---
 func chase_state() -> void:
-	var delta: Vector2 = self.global_position - thing_to_chase.global_position
+	var delta: Vector2 = self.global_position - current_target.global_position
 	is_facing_right = delta.x < 0
 	scale_component.set_scale(Scale.RIGHT if is_facing_right else Scale.LEFT)
 	velocity.x = chase_velocity_x * -sign(delta.x)
 	if attack_range >= abs(delta.x): 
-		start_attack_check(combo_1_attacks)
+		start_attack_check(combo_0_attacks)
 
 	if abs(delta.x) >= chase_range:
 		is_chasing = false
-		thing_to_chase = null
-		next_state = State.PAUSING
+		current_target = null
+		next_state = STATE.PAUSING
 		return
 
 
@@ -99,12 +89,8 @@ func start_attack_check(combo_attacks: Array):
 			current_attack_index += 1
 			attack_manager.start_attack(combo_attacks[current_attack_index])
 			
-			
-
-
 
 func _physics_process(_delta: float) -> void:
 	check_chase()
-	if not attack_manager.is_attacking:
-		behaviour()
+	behaviour()
 	move_and_slide()

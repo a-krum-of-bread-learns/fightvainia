@@ -1,7 +1,7 @@
 extends Node
-var frames_left: int
+static var frames_left: int
 var cam: Camera2D
-
+signal hit_stop_fin
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -23,5 +23,8 @@ func _process(_delta):
 		frames_left -= 1 
 	elif frames_left == 0: 
 		frames_left -= 1 
-		get_tree().paused = false
+		hit_stop_fin.emit()
 		cam.offset = Vector2.ZERO
+		# only unpause if frame by frame mode is not controlling the pause
+		if not FrameByFrameMode.frame_by_frame_mode_endabled:
+			get_tree().paused = false

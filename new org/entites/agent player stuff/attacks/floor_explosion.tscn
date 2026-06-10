@@ -13,16 +13,16 @@ script = ExtResource("4_aopyl")
 stun_type = 2
 hit_type = 2
 block_stun_duration = 15
-block_back_distance = 100
+block_back_distance = 20.0
 hit_stun_duration = 30
 hit_back_distance_vector = Vector2(120, 300)
-hit_stop_frames = 5
+hit_stop_frames = 10
 damage = 800
 air_stun_overide = true
 metadata/_custom_type_script = "uid://c8e0lbybahcxv"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jd4bm"]
-size = Vector2(31.5, 25)
+size = Vector2(32, 22)
 
 [node name="floor explision" type="Node2D" unique_id=2123794268]
 script = ExtResource("1_3v780")
@@ -40,8 +40,8 @@ script = ExtResource("2_0jgns")
 repeat_this_frame = 3
 
 [node name="Sprite2D # 401" type="Sprite2D" parent="frame # 13-16" unique_id=785255514]
-position = Vector2(22.999998, 4)
-scale = Vector2(0.126, 0.126)
+position = Vector2(24.000002, 5.0000005)
+scale = Vector2(0.126, 0.107999995)
 texture = ExtResource("3_aopyl")
 region_enabled = true
 region_rect = Rect2(120, 112, 256, 200)
@@ -53,7 +53,7 @@ script = ExtResource("3_fc13a")
 attack_data = SubResource("Resource_jd4bm")
 
 [node name="hit_box" type="CollisionShape2D" parent="frame # 13-16/hit_box # 100" unique_id=200566316]
-position = Vector2(23.25, 4)
+position = Vector2(24, 5)
 shape = SubResource("RectangleShape2D_jd4bm")
 disabled = true
 debug_color = Color(1, 0, 0, 0.6862745)

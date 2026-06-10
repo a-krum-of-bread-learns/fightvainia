@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="1_5m182"]
 
 [sub_resource type="Curve" id="Curve_5m182"]
-_data = [Vector2(0, 0), 0.0, 1.0000099, 0, 0, Vector2(0.99999, 1), 1.0000099, 0.0, 1, 0]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0364238, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_i5lrq"]

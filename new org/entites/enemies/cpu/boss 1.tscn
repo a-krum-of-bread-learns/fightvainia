@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://bm4rdw71xs3jv"]
+
+[ext_resource type="Script" uid="uid://biisil0vjkqvq" path="res://new org/systems/cpu systems/boss iai.gd" id="1_0r3tr"]
+[ext_resource type="Resource" uid="uid://3x15qdhxammi" path="res://new org/entites/agent player stuff/resources?/agent_stats.tres" id="2_8l3da"]
+[ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://new org/systems/player components and systems/StunManager.gd" id="2_aoc7f"]
+[ext_resource type="Script" uid="uid://c8qc0j10c563q" path="res://new org/systems/attack components/AttackManager.gd" id="2_e3gv6"]
+[ext_resource type="Script" uid="uid://c4buu38jtc0ws" path="res://new org/systems/cpu systems/BossSettings.gd" id="2_pb0oo"]
+[ext_resource type="Script" uid="uid://tmh27lp4axxe" path="res://new org/systems/movement related/Scale.gd" id="3_7sr83"]
+[ext_resource type="PackedScene" uid="uid://btufeyfuqt18p" path="res://new org/entites/agent player stuff/primary_hurt_boxes.tscn" id="3_hxi14"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/player components and systems/FrameTimerCompnent.gd" id="5_btdi6"]
+[ext_resource type="Texture2D" uid="uid://d3ouypsble60q" path="res://new org/art/copy right free art assets/electic ball.png" id="5_o3dma"]
+[ext_resource type="Script" uid="uid://ccxb00gf1jcum" path="res://new org/systems/player components and systems/Health.gd" id="6_ygy5y"]
+[ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new org/systems/animation/AnimationTool.gd" id="7_d30gh"]
+[ext_resource type="Script" uid="uid://dd0phg7lcqqps" path="res://new org/systems/movement related/Gravity.gd" id="8_btdi6"]
+[ext_resource type="PackedScene" uid="uid://duw2his5lywxk" path="res://new org/entites/agent player stuff/attacks/left_buttion_jab_(x)_lp.tscn" id="10_5uoak"]
+[ext_resource type="PackedScene" uid="uid://od41351s0ekc" path="res://new org/entites/agent player stuff/attacks/left_button_low_(x)_lp.tscn" id="11_hxi14"]
+[ext_resource type="PackedScene" uid="uid://ci8cd0kwoplqn" path="res://new org/entites/agent player stuff/attacks/up_button_low_(y)_hp.tscn" id="12_dluaq"]
+[ext_resource type="PackedScene" uid="uid://gu4f3xo60xh2" path="res://new org/entites/agent player stuff/attacks/up_buttion_strong_(y)_hp.tscn" id="13_pb0oo"]
+[ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://new org/art/copy right free audio assets/session.mp3" id="14_r6h4o"]
+[ext_resource type="PackedScene" uid="uid://b50dutlc1lhd4" path="res://new org/entites/agent player stuff/attacks/up_buttion_anti_air_(y)_hp.tscn" id="15_hscuh"]
+[ext_resource type="PackedScene" uid="uid://i07c3uwydhut" path="res://new org/entites/agent player stuff/attacks/floor_explosion.tscn" id="17_dluaq"]
+
+[sub_resource type="Resource" id="Resource_r6h4o"]
+script = ExtResource("2_pb0oo")
+close_range_max_x = 16.0
+mid_range_max_x = 30.0
+far_range_max_x = 100.0
+poke_chance = 1.0
+metadata/_custom_type_script = "uid://c4buu38jtc0ws"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hxi14"]
+radius = 7.0
+height = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_btdi6"]
+radius = 128.24976
+
+[node name="boss 1" type="CharacterBody2D" unique_id=518042812 node_paths=PackedStringArray("close_bnb_combo", "close_strong_combo", "close_pokes", "mid_pokes", "anti_airs", "timer", "rays", "primary_hurt_boxes_component", "stun_manager", "attack_manager", "scale_component", "health_component")]
+collision_layer = 0
+script = ExtResource("1_0r3tr")
+settings = SubResource("Resource_r6h4o")
+close_bnb_combo = [NodePath("boss folder/AttackManager/left buttion jab (X) lp"), NodePath("boss folder/AttackManager/left buttion jab (X) lp"), NodePath("boss folder/AttackManager/floor explision")]
+close_strong_combo = [NodePath("boss folder/AttackManager/up buttion (Y) hp"), NodePath("boss folder/AttackManager/floor explision")]
+close_pokes = [NodePath("boss folder/AttackManager/left buttion jab (X) lp"), NodePath("boss folder/AttackManager/left button low (X) lp")]
+mid_pokes = [NodePath("boss folder/AttackManager/up button low (Y) Hp"), NodePath("boss folder/AttackManager/up buttion (Y) hp")]
+anti_airs = [NodePath("boss folder/AttackManager/up buttion anti air (Y) hp")]
+timer = NodePath("boss folder/FrameTimer")
+humanize_time = 20
+pause_time = 10
+rays = [NodePath("boss folder/RayCast2D")]
+primary_hurt_boxes_component = NodePath("Player primary hurtboxes and sprites")
+is_blocking = true
+stun_manager = NodePath("folder/StunManager")
+attack_manager = NodePath("boss folder/AttackManager")
+scale_component = NodePath("folder/Scale")
+health_component = NodePath("folder/Health")
+stats = ExtResource("2_8l3da")
+block_type = 1
+
+[node name="Player primary hurtboxes and sprites" parent="." unique_id=994631848 node_paths=PackedStringArray("entity") instance=ExtResource("3_hxi14")]
+entity = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=103021113]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_hxi14")
+
+[node name="folder" type="Node" parent="." unique_id=572432720]
+
+[node name="AnimationTool" type="Node" parent="folder" unique_id=577974913 node_paths=PackedStringArray("thing_to_animate")]
+script = ExtResource("7_d30gh")
+thing_to_animate = NodePath("../..")
+metadata/_custom_type_script = "uid://ia0tuvmco8v8"
+
+[node name="StunManager" type="Node" parent="folder" unique_id=1609257829 node_paths=PackedStringArray("player_animation_tool", "sprite", "host")]
+script = ExtResource("2_aoc7f")
+player_animation_tool = NodePath("../AnimationTool")
+sprite = NodePath("../../boss folder/Sprite2D")
+enabled = true
+host = NodePath("../..")
+metadata/_custom_type_script = "uid://b8564hciniqu3"
+
+[node name="Scale" type="Node" parent="folder" unique_id=172836908 node_paths=PackedStringArray("node", "host")]
+script = ExtResource("3_7sr83")
+node = NodePath("../../boss folder")
+enabled = true
+host = NodePath("../..")
+metadata/_custom_type_script = "uid://tmh27lp4axxe"
+
+[node name="FrameTimer" type="Node" parent="folder/Scale" unique_id=647065623]
+script = ExtResource("5_btdi6")
+metadata/_custom_type_script = "uid://dkek8a7podljt"
+
+[node name="Health" type="Node" parent="folder" unique_id=964664037 node_paths=PackedStringArray("host")]
+script = ExtResource("6_ygy5y")
+enabled = true
+host = NodePath("../..")
+metadata/_custom_type_script = "uid://ccxb00gf1jcum"
+
+[node name="Gravity" type="Node" parent="folder" unique_id=865491729 node_paths=PackedStringArray("host")]
+script = ExtResource("8_btdi6")
+is_falling = true
+enabled = true
+host = NodePath("../..")
+metadata/_custom_type_script = "uid://dd0phg7lcqqps"
+
+[node name="boss folder" type="Node2D" parent="." unique_id=511238329]
+
+[node name="AttackManager" type="Node2D" parent="boss folder" unique_id=1268911525 node_paths=PackedStringArray("animation_tool", "host")]
+script = ExtResource("2_e3gv6")
+animation_tool = NodePath("../../folder/AnimationTool")
+host = NodePath("../..")
+metadata/_custom_type_script = "uid://c8qc0j10c563q"
+
+[node name="left buttion jab (X) lp" parent="boss folder/AttackManager" unique_id=508514690 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("10_5uoak")]
+combo_attacks_dictionary = {
+14: NodePath(".")
+}
+
+[node name="left button low (X) lp" parent="boss folder/AttackManager" unique_id=14818658 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("11_hxi14")]
+combo_attacks_dictionary = {
+14: null
+}
+
+[node name="up button low (Y) Hp" parent="boss folder/AttackManager" unique_id=2086936221 instance=ExtResource("12_dluaq")]
+
+[node name="up buttion (Y) hp" parent="boss folder/AttackManager" unique_id=2065512744 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("13_pb0oo")]
+combo_attacks_dictionary = {
+18: NodePath(".")
+}
+hit_sound = ExtResource("14_r6h4o")
+
+[node name="up buttion anti air (Y) hp" parent="boss folder/AttackManager" unique_id=1455710997 instance=ExtResource("15_hscuh")]
+hit_sound = ExtResource("14_r6h4o")
+
+[node name="floor explision" parent="boss folder/AttackManager" unique_id=2123794268 instance=ExtResource("17_dluaq")]
+
+[node name="Sprite2D" type="Sprite2D" parent="boss folder" unique_id=115548378]
+position = Vector2(-1.1368684e-13, 0)
+rotation = 1.5707964
+scale = Vector2(0.14176987, 0.10088769)
+texture = ExtResource("5_o3dma")
+region_enabled = true
+region_rect = Rect2(144, 176, 224, 160)
+
+[node name="FrameTimer" type="Node" parent="boss folder" unique_id=456519195]
+script = ExtResource("5_btdi6")
+metadata/_custom_type_script = "uid://dkek8a7podljt"
+
+[node name="RayCast2D" type="RayCast2D" parent="boss folder" unique_id=800115047]
+position = Vector2(0, -23)
+target_position = Vector2(32, 0)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="detect player" type="Area2D" parent="." unique_id=1655518541]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect player" unique_id=856979440]
+shape = SubResource("CircleShape2D_btdi6")
+
+[connection signal="body_entered" from="detect player" to="." method="_on_area_2d_body_entered"]

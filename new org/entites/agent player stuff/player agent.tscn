@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://duw2his5lywxk" path="res://new org/entites/agent player stuff/attacks/left_buttion_jab_(x)_lp.tscn" id="2_pk7ux"]
 [ext_resource type="PackedScene" uid="uid://i07c3uwydhut" path="res://new org/entites/agent player stuff/attacks/floor_explosion.tscn" id="3_22x0t"]
 [ext_resource type="PackedScene" uid="uid://gu4f3xo60xh2" path="res://new org/entites/agent player stuff/attacks/up_buttion_strong_(y)_hp.tscn" id="4_1e7bk"]
-[ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new org/systems/animation/AnimationTool.gd" id="5_1e7bk"]
 [ext_resource type="PackedScene" uid="uid://od41351s0ekc" path="res://new org/entites/agent player stuff/attacks/left_button_low_(x)_lp.tscn" id="6_g61p2"]
 [ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://new org/art/copy right free audio assets/session.mp3" id="6_yc487"]
 [ext_resource type="PackedScene" uid="uid://ci8cd0kwoplqn" path="res://new org/entites/agent player stuff/attacks/up_button_low_(y)_hp.tscn" id="8_6wa2j"]
@@ -19,24 +18,21 @@
 
 [node name="not needed yet" type="Sprite2D" parent="." index="0" unique_id=1655233379]
 
-[node name="AnimationTool" type="Node" parent="." index="1" unique_id=1951688683 node_paths=PackedStringArray("thing_to_animate")]
-script = ExtResource("5_1e7bk")
-thing_to_animate = NodePath("..")
-metadata/_custom_type_script = "uid://ia0tuvmco8v8"
-
 [node name="inputmanager" parent="folder" parent_id_path=PackedInt32Array(1784953174) index="3" unique_id=1544145854]
 enabled = false
 
 [node name="stunManager" parent="folder" parent_id_path=PackedInt32Array(1784953174) index="5" unique_id=845563521 node_paths=PackedStringArray("sprite")]
 sprite = NodePath("../../not needed yet")
 
-[node name="attack manager" parent="folder" parent_id_path=PackedInt32Array(1784953174) index="6" unique_id=1555584615 node_paths=PackedStringArray("light_punch", "down_light_punch", "up_right_light_punch", "air_light_punch", "heavy_punch", "down_heavy_punch", "up_heavy_punch", "air_heavy_punch", "dqcf_light_punch", "dqcf_heavy_kick", "fqcd_light_punch", "uqcf_light_kick", "fqcu_light_kick", "air_uqcf_light_kick", "air_fqcu_light_kick")]
+[node name="attack manager" parent="folder" parent_id_path=PackedInt32Array(1784953174) index="6" unique_id=1555584615 node_paths=PackedStringArray("light_punch", "down_light_punch", "forward_light_punch", "up_right_light_punch", "air_light_punch", "heavy_punch", "down_heavy_punch", "forward_heavy_punch", "up_heavy_punch", "air_heavy_punch", "dqcf_light_punch", "dqcf_heavy_kick", "fqcd_light_punch", "uqcf_light_kick", "fqcu_light_kick", "air_uqcf_light_kick", "air_fqcu_light_kick")]
 light_punch = NodePath("left buttion (X) lp")
 down_light_punch = NodePath("left button low (X) lp")
+forward_light_punch = NodePath("left buttion (X) lp")
 up_right_light_punch = NodePath("left button overhead (X) lp")
 air_light_punch = NodePath("left button low (X) lp")
 heavy_punch = NodePath("up buttion (Y) hp")
 down_heavy_punch = NodePath("up button low (Y) Hp")
+forward_heavy_punch = NodePath("up buttion (Y) hp")
 up_heavy_punch = NodePath("up buttion anti air (Y) hp")
 air_heavy_punch = NodePath("up button air (Y)")
 dqcf_light_punch = NodePath("fire ball")
@@ -60,13 +56,13 @@ combo_attacks_dictionary = {
 [node name="left button overhead (X) lp" parent="folder/attack manager" index="2" unique_id=253718347 instance=ExtResource("10_emola")]
 hit_sound = ExtResource("6_yc487")
 
-[node name="up buttion (Y) hp" parent="folder/attack manager" index="3" unique_id=2065512744 instance=ExtResource("4_1e7bk")]
+[node name="up buttion (Y) hp" parent="folder/attack manager" index="3" unique_id=2065512744 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("4_1e7bk")]
+combo_attacks_dictionary = {
+18: NodePath(".")
+}
 hit_sound = ExtResource("6_yc487")
 
 [node name="up button low (Y) Hp" parent="folder/attack manager" index="4" unique_id=2086936221 instance=ExtResource("8_6wa2j")]
-is_speical_cancelable = true
-start_frame_speical_cancel = 12
-end_frame_speical_cancel = 28
 hit_sound = ExtResource("6_yc487")
 
 [node name="up buttion anti air (Y) hp" parent="folder/attack manager" index="5" unique_id=1455710997 instance=ExtResource("9_emola")]
@@ -78,9 +74,10 @@ hit_sound = ExtResource("6_yc487")
 hit_sound = ExtResource("6_yc487")
 
 [node name="grapling hook" parent="folder/attack manager" index="8" unique_id=154535348 instance=ExtResource("11_wagu1")]
+visible = false
 
 [node name="spawn ice block" parent="folder/attack manager" index="9" unique_id=1932217704 instance=ExtResource("14_anoxa")]
+visible = false
 
 [node name="fire ball" parent="folder/attack manager" index="10" unique_id=1979542474 instance=ExtResource("13_j33lb")]
-
-[connection signal="animate" from="folder/attack manager" to="AnimationTool" method="animate"]
+visible = false

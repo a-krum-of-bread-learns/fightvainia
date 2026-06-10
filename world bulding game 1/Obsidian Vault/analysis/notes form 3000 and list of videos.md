@@ -246,15 +246,20 @@ video numbered some may have been watched already
     44. **skipping neutral is a part of neutral.** in slower games its complained about more. they are just moves and positioning yourself to deal with them is important. they can be overturned but they can be changed.
     45. **system mechanics in fighting game** follow up to previous. focus attack is a system mechanic so a character based complaint was still a the complained. but character specific stuff was the more painful stuff. because of the different variance stuff that each char makes the biggest difference. think about the system mechanics as a whole.
     46. **the dominant play style of the last game factors into the design of the new game** the gg devs wanted to change the game a whole lot that. they want to change the stuff even if this is targeted sf5 had 1 hit hit confirm so in sf6 the faster things are not 1 hit ht confirm.
+    47. **What people actually mean when they say strike throw (derogatory)** what it often means is its really easy or constant to get offence. There are some game more strike then throw because either throw is weak or strike are insane. unblock-ables make you move so strike hits you when you move people the weight. Throws are not liked in strike/throw.
+    48. **smurfing in fighting games** sbmm seems like a good idea for people. Scissor kick can still beat master players. for 2xko sbmm seems like hard thing
+    49. **understanding complex character balance decisions** around the SF6 JP revert chars that are sharp (some that have archetypes) in strength and weaknesses are not supposed to be good or it makes their design not feel like the archetype they also require a change to the match up. their identity matters.
+    50. 
 
 justification for block button 
 	holding down back isn't as telling as removing your attacking hand from attacking and turning it into a blocking hand also back + block as a parry seems neat with forward + block as a counter
+	run block could be done
 
 need to also make direct lengths of guide
-should make a table catagoizing figting games by method of teaching players 
-i need to ask non figting game people 
+should make a table categorizing fighting games by method of teaching players 
+i need to ask non fighting game people 
 look at platform fighter people
-look at figthing game devs or just game devs what should i ask them stuff
+look at fighting game devs or just game devs what should i ask them stuff
 	a youtube chanel making their own game (ekogam3) also wants to make it muslim themed
 
 is there a need for my system 

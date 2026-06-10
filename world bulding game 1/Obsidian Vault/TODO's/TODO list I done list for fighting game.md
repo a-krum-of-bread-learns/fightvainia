@@ -123,3 +123,11 @@
 
 - [x] do an art scale again things taht do: primary hurt boxes, colsion shape, attack manager,  the projectile hit box  colison shapes, spites should
 - [ ] fix jumping before starting a special move that is grounded (don't apply to grappling hook)
+- [x] error check imporments 
+	func _get_context() -> String:
+    return str(owner.scene_file_path) + " | " + str(get_path())
+	func _ready():
+    if max_health <= 0:
+        push_error("Health: max_health is 0 | " + _get_context())
+- [ ] make dash an attack and allow it to be canceld by a ton of things 
+- [ ] mkae jump start up an attack as well?>

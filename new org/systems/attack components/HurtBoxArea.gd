@@ -11,6 +11,8 @@ class_name HurtBoxArea extends Area2D
 @export var health: Health ##see Health [Health]
 @export var stun_manager: StunManager ##see StunManager [StunManager]
 
+func _ready() -> void:
+	collision_layer = 2
 
 
 

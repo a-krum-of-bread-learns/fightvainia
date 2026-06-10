@@ -1,6 +1,0 @@
-- [ ] stop player from being hit multiple times when there hurt box changes for the fixed hurt box
-- [x] make an object that can be hit without extra baggage
-- [x] force stop animations when hit
-- [ ] fix the active hurt box or see if an update fixes the signal 
-- [ ] kill_momnetum_of_tween is unused
-- [x] fix crouch walking 

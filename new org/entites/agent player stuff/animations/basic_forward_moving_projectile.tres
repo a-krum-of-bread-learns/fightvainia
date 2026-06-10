@@ -15,5 +15,5 @@ script = ExtResource("1_a4t5e")
 smoothing_curve_x = SubResource("Curve_5m182")
 smoothing_curve_y = SubResource("Curve_2vilf")
 time_in_frames = 100
-displacement = Vector2(2400, 0)
+displacement = Vector2(300, 0)
 metadata/_custom_type_script = "uid://sx7qv8babvbw"

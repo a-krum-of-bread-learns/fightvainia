@@ -93,8 +93,8 @@ func _ready():
 				frames.append(frame)
 			frames.append(frame)
 	for value in combo_attacks_dictionary.values():
-		if value == null:
-			push_error("a combo attack is defined but it doesnt have an attack assigned for " + self.name)
+		HelperFuncs.check_if_null(value,"a combo attack is defined but the dictionary",self)
+
 
 	
 ##adds a new frame as a child of this node of classs Frame

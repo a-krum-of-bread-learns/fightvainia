@@ -55,6 +55,10 @@ func dash(dir:Vector2):
 
 
 func _process(_delta):
+	if host.stun_manager.is_stuned:
+		is_dashing = false
+		timer.reset()
+		return
 	if is_dashing: dash(current_speed)
 	
 	

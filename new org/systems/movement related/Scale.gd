@@ -6,9 +6,6 @@ const LEFT = Vector2(-1,1)
 
 ## the thing you want to scacle
 @export var node: Node2D
-##the delay for the scale to be used by a [FrameTimer]
-## the timer used to make a delay
-@export var timer: FrameTimer
 @export var input_manager: InputManager
 ## a value to store the scale that is current 
 var current_flip_direction: Vector2 = Vector2.ONE
@@ -45,5 +42,7 @@ func flip_x_logic():
 		new_scale = Vector2(-1,1)
 	elif host.is_on_floor() and input_manager.input_direction == 1:
 		new_scale = Vector2(1,1)
-	
-	set_scale(new_scale)
+		# only update if direction actually changed
+	if new_scale != current_flip_direction:
+		current_flip_direction = new_scale
+		set_scale(new_scale)

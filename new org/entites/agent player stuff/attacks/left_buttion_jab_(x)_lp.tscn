@@ -8,20 +8,20 @@
 [ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="4_1canf"]
 [ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="5_bjukr"]
 
-[sub_resource type="Resource" id="Resource_uvgme"]
+[sub_resource type="Resource" id="Resource_acj6o"]
 script = ExtResource("4_1canf")
 stun_type = 0
 hit_type = 2
 block_stun_duration = 10
-block_back_distance = 80
-hit_stun_duration = 24
-hit_back_distance_vector = Vector2(100, 0)
-hit_stop_frames = 1
+block_back_distance = 6.0
+hit_stun_duration = 15
+hit_back_distance_vector = Vector2(5, 0)
+hit_stop_frames = 10
 damage = 500
 metadata/_custom_type_script = "uid://c8e0lbybahcxv"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lueer"]
-size = Vector2(11, 6)
+size = Vector2(12, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lucgb"]
 size = Vector2(8, 8)
@@ -36,10 +36,10 @@ is_speical_cancelable = true
 combo_attacks_dictionary = {
 14: NodePath(".")
 }
-start_frame_combo = 13
-end_frame_combo = 19
-start_frame_speical_cancel = 7
-end_frame_speical_cancel = 19
+start_frame_combo = 8
+end_frame_combo = 16
+start_frame_speical_cancel = 5
+end_frame_speical_cancel = 16
 hit_sound = ExtResource("2_acj6o")
 
 [node name="frame # 1-4" type="Node2D" parent="." unique_id=1170512460]
@@ -56,13 +56,13 @@ script = ExtResource("2_ej32u")
 repeat_this_frame = 3
 
 [node name="hit_box # 100" type="Area2D" parent="frame # 5-8" unique_id=1556045510]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_yagch")
-attack_data = SubResource("Resource_uvgme")
+attack_data = SubResource("Resource_acj6o")
 
 [node name="hit_box" type="CollisionShape2D" parent="frame # 5-8/hit_box # 100" unique_id=1612646047]
-position = Vector2(10.5, -8)
+position = Vector2(10, -8)
 shape = SubResource("RectangleShape2D_lueer")
 disabled = true
 debug_color = Color(1, 0, 0, 0.6862745)

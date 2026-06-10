@@ -13,5 +13,4 @@ c_timer_length = 6
 max_health = 100000000
 gravity = 1000
 terminal_velocity = 1000
-prescale_frames = 1
 metadata/_custom_type_script = "uid://bb5lwdc0ivd5v"

@@ -20,6 +20,8 @@ func fall(delta_):
 		
 
 func _process(delta):
+	if host.stun_manager.is_stuned:
+		is_falling = true
 	if is_falling:
 		fall(delta)
 	

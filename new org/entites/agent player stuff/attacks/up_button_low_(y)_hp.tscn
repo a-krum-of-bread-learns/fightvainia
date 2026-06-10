@@ -19,7 +19,7 @@ script = ExtResource("2_q15th")
 smoothing_curve_x = ExtResource("3_fd2rx")
 smoothing_curve_y = SubResource("Curve_2vilf")
 time_in_frames = 14
-displacement = Vector2(60, 0)
+displacement = Vector2(10, 0)
 metadata/_custom_type_script = "uid://sx7qv8babvbw"
 
 [sub_resource type="Resource" id="Resource_tmup4"]
@@ -27,9 +27,9 @@ script = ExtResource("5_e6xyj")
 stun_type = 0
 hit_type = 1
 block_stun_duration = 19
-block_back_distance = 120
+block_back_distance = 20.0
 hit_stun_duration = 21
-hit_back_distance_vector = Vector2(150, 0)
+hit_back_distance_vector = Vector2(15, 0)
 hit_stop_frames = 7
 damage = 1000
 metadata/_custom_type_script = "uid://c8e0lbybahcxv"
@@ -48,6 +48,11 @@ size = Vector2(5, 8)
 
 [node name="up button low (Y) Hp" type="Node2D" unique_id=2086936221]
 script = ExtResource("1_2pb3m")
+is_speical_cancelable = true
+start_frame_combo = 12
+end_frame_combo = 28
+start_frame_speical_cancel = 12
+end_frame_speical_cancel = 28
 animation_stuff = Array[ExtResource("2_q15th")]([SubResource("Resource_dhck0")])
 
 [node name="frame # 1-8" type="Node2D" parent="." unique_id=112982367]
@@ -64,7 +69,7 @@ script = ExtResource("3_tmup4")
 repeat_this_frame = 3
 
 [node name="hit_box # 100" type="Area2D" parent="frame # 9-12" unique_id=1203803402]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("4_fd2rx")
 attack_data = SubResource("Resource_tmup4")

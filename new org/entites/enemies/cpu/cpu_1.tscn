@@ -28,9 +28,9 @@ script = ExtResource("8_k1v7u")
 stun_type = 0
 hit_type = 2
 block_stun_duration = 7
-block_back_distance = 1
+block_back_distance = 1.0
 hit_stun_duration = 30
-hit_back_distance_vector = Vector2(200, 0)
+hit_back_distance_vector = Vector2(5, 0)
 damage = 100
 metadata/_custom_type_script = "uid://c8e0lbybahcxv"
 
@@ -45,30 +45,36 @@ script = ExtResource("8_k1v7u")
 stun_type = 0
 hit_type = 2
 block_stun_duration = 10
-block_back_distance = 100
+block_back_distance = 100.0
 hit_stun_duration = 10
-hit_back_distance_vector = Vector2(1000, 0)
+hit_back_distance_vector = Vector2(125, 0)
 damage = 100
 metadata/_custom_type_script = "uid://c8e0lbybahcxv"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5e8x"]
 size = Vector2(24, 16)
 
-[node name="cpu1" type="CharacterBody2D" unique_id=718906405 node_paths=PackedStringArray("rays", "attack_manager", "scale_component", "timer", "combo_1_attacks", "stun_manager", "health_component")]
+[node name="cpu1" type="CharacterBody2D" unique_id=718906405 node_paths=PackedStringArray("timer", "rays", "combo_0_attacks", "stun_manager", "attack_manager", "scale_component", "health_component")]
 collision_layer = 0
 script = ExtResource("16_bx61f")
-rays = [NodePath("folder2/IAI folder2/RayCast2D")]
-attack_manager = NodePath("folder2/AttackManager")
-scale_component = NodePath("folder/Scale")
 timer = NodePath("folder2/IAI folder2/FrameTimer")
-combo_1_attacks = [NodePath("folder2/AttackManager/slash"), NodePath("folder2/AttackManager/slash 2")]
 walk_velocity_x = 50.0
+walk_time = null
+pause_time = null
 chase_velocity_x = 100.0
 chase_range = 200.0
-attack_range = 30.0
+attack_range = 40.0
+rays = [NodePath("folder2/IAI folder2/RayCast2D")]
+minimum_time_before_attacks_in_frames = null
+combo_0_attacks = [NodePath("folder2/AttackManager/slash"), NodePath("folder2/AttackManager/slash 2")]
+is_facing_right = null
+is_blocking = null
 stun_manager = NodePath("folder/StunManager")
+attack_manager = NodePath("folder2/AttackManager")
+scale_component = NodePath("folder/Scale")
 health_component = NodePath("folder/Health")
 stats = ExtResource("2_b0i3f")
+block_type = null
 metadata/_custom_type_script = "uid://bssckwpf2obbe"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1361850207]
@@ -78,10 +84,9 @@ texture = ExtResource("10_0jry0")
 
 [node name="folder" type="Node" parent="." unique_id=2079923595]
 
-[node name="Scale" type="Node" parent="folder" unique_id=1965261556 node_paths=PackedStringArray("node", "timer", "host")]
+[node name="Scale" type="Node" parent="folder" unique_id=1965261556 node_paths=PackedStringArray("node", "host")]
 script = ExtResource("2_snyop")
 node = NodePath("../../folder2")
-timer = NodePath("FrameTimer")
 enabled = true
 host = NodePath("../..")
 metadata/_custom_type_script = "uid://tmh27lp4axxe"
@@ -158,7 +163,7 @@ disabled = true
 debug_color = Color(0, 0, 1, 0.6862745)
 
 [node name="hit_box # 100" type="Area2D" parent="folder2/AttackManager/slash/frame # 32-37" unique_id=850947692]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("7_0jry0")
 attack_data = SubResource("Resource_5tbk8")
@@ -199,7 +204,7 @@ disabled = true
 debug_color = Color(0, 0, 1, 0.6862745)
 
 [node name="hit_box # 100" type="Area2D" parent="folder2/AttackManager/slash 2/frame # 12-14" unique_id=1038442002]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("7_0jry0")
 attack_data = SubResource("Resource_h3rpu")

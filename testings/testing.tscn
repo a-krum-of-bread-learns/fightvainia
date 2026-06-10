@@ -6,14 +6,15 @@
 [ext_resource type="TileSet" uid="uid://c8rfgs3xlqyue" path="res://new org/art/copy right free art assets/terain/godot icon tile set.tres" id="4_7dbss"]
 [ext_resource type="Script" uid="uid://jav8ndnndy6" path="res://new org/systems/auto load scripts/frame_by_frame_mode_hint.gd" id="5_p47xe"]
 [ext_resource type="PackedScene" uid="uid://b11h2uyr6b47l" path="res://new org/entites/enemies/cpu/cpu_1.tscn" id="6_b04fu"]
+[ext_resource type="PackedScene" uid="uid://bm4rdw71xs3jv" path="res://new org/entites/enemies/cpu/boss 1.tscn" id="7_32i3w"]
 
 [node name="Node2D" type="Node2D" unique_id=1655691674]
 
 [node name="hurt able" parent="." unique_id=910393293 instance=ExtResource("1_ydgiy")]
-position = Vector2(-56, 216)
+position = Vector2(-160, 136)
 
 [node name="player" parent="." unique_id=1999747051 instance=ExtResource("2_b04fu")]
-position = Vector2(-128, 192)
+position = Vector2(-128, 207)
 
 [node name="CanvasLayer" parent="." unique_id=891357048 instance=ExtResource("3_32i3w")]
 visible = false
@@ -39,3 +40,6 @@ text = "      frame by frame mode enabled press f to diable or the left menu but
 
 [node name="cpu1" parent="." unique_id=718906405 instance=ExtResource("6_b04fu")]
 position = Vector2(-328, 216)
+
+[node name="boss" parent="." unique_id=518042812 instance=ExtResource("7_32i3w")]
+position = Vector2(-56, 208)

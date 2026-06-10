@@ -4,8 +4,9 @@ class_name ActiveHitBox extends Area2D
 @export var attack_data: HitBoxData
 func _ready():
 	area_entered.connect(damage)
-	body_entered.connect(damage) # i dont think this is being use but check at the end 
+	#body_entered.connect(damage) # i dont think this is being use but check at the end 
 	collision_mask = 2
+	collision_layer = 2
 
 # this will be called multiple times on a player if more than one hurtbox is hit becues there is no exeption check here
 func damage(area):

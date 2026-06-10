@@ -18,10 +18,11 @@ size = Vector2(16, 24)
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_wr0em")
+is_blocking = true
 stun_manager = NodePath("StunManager")
 health_component = NodePath("Health")
 stats = ExtResource("2_m8xwp")
-block_type = 1
+block_type = 2
 metadata/_custom_type_script = "uid://bssckwpf2obbe"
 
 [node name="colison box" type="CollisionShape2D" parent="." unique_id=2049379602]
