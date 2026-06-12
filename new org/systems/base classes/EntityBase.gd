@@ -1,4 +1,5 @@
 ## a base class for anthing that will move like player, enemys, (npc, chects, etc could be interactable insteds)
+#TODO MAJOR DECOUPLE put all conditons in this enity base and change the values only with the relevent componet 
 class_name EntityBase extends CharacterBody2D
 @export var is_facing_right: bool = true ## holds the direction the Entity is facing
 @export var is_blocking: bool = false
