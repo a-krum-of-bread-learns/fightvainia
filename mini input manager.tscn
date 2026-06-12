@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cdo5gcnq4fdic"]
+
+[ext_resource type="Script" uid="uid://b26vqr4fhycpk" path="res://mini input manger.gd" id="1_ibsen"]
+[ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://new org/systems/auto load scripts/set cam.gd" id="2_65njr"]
+
+[node name="Node2D" type="Node2D" unique_id=592739168]
+script = ExtResource("1_ibsen")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=209419335]
+script = ExtResource("2_65njr")

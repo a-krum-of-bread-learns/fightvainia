@@ -23,14 +23,44 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 - basic fighting game num-pad notation **not sure if i should explain it**
 	num-pad notation can be used as one way to represent inputs in fighting games we can also use it to help us in code for people who are familiar with it or just have a number pad next to them when developing the motion in puts her are a few examples ==(examples 3 -5 one with a change example even tho i dont plan to have charge moves in my game )== 
 	now that you have seen a few examples lets try a few for you to test you self if you understand it ==(a few for practice)==
-- move list variable management 
+- move list variable management  and choose action 
 	==(pull images regarding an attack from an existing video game to make the visual tree)==
-	in games with simper combat systems they usually have 1 maybe 2 attack buttons at most 
-	in fighting games its as high as 6 
+	in games with simpler combat systems they usually have 1 maybe 2 attack buttons at most 
+	in fighting games its as high as 6
 	additionally some games have a different attack linked to an attack button and a direction 
 	then in fighting they have motion input witch basically mean up to infinity attack options
 	simplified version of the variable management for a single button when explaining 
 	a dictionary tree visual to explain what is happening at the end of the code 
+	code sections 
+	script parts
+	section 0 into and pre req for building 
+		if you want to follow along to build your own version the recomended prerequisite are you have an input manager system that handles and filter all inputs like in making a fighting game input system.  and you know your core conditions 
+		~~this video does not cover stances or how to make those that would be int a combo attacks video~~ 
+	in fighting games we have motion inputs and we have a ton of attack buttons allowing us to have basically infinite number of attacks. so how can we keep that under control and organized in a way is very easy to work with when its done. 
+	
+	attack uniqueness
+	Every attack in a fighting game has a very specific set of conditions. Most commonly those are whether the player is on the floor, if they are facing right, and the unique motion and attack combination. this will help us decide what attack is the right one to use form our player inputs and state. they also form the key to every attack and ways to sort them. ==(image of key made of 4 parts)== 
+	
+	
+	
+	
+	
+	section 1 var deceleration
+	here we define all of possible valid inputs such as the 9 main directions, the attack buttons and the motions we want this move list is also my single source of truth for these sequences 
+	section 2 key structure 
+	i use a resource witch i call an attack key to make the in a very specific way
+	section 3 attack declaration
+	here I declare each attack in my system they are nodes for eaerlt testign you may use stings an print them  and each name is also teling us waht the attacks contions are 
+	section 4 attack org
+	here every attack is given a name and that name tells us the conditions for the most part such as air_dqcf_light_punch then to put it in a dicontary we make a new attack key reousrce that has the mathcin contionds twice then make one for is facing rignt and one for is facing left
+	section 5 ready func
+	this function cleans up unused attacks as some characters may use a portion but not all attack combinations and other may use the rest.
+	section 6 the clean look in editorby doing it in this whay and naming every thing nicely we can get a nice stuctirre like this in the editor to place an attack.
+
+	seciotn 7 chose action 
+	this was made in the making an fighting game input system but ill go over it a bit more here as well as correct a mistake i made with the final version
+	
+	
 - how to code a fighting game input system
 	assumptions
 	1. you know num-pad notation
@@ -274,7 +304,6 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 	in the chose action function we edit the move list key to be format of the Attack Key we just made and edit the parameters to match. next for clarity we add a type declaration to the for loop witch may just be a Godot thing. then we add an input check for the attack buttons before we check the sequence  
 	editors note when i did the test i had digits as type Array not Array[int] its changed back to Array[int] a little later. then a little later we also edit how we call the sequence reader and here we can fix the typing for the sequcne reader
 	buffered redo i make a function that takes in the buffed history and a single input. i then loop though  that history and check if it has the input we are taking in. if it does return true otherwise return false. next we edit the attack button parameter in attack key form a sting to the type we really want to use in my case i use int. we then make this change to the move list as well. we then replace when we check for an attack button to be pressed  with a call for the function we just made
-	
 - combo attacks system (target combo)
 	in games like devil may cry, highfi rush, Metal Gear Rising: Revengeance, Beyoneta and many ==(sevral images or clips)== fighting games and more they have what i am calling a combo attack but may be known as  or target combo or rhythm attack or special cancel system 
 	to put it simply it is an attack that is followed by another attack within some time frame 
