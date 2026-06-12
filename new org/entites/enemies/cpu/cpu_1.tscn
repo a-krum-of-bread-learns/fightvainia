@@ -127,8 +127,9 @@ debug_color = Color(1, 1, 1, 0.41960785)
 
 [node name="folder2" type="Node2D" parent="." unique_id=1379136370]
 
-[node name="AttackManager" type="Node2D" parent="folder2" unique_id=2062697552 node_paths=PackedStringArray("host", "light_kick", "down_left_light_kick")]
+[node name="AttackManager" type="Node2D" parent="folder2" unique_id=2062697552 node_paths=PackedStringArray("animation_tool", "host", "light_kick", "down_left_light_kick")]
 script = ExtResource("3_rxiwk")
+animation_tool = NodePath("../../folder/AnimationTool")
 host = NodePath("../..")
 light_kick = NodePath("slash")
 down_left_light_kick = NodePath("slash 2")

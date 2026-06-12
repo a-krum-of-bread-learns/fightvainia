@@ -25,7 +25,7 @@ script = ExtResource("2_pb0oo")
 close_range_max_x = 16.0
 mid_range_max_x = 30.0
 far_range_max_x = 100.0
-poke_chance = 1.0
+hits_until_10_percent_drop_chance = 0
 metadata/_custom_type_script = "uid://c4buu38jtc0ws"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hxi14"]
@@ -35,12 +35,12 @@ height = 20.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_btdi6"]
 radius = 128.24976
 
-[node name="boss 1" type="CharacterBody2D" unique_id=518042812 node_paths=PackedStringArray("close_bnb_combo", "close_strong_combo", "close_pokes", "mid_pokes", "anti_airs", "timer", "rays", "primary_hurt_boxes_component", "stun_manager", "attack_manager", "scale_component", "health_component")]
+[node name="boss 1" type="CharacterBody2D" unique_id=518042812 node_paths=PackedStringArray("close_bnb_combo", "close_bnb_low_combo", "close_pokes", "mid_pokes", "anti_airs", "timer", "rays", "primary_hurt_boxes_component", "stun_manager", "attack_manager", "scale_component", "health_component")]
 collision_layer = 0
 script = ExtResource("1_0r3tr")
 settings = SubResource("Resource_r6h4o")
 close_bnb_combo = [NodePath("boss folder/AttackManager/left buttion jab (X) lp"), NodePath("boss folder/AttackManager/left buttion jab (X) lp"), NodePath("boss folder/AttackManager/floor explision")]
-close_strong_combo = [NodePath("boss folder/AttackManager/up buttion (Y) hp"), NodePath("boss folder/AttackManager/floor explision")]
+close_bnb_low_combo = [NodePath("boss folder/AttackManager/left button low (X) lp"), NodePath("boss folder/AttackManager/left button low (X) lp"), NodePath("boss folder/AttackManager/floor explision")]
 close_pokes = [NodePath("boss folder/AttackManager/left buttion jab (X) lp"), NodePath("boss folder/AttackManager/left button low (X) lp")]
 mid_pokes = [NodePath("boss folder/AttackManager/up button low (Y) Hp"), NodePath("boss folder/AttackManager/up buttion (Y) hp")]
 anti_airs = [NodePath("boss folder/AttackManager/up buttion anti air (Y) hp")]
@@ -116,10 +116,7 @@ combo_attacks_dictionary = {
 14: NodePath(".")
 }
 
-[node name="left button low (X) lp" parent="boss folder/AttackManager" unique_id=14818658 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("11_hxi14")]
-combo_attacks_dictionary = {
-14: null
-}
+[node name="left button low (X) lp" parent="boss folder/AttackManager" unique_id=14818658 instance=ExtResource("11_hxi14")]
 
 [node name="up button low (Y) Hp" parent="boss folder/AttackManager" unique_id=2086936221 instance=ExtResource("12_dluaq")]
 
@@ -147,8 +144,8 @@ script = ExtResource("5_btdi6")
 metadata/_custom_type_script = "uid://dkek8a7podljt"
 
 [node name="RayCast2D" type="RayCast2D" parent="boss folder" unique_id=800115047]
-position = Vector2(0, -23)
-target_position = Vector2(32, 0)
+position = Vector2(-24, 0)
+target_position = Vector2(48, 0)
 collision_mask = 2
 collide_with_areas = true
 collide_with_bodies = false

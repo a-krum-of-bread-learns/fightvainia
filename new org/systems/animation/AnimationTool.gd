@@ -36,7 +36,7 @@ func animate(is_facing_right: bool, animation_stuff: Array[AnimationResource], l
 					part.get_time()).set_custom_interpolator(part.smoothing_curve_y.sample_baked)
 				tween.tween_property(thing_to_animate,"velocity", Vector2.ZERO, 0) # for har turns
 				
-		#TODO this needs a loot of work to work corectly? 
+		#TODO this needs a loot of work to work tween_propertycorectly? 
 		elif thing_to_animate is ProjectileArea:
 			var direction_corection: int = int(is_facing_right)*2-1 # only for the global case is it neeeded
 			
