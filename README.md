@@ -29,6 +29,8 @@ curenlty done features
 
 
 TODO
+- [ ] make a sample zoner
+- [ ] fix how to code a fighing game input system video 
 - [ ] combo tracking and must be combed enemy proptery
 - [ ] clean up and centerialtion of is_proptery like is_facing_right or is_jumping
 - [ ] consider dash and jump to be an "attack"
