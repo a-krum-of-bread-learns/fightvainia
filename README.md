@@ -4,10 +4,11 @@ i have some video documenton on building this tool on my youtbe you can check ou
 curenlty done features 
 
 - attack system using forced tree of nodes made using tool buttions of type bool not tool button
-    AttackManager
-      Attack
-        Frame
-          Hitbox or Hurtbox
+
+  AttackManager
+  	Attack
+      Frame
+        Hitbox or Hurtbox
 - attack data
 - player input system with motion inputs 
 - player movelist orginization
