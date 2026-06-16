@@ -8,7 +8,8 @@ curenlty done features
 AttackManager
   Attack
     Frame
-      Hitbox or Hurtbox
+      Hitbox and or Hurtbox
+        shapes
 ```
 - attack data
 - player input system with motion inputs 
