@@ -8,3 +8,6 @@ the final game would be made with 2 intentions in services of Allah and you see 
 both players should be allowed to interact at all times 
 use metoidvinia input map so jump button and block/ parry button
 
+
+
+

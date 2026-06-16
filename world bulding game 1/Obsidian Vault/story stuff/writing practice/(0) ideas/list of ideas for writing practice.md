@@ -164,6 +164,7 @@ just ideas
 	story without names or writing descriptors other or kept to a bare minimum may use different font for each characters in a book and nameless in visual media 
 	charaters that are multifaced based on who they are interaticn with so char a and b act very difrtnyl from b and c  and very diffrent form a and c tho that may just be charater interation with spical relatiosn ships but it may help with working form a charater blue print
 	write in past tense for a char who can see into the future or for the certainty of a future event declared by such a character (bread could occasionally)
+	the detective hides a murder case because they are the criminal
 i just think it funny
 	you ain't (insert slang here) turns into person being extremely (insert slang here) to the point of absurdity  causing mass destruction and fighting Goku or something in the relevant (insert hobby/sport here)
 	overly murderous and torturous description of a spa treatment

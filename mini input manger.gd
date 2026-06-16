@@ -138,11 +138,11 @@ func choose_action():
 	}
 	var most_recent_attack: String
 	var valids: Dictionary[int, Array]
-
+	
 	for move_key: AttackKey in move_list.keys():
 		if reader_single_input(buffer_history, move_key.attack_buttion):
 			valids.merge(reader(input_history, move_key.sequnce), true)
-
+	
 		if valids:
 			var most_recent_sequence: Array[int] = valids.get(valids.keys().min())
 			if move_key.sequnce == most_recent_sequence:

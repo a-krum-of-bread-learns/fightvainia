@@ -67,3 +67,4 @@ perfect multi parry rewards with damage bonus after some sequences or just reduc
 
 move lock out mode 
 	a portion of your moves are gone play
+

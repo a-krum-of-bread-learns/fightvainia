@@ -259,3 +259,11 @@ look at figthing game devs or just game devs what should i ask them stuff
 
 is there a need for my system 
 puppet character, Carl, Zappa, zato
+
+
+
+## regarding industry things from The Art Economist
+**why do games need patches** https://youtu.be/sX2KkTo6z-Q?si=ZedYY9V3QkSY61ti
+	because of the information transparency
+	some things of the game may be better when not transparent like patch note maybe for a limited time for the casual feel as a solved meta is a annoying thing for some people.
+	i had the idea of random damage every day but i don't see that as a reasonable thing tho

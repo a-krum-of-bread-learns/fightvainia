@@ -28,8 +28,7 @@
 ## DP = dragon punch
 ## EX = extra/EX move
 ## 
-class_name MoveList
-extends Node2D
+class_name MoveList extends Node2D
 
 # -------------------------
 # Input and button constants

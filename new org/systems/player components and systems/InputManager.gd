@@ -111,12 +111,12 @@ func movement_manager():
 #--------------------------------------------------------------start of array managent 
 #this doent implie dash can work how i want
 func buffer_check(input_h: Array, sequence: Array[int], Attack_buttion: Array[int]) -> bool:
-	if get_vaild_sequences(input_h,sequence).size() > 0 and single_input_check(buffered_array,Attack_buttion):
+	if reader(input_h,sequence).size() > 0 and reader_single_input(buffered_array,Attack_buttion):
 		return true
 	return false
 
 ## checks if there is a matcing value in the provided array this is uded to buffer things 
-func single_input_check(array: Array, what: Array[int])-> bool:
+func reader_single_input(array: Array, what: Array[int])-> bool:
 	if array == null:
 		push_error("Array empty when calling single input check")
 		return false #TODO check if this is a good idea 
@@ -128,7 +128,7 @@ func single_input_check(array: Array, what: Array[int])-> bool:
 
 #FIXME accept the cahnge in main for the sequnce reader over the one in ai review
 ## retuns the index of the sequnce if its vaild
-func get_vaild_sequences(input_h: Array[Array], sequence: Array[int]) -> Dictionary[int, int]:
+func reader(input_h: Array[Array], sequence: Array[int]) -> Dictionary[int, int]:
 	var valid: Dictionary[int,int]
 	var curent_digit: int = 0
 	var total_digits: int = sequence.size()
@@ -231,22 +231,20 @@ func input_filter():
 func chose_actions_get_attack(dic: Dictionary[MoveList.AttackKey, Attack]):
 	var most_recent_attack: Attack
 	var valids: Dictionary[int,Array]
-	var attack_partial_key: MoveList.AttackKey = MoveList.AttackKey.new(# the 2/4 keys
-	player.is_on_floor(),
-	player.is_facing_right,[],[])
-	for attack: MoveList.AttackKey in dic:
+
+	for move_key: MoveList.AttackKey in dic:
 		#this if stamnted does 3 / 4 of the key checks 
-		if (attack.is_on_floor == attack_partial_key.is_on_floor 
-		and attack.is_facing_right == attack_partial_key.is_facing_right 
-		and single_input_check(buffered_array, attack.attack_button)):
-			valids.merge(get_vaild_sequences(input_history, attack.sequence),true)# the 4th key check that also grabs the index of the seqxnrex 
+		if (move_key.is_on_floor == player.is_on_floor()
+		and move_key.is_facing_right == player.is_facing_right 
+		and reader_single_input(buffered_array, move_key.attack_button)):
+			valids.merge(reader(input_history, move_key.sequence),true)# the 4th key check that also grabs the index of the seqxnrex 
 			# add the most recent attack 
 			if valids: 
-				var index = valids.keys().min() # edit the most recent index if it needs to change
-				var key: MoveList.AttackKey = MoveList.AttackKey.new(attack.is_on_floor,attack.is_facing_right,valids.get(index),attack.attack_button)
-				most_recent_attack = dic.get(key)
+				var most_recent_sequence: Array[int] = valids.get(valids.keys().min())
+				if move_key.sequnce == most_recent_sequence:
+					most_recent_attack = dic.get(move_key)
 		#loop end
-		if most_recent_attack: attack_manager.start_attack(most_recent_attack)#stars the attack
+		if most_recent_attack: attack_manager.start_attack(most_recent_attack)#starts the attack
 		
 	print(valids)
 	
