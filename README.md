@@ -11,7 +11,7 @@ AttackManager
       Hitbox and or Hurtbox
         shapes
 ```
-- attack data
+- attack data per hit box
 - player input system with motion inputs 
 - player movelist orginization
 - sample char
@@ -25,7 +25,9 @@ AttackManager
 - the ablity to set a hit sound per attack
 - speical cancels system
 - combo attack / target combo system
-- fully suported motions dash left and right 3 input qaurter circle motions 2 for each of the directions up down left right for a total of 8 but you may add any your self see the move list video and edit move list to do so 
+- fully suported motions dash left and right 3 input qaurter circle motions 2 for each of the directions up down left right for a total of 8 but you may add any your self see the move list video and edit move list to do so
+- protection against hiting the same target more than once (porjectiles do not hit boxes do)
+- protection from hitting self
 
 
 TODO
