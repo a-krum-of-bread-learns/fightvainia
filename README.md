@@ -25,20 +25,19 @@ curenlty done features
 - fully suported motions dash left and right 3 input qaurter circle motions 2 for each of the directions up down left right for a total of 8 but you may add any your self see the move list video and edit move list to do so 
 
 
-
-
-
 TODO
 - [ ] make a sample zoner
 - [ ] fix how to code a fighing game input system video 
-- [ ] combo tracking and must be combed enemy proptery
-- [ ] clean up and centerialtion of is_proptery like is_facing_right or is_jumping
-- [ ] consider dash and jump to be an "attack"
+- [ ] combo tracking and must be combed proptery x times
 - [ ] grab/ comand grab
 - [ ] combo ui
 - [ ] consider actualy using tool buttions for the tool scripts
-- [ ] decouple move list and attack manger
 - [ ] impove cancel systems to allow for custom inputs for follow ups insted of just the attack buttions
 - [ ] video on how to make an attack
 - [ ] video on how to make attack system
 - [ ] video on how to make cancel systems
+
+code review stuff
+- [ ] consider dash and jump to be an "attack"
+- [ ] decouple move list and attack manger
+- [ ] clean up and centerialtion of is_proptery like is_facing_right or is_jumping
