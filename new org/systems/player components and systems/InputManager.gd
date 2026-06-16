@@ -119,15 +119,22 @@ func movement_manager() -> void:
 ## checks if a full motion sequence exists in input history AND
 ## the corresponding attack button is in the buffer
 ## sequence and Attack_buttion use numpad notation values
-func buffer_check(input_h: Array, sequence: int, Attack_buttion: int) -> bool:
-	if get_vaild_sequences(input_h, sequence).size() > 0 and single_input_check(buffered_array, Attack_buttion):
-		return true
-	return false
+
 
 ## searches an entire array for a single input value across all frames
 ## used for attack button buffer checking since buttons are two digit values
 ## and cannot be passed through sequence_spliter
-func single_input_check(array: Array, what: int) -> bool:
+
+#--------------------------------------------------------------end of movemnt hadling 
+#--------------------------------------------------------------start of array managent 
+#this doent implie dash can work how i want
+func buffer_check(input_h: Array, sequence: Array[int], Attack_buttion: Array[int]) -> bool:
+	if reader(input_h,sequence).size() > 0 and reader_single_input(buffered_array,Attack_buttion[0]):
+		return true
+	return false
+
+## checks if there is a matcing value in the provided array this is uded to buffer things 
+func reader_single_input(array: Array, what: int)-> bool:
 	if array == null:
 		push_error("Array empty when calling single input check")
 		return false
@@ -136,36 +143,28 @@ func single_input_check(array: Array, what: int) -> bool:
 			return true
 	return false
 
-## converts an integer sequence like 236 into an array of digits [2,3,6]
-## used by get_vaild_sequences to check each step of a motion input
-func sequence_spliter(sequence: int) -> Array[int]:
-	var digits: Array[int]
-	while (sequence):
-		digits.push_front(sequence % 10)
-		@warning_ignore("integer_division")
-		sequence = sequence / 10
-	return digits
+
 
 ## scans input history for a completed motion sequence
 ## allows gaps between inputs so neutral frames do not break motions
 ## returns a dictionary of end_index:sequence pairs for all valid completions
 ## lowest index = most recent completion since history is newest first
-func get_vaild_sequences(input_h: Array[Array], sequence: int) -> Dictionary[int, int]:
-	var valid: Dictionary[int, int]
-	var curent_digit: int = 0
-	var digits: Array[int] = sequence_spliter(sequence)
+
+## retuns the index of the sequnce if its vaild
+func reader(input_h: Array[Array], digits: Array[int]):
+	var sequnce: Array[int] = digits.duplicate()
+	var correct_digits: int = 0
 	var total_digits: int = digits.size()
-	var index_of_most_recent: int = 0
-	digits.reverse()
+	var index_of_most_recent: int
+	sequnce.reverse()
 	for index in input_h.size():
-		if input_h[index].has(digits.get(curent_digit)):
-			if curent_digit == 0:
+		if input_h[index].has(sequnce.get(correct_digits)):# check if an input is vaild for that sqeuence 
+			if correct_digits == 0:
 				index_of_most_recent = index
-			curent_digit += 1
-			if curent_digit == total_digits:
-				valid.get_or_add(index_of_most_recent, sequence)
-				curent_digit = 0
-	return valid
+			correct_digits += 1
+			if correct_digits == total_digits:
+				return {index_of_most_recent: digits}
+	return {}
 
 ## maintains the sliding window size of input arrays
 ## does not trim during hit stop so inputs pressed during freeze are preserved
@@ -212,34 +211,35 @@ func input_filter() -> void:
 
 	# binary math selects the correct numpad direction from 4 booleans
 	var bit_index = (int(up) << 3) | (int(down) << 2) | (int(left) << 1) | int(right)
-	inputs_of_curent_frame_for_attacks.append(direction_look_up_array[bit_index])
+	inputs_of_curent_frame_for_attacks.append_array(direction_look_up_array[bit_index])
 
 	if Input.is_action_pressed("fake inputs enabled"):
 		press()
 
 	# frame by frame mode uses held state so attacks register on the advanced frame
 	if FrameByFrameMode.frame_by_frame_mode_endabled:
-		if (light_kick_hold and heavy_kick_hold): inputs_of_curent_frame_for_attacks.append(MoveList.EXK)
-		if (light_punch_hold and heavy_punch_hold): inputs_of_curent_frame_for_attacks.append(MoveList.EXP)
-		if (light_kick_hold and light_punch_hold): inputs_of_curent_frame_for_attacks.append(MoveList.LPK)
-		if (heavy_kick_hold and heavy_punch_hold): inputs_of_curent_frame_for_attacks.append(MoveList.HPK)
-		if light_punch_hold: inputs_of_curent_frame_for_attacks.append(MoveList.LP)
-		if light_kick_hold: inputs_of_curent_frame_for_attacks.append(MoveList.LK)
-		if heavy_punch_hold: inputs_of_curent_frame_for_attacks.append(MoveList.HP)
-		if heavy_kick_hold: inputs_of_curent_frame_for_attacks.append(MoveList.HK)
+		if (light_kick_hold and heavy_kick_hold): inputs_of_curent_frame_for_attacks.append_array(MoveList.EXK)
+		if (light_punch_hold and heavy_punch_hold): inputs_of_curent_frame_for_attacks.append_array(MoveList.EXP)
+		if (light_kick_hold and light_punch_hold): inputs_of_curent_frame_for_attacks.append_array(MoveList.LPK)
+		if (heavy_kick_hold and heavy_punch_hold): inputs_of_curent_frame_for_attacks.append_array(MoveList.HPK)
+		if light_punch_hold: inputs_of_curent_frame_for_attacks.append_array(MoveList.LP)
+		if light_kick_hold: inputs_of_curent_frame_for_attacks.append_array(MoveList.LK)
+		if heavy_punch_hold: inputs_of_curent_frame_for_attacks.append_array(MoveList.HP)
+		if heavy_kick_hold: inputs_of_curent_frame_for_attacks.append_array(MoveList.HK)
 	else:
 		# normal play uses just_pressed so holding a button only registers once
-		if (light_kick and heavy_kick): inputs_of_curent_frame_for_attacks.append(MoveList.EXK)
-		if (light_punch and heavy_punch): inputs_of_curent_frame_for_attacks.append(MoveList.EXP)
-		if (light_kick and light_punch): inputs_of_curent_frame_for_attacks.append(MoveList.LPK)
-		if (heavy_kick and heavy_punch): inputs_of_curent_frame_for_attacks.append(MoveList.HPK)
-		if light_punch: inputs_of_curent_frame_for_attacks.append(MoveList.LP)
-		if light_kick: inputs_of_curent_frame_for_attacks.append(MoveList.LK)
-		if heavy_punch: inputs_of_curent_frame_for_attacks.append(MoveList.HP)
-		if heavy_kick: inputs_of_curent_frame_for_attacks.append(MoveList.HK)
+		if (light_kick and heavy_kick): inputs_of_curent_frame_for_attacks.append_array(MoveList.EXK)
+		if (light_punch and heavy_punch): inputs_of_curent_frame_for_attacks.append_array(MoveList.EXP)
+		if (light_kick and light_punch): inputs_of_curent_frame_for_attacks.append_array(MoveList.LPK)
+		if (heavy_kick and heavy_punch): inputs_of_curent_frame_for_attacks.append_array(MoveList.HPK)
+		if light_punch: inputs_of_curent_frame_for_attacks.append_array(MoveList.LP)
+		if light_kick: inputs_of_curent_frame_for_attacks.append_array(MoveList.LK)
+		if heavy_punch: inputs_of_curent_frame_for_attacks.append_array(MoveList.HP)
+		if heavy_kick: inputs_of_curent_frame_for_attacks.append_array(MoveList.HK)
 
 	resize_and_append_to_array(input_history, max_check_frames, inputs_of_curent_frame_for_attacks)
 	resize_and_append_to_array(buffered_array, max_buffer_frames, inputs_of_curent_frame_for_attacks)
+
 
 
 # --- action selection ---
@@ -247,23 +247,24 @@ func input_filter() -> void:
 ## checks a single attack dictionary for a valid input match
 ## uses a 4 part key: [is_on_floor, is_facing_right, motion_sequence, attack_button]
 ## picks the most recently completed motion when multiple valid sequences exist
-func chose_actions_get_attack(dic: Dictionary[Array, Attack]) -> void:
+func chose_actions_get_attack(dic: Dictionary[MoveList.AttackKey, Attack]):
 	var most_recent_attack: Attack
-	var valids: Dictionary[int, int]
-	var attack_partial_key: Array = [
-		player.is_on_floor(),
-		player.is_facing_right
-	]
-	for attack: Array in dic:
-		if (attack[0] == attack_partial_key[0]
-		and attack[1] == attack_partial_key[1]
-		and single_input_check(buffered_array, attack[3])):
-			valids.merge(get_vaild_sequences(input_history, attack[2]), true)
-			if valids:
-				var index = valids.keys().min()
-				most_recent_attack = dic.get([attack[0], attack[1], valids.get(index), attack[3]])
-		if most_recent_attack:
-			attack_manager.start_attack(most_recent_attack)
+	var valids: Dictionary[int,Array]
+
+	for move_key: MoveList.AttackKey in dic:
+		#this if stamnted does 3 / 4 of the key checks 
+		if (move_key.is_on_floor == player.is_on_floor()
+		and move_key.is_facing_right == player.is_facing_right 
+		and reader_single_input(buffered_array, move_key.attack_button[0])):
+			valids.merge(reader(input_history, move_key.sequence),true)# the 4th key check that also grabs the index of the seqxnrex 
+			# add the most recent attack 
+			if valids: 
+				var most_recent_sequence: Array[int] = valids.get(valids.keys().min())
+				if move_key.sequence == most_recent_sequence:
+					most_recent_attack = dic.get(move_key)
+		#loop end
+		if most_recent_attack: attack_manager.start_attack(most_recent_attack)#starts the attack
+		
 	print(valids)
 
 ## selects attacks in priority order: specials > command normals > neutral normals
@@ -279,12 +280,15 @@ func chose_action3() -> void:
 		if (attack_manager.current_attack.can_speical_cancel
 		and attack_manager.current_attack.has_hit):
 			chose_actions_get_attack(attack_manager.all_specials)
+
+		
 		for key in attack_manager.current_attack.combo_attacks_dictionary:
-			if (single_input_check(buffered_array, key)
+			if (reader_single_input(buffered_array,key) 
 			and attack_manager.current_attack.can_combo
 			and attack_manager.current_attack.has_hit):
 				print("you did it")
 				attack_manager.start_attack(attack_manager.current_attack.combo_attacks_dictionary[key])
+
 
 
 func _process(_delta: float) -> void:

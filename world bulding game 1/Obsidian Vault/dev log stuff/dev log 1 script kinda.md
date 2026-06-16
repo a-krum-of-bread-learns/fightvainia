@@ -23,14 +23,51 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 - basic fighting game num-pad notation **not sure if i should explain it**
 	num-pad notation can be used as one way to represent inputs in fighting games we can also use it to help us in code for people who are familiar with it or just have a number pad next to them when developing the motion in puts her are a few examples ==(examples 3 -5 one with a change example even tho i dont plan to have charge moves in my game )== 
 	now that you have seen a few examples lets try a few for you to test you self if you understand it ==(a few for practice)==
-- move list variable management 
+- move list variable management  and choose action 
 	==(pull images regarding an attack from an existing video game to make the visual tree)==
-	in games with simper combat systems they usually have 1 maybe 2 attack buttons at most 
-	in fighting games its as high as 6 
-	additionally some games have a different attack linked to an attack button and a direction 
-	then in fighting they have motion input witch basically mean up to infinity attack options
+	when making a fighting game you will quickly realize that its really hard to mange all the attacks without a nice system to stay organized
+	in games with simpler combat systems they usually have 1 maybe 2 attack buttons at most 
+	in fighting games it can some times seem excessive ==(hit box)== then we we have command normal adding a whole lot more attacks ==(comand normals on top of hit box)==
+	then in fighting they have motion input witch basically mean up to infinity attack options ==(infinty ontop)==
+	
 	simplified version of the variable management for a single button when explaining 
 	a dictionary tree visual to explain what is happening at the end of the code 
+	code sections 
+	script parts
+	section 0 into and pre req for building 
+		if you want to follow along to build your own version the recomended prerequisite are you have an input manager system that handles and filter all inputs like in making a fighting game input system video.  and you know your core conditions 
+		~~this video does not cover stances or how to make those that would be int a combo attacks video~~ 
+		if you want to build your own system you'll a prerequisite you will need is a fully working input management system that filter the inputs.
+		if you are watching this early and I have not made the correction to the input system video regarding the chose action function you have heard this message and it will be corrected at the end of the video then removed when It is corrected  
+	in fighting games we have motion inputs and we have a ton of attack buttons allowing us to have basically infinite number of attacks. so how can we keep that under control and organized in a way is very easy to work with when its done. 
+	
+	attack uniqueness
+	lets see what deines each attack   
+	First every attack in a fighting game has a very specific set of conditions.==(reuse image form input video on attacks with additional conditions)== Most commonly those are whether the player is on the floor, if they are facing right, and the unique motion and attack combination. this will help us decide what attack is the right one to use form our player inputs and state. they also form the key to every attack and ways to sort them. ==(image of key made of 4 parts)== 
+	
+	I need to explain the naming scheme some where 
+	
+	section 1 key structure for how i did this in code i made a resource called attack key. i added all my important universal conditions and make my own _init()_ to set them when i make a new resource in code
+	section 2 var deceleration
+	in my move list script i make I define all of possible valid inputs such as the 9 main directions, the attack buttons and the motions I want to allow 
+	section 3 attacks and how they are sorted
+	in the next part of the code I declare each attack giving it a name with the structure ground state, motion, and final input button. I use @export_group and @export_subgroup to organize the attacks both in code and in editor
+	
+	then ever single attack is put into a dictionary with the correct attack key. each attack gets 2 lines in the dictionary one for facing right and the other for facing left. also take note that my sequences also change from from the right facing version to the left facing version and vice versa. this is because the input system i made doesn't account for it but here the move list is where it is accounted for
+	
+	section 5 ready func
+	the last part of the move list script is the ready function witch combines the all the smaller dictionaries into a few large ones like normals, command normals, specials . it then cleans up unused attacks and puts them in all attacks
+	section 6 the clean look in editor 
+	doing it in this way and naming every thing nicely we can get a nice structure like this in the editor to place an attack.
+	
+	section 7
+	if you are coming from the my video on making the fighting game input system you'll need to add 2 conditions here to check like this. do note that this is taken form the my local code where I have fully implemented most of my systems so if you are making it your self do not assume you have all of the properties in this image.
+	section 7.1 chose action correction
+	regarding the correction the look at the original code here this section here is supoed to be indented and have the following code instead. you may not have noticed any issues but this fixes picking the most recent attack.
+	
+	to end off this video here is my full move list at the time of recording witch is over 600 lines of code. when i need to edit this very large repetitive file i use AI. I do this since it may be considered torture to have some one manually edit this file to just add a sequence and i would be surprised if this file is made to be a lot larger.
+	video description 
+	I go over how to keep attacks organized when fighting game characters have so many showing mostly the code side of this system while being more of an overview rather than step by step as it is a file for just managing variables.
 - how to code a fighting game input system
 	assumptions
 	1. you know num-pad notation
@@ -274,7 +311,6 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 	in the chose action function we edit the move list key to be format of the Attack Key we just made and edit the parameters to match. next for clarity we add a type declaration to the for loop witch may just be a Godot thing. then we add an input check for the attack buttons before we check the sequence  
 	editors note when i did the test i had digits as type Array not Array[int] its changed back to Array[int] a little later. then a little later we also edit how we call the sequence reader and here we can fix the typing for the sequcne reader
 	buffered redo i make a function that takes in the buffed history and a single input. i then loop though  that history and check if it has the input we are taking in. if it does return true otherwise return false. next we edit the attack button parameter in attack key form a sting to the type we really want to use in my case i use int. we then make this change to the move list as well. we then replace when we check for an attack button to be pressed  with a call for the function we just made
-	
 - combo attacks system (target combo)
 	in games like devil may cry, highfi rush, Metal Gear Rising: Revengeance, Beyoneta and many ==(sevral images or clips)== fighting games and more they have what i am calling a combo attack but may be known as  or target combo or rhythm attack or special cancel system 
 	to put it simply it is an attack that is followed by another attack within some time frame 
@@ -410,3 +446,5 @@ from how to code a fighting game input system
 	when i tried to simplify it we found a few problems but made it more versatile 
 	the same thing can be done in 2 different ways and still have the same result
 	making a tutorial video that works is hard
+from move list 
+	I can edit the full time line using the sequence button to pull up its effects
