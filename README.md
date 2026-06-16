@@ -30,7 +30,6 @@ TODO
 - [ ] fix how to code a fighing game input system video 
 - [ ] combo tracking and must be combed proptery x times
 - [ ] grab/ comand grab
-
 - [ ] impove cancel systems to allow for custom inputs for follow ups insted of just the attack buttions
 - [ ] video on how to make an attack
 - [ ] video on how to make attack system
