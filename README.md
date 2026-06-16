@@ -1,7 +1,7 @@
 forgive my spelling git hub doesnt have auto corect
 i have some video documenton on building this tool on my youtbe you can check out that throgh this google doc or any of my other things https://docs.google.com/document/d/1WaJjE3Oelps1x_ZukbHU-mZNxHV5FyNA_d7BeAHt4Fs/edit?usp=sharing
 
-curenlty done features 
+## curently done features 
 
 - attack system using forced tree of nodes made using tool buttions of type bool not tool button
 ```
@@ -30,7 +30,7 @@ AttackManager
 - protection from hitting self
 
 
-TODO
+## TODO
 - [ ] make a sample zoner
 - [ ] fix how to code a fighing game input system video 
 - [ ] combo tracking and must be combed proptery x times
@@ -40,7 +40,7 @@ TODO
 - [ ] video on how to make attack system
 - [ ] video on how to make cancel systems
 
-code review stuff
+## for code review stuff
 - [ ] consider dash and jump to be an "attack"
 - [ ] decouple move list and attack manger
 - [ ] clean up and centerialtion of is_proptery like is_facing_right or is_jumping
@@ -49,6 +49,6 @@ code review stuff
 
 
 
-atributon 
+## Attributon 
 TODO addon i use form this guy you can download it in the godot assetlib
 https://github.com/OrigamiDev-Pete/TODO_Manager
