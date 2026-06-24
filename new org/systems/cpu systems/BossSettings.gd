@@ -5,6 +5,8 @@ class_name BossSettings extends Resource
 @export var spacing_tolerance: float = 5.0
 @export var walk_speed: float = 50.0
 @export var run_speed: float = 200.0
+#REFACTOR make a single source of truth for the states
+@export_enum("close:1", "mid", "far") var PREFERED_DISTANCE: int =1
 @export var close_range_max_x: float = 100
 @export var mid_range_max_x: float = 200
 @export var far_range_max_x: float = 300
@@ -12,6 +14,8 @@ class_name BossSettings extends Resource
 @export var anti_air_delta_max_y: float = -80
 @export_subgroup("chance settings")
 @export_range(0,1,.01) var attack_chance: float = .02 # at 0.02 its roughly 1 attack a second
+#REFACTOR allow compatbity with 1 type of multi hit attac where it is a automantic follow up via combo attak like system
+#REFACTOR make a verion of drop chance to be based on total combo length and set percent cahcne to drop a combo instead
 @export_range(0,100,1) var hits_until_10_percent_drop_chance: int = 1 
 @export_range(0,1,.01) var block_chance: float = .25
 @export_range(0,1,.01) var corect_block_type_chance: float = .25
@@ -20,10 +24,10 @@ class_name BossSettings extends Resource
 @export_range(0,1,.01) var poke_chance: =.02
 @export_range(0,1,.01) var ignore_tolrance_chance: =.07
 @export_range(0,1,.01) var pause_chance: = .33
+#REFACTOR 2 make a verion of drop chance to be based on total combo length and set percent cahcne to drop a combo instead
 
 func calc_drop_chance():
 	if hits_until_10_percent_drop_chance == 0:
 		return 0
 	return 1-pow(.9,1./hits_until_10_percent_drop_chance)
-	
 	

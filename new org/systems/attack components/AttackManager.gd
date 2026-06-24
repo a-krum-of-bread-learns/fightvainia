@@ -32,11 +32,19 @@ func _ready():
 				if box:
 					box.health = host.health_component
 					box.stun_manager = host.stun_manager
-					box.collision_layer = 2
+					if host is Player:
+						box.collision_layer = 2
+					elif host is EnemyBase:
+						box.collision_layer = 3
 				box = frame.get_hitboxarea()
 				if box:
-					box.collision_layer = 2
-					box.collision_mask = 2
+					if host is Player:
+						box.collision_layer = 2
+						box.collision_mask = 2
+					elif host is EnemyBase:
+						box.collision_layer = 3
+						box.collision_mask = 3
+					
 				
 
 ## resets the attack prorpreties and clears [member hit_exeptions]

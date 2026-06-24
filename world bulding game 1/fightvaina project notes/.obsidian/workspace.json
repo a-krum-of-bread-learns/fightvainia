@@ -13,30 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "analysis/notes form 3000 and list of videos.md",
+                "file": "analysis/facade notes and plan.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "notes form 3000 and list of videos"
-            }
-          },
-          {
-            "id": "7e1a4a0b2d1cc568",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "dev log stuff/dev log 1 script kinda.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "dev log 1 script kinda"
+              "title": "facade notes and plan"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -184,56 +169,45 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "7e1a4a0b2d1cc568",
+  "active": "bc644c0625befdd1",
   "lastOpenFiles": [
-    "what should I do regarding geting funding and who to publish/notes on what is a indie dev company.md",
-    "what should I do regarding geting funding and who to publish/hmmm.md",
-    "what should I do regarding geting funding and who to publish",
-    "story stuff/game 0 story.md",
-    "ideas for game stuff/balance decisions to consider some that other games don't have.md",
-    "TODO's/FIXME or known errors or anoinces.md",
-    "core game values.md",
     "analysis/notes form 3000 and list of videos.md",
-    "ideas for game stuff/Events or alternate game modes and system ideas.md",
-    "dev log stuff/dev log 1 script kinda.md",
-    "story stuff/writing practice/(0) ideas/list of ideas for writing practice.md",
-    "ideas for game stuff/other games.md",
-    "ideas for game stuff/streamer lols.md",
-    "TODO's/FIXME or known errors.md",
-<<<<<<< HEAD
-=======
-    "what should I do regarding geting funding and who to publish/notes on what is a indie dev company.md",
-    "what should I do regarding geting funding and who to publish/hmmm.md",
-    "what should I do regarding geting funding and who to publish",
-    "story stuff/game 0 story.md",
-    "ideas for game stuff/balance decisions to consider some that other games don't have.md",
-    "TODO's/FIXME or known errors or anoinces.md",
->>>>>>> ai_code_review
-    "Untitled.base",
-    "sort-able search view.base",
-    "ideas for game stuff/ideas for chars for their ability.md",
-    "ideas for game stuff/educational enemys.md",
-    "analysis/the need statements.md",
-    "analysis/testing page.md",
-    "analysis/table analysis.md",
-    "analysis/study people based on ELI 3000.md",
-    "analysis/problem tree.md",
-    "analysis/self plays games.md",
     "analysis/facade notes and plan.md",
     "analysis/analysis tools.md",
-    "dev log 1 script kinda.md",
     "TODO's/TODO list I done list for fighting game.md",
-<<<<<<< HEAD
-=======
-    "TODO's/make a speech to (text to)  speak replacement.md",
->>>>>>> ai_code_review
-    "story stuff/writing practice/(0) ideas",
-    "story stuff/writing practice",
-    "ideas for game stuff",
-    "dev log stuff",
-    "analysis",
-    "(0) templates",
-    "chars",
+    "TODO's/Demo scope ToDo for summer test release of a char.md",
+    "dev log stuff/dev log 1 script kinda.md",
+    "aaaaaaaa.md",
+    "tool kit of tools/audio/[0] audio.md",
+    "tool kit of tools/Toolkit Files.base",
+    "tool kit of tools/[0] Base Notes.md",
+    "sort-able search view.base",
+    "tool kit of tools/[0] Toolkit of Toolkits.md",
+    "tool kit of tools/visual art/[0] visual art.md",
+    "tool kit of tools/visual art",
+    "tool kit of tools/time management/[0] time management.md",
+    "tool kit of tools/time management",
+    "tool kit of tools/story/[0] story.md",
+    "tool kit of tools/story",
+    "tool kit of tools/project management/[0] project management.md",
+    "tool kit of tools/project management",
+    "tool kit of tools/process design/[0] process design.md",
+    "tool kit of tools/process design",
+    "tool kit of tools/logic/[0] logic.md",
+    "tool kit of tools/logic",
+    "tool kit of tools/learning/[0] learning.md",
+    "tool kit of tools/learning",
+    "tool kit of tools/interaction/[0] interaction.md",
+    "tool kit of tools/interaction",
+    "tool kit of tools/form design/[0] form design.md",
+    "tool kit of tools/experience/[0] experience.md",
+    "tool kit of tools/environment/[0] environment.md",
+    "tool kit of tools/Obsidian_Toolkit_Of_Toolkits_v3_with_Base/visual art/[0] visual art.md",
+    "tool kit of tools/Obsidian_Toolkit_Of_Toolkits_v3_with_Base/time management/[0] time management.md",
+    "tool kit of tools/Obsidian_Toolkit_Of_Toolkits_v3_with_Base/story/[0] story.md",
+    "tool kit of tools/Obsidian_Toolkit_Of_Toolkits_v3_with_Base/project management/[0] project management.md",
+    "tool kit of tools/Obsidian_Toolkit_Of_Toolkits_v3_with_Base/process design/[0] process design.md",
+    "Pasted image 20260617192847.png",
     "chars/Untitled.canvas",
     "fighing game taxamony breakdown.canvas"
   ]

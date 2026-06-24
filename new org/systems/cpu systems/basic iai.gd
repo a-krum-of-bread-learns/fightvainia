@@ -2,7 +2,7 @@
 ## Enemies should be contained in boxes like in Guacamelee
 ## Does not use MoveList by design
 class_name WolfCPU extends EnemyBase
-
+#FIXME moves when attacking 
 enum STATE { WALKING, PAUSING, CHASING }
 @export var timer: FrameTimer
 
@@ -12,16 +12,21 @@ enum STATE { WALKING, PAUSING, CHASING }
 @export_range(1, 9223372036854775807) var pause_time: int = 30
 @export var chase_velocity_x: float = 300
 @export var chase_range: float = 2000
-@export var attack_range: float = 100
+@export var attack_range_min: float = 100
+@export var attack_range_max: float = 300
+@export var hurt_box_1: HurtBoxArea
 
-
-var next_state: STATE =STATE.WALKING
+var next_state: STATE = STATE.WALKING
 var is_chasing: bool = false
 var current_target: EntityBase
 
 func _ready() -> void:
 	for ray in rays:
+		ray.collide_with_areas = true
+		ray.collision_mask = 2
 		ray.hit_from_inside = true
+		ray.collide_with_bodies = false
+		ray.add_exception(hurt_box_1)
 	start_wait_state()
 	
 func start_wait_state():
@@ -50,11 +55,13 @@ func behaviour() -> void:
 		_: pass
 
 func check_chase():
-	for ray in rays:
+	for ray: RayCast2D in rays:
 		if ray.is_colliding() and ray.get_collider() is HurtBoxArea:
+			
 			current_target = (ray.get_collider() as HurtBoxArea).health.host
 			is_chasing = true
 			next_state = STATE.CHASING
+		print("ray"+ str(ray.get_collider()))
 
 # --- chase ---
 func chase_state() -> void:
@@ -62,7 +69,8 @@ func chase_state() -> void:
 	is_facing_right = delta.x < 0
 	scale_component.set_scale(Scale.RIGHT if is_facing_right else Scale.LEFT)
 	velocity.x = chase_velocity_x * -sign(delta.x)
-	if attack_range >= abs(delta.x): 
+	if attack_range_max >= abs(delta.x):
+		velocity.x = 0
 		start_attack_check(combo_0_attacks)
 
 	if abs(delta.x) >= chase_range:
@@ -91,6 +99,11 @@ func start_attack_check(combo_attacks: Array):
 			
 
 func _physics_process(_delta: float) -> void:
+	move_and_slide()
+	if stun_manager.is_stuned:
+		return
 	check_chase()
 	behaviour()
-	move_and_slide()
+	for ray in rays: print("ray"+ str(ray.get_collider()))
+	print("test")
+	

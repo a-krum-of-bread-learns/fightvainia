@@ -15,7 +15,10 @@
 [ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="8_k1v7u"]
 [ext_resource type="Texture2D" uid="uid://bs6axfrlyj1je" path="res://export versions/v0.1/index.icon.png" id="10_0jry0"]
 [ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://new org/art/copy right free audio assets/session.mp3" id="11_p5e8x"]
-[ext_resource type="Script" uid="uid://b26tsti3xbnx7" path="res://new org/systems/cpu systems/iai.gd" id="16_bx61f"]
+[ext_resource type="Script" uid="uid://b26tsti3xbnx7" path="res://new org/systems/cpu systems/basic iai.gd" id="16_bx61f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0i3f"]
+size = Vector2(32, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8lew8"]
 size = Vector2(32, 16)
@@ -54,28 +57,35 @@ metadata/_custom_type_script = "uid://c8e0lbybahcxv"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5e8x"]
 size = Vector2(24, 16)
 
-[node name="cpu1" type="CharacterBody2D" unique_id=718906405 node_paths=PackedStringArray("timer", "rays", "combo_0_attacks", "stun_manager", "attack_manager", "scale_component", "health_component")]
+[node name="cpu1" type="CharacterBody2D" unique_id=718906405 node_paths=PackedStringArray("timer", "hurt_box_1", "rays", "combo_0_attacks", "stun_manager", "attack_manager", "scale_component", "health_component")]
 collision_layer = 0
 script = ExtResource("16_bx61f")
 timer = NodePath("folder2/IAI folder2/FrameTimer")
 walk_velocity_x = 50.0
-walk_time = null
-pause_time = null
 chase_velocity_x = 100.0
 chase_range = 200.0
-attack_range = 40.0
+attack_range_min = 30.0
+attack_range_max = 40.0
+hurt_box_1 = NodePath("HurtBoxArea")
 rays = [NodePath("folder2/IAI folder2/RayCast2D")]
-minimum_time_before_attacks_in_frames = null
 combo_0_attacks = [NodePath("folder2/AttackManager/slash"), NodePath("folder2/AttackManager/slash 2")]
-is_facing_right = null
-is_blocking = null
 stun_manager = NodePath("folder/StunManager")
 attack_manager = NodePath("folder2/AttackManager")
 scale_component = NodePath("folder/Scale")
 health_component = NodePath("folder/Health")
 stats = ExtResource("2_b0i3f")
-block_type = null
 metadata/_custom_type_script = "uid://bssckwpf2obbe"
+
+[node name="HurtBoxArea" type="Area2D" parent="." unique_id=850132597 node_paths=PackedStringArray("health", "stun_manager")]
+collision_layer = 2
+script = ExtResource("6_ywtyg")
+health = NodePath("../folder/Health")
+stun_manager = NodePath("../folder/StunManager")
+metadata/_custom_type_script = "uid://bmbi4lyfgdixu"
+
+[node name="hurt_box" type="CollisionShape2D" parent="HurtBoxArea" unique_id=554226458]
+shape = SubResource("RectangleShape2D_b0i3f")
+debug_color = Color(0, 0, 1, 0.6862745)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1361850207]
 position = Vector2(0, 7.212162e-06)

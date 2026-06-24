@@ -134,5 +134,6 @@ per frame hit type (lvl 1 super min restriction)
 	fame one low frame 2 overhead and with correct frame timing you can make an evil meaty using the same move
 a char with inteonal unituive inputs 
 	for a optimal combo you must do forwad lp then dqcf lp for the speical same with down lp with fqcd lp
-
+a char with spikes that have directional launching depnedign on input
+	a spike that faces left launches left and a sipke that faces right launches right so you can control the position of the opponent for your next move or extend combo
 

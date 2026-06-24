@@ -17,13 +17,13 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e1a3v"]
 radius = 4.0
-height = 16.0
+height = 15.0
 
-[node name="player" type="CharacterBody2D" unique_id=2023579452 node_paths=PackedStringArray("colission_box", "input_component", "PrimaryHurtBoxes_component", "stun_manager", "attack_manager", "scale_component", "health_component")]
+[node name="player" type="CharacterBody2D" unique_id=2023579452 node_paths=PackedStringArray("colission_box", "input_component", "primary_hurt_boxes_component", "stun_manager", "attack_manager", "scale_component", "health_component")]
 script = ExtResource("1_8it8p")
 colission_box = NodePath("the player colision box")
 input_component = NodePath("folder/inputmanager")
-PrimaryHurtBoxes_component = NodePath("folder/player primary hurt boxes")
+primary_hurt_boxes_component = NodePath("folder/player primary hurt boxes")
 stun_manager = NodePath("folder/stunManager")
 attack_manager = NodePath("folder/attack manager")
 scale_component = NodePath("folder/scale")
@@ -104,6 +104,7 @@ metadata/_custom_type_script = "uid://c5ucrpov3ddtq"
 
 [node name="stunManager" type="Node" parent="folder" unique_id=845563521 node_paths=PackedStringArray("host")]
 script = ExtResource("11_x2twk")
+enabled = null
 host = NodePath("../..")
 
 [node name="attack manager" type="Node2D" parent="folder" unique_id=1555584615 node_paths=PackedStringArray("animation_tool", "host")]

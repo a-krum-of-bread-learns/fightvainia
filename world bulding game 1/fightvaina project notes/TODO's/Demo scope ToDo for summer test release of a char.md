@@ -54,5 +54,19 @@ what i could do
 that is 10 points
 
 ## scope part 2: 3 enemys
-- [ ] learn iai / cpu
-- [ ] make an iai class or something 
+- [x] learn iai / cpu
+- [x] make an iai class or something 
+- [x] zonner boss and enemies
+	all boss attacks are per one zonner enemy
+	- [x] rock/ ice spike 
+	- [x] fire ball 
+	- [x] lazer
+- [x] combo tracking
+- [x] must be combo-ed property for a boss 
+	- [x] damage decision 
+		x sets of Shields to beat boss combo x + 1 or + 0 each set number
+		store damage then apply it all (grey health in a way)
+		based on attacks or hits ? and interaction with multi hit attacks to be considered too or special property  
+		currently using hits must be >= x for any damage to be dealt kinda combo armor
+		
+		

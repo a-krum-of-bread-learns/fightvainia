@@ -99,4 +99,5 @@ more ai fights / battle against the boss akrum on random select so he has to fig
 
 
 
-facade 2 use melty blood
+facade 2 use melty blood or sf6
+	 reason to use sf6 most or all chars have a target combo so it may be a good test to see if those help players feel like they are doing the cool stuff fairly soon 

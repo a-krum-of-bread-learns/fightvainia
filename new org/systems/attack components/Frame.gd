@@ -76,8 +76,6 @@ func toggle_this_frames_boxes():
 func add_new_hit_box(): 
 	var hit_box: HitBoxArea = HitBoxArea.new()
 	add_child(hit_box) 
-	hit_box.collision_layer = 2
-	hit_box.collision_mask = 2
 	hit_box.owner = get_tree().edited_scene_root
 	print(get_children(true))
 	print("added hit_box")
@@ -111,8 +109,6 @@ func add_new_projectile_box():
 func add_new_hurt_box(): 
 	var hurt_box: HurtBoxArea = HurtBoxArea.new()
 	add_child(hurt_box) 
-	hurt_box.collision_layer = 2
-	hurt_box.collision_mask = 0
 	hurt_box.owner = get_tree().edited_scene_root
 	print(get_children(true))
 	print("added end frame")

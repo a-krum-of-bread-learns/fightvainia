@@ -6,7 +6,7 @@ class_name HitBoxArea extends ActiveHitBox
 @export var fix_color_buttion: bool = false
 #TODO consider removing this refrence and doing it difrently?
 @onready var attack_manager: AttackManager = get_parent().get_parent().get_parent()## easy refence of the attack manager
-
+signal hit_confirmed(attacked_entity, attack_dat, block_result)
 # TODO consider puting a signal here for the damage function to tell projectiles to stop when enity is hit sometimes
 
 ## conects singals and is just to warn the hit box has no info and where 
@@ -31,7 +31,12 @@ func _ready():
 	if attack_data.damage == -1:
 		push_error("damage not assigned in " + get_parent().name + " of attack " + get_parent().get_parent().name)
 	super._ready()
-
+	if attack_manager.host is Player:
+		collision_layer = 2
+		collision_mask = 2
+	elif attack_manager.host is EnemyBase:
+		collision_layer = 3
+		collision_mask = 3
 
 # detecting a player we colided with 
 ## esantaly the fucntion to deal damage if target is valid  blocking logic contained here
@@ -98,8 +103,13 @@ func block_check2(attacked_entity: EntityBase, area: HurtBoxArea):
 		pass
 		print("blocked is "+str(true))
 	else:
-		area.health.change_health(attack_data.damage)
+		#attacked_entity.combo_tracker.combo_tracker_logic(attack_data,block_check_look_up[bit_index])
+		if attacked_entity.combo_tracker == null or attacked_entity.combo_tracker.damage_allowed():
+			area.health.change_health(attack_data.damage)
+		
 	area.stun_manager.start_stun_with_tween(attack_data,vector_direction, block_check_look_up[bit_index])
+	#REFACTOR signal for same entity comuncation 
+	#hit_confirmed.emit(attacked_entity, attack_data, block_check_look_up[bit_index])
 	print(area.health.current_health)
 	
 

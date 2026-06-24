@@ -1,6 +1,6 @@
 class_name BossLogic extends EnemyBase
+#REFACTOR make a single source of truth for the states
 enum STATE {IDLE =0,CLOSE =1, MID, FAR, VERY_FAR, BLOCK = 40}
-
 @export var settings: BossSettings
 @export_group("combos")
 @export var close_bnb_combo: Array[Attack]
@@ -68,20 +68,19 @@ func approch_behaviour() -> void:
 	if timer.is_stoped():
 		timer.start_frame_timer(humanize_time)
 		scale_component.set_scale(Scale.RIGHT if is_facing_right else Scale.LEFT)
-		velocity.x  = settings.walk_speed * HelperFuncs.facing_sign(is_facing_right)
+		velocity.x = settings.walk_speed * HelperFuncs.facing_sign(is_facing_right)
 		if current_state == STATE.VERY_FAR:
-			velocity.x  = settings.run_speed * HelperFuncs.facing_sign(is_facing_right)
+			velocity.x = settings.run_speed * HelperFuncs.facing_sign(is_facing_right)
 			crouching = false
 		elif HelperFuncs.roll_chance(settings.pause_chance):
 			timer.start_frame_timer(pause_time)
 			crouching = true
-			velocity.x  = 0
+			velocity.x = 0
 			return
-		elif current_state == STATE.CLOSE:
-			velocity.x  = settings.walk_speed * -HelperFuncs.facing_sign(is_facing_right)
+		elif current_state <= settings.PREFERED_DISTANCE:
+			velocity.x = settings.walk_speed * -HelperFuncs.facing_sign(is_facing_right)
 			crouching = false
 		else: crouching = false
-			
 
 func get_range_state() -> STATE:
 	var delta: float = abs(self.global_position.x - target.global_position.x)
@@ -113,13 +112,18 @@ func manage_state() -> void:
 		next_state = STATE.BLOCK
 	match current_state:
 		STATE.CLOSE when HelperFuncs.roll_chance(settings.attack_chance):
-			if crouching: start_and_continue_combo(close_bnb_low_combo) 
-			else: start_and_continue_combo(close_bnb_combo)
+			if crouching and not close_bnb_low_combo.is_empty():
+				start_and_continue_combo(close_bnb_low_combo)
+			elif not close_bnb_combo.is_empty():
+				start_and_continue_combo(close_bnb_combo)
 		STATE.CLOSE when HelperFuncs.roll_chance(settings.anti_air_chance):
 			anti_air_logic()
 		STATE.MID when HelperFuncs.roll_chance(settings.poke_chance):
-			attack_manager.start_attack(mid_pokes[randi() % mid_pokes.size()])
-		STATE.FAR: pass # walk towards
+			if not mid_pokes.is_empty():
+				attack_manager.start_attack(mid_pokes[randi() % mid_pokes.size()])
+		STATE.FAR when HelperFuncs.roll_chance(settings.poke_chance):
+			if not far_or_projectile_pokes.is_empty():
+				attack_manager.start_attack(far_or_projectile_pokes[randi() % far_or_projectile_pokes.size()])
 		STATE.BLOCK: self_block_logic()
 
 func primary_hurt_box_manager() -> void:
@@ -151,12 +155,14 @@ func self_block_logic() -> void:
 			block_type = hitbox.attack_data.hit_type
 			if hitbox.attack_data.hit_type == HitBoxData.HIT_TYPE.LOW:
 				crouching = true
-			elif hitbox.attack_data.hit_type == HitBoxData.HIT_TYPE.OVER: 
+			elif hitbox.attack_data.hit_type == HitBoxData.HIT_TYPE.OVER:
 				crouching = false
 
 func start_and_continue_combo(combo_attacks: Array[Attack]) -> void:
+	if combo_attacks.is_empty():
+		return
 	if HelperFuncs.roll_chance(settings.calc_drop_chance()):
-		current_attack_index = 0 
+		current_attack_index = 0
 		current_combo = []
 		return
 	if attack_manager.is_attacking == false:
@@ -164,8 +170,13 @@ func start_and_continue_combo(combo_attacks: Array[Attack]) -> void:
 		current_attack_index = 0
 		attack_manager.start_attack(combo_attacks[current_attack_index])
 	else:
+		if current_attack_index >= combo_attacks.size():
+			current_attack_index = 0
+			return
 		if (combo_attacks[current_attack_index].has_hit
-		and (combo_attacks[current_attack_index].can_combo or combo_attacks[current_attack_index].can_speical_cancel)):
+		and (combo_attacks[current_attack_index].can_combo
+			or combo_attacks[current_attack_index].can_speical_cancel
+			or attack_manager.get_frames_remaining() == 1)):
 			current_attack_index += 1
 			if combo_attacks.size() == current_attack_index:
 				current_attack_index = 0
@@ -173,6 +184,8 @@ func start_and_continue_combo(combo_attacks: Array[Attack]) -> void:
 			attack_manager.start_attack(combo_attacks[current_attack_index])
 
 func anti_air_logic() -> void:
+	if anti_airs.is_empty():
+		return
 	if (current_state == STATE.CLOSE
 	and not target.is_on_floor()
 	and not attack_manager.is_attacking):
@@ -185,11 +198,11 @@ func anti_air_logic() -> void:
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
-	if timer.is_stoped():
-		print("timer expired, is_attacking: " + str(attack_manager.is_attacking))
-	print("boss state " + str(current_state))
-	print("boss next state " + str(next_state))
-	print("cpu velocity: " + str(velocity))
+	#if timer.is_stoped():
+		#print("timer expired, is_attacking: " + str(attack_manager.is_attacking))
+	#print("boss state " + str(current_state))
+	#print("boss next state " + str(next_state))
+	#print("cpu velocity: " + str(velocity))
 	if settings.self_enabled == false:
 		return
 	if target == null:
@@ -201,4 +214,3 @@ func _physics_process(_delta: float) -> void:
 	manage_state()
 	primary_hurt_box_manager()
 	current_state = next_state
-	

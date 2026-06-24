@@ -201,13 +201,13 @@ func input_filter() -> void:
 	var left: bool = Input.is_action_pressed("left")
 	var right: bool = Input.is_action_pressed("right")
 	var light_punch: bool = Input.is_action_just_pressed("LP") or Input.is_action_just_released("LP")
-	var light_kick: bool = Input.is_action_just_pressed("LK") or Input.is_action_just_released("LK")
+	var light_kick: bool = Input.is_action_just_pressed("LK and jump") or Input.is_action_just_released("LK and jump")
 	var heavy_punch: bool = Input.is_action_just_pressed("HP") or Input.is_action_just_released("HP")
-	var heavy_kick: bool = Input.is_action_just_pressed("HK") or Input.is_action_just_released("HK")
+	var heavy_kick: bool = Input.is_action_just_pressed("HK and block") or Input.is_action_just_released("HK and block")
 	var light_punch_hold: bool = Input.is_action_pressed("LP")
-	var light_kick_hold: bool = Input.is_action_pressed("LK")
+	var light_kick_hold: bool = Input.is_action_pressed("LK and jump")
 	var heavy_punch_hold: bool = Input.is_action_pressed("HP")
-	var heavy_kick_hold: bool = Input.is_action_pressed("HK")
+	var heavy_kick_hold: bool = Input.is_action_pressed("HK and block")
 
 	# binary math selects the correct numpad direction from 4 booleans
 	var bit_index = (int(up) << 3) | (int(down) << 2) | (int(left) << 1) | int(right)
@@ -250,6 +250,13 @@ func input_filter() -> void:
 func chose_actions_get_attack(dic: Dictionary[MoveList.AttackKey, Attack]):
 	var most_recent_attack: Attack
 	var valids: Dictionary[int,Array]
+	
+	if Input.is_action_pressed("HK and block") and player.is_on_floor():
+		player.is_blocking = true
+		if player.is_crouching: player.block_type = host.BLOCK_TYPE.LOW
+		else:player.block_type = host.BLOCK_TYPE.OVER
+		return
+	else: player.is_blocking = false
 
 	for move_key: MoveList.AttackKey in dic:
 		#this if stamnted does 3 / 4 of the key checks 
@@ -313,5 +320,5 @@ func _process(_delta: float) -> void:
 		dash_component.dash_handler2()
 		movement_componet.jump_handler2()
 	else:
-		player.PrimaryHurtBoxes_component.disable_all_pimary_sprites_excluding()
-	print(input_history)
+		player.primary_hurt_boxes_component.disable_all_pimary_sprites_excluding()
+	#print(input_history)

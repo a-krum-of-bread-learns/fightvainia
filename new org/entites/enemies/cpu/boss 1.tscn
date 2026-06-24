@@ -12,13 +12,14 @@
 [ext_resource type="Script" uid="uid://ccxb00gf1jcum" path="res://new org/systems/player components and systems/Health.gd" id="6_ygy5y"]
 [ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new org/systems/animation/AnimationTool.gd" id="7_d30gh"]
 [ext_resource type="Script" uid="uid://dd0phg7lcqqps" path="res://new org/systems/movement related/Gravity.gd" id="8_btdi6"]
-[ext_resource type="PackedScene" uid="uid://duw2his5lywxk" path="res://new org/entites/agent player stuff/attacks/left_buttion_jab_(x)_lp.tscn" id="10_5uoak"]
-[ext_resource type="PackedScene" uid="uid://od41351s0ekc" path="res://new org/entites/agent player stuff/attacks/left_button_low_(x)_lp.tscn" id="11_hxi14"]
-[ext_resource type="PackedScene" uid="uid://ci8cd0kwoplqn" path="res://new org/entites/agent player stuff/attacks/up_button_low_(y)_hp.tscn" id="12_dluaq"]
-[ext_resource type="PackedScene" uid="uid://gu4f3xo60xh2" path="res://new org/entites/agent player stuff/attacks/up_buttion_strong_(y)_hp.tscn" id="13_pb0oo"]
+[ext_resource type="PackedScene" uid="uid://duw2his5lywxk" path="res://new org/entites/attacks/agent attacks/left_buttion_jab_(x)_lp.tscn" id="10_5uoak"]
+[ext_resource type="PackedScene" uid="uid://od41351s0ekc" path="res://new org/entites/attacks/agent attacks/left_button_low_(x)_lp.tscn" id="11_hxi14"]
+[ext_resource type="PackedScene" uid="uid://ci8cd0kwoplqn" path="res://new org/entites/attacks/agent attacks/up_button_low_(y)_hp.tscn" id="12_dluaq"]
+[ext_resource type="PackedScene" uid="uid://gu4f3xo60xh2" path="res://new org/entites/attacks/agent attacks/up_buttion_strong_(y)_hp.tscn" id="13_pb0oo"]
 [ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://new org/art/copy right free audio assets/session.mp3" id="14_r6h4o"]
-[ext_resource type="PackedScene" uid="uid://b50dutlc1lhd4" path="res://new org/entites/agent player stuff/attacks/up_buttion_anti_air_(y)_hp.tscn" id="15_hscuh"]
-[ext_resource type="PackedScene" uid="uid://i07c3uwydhut" path="res://new org/entites/agent player stuff/attacks/floor_explosion.tscn" id="17_dluaq"]
+[ext_resource type="PackedScene" uid="uid://b50dutlc1lhd4" path="res://new org/entites/attacks/agent attacks/up_buttion_anti_air_(y)_hp.tscn" id="15_hscuh"]
+[ext_resource type="PackedScene" uid="uid://i07c3uwydhut" path="res://new org/entites/attacks/agent attacks/floor_explosion.tscn" id="17_dluaq"]
+[ext_resource type="PackedScene" uid="uid://bwrmodlels1kk" path="res://new org/entites/attacks/agent attacks/fire_ball.tscn" id="19_r6h4o"]
 
 [sub_resource type="Resource" id="Resource_r6h4o"]
 script = ExtResource("2_pb0oo")
@@ -29,11 +30,11 @@ hits_until_10_percent_drop_chance = 0
 metadata/_custom_type_script = "uid://c4buu38jtc0ws"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hxi14"]
-radius = 7.0
-height = 20.0
+radius = 4.0
+height = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_btdi6"]
-radius = 128.24976
+radius = 100.0
 
 [node name="boss 1" type="CharacterBody2D" unique_id=518042812 node_paths=PackedStringArray("close_bnb_combo", "close_bnb_low_combo", "close_pokes", "mid_pokes", "anti_airs", "timer", "rays", "primary_hurt_boxes_component", "stun_manager", "attack_manager", "scale_component", "health_component")]
 collision_layer = 0
@@ -61,7 +62,7 @@ block_type = 1
 entity = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=103021113]
-position = Vector2(0, 6)
+position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_hxi14")
 
 [node name="folder" type="Node" parent="." unique_id=572432720]
@@ -130,6 +131,8 @@ hit_sound = ExtResource("14_r6h4o")
 hit_sound = ExtResource("14_r6h4o")
 
 [node name="floor explision" parent="boss folder/AttackManager" unique_id=2123794268 instance=ExtResource("17_dluaq")]
+
+[node name="fire ball" parent="boss folder/AttackManager" unique_id=1979542474 instance=ExtResource("19_r6h4o")]
 
 [node name="Sprite2D" type="Sprite2D" parent="boss folder" unique_id=115548378]
 position = Vector2(-1.1368684e-13, 0)

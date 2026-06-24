@@ -95,20 +95,20 @@
 - [ ] make simple boolens for modifiers of hurt and hit boxes? skip this scopecreep
 - [ ] add input release option
 - [ ] ==make a system map to see how it all fits right now== when i return to it
-- [ ] make the last script for the current list of scripts 
+- [x] make the last script for the current list of scripts 
 - [ ] do a documentation check 
-- [ ] make a danger zone section 
+- [ ] make a danger zone section for buttons
 
 - [x] learn conditional editor tools or separate projectile animation and entity animation
 
 - [ ] decide on state based movement or fluid movement 
-- [ ] make a demo (limits: 1 char 1-3 basic enemy 1 boss that is the same char and a bit of ability to unlock and put it on itch if you use boxes then do it see [[Demo scope ToDo for summer test release of a char|demo scope]] 
+- [x] make a demo (limits: 1 char 1-3 basic enemy 1 boss that is the same char and a bit of ability to unlock and put it on itch if you use boxes then do it see [[Demo scope ToDo for summer test release of a char|demo scope]] 
 	- [x] 1 char
-	- [ ] 3 enemy 
-		- [ ] low only smol guys or animals 
-		- [ ] basic enemy random block and attacks (small combo maybe)
-		- [ ] too much reach jump on em spear man 
-	- [ ] 1 boss: must be combed 
+	- [x] 3 enemy 
+		- [x] low only smol guys or animals 
+		- [x] basic enemy random block and attacks (small combo maybe)
+		- [x] too much reach jump on em spear man 
+	- [x] 1 boss: must be combed 
 
 - [x] make on hit condition check 
 - [x] make a spawn object thing
@@ -131,3 +131,4 @@
         push_error("Health: max_health is 0 | " + _get_context())
 - [ ] make dash an attack and allow it to be canceld by a ton of things 
 - [ ] mkae jump start up an attack as well?>
+- [ ] knockdown and wake up separationto allow for otg  

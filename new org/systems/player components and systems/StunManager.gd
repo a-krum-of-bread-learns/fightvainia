@@ -1,3 +1,4 @@
+#REFACTOR seprate out knock down and wake up into 2 difent stun states to allow for otg to be more doable
 ## holds stun information and moves the entity as well 
 class_name StunManager extends BehaviourBase
 enum STUN_TYPE {BASIC, DEFUALT_KNOCK_DOWN, DEFUALT_LAUNCH, DEFUALT_AIR, BLOCK = 40} ## type of stun
@@ -13,6 +14,7 @@ const DEFUALT_KNOCKDOWN_STUN: Vector2 = Vector2(0,200)
 const DEFUALT_LAUNCH_STUN: Vector2 = Vector2(50,-400) 
 const PUSH_BACK_TIME_IN_FRAMES: int = 5
 
+signal stun_has_ended
 #TODO use the new animation tool for the stun manager if it makes sensef other wize keep as is
 #TODO make a way to have the huratble player stop when on ground so it stops sliding 
 #TODO have an option for aninmation type stun
@@ -82,7 +84,9 @@ func continue_stun():
 			if host.is_on_floor() and remaining_duration >= 0:
 				remaining_duration -= 1
 				host.velocity = DEFUALT_KNOCKDOWN_STUN
-				
+				#REFACTOR this code needs to be more gerneric and primary boxes needs to be part of entity base probbly 
+				if host is Player: (host as Player).primary_hurt_boxes_component.disable_all_pimary_boxes_exluding()
+				if host is EnemyBase: (host as EnemyBase).primary_hurt_boxes_component.disable_all_pimary_boxes_exluding()
 			else: end_stun()
 			
 		STUN_TYPE.DEFUALT_AIR, STUN_TYPE.DEFUALT_LAUNCH:
@@ -107,6 +111,7 @@ func continue_stun():
 
 ## ends the stun and clears info here
 func end_stun():
+	stun_has_ended.emit()
 	is_stuned = false
 	remaining_duration = 0
 

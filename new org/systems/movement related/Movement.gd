@@ -38,8 +38,8 @@ func jump_handler2():
 		#or buffer_check(buffered_array,MoveList.UR,MoveList.UR)
 		#or buffer_check(buffered_array,MoveList.UL,MoveList.UL))
 		#or 
-		Input.is_action_just_pressed("LK")
-		or (Input.is_action_pressed("LK") and FrameByFrameMode.frame_by_frame_mode_endabled)):
+		Input.is_action_just_pressed("LK and jump")
+		or (Input.is_action_pressed("LK and jump") and FrameByFrameMode.frame_by_frame_mode_endabled)):
 		#ground 
 		if host.is_on_floor() and is_jumping == false:
 			can_air_action_jump = true

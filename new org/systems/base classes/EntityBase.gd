@@ -8,6 +8,8 @@ class_name EntityBase extends CharacterBody2D
 @export var scale_component: Scale
 @export var health_component: Health
 @export var stats: EntityStats
+@export var combo_tracker: ComboTracker
+
 
 @export_enum("error:-1","LOW:1","ALL:2","OVERHEAD:3") var block_type: int = 3
 enum BLOCK_TYPE {LOW=1, ALL=2, OVER=3} ## type of block
@@ -37,3 +39,6 @@ func _physics_process(_delta):
 	print(self.name + " velocity " + str(self.velocity))
 	print(self.name + " block type  " + str(self.block_type))
 	move_and_slide()
+
+
+	

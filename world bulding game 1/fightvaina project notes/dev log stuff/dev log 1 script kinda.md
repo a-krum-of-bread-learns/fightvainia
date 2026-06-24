@@ -6,7 +6,7 @@ at the begin of all videos / recording say bismallah and as-salamu alakum, hello
 
 at the end of all videos say salam and i hope this was of benift for you and i hope you took notes to retain the information too
 
-- input management without motion inputs
+- input management without motion inputs (**done**) 
 	*assumptions* 
 	1. *you know what a fighting game is* 
 	2. *you may have an interest in coding a fighting game* 
@@ -23,7 +23,7 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 - basic fighting game num-pad notation **not sure if i should explain it**
 	num-pad notation can be used as one way to represent inputs in fighting games we can also use it to help us in code for people who are familiar with it or just have a number pad next to them when developing the motion in puts her are a few examples ==(examples 3 -5 one with a change example even tho i dont plan to have charge moves in my game )== 
 	now that you have seen a few examples lets try a few for you to test you self if you understand it ==(a few for practice)==
-- move list variable management  and choose action 
+- move list variable management  and choose action (**done**) 
 	==(pull images regarding an attack from an existing video game to make the visual tree)==
 	when making a fighting game you will quickly realize that its really hard to mange all the attacks without a nice system to stay organized
 	in games with simpler combat systems they usually have 1 maybe 2 attack buttons at most 
@@ -68,7 +68,7 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 	to end off this video here is my full move list at the time of recording witch is over 600 lines of code. when i need to edit this very large repetitive file i use AI. I do this since it may be considered torture to have some one manually edit this file to just add a sequence and i would be surprised if this file is made to be a lot larger.
 	video description 
 	I go over how to keep attacks organized when fighting game characters have so many showing mostly the code side of this system while being more of an overview rather than step by step as it is a file for just managing variables.
-- how to code a fighting game input system
+- how to code a fighting game input system (**done**)
 	assumptions
 	1. you know num-pad notation
 	2. you understand some games have motion inputs for attacks
@@ -311,7 +311,28 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 	in the chose action function we edit the move list key to be format of the Attack Key we just made and edit the parameters to match. next for clarity we add a type declaration to the for loop witch may just be a Godot thing. then we add an input check for the attack buttons before we check the sequence  
 	editors note when i did the test i had digits as type Array not Array[int] its changed back to Array[int] a little later. then a little later we also edit how we call the sequence reader and here we can fix the typing for the sequcne reader
 	buffered redo i make a function that takes in the buffed history and a single input. i then loop though  that history and check if it has the input we are taking in. if it does return true otherwise return false. next we edit the attack button parameter in attack key form a sting to the type we really want to use in my case i use int. we then make this change to the move list as well. we then replace when we check for an attack button to be pressed  with a call for the function we just made
-- combo attacks system (target combo)
+- attack system 2 videos or 2 parts 1 for overview and 1 for code not including cancels multi hit attacks 
+	manager, attacks, frame, hit/hurt boxes and collision shapes, the forced structure too
+	manger outline 
+		is attacking
+		current attack
+		start and contue attack
+	attack outline 
+		mainly a container with a few propteys and a reset function for its self
+		active frame 
+		frames: array[frame]
+	frame outline
+		repeat this frame 
+		set frame disabled
+	hitbox outline
+		on area entered 
+		damage (use queue free)
+		set collision layer and mask
+	hurt box out line
+		set collision layer and mask
+		refence to host/ char body 2d or just hurt box and stun manager
+	
+- combo attacks and speical cancels system (target combo)
 	in games like devil may cry, highfi rush, Metal Gear Rising: Revengeance, Beyoneta and many ==(sevral images or clips)== fighting games and more they have what i am calling a combo attack but may be known as  or target combo or rhythm attack or special cancel system 
 	to put it simply it is an attack that is followed by another attack within some time frame 
 	for a visual representation that is not an example ==(put a frame bar with x length show it normally then do it again but start a combo attack before ending it )==
