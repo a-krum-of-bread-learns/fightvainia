@@ -1,64 +1,55 @@
 class_name Dash extends BehaviourBase
 @export var timer: FrameTimer ## the timer for duration
-@export var input_manager: InputManager
-@export var gravity_component: Gravity
-var can_air_action_dash: bool = false  ## tracks if the player can dach again in air
+#TODO change can_air_action_dash to a count value so it can be use for multiple air dashes and such
+@onready var remaining_air_dashes: int = (host.stats as PlayerStats).max_air_dash_count ## tracks if the player can dach again in air
 var current_speed: Vector2
-var is_dashing: bool = false
 #seting the reday name
 func _ready():
 	self.name = "dash"
 	super._ready()
+	host.contol_node.dash_signal.connect(start_dash)
 
-func dash_handler2():
+
+func start_dash(dir: Vector2):
 	#some set up 
-	if is_dashing:
-		gravity_component.is_falling = false
-	else: gravity_component.is_falling = true
-	if host.is_on_floor(): can_air_action_dash = true
-	
-	if (input_manager.buffer_check(input_manager.input_history, MoveList.DASHR,MoveList.R)
-		and is_dashing == false):
+	host.is_falling = false if host.is_dashing else true
+	if (host.is_dashing == false):
 		if host.is_on_floor():
 			print("ground dash")
-			dash(Vector2.RIGHT)
-			is_dashing = true
-		elif can_air_action_dash:
-			dash(Vector2.RIGHT)
-			is_dashing = true
-			can_air_action_dash = false
-
-	elif (input_manager.buffer_check(input_manager.input_history, MoveList.DASHL,MoveList.L)
-		and is_dashing == false):
-		if host.is_on_floor():
-			print("ground dash")
-			dash(Vector2.LEFT)
-			is_dashing = true
-		elif can_air_action_dash:
-			dash(Vector2.LEFT )
-			is_dashing = true
-			can_air_action_dash = false
+			continue_dash(dir)
+			host.is_dashing = true
+		elif remaining_air_dashes > 0:
+			continue_dash(dir)
+			host.is_dashing = true
+			remaining_air_dashes -=1
 
 ## sets the speed of the player 
-func dash(dir:Vector2): 
+func continue_dash(dir: Vector2): 
 	if !enabled:
 		return
-	if  is_dashing == false: 
-		timer.start_frame_timer(host.stats.max_dash_duration_frames)
-		is_dashing = true
-		current_speed = host.stats.dash_speed*dir
+	if host.is_dashing == false: 
+		timer.start_frame_timer((host.stats as PlayerStats).max_dash_duration_frames)
+		host.is_dashing = true
+		current_speed = (host.stats as PlayerStats).dash_speed*dir
 		host.velocity = current_speed
-	elif is_dashing and timer.is_stoped():
-		is_dashing = false
-	elif is_dashing:
+	elif host.is_dashing and timer.is_stoped():
+		host.is_dashing = false
+		host.is_falling = true
+	elif host.is_dashing:
 		host.velocity = current_speed
 
 
 func _process(_delta):
-	if host.stun_manager.is_stuned:
-		is_dashing = false
+	if host.is_stuned:
+		host.is_dashing = false
 		timer.reset()
 		return
-	if is_dashing: dash(current_speed)
+	if host.is_attacking == false:
+		if host.is_on_floor(): remaining_air_dashes = (host.stats as PlayerStats).max_air_dash_count
+		if host.is_dashing: 
+			continue_dash(current_speed)
+
+		
+	
 	
 	

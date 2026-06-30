@@ -5,9 +5,7 @@ var tween: Tween = null
 
 
 #TODO add a loop functionality 
-#TODO change the hard oded sting values of veloscity and psoiton to a variable if posible 
-
-## rset of tweens 
+## reset of tweens 
 func tween_kill():
 	if tween:
 		tween.kill() # Abort the previous animation if ther was any .
@@ -25,6 +23,17 @@ func animate(is_facing_right: bool, animation_stuff: Array[AnimationResource], l
 	
 	
 	for times in loops_times:
+		#if thing_to_animate is EntityBase and bool_2_reagaring as reltive thing too keep momemntum:
+			#thing_to_animate.velocity = Vector2.ZERO
+			#for part in animation_stuff:
+				#tween.tween_property(thing_to_animate,"velocity:x",
+					#part.get_velocty_x(is_facing_right),
+					#part.get_time()).set_custom_interpolator(part.smoothing_curve_x.sample_baked).as_relative()
+				#tween.parallel().tween_property(thing_to_animate,"velocity:y",
+					#part.get_velocty_y(),
+					#part.get_time()).set_custom_interpolator(part.smoothing_curve_y.sample_baked).as_relative()
+				#tween.tween_property(thing_to_animate,"velocity", Vector2.ZERO, 0) # for har turns
+				
 		if thing_to_animate is EntityBase:
 			thing_to_animate.velocity = Vector2.ZERO
 			for part in animation_stuff:
@@ -36,7 +45,7 @@ func animate(is_facing_right: bool, animation_stuff: Array[AnimationResource], l
 					part.get_time()).set_custom_interpolator(part.smoothing_curve_y.sample_baked)
 				tween.tween_property(thing_to_animate,"velocity", Vector2.ZERO, 0) # for har turns
 				
-		#TODO this needs a loot of work to work tween_propertycorectly? 
+		#TODO this needs a lot of work to work tween_property corectly? 
 		elif thing_to_animate is ProjectileArea:
 			var direction_corection: int = int(is_facing_right)*2-1 # only for the global case is it neeeded
 			

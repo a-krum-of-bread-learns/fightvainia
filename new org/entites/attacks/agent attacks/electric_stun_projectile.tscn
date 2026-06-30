@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://new org/art/copy right free art assets/stating stick.png" id="3_gctcy"]
 [ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="4_gctcy"]
 [ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="5_ltga2"]
-[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/player components and systems/FrameTimerCompnent.gd" id="6_bsih0"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/enity systems/shared/FrameTimerCompnent.gd" id="6_bsih0"]
 [ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new org/systems/animation/AnimationTool.gd" id="7_wxbti"]
 [ext_resource type="Texture2D" uid="uid://d3ouypsble60q" path="res://new org/art/copy right free art assets/electic ball.png" id="8_hslo8"]
 

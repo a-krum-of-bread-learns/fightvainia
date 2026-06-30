@@ -84,7 +84,7 @@ tut attacking / you first combo
 		b qcb +y any any
 start fighting cpu / people of similar skill
 	you are now ready keep you game plan simple approach get a hit in and do your one combo good luck
-	exit traing mode by going to main menu > local > arcade ~~if this we had online we could try it but i may have affected ssb so don't probably to start~~
+	exit traing mode by going to main menu > survival > arcade ~~if this we had online we could try it but i may have affected ssb so don't probably to start~~
 tut extending your combo and helpful universal moves
 	1. practice each point 
 	2. forward x is the universal anti air if some one jumps at you press this practice with akrum as iai

@@ -33,4 +33,3 @@ func spawn(is_facing_right: bool): #conect to signal
 	self.add_child(spawned)
 	(spawned as Node2D).top_level = true
 	(spawned as Node2D).global_position = self.global_position + Vector2(position_offset.x*(int(is_facing_right)*2-1), position_offset.y)
-	

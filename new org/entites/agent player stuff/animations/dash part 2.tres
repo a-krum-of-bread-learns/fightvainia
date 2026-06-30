@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AnimationResource" format=3 uid="uid://ddp2dgmh0djlv"]
+
+[ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="1_hechy"]
+[ext_resource type="Curve" uid="uid://c42e5g30q0cp2" path="res://new org/systems/animation/defults/defaults/constant velocity.tres" id="2_brx13"]
+
+[sub_resource type="Curve" id="Curve_hechy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[resource]
+script = ExtResource("1_hechy")
+smoothing_curve_x = SubResource("Curve_hechy")
+smoothing_curve_y = ExtResource("2_brx13")
+time_in_frames = 10
+displacement = Vector2(50, 0)
+metadata/_custom_type_script = "uid://sx7qv8babvbw"

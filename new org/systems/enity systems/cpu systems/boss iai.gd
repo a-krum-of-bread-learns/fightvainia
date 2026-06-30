@@ -1,22 +1,7 @@
 class_name BossLogic extends EnemyBase
 #REFACTOR make a single source of truth for the states
 enum STATE {IDLE =0,CLOSE =1, MID, FAR, VERY_FAR, BLOCK = 40}
-@export var settings: BossSettings
-@export_group("combos")
-@export var close_bnb_combo: Array[Attack]
-@export var close_bnb_low_combo: Array[Attack]
-@export var close_pokes: Array[Attack]
-@export var mid_pokes: Array[Attack]
-@export var far_or_projectile_pokes: Array[Attack]
-@export var anti_airs: Array[Attack]
-var current_combo: Array[Attack]
-
-@export_group("timer")
-@export var timer: FrameTimer
-@export var humanize_time: int = 0
-@export var pause_time: int = 0
-
-var target: Player
+var target: EntityBase
 var current_state: STATE = STATE.IDLE
 var next_state: STATE = STATE.IDLE
 var target_attack_manager: AttackManager
@@ -32,9 +17,9 @@ func _ready() -> void:
 		ray.collision_mask = 2
 		ray.hit_from_inside = true
 		ray.collide_with_bodies = false
-		ray.add_exception(primary_hurt_boxes_component.standing_hurt_box_area)
-		ray.add_exception(primary_hurt_boxes_component.crouching_hurt_box_area)
-		ray.add_exception(primary_hurt_boxes_component.airborne_hurt_box_area)
+		ray.add_exception(primary_boxes_and_sprites.standing_hurt_box_area)
+		ray.add_exception(primary_boxes_and_sprites.crouching_hurt_box_area)
+		ray.add_exception(primary_boxes_and_sprites.airborne_hurt_box_area)
 		for child in attack_manager.get_children():
 			if child is Attack:
 				for frame: Frame in child.frames:
@@ -46,11 +31,11 @@ func _ready() -> void:
 func update_references() -> void:
 	if target == null:
 		return
-	target_attack_manager = target.input_component.attack_manager
+	target_attack_manager = target.attack_manager
 	target_current_attack = target_attack_manager.current_attack
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if body is EntityBase:
 		target = body
 
 func check_next_for_hitboxarea() -> bool:
@@ -61,19 +46,19 @@ func check_next_for_hitboxarea() -> bool:
 
 func approch_behaviour() -> void:
 	is_facing_right = (target.global_position.x - self.global_position.x) > 0
-	if stun_manager.is_stuned or attack_manager.is_attacking:
+	if is_stuned or is_attacking:
 		if is_on_floor() or crouching:
 			velocity.x = 0
 		return
 	if timer.is_stoped():
-		timer.start_frame_timer(humanize_time)
+		timer.start_frame_timer(humanize_time_in_frames)
 		scale_component.set_scale(Scale.RIGHT if is_facing_right else Scale.LEFT)
 		velocity.x = settings.walk_speed * HelperFuncs.facing_sign(is_facing_right)
 		if current_state == STATE.VERY_FAR:
 			velocity.x = settings.run_speed * HelperFuncs.facing_sign(is_facing_right)
 			crouching = false
 		elif HelperFuncs.roll_chance(settings.pause_chance):
-			timer.start_frame_timer(pause_time)
+			timer.start_frame_timer(pause_time_in_frames)
 			crouching = true
 			velocity.x = 0
 			return
@@ -103,7 +88,7 @@ func get_range_state() -> STATE:
 		return STATE.VERY_FAR
 
 func manage_state() -> void:
-	if self.attack_manager.is_attacking and stun_manager.is_stuned == false:
+	if self.is_attacking and is_stuned == false:
 		if current_combo:
 			start_and_continue_combo(current_combo)
 		return
@@ -126,23 +111,13 @@ func manage_state() -> void:
 				attack_manager.start_attack(far_or_projectile_pokes[randi() % far_or_projectile_pokes.size()])
 		STATE.BLOCK: self_block_logic()
 
-func primary_hurt_box_manager() -> void:
-	if is_on_floor() and crouching:
-		primary_hurt_boxes_component.disable_all_pimary_boxes_exluding(primary_hurt_boxes_component.crouching_hurt_box)
-		primary_hurt_boxes_component.disable_all_pimary_sprites_excluding(primary_hurt_boxes_component.crouching_sprite)
-	elif is_on_floor():
-		primary_hurt_boxes_component.disable_all_pimary_boxes_exluding(primary_hurt_boxes_component.standing_hurt_box)
-		primary_hurt_boxes_component.disable_all_pimary_sprites_excluding(primary_hurt_boxes_component.standing_sprite)
-	elif not is_on_floor():
-		primary_hurt_boxes_component.disable_all_pimary_boxes_exluding(primary_hurt_boxes_component.airborne_hurt_box)
-
 func self_block_logic() -> void:
-	if attack_manager.is_attacking:
+	if is_attacking:
 		is_blocking = false
 		return
-	if stun_manager.is_stuned and stun_manager.current_type == stun_manager.STUN_TYPE.BLOCK:
+	if is_stuned and stun_manager.current_type == stun_manager.STUN_TYPE.BLOCK:
 		is_blocking = true
-	elif stun_manager.is_stuned:
+	elif is_stuned:
 		is_blocking = false
 	elif (HelperFuncs.roll_chance(settings.block_chance)
 		or HelperFuncs.roll_chance(settings.block_chance) and check_next_for_hitboxarea()):
@@ -165,7 +140,7 @@ func start_and_continue_combo(combo_attacks: Array[Attack]) -> void:
 		current_attack_index = 0
 		current_combo = []
 		return
-	if attack_manager.is_attacking == false:
+	if is_attacking == false:
 		current_combo = combo_attacks
 		current_attack_index = 0
 		attack_manager.start_attack(combo_attacks[current_attack_index])
@@ -188,7 +163,7 @@ func anti_air_logic() -> void:
 		return
 	if (current_state == STATE.CLOSE
 	and not target.is_on_floor()
-	and not attack_manager.is_attacking):
+	and not is_attacking):
 		var vertical_delta: float = target.global_position.y - self.global_position.y
 		print(vertical_delta)
 		if (vertical_delta <= settings.anti_air_delta_min_y
@@ -199,7 +174,7 @@ func anti_air_logic() -> void:
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	#if timer.is_stoped():
-		#print("timer expired, is_attacking: " + str(attack_manager.is_attacking))
+		#print("timer expired, is_attacking: " + str(is_attacking))
 	#print("boss state " + str(current_state))
 	#print("boss next state " + str(next_state))
 	#print("cpu velocity: " + str(velocity))

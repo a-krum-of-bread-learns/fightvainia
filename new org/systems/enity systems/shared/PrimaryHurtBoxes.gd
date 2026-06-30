@@ -34,14 +34,11 @@ func _ready():
 	airborne_hurt_box_area.stun_manager = entity.stun_manager
 	airborne_hurt_box_area.health = entity.health_component
 	
-	if entity is Player:
-		standing_hurt_box_area.collision_layer = 2
-		crouching_hurt_box_area.collision_layer = 2
-		airborne_hurt_box_area.collision_layer = 2
-	elif entity is EnemyBase:
-		standing_hurt_box_area.collision_layer = 3
-		crouching_hurt_box_area.collision_layer = 3
-		airborne_hurt_box_area.collision_layer = 3
+	
+	standing_hurt_box_area.collision_layer = entity.hurt_box_layer
+	crouching_hurt_box_area.collision_layer = entity.hurt_box_layer
+	airborne_hurt_box_area.collision_layer = entity.hurt_box_layer
+	
 	
 	all_sprites.append(standing_sprite)
 	all_sprites.append(crouching_sprite)

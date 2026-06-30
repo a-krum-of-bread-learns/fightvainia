@@ -19,9 +19,7 @@ physics_material_override = SubResource("PhysicsMaterial_v52by")
 lock_rotation = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=356089801]
-scale = Vector2(4, 4)
 texture = SubResource("GradientTexture2D_iobyf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1461499196]
-scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_rvcv8")

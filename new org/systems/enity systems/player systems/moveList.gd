@@ -28,7 +28,7 @@
 ## DP = dragon punch
 ## EX = extra/EX move
 ## 
-class_name MoveList extends Node2D
+class_name MoveList extends Node
 
 # -------------------------
 # Input and button constants
@@ -72,6 +72,7 @@ const LDPU: Array[int] = [4,8,7]
 
 const DASHR: Array[int] = [5,6,5,6]
 const DASHL: Array[int] = [5,4,5,4]
+
 
 # -------------------------
 # AttackKey resource

@@ -15,6 +15,7 @@ enum HIT_TYPE {LOW=1, MID=2, OVER=3}
 @export_range(-1,1000) var damage: int = -1
 @export var stun_away: bool = true
 @export var air_stun_overide: bool = false
+@export var hit_sound: AudioStream
 
 func _validate_property(property: Dictionary) -> void:
 	if property.name in ["hit_stun_duration", "hit_back_distance_vector"] and stun_type in [1, 2, 3]:

@@ -1,12 +1,11 @@
 ## holds all the main movemnt opptions may want to splitit up into separte compents
 class_name Gravity extends BehaviourBase
-@export var is_falling: bool = false
 
 func _ready():
 	self.name= "gravity"
 	super._ready()
 	if host.stats == null:
-		push_error("Grabity: stats not set on "+host.name)
+		push_error("Gravity: stats not set on "+host.name)
 		return
 
 
@@ -20,8 +19,8 @@ func fall(delta_):
 		
 
 func _process(delta):
-	if host.stun_manager.is_stuned:
-		is_falling = true
-	if is_falling:
+	if host.is_stuned:
+		host.is_falling = true
+	if host.is_falling:
 		fall(delta)
 	

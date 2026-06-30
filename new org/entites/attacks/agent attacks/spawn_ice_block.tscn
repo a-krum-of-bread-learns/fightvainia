@@ -27,7 +27,7 @@ script = ExtResource("3_bshs3")
 thing_to_spawn = ExtResource("4_5eyyj")
 max_alowed_to_exist = 1
 overwrite_on_max = true
-position_offset = Vector2(200, 20)
+position_offset = Vector2(20, 20)
 metadata/_custom_type_script = "uid://c8jj0n7q3gi8d"
 
 [node name="Sprite2D # 400" type="Sprite2D" parent="frame # 7-7" unique_id=958629328]

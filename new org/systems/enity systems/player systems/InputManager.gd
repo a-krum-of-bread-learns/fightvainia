@@ -46,17 +46,15 @@ var max_buffer_frames: int = 5
 ## extra frames the buffer stays large after hit stop ends
 ## commented out until cancel window tuning is needed
 var bonus_frames_remaining: int = 0
-
 var input_direction: int = 0
-var jump_relesed: bool = false
-
+@export var input_release_on: bool = false ##acesablity setting or somthing
 @export_group("player info")
-@export var player: Player
-@export var attack_manager: AttackManager
+@export var move_list: MoveList
 @export var movement_componet: Movement
 @export var scale_component: Scale
-@export var dash_component: Dash
 @export var gravity_component: Gravity
+signal dash_signal(direction: Vector2)
+signal jump_signal(direction: Vector2)
 
 @export_category("fake inputs")
 @export var fake_U: bool
@@ -67,12 +65,11 @@ var jump_relesed: bool = false
 
 func _ready() -> void:
 	self.name = "input_manager"
-	if attack_manager == null: push_error("InputManager: attack_manager not assigned")
 	if movement_componet == null: push_error("InputManager: movement_componet not assigned")
 	if scale_component == null: push_error("InputManager: scale_component not assigned")
-	if dash_component == null: push_error("InputManager: dash_component not assigned")
 	if gravity_component == null: push_error("InputManager: gravity_component not assigned")
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
+
 
 
 ## simulates button presses using exported booleans
@@ -90,13 +87,12 @@ func press() -> void:
 
 ## prints all relevant player state values for debugging
 func state_print() -> void:
-	print("dash: " + str(dash_component.is_dashing))
-	print("jumping: " + str(movement_componet.is_jumping))
-	print("attacking: " + str(attack_manager.is_attacking))
-	print("turning: " + str(scale_component.is_turning))
-	print("crouch: " + str(player.is_crouching))
-	print("block: " + str(player.is_blocking))
-	print("stun: " + str(player.stun_manager.is_stuned))
+	print("dash: " + str(host.is_dashing))
+	print("jumping: " + str(host.is_jumping))
+	print("attacking: " + str(host.is_attacking))
+	print("crouch: " + str(host.is_crouching))
+	print("block: " + str(host.is_blocking))
+	print("stun: " + str(host.is_stuned))
 	print("falling: " + str(gravity_component.is_falling))
 
 
@@ -105,12 +101,12 @@ func state_print() -> void:
 ## stops horizontal movement when crouching or attacking
 ## allows movement when on floor, not crouching, and not dashing
 func movement_manager() -> void:
-	if player.is_on_floor() and (player.is_crouching or attack_manager.is_attacking):
-		player.velocity.x = 0
-		dash_component.is_dashing = false
-	elif (player.is_on_floor()
-	and not player.is_crouching
-	and dash_component.is_dashing == false):
+	if host.is_on_floor() and (host.is_crouching or host.is_attacking):
+		host.velocity.x = 0
+		host.is_dashing = false
+	elif (host.is_on_floor()
+	and not host.is_crouching
+	and host.is_dashing == false):
 		movement_componet.movement_update(input_direction)
 
 
@@ -175,8 +171,8 @@ func resize_and_append_to_array(array: Array, max_size: int, this_frame_inputs: 
 			push_warning("input history exceeded max size by more than 1 frame, something is adding to it externally")
 	array.push_front(this_frame_inputs.duplicate())
 	if HitStop.frames_left > 0:
-		if attack_manager.is_attack_safe_to_read():
-			bonus_frames_remaining = attack_manager.current_attack.start_frame_combo-attack_manager.current_attack.active_frame
+		if host.attack_manager.is_attack_safe_to_read():
+			bonus_frames_remaining = host.attack_manager.current_attack.start_frame_combo-host.attack_manager.current_attack.active_frame
 		return
 	## cancel window bonus - keeps buffer large for extra frames after hit stop ends
 	## uncomment and add bonus_frames_remaining logic when cancel window tuning is needed
@@ -200,10 +196,10 @@ func input_filter() -> void:
 	var down: bool = Input.is_action_pressed("down")
 	var left: bool = Input.is_action_pressed("left")
 	var right: bool = Input.is_action_pressed("right")
-	var light_punch: bool = Input.is_action_just_pressed("LP") or Input.is_action_just_released("LP")
-	var light_kick: bool = Input.is_action_just_pressed("LK and jump") or Input.is_action_just_released("LK and jump")
-	var heavy_punch: bool = Input.is_action_just_pressed("HP") or Input.is_action_just_released("HP")
-	var heavy_kick: bool = Input.is_action_just_pressed("HK and block") or Input.is_action_just_released("HK and block")
+	var light_punch: bool = Input.is_action_just_pressed("LP") or (Input.is_action_just_released("LP") and input_release_on)
+	var light_kick: bool = Input.is_action_just_pressed("LK and jump") or (Input.is_action_just_released("LK and jump") and input_release_on)
+	var heavy_punch: bool = Input.is_action_just_pressed("HP") or (Input.is_action_just_released("HP") and input_release_on)
+	var heavy_kick: bool = Input.is_action_just_pressed("HK and block") or (Input.is_action_just_released("HK and block") and input_release_on)
 	var light_punch_hold: bool = Input.is_action_pressed("LP")
 	var light_kick_hold: bool = Input.is_action_pressed("LK and jump")
 	var heavy_punch_hold: bool = Input.is_action_pressed("HP")
@@ -251,17 +247,17 @@ func chose_actions_get_attack(dic: Dictionary[MoveList.AttackKey, Attack]):
 	var most_recent_attack: Attack
 	var valids: Dictionary[int,Array]
 	
-	if Input.is_action_pressed("HK and block") and player.is_on_floor():
-		player.is_blocking = true
-		if player.is_crouching: player.block_type = host.BLOCK_TYPE.LOW
-		else:player.block_type = host.BLOCK_TYPE.OVER
+	if Input.is_action_pressed("HK and block") and host.is_on_floor():
+		host.is_blocking = true
+		if host.is_crouching: host.block_type = host.BLOCK_TYPE.LOW
+		else: host.block_type = host.BLOCK_TYPE.OVER
 		return
-	else: player.is_blocking = false
+	else: host.is_blocking = false
 
 	for move_key: MoveList.AttackKey in dic:
 		#this if stamnted does 3 / 4 of the key checks 
-		if (move_key.is_on_floor == player.is_on_floor()
-		and move_key.is_facing_right == player.is_facing_right 
+		if (move_key.is_on_floor == host.is_on_floor()
+		and move_key.is_facing_right == host.is_facing_right 
 		and reader_single_input(buffered_array, move_key.attack_button[0])):
 			valids.merge(reader(input_history, move_key.sequence),true)# the 4th key check that also grabs the index of the seqxnrex 
 			# add the most recent attack 
@@ -270,31 +266,31 @@ func chose_actions_get_attack(dic: Dictionary[MoveList.AttackKey, Attack]):
 				if move_key.sequence == most_recent_sequence:
 					most_recent_attack = dic.get(move_key)
 		#loop end
-		if most_recent_attack: attack_manager.start_attack(most_recent_attack)#starts the attack
+		if most_recent_attack: host.attack_manager.start_attack(most_recent_attack)#starts the attack
 		
 	print(valids)
 
 ## selects attacks in priority order: specials > command normals > neutral normals
 ## when already attacking checks for special cancels and combo continuations
 func chose_action3() -> void:
-	if attack_manager.is_attacking == false:
-		chose_actions_get_attack(attack_manager.all_specials)
-	if attack_manager.is_attacking == false:
-		chose_actions_get_attack(attack_manager.command_normals)
-	if attack_manager.is_attacking == false:
-		chose_actions_get_attack(attack_manager.neutral_normals)
+	if host.is_attacking == false:
+		chose_actions_get_attack(move_list.all_specials)
+	if host.is_attacking == false:
+		chose_actions_get_attack(move_list.command_normals)
+	if host.is_attacking == false:
+		chose_actions_get_attack(move_list.neutral_normals)
 	else:
-		if (attack_manager.current_attack.can_speical_cancel
-		and attack_manager.current_attack.has_hit):
-			chose_actions_get_attack(attack_manager.all_specials)
+		if ( host.attack_manager.current_attack.can_speical_cancel
+		and host.attack_manager.current_attack.has_hit):
+			chose_actions_get_attack(move_list.all_specials)
 
 		
-		for key in attack_manager.current_attack.combo_attacks_dictionary:
+		for key in host.attack_manager.current_attack.combo_attacks_dictionary:
 			if (reader_single_input(buffered_array,key) 
-			and attack_manager.current_attack.can_combo
-			and attack_manager.current_attack.has_hit):
+			and host.attack_manager.current_attack.can_combo
+			and host.attack_manager.current_attack.has_hit):
 				print("you did it")
-				attack_manager.start_attack(attack_manager.current_attack.combo_attacks_dictionary[key])
+				host.attack_manager.start_attack(host.attack_manager.current_attack.combo_attacks_dictionary[key])
 
 
 
@@ -304,21 +300,30 @@ func _process(_delta: float) -> void:
 		return
 	input_filter()
 	# stunned - record inputs but skip action selection and movement
-	if player.stun_manager.is_stuned == true:
+	if host.is_stuned == true:
 		return
-
+	host.is_crouching = Input.is_action_pressed("down") and host.is_on_floor()
 	input_direction = round(Input.get_axis("left", "right"))
 	movement_manager()
 
 	# input_filter runs after chose_action3 so the buffer read by chose_action3
 	# reflects last frame's inputs, not the current frame being built
-	if dash_component.is_dashing == false:
+	if host.is_dashing == false:
 		chose_action3()
-	if attack_manager.is_attacking == false:
-		player.primary_hurt_box_manager()
-		scale_component.flip_x_logic()
-		dash_component.dash_handler2()
-		movement_componet.jump_handler2()
+	if host.is_attacking == false:
+		host.primary_hurt_box_manager()
+		scale_component.flip_x_logic(input_direction)
+		
+		if (buffer_check(input_history, MoveList.DASHR,MoveList.R)):
+			dash_signal.emit(Vector2.RIGHT)
+		elif (buffer_check(input_history, MoveList.DASHL,MoveList.L)):
+			dash_signal.emit(Vector2.LEFT)
+			
+		if (#buffer_check(buffered_array,MoveList.LK,MoveList.LK)
+			#and host.is_jumping == false):
+			Input.is_action_just_pressed("LK and jump")
+			or (Input.is_action_pressed("LK and jump") and FrameByFrameMode.frame_by_frame_mode_endabled)):
+			jump_signal.emit(input_direction)
 	else:
-		player.primary_hurt_boxes_component.disable_all_pimary_sprites_excluding()
+		host.primary_boxes_and_sprites.disable_all_pimary_sprites_excluding()
 	#print(input_history)

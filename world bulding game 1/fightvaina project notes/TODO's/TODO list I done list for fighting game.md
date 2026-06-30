@@ -84,7 +84,7 @@
 - [ ] healing could just be a negative hit box damage?  this needs an exception to self exception
 
 - [ ] consideration motion attacks? like motion inputs for directions rhythm character or something
-- [ ] combine player and input manager?
+- [x] combine player and input manager? i separated them 
 
 - [ ] a bit of combo ui
 - [ ] fix collisions so i can push another player using if im being detected then i will be pushing
@@ -122,7 +122,7 @@
 
 
 - [x] do an art scale again things taht do: primary hurt boxes, colsion shape, attack manager,  the projectile hit box  colison shapes, spites should
-- [ ] fix jumping before starting a special move that is grounded (don't apply to grappling hook)
+- [x] fix jumping before starting a special move that is grounded (don't apply to grappling hook)
 - [x] error check imporments 
 	func _get_context() -> String:
     return str(owner.scene_file_path) + " | " + str(get_path())
@@ -130,5 +130,5 @@
     if max_health <= 0:
         push_error("Health: max_health is 0 | " + _get_context())
 - [ ] make dash an attack and allow it to be canceld by a ton of things 
-- [ ] mkae jump start up an attack as well?>
+- [ ] make jump start up an attack as well?>
 - [ ] knockdown and wake up separationto allow for otg  

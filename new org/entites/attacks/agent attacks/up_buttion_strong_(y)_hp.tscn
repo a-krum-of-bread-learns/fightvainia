@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="1_g76o0"]
 [ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="2_65r6q"]
+[ext_resource type="Curve" uid="uid://dyio4lhjl3s7l" path="res://new org/systems/animation/defults/defaults/decresing velocity or constant deceleration.tres" id="3_65r6q"]
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="3_ng0cv"]
 [ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://new org/art/copy right free art assets/stating stick.png" id="4_wuaep"]
 [ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://new org/systems/attack components/HitBoxArea.gd" id="5_mtmve"]
@@ -9,19 +10,14 @@
 [ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="7_mcpsi"]
 [ext_resource type="Texture2D" uid="uid://bm8pg1kvvr0d2" path="res://new org/art/copy right free art assets/step forward baton swing normal.png" id="8_cyjos"]
 
-[sub_resource type="Curve" id="Curve_lueer"]
-_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
-point_count = 2
-metadata/_snap_enabled = true
-
-[sub_resource type="Curve" id="Curve_lucgb"]
+[sub_resource type="Curve" id="Curve_2vilf"]
 _data = [Vector2(0, 0.5), 0.0, 0.0, 0, 1, Vector2(1, 0.5), 0.0, 0.0, 1, 0]
 point_count = 2
 
-[sub_resource type="Resource" id="Resource_pqxq8"]
+[sub_resource type="Resource" id="Resource_ng0cv"]
 script = ExtResource("2_65r6q")
-smoothing_curve_x = SubResource("Curve_lueer")
-smoothing_curve_y = SubResource("Curve_lucgb")
+smoothing_curve_x = ExtResource("3_65r6q")
+smoothing_curve_y = SubResource("Curve_2vilf")
 time_in_frames = 14
 displacement = Vector2(10, 0)
 metadata/_custom_type_script = "uid://sx7qv8babvbw"
@@ -55,7 +51,7 @@ start_frame_combo = 12
 end_frame_combo = 28
 start_frame_speical_cancel = 12
 end_frame_speical_cancel = 28
-animation_stuff = Array[ExtResource("2_65r6q")]([SubResource("Resource_pqxq8")])
+animation_stuff = Array[ExtResource("2_65r6q")]([SubResource("Resource_ng0cv")])
 
 [node name="frame # 1-8" type="Node2D" parent="." unique_id=1813816994]
 script = ExtResource("3_ng0cv")

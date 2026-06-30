@@ -4,7 +4,6 @@
 class_name WolfCPU extends EnemyBase
 #FIXME moves when attacking 
 enum STATE { WALKING, PAUSING, CHASING }
-@export var timer: FrameTimer
 
 @export_group("settings")
 @export var walk_velocity_x: float = 100
@@ -57,7 +56,6 @@ func behaviour() -> void:
 func check_chase():
 	for ray: RayCast2D in rays:
 		if ray.is_colliding() and ray.get_collider() is HurtBoxArea:
-			
 			current_target = (ray.get_collider() as HurtBoxArea).health.host
 			is_chasing = true
 			next_state = STATE.CHASING
@@ -71,7 +69,7 @@ func chase_state() -> void:
 	velocity.x = chase_velocity_x * -sign(delta.x)
 	if attack_range_max >= abs(delta.x):
 		velocity.x = 0
-		start_attack_check(combo_0_attacks)
+		start_attack_check(close_bnb_combo)
 
 	if abs(delta.x) >= chase_range:
 		is_chasing = false
@@ -83,12 +81,12 @@ func chase_state() -> void:
 # --- attacks ---
 
 func start_attack_check(combo_attacks: Array):
-	if attack_manager.is_attacking == false:
+	if is_attacking == false:
 		current_attack_index = 0
 		for ray in rays:
 			if ray.is_colliding() and timer.is_stoped(): 
-				timer.start_frame_timer(minimum_time_before_attacks_in_frames)
 				velocity.x = 0
+				timer.start_frame_timer(2)
 			elif ray.is_colliding():
 				velocity.x = 0
 				attack_manager.start_attack(combo_attacks[current_attack_index])
@@ -100,7 +98,7 @@ func start_attack_check(combo_attacks: Array):
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
-	if stun_manager.is_stuned:
+	if is_stuned:
 		return
 	check_chase()
 	behaviour()

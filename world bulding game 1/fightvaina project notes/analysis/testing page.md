@@ -14,7 +14,7 @@ new player table test lara (completely new player to video games with a controll
 notes sol combo 1 is button into special and are using 2 different buttons witch wasn't too bad 
 elphelt combo 1 would be doable without the sepical move
 
-Qing ling on elphelt valanitne  also clasifed as a brand new player to video game (reson never used a contoler for games)
+Qing ling on elphelt valanitne also clasifed as a brand new player to video game (reson never used a contoler for games)
 
 | test                 | # of attempts before landing once | how easy they felt it was out of 10 10 very easy | did it combo fully |
 | -------------------- | --------------------------------- | ------------------------------------------------ | ------------------ |
@@ -22,6 +22,19 @@ Qing ling on elphelt valanitne  also clasifed as a brand new player to video gam
 | combo 1 with gudance | 10                                | 7                                                | yes                |
 | combo 2              | dne                               | 0                                                | no                 |
 | play guacamelee      | tutroail combo 20                 | 8                                                | yes                |
+|                      |                                   |                                                  |                    |
+
+
+Mohamed sol bad guy with timing hints for the second combo classified as a brand new player
+
+| test                 | # of attempts before landing once | how easy they felt it was out of 10 10 very easy | did it combo fully |
+| -------------------- | --------------------------------- | ------------------------------------------------ | ------------------ |
+| cmobo 1              | 10                                | 6                                                | yes                |
+| combo 1 with gudance | not much needed                   | 6                                                | yes                |
+| combo 2              | dne                               | 0                                                | no                 |
+|                      |                                   |                                                  |                    |
+sf6 has a pause in its combos with drive rush
+
 sf6 has a pause in its combos with drive rush
 note make a part to practivce cancels and expain cancels more
 # self plays games

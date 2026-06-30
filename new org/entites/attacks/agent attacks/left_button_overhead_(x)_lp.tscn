@@ -57,7 +57,7 @@ script = ExtResource("2_hel6n")
 repeat_this_frame = 3
 
 [node name="hit_box # 100" type="Area2D" parent="frame # 21-24" unique_id=271583368]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_re2id")
 attack_data = SubResource("Resource_8wnlm")

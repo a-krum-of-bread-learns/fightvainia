@@ -1,16 +1,17 @@
 [gd_scene format=3 uid="uid://prngvo6ycayf"]
 
-[ext_resource type="Script" uid="uid://d31hgc1h10800" path="res://new org/systems/player components and systems/playerContoller.gd" id="1_18fbk"]
+[ext_resource type="Script" uid="uid://bssckwpf2obbe" path="res://new org/systems/base classes/EntityBase.gd" id="1_vj000"]
+[ext_resource type="Resource" uid="uid://3x15qdhxammi" path="res://new org/entites/agent player stuff/resources?/agent_stats.tres" id="2_7jg0y"]
 [ext_resource type="PackedScene" uid="uid://btufeyfuqt18p" path="res://new org/entites/agent player stuff/primary_hurt_boxes.tscn" id="2_vj000"]
 [ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new org/systems/animation/AnimationTool.gd" id="3_7jg0y"]
 [ext_resource type="Script" uid="uid://dn37qd1n3kapy" path="res://new org/systems/movement related/Dash.gd" id="4_ngy6d"]
-[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/player components and systems/FrameTimerCompnent.gd" id="5_i3a4r"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/enity systems/shared/FrameTimerCompnent.gd" id="5_i3a4r"]
 [ext_resource type="Script" uid="uid://dd0phg7lcqqps" path="res://new org/systems/movement related/Gravity.gd" id="6_2u511"]
 [ext_resource type="Script" uid="uid://dbsvrd6tasmbw" path="res://new org/systems/movement related/Movement.gd" id="7_aek5i"]
 [ext_resource type="Script" uid="uid://tmh27lp4axxe" path="res://new org/systems/movement related/Scale.gd" id="8_nmokv"]
-[ext_resource type="Script" uid="uid://br4ap3ju1friv" path="res://new org/systems/player components and systems/InputManager.gd" id="9_icm8l"]
-[ext_resource type="Script" uid="uid://ccxb00gf1jcum" path="res://new org/systems/player components and systems/Health.gd" id="10_ucxa5"]
-[ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://new org/systems/player components and systems/StunManager.gd" id="11_4ygmg"]
+[ext_resource type="Script" uid="uid://br4ap3ju1friv" path="res://new org/systems/enity systems/player systems/InputManager.gd" id="9_icm8l"]
+[ext_resource type="Script" uid="uid://ccxb00gf1jcum" path="res://new org/systems/enity systems/shared/Health.gd" id="10_ucxa5"]
+[ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://new org/systems/enity systems/shared/StunManager.gd" id="11_4ygmg"]
 [ext_resource type="Script" uid="uid://c8qc0j10c563q" path="res://new org/systems/attack components/AttackManager.gd" id="12_lcgsg"]
 [ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="13_i340p"]
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="14_qw3uy"]
@@ -33,7 +34,7 @@ script = ExtResource("21_17vfn")
 stun_type = 0
 hit_type = 2
 block_stun_duration = 10
-block_back_distance = 30
+block_back_distance = 30.0
 hit_stun_duration = 20
 hit_back_distance_vector = Vector2(100, -1)
 damage = 100
@@ -50,7 +51,7 @@ script = ExtResource("21_17vfn")
 stun_type = 1
 hit_type = 2
 block_stun_duration = 5
-block_back_distance = 20
+block_back_distance = 20.0
 hit_stop_frames = 5
 damage = 100
 air_stun_overide = true
@@ -70,7 +71,7 @@ script = ExtResource("21_17vfn")
 stun_type = 0
 hit_type = 3
 block_stun_duration = 20
-block_back_distance = 30
+block_back_distance = 30.0
 hit_stun_duration = 30
 hit_back_distance_vector = Vector2(200, 1)
 hit_stop_frames = 10
@@ -85,7 +86,7 @@ script = ExtResource("21_17vfn")
 stun_type = 2
 hit_type = 3
 block_stun_duration = 10
-block_back_distance = 10
+block_back_distance = 10.0
 hit_stun_duration = 40
 hit_back_distance_vector = Vector2(100, -500)
 hit_stop_frames = 5
@@ -131,7 +132,7 @@ script = ExtResource("21_17vfn")
 stun_type = 2
 hit_type = 3
 block_stun_duration = 10
-block_back_distance = 100
+block_back_distance = 100.0
 hit_stun_duration = 50
 hit_back_distance_vector = Vector2(5000, -1)
 damage = 100
@@ -167,7 +168,7 @@ script = ExtResource("21_17vfn")
 stun_type = 2
 hit_type = 2
 block_stun_duration = 10
-block_back_distance = 100
+block_back_distance = 100.0
 hit_stun_duration = 50
 hit_back_distance_vector = Vector2(2000, -100)
 damage = 500
@@ -179,15 +180,17 @@ size = Vector2(8, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10cl8"]
 size = Vector2(8, 8)
 
-[node name="player" type="CharacterBody2D" unique_id=1379696201 node_paths=PackedStringArray("colission_box", "scale_component", "input_component", "PrimaryHurtBoxes_component", "stun_manager", "health_component")]
-script = ExtResource("1_18fbk")
-colission_box = NodePath("the player colision box")
-scale_component = NodePath("folder/scale")
-input_component = NodePath("folder/inputmanager")
-PrimaryHurtBoxes_component = NodePath("Player primary hurtboxes and sprites")
+[node name="player" type="CharacterBody2D" unique_id=1379696201 node_paths=PackedStringArray("stun_manager", "attack_manager", "scale_component", "health_component", "primary_boxes_and_sprites", "contol_node")]
+script = ExtResource("1_vj000")
 stun_manager = NodePath("folder/stunManager")
+attack_manager = NodePath("folder/attack manager")
+scale_component = NodePath("folder/scale")
 health_component = NodePath("folder/health")
-block_type = -1
+stats = ExtResource("2_7jg0y")
+primary_boxes_and_sprites = NodePath("Player primary hurtboxes and sprites")
+contol_node = NodePath("folder/inputmanager")
+hurt_box_layer = 4
+hit_box_mask = 2
 
 [node name="Player primary hurtboxes and sprites" parent="." unique_id=994631848 instance=ExtResource("2_vj000")]
 
@@ -220,9 +223,8 @@ script = ExtResource("6_2u511")
 enabled = true
 host = NodePath("../../..")
 
-[node name="movement" type="Node" parent="folder/movement folder" unique_id=2001820885 node_paths=PackedStringArray("timer", "host")]
+[node name="movement" type="Node" parent="folder/movement folder" unique_id=2001820885 node_paths=PackedStringArray("host")]
 script = ExtResource("7_aek5i")
-timer = NodePath("prejump delay")
 enabled = true
 host = NodePath("../../..")
 
@@ -232,29 +234,23 @@ script = ExtResource("5_i3a4r")
 [node name="coyote timer" type="Node" parent="folder/movement folder" unique_id=1232542153]
 script = ExtResource("5_i3a4r")
 
-[node name="scale" type="Node" parent="folder" unique_id=1056709450 node_paths=PackedStringArray("node", "timer", "host")]
+[node name="scale" type="Node" parent="folder" unique_id=1056709450 node_paths=PackedStringArray("node", "host")]
 script = ExtResource("8_nmokv")
 node = NodePath("..")
-timer = NodePath("turn around delay")
 enabled = true
 host = NodePath("../..")
 
 [node name="turn around delay" type="Node" parent="folder/scale" unique_id=1540809775]
 script = ExtResource("5_i3a4r")
 
-[node name="inputmanager" type="Node" parent="folder" unique_id=1418133064 node_paths=PackedStringArray("player", "attack_manager", "coyote_timer", "movement_componet", "scale_component", "dash_component", "gravity_component")]
+[node name="inputmanager" type="Node" parent="folder" unique_id=1418133064 node_paths=PackedStringArray("movement_componet", "scale_component", "gravity_component")]
 script = ExtResource("9_icm8l")
-player = NodePath("../..")
-attack_manager = NodePath("../attack manager")
-coyote_timer = NodePath("../movement folder/coyote timer")
 movement_componet = NodePath("../movement folder/movement")
 scale_component = NodePath("../scale")
-dash_component = NodePath("../movement folder/dash")
 gravity_component = NodePath("../movement folder/gravity")
 
 [node name="health" type="Node" parent="folder" unique_id=1995988555 node_paths=PackedStringArray("host")]
 script = ExtResource("10_ucxa5")
-max_health = 10000
 host = NodePath("../..")
 metadata/_custom_type_script = "uid://c5ucrpov3ddtq"
 
@@ -263,9 +259,8 @@ script = ExtResource("11_4ygmg")
 player_animation_tool = NodePath("../../player animation tool")
 host = NodePath("../..")
 
-[node name="attack manager" type="Node2D" parent="folder" unique_id=1413457510 node_paths=PackedStringArray("host")]
+[node name="attack manager" type="Node2D" parent="folder" unique_id=1413457510]
 script = ExtResource("12_lcgsg")
-host = NodePath("../..")
 
 [node name="dqcflp projectile" type="Node2D" parent="folder/attack manager" unique_id=686735474]
 script = ExtResource("13_i340p")
@@ -279,6 +274,7 @@ script = ExtResource("14_qw3uy")
 
 [node name="Projectile # 200" type="Area2D" parent="folder/attack manager/dqcflp projectile/frame # 2-2" unique_id=499896090 node_paths=PackedStringArray("timer")]
 top_level = true
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("15_i02tu")
 timer = NodePath("frame timer")
@@ -378,6 +374,7 @@ script = ExtResource("13_i340p")
 script = ExtResource("14_qw3uy")
 
 [node name="hit_box # 0" type="Area2D" parent="folder/attack manager/LK basic/frame # 1-1" unique_id=1138702540]
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("23_6eqcu")
 attack_data = SubResource("Resource_jilod")
@@ -392,6 +389,7 @@ debug_color = Color(1, 0, 0, 0.686275)
 script = ExtResource("14_qw3uy")
 
 [node name="hit_box # 0" type="Area2D" parent="folder/attack manager/LK basic/frame # 2-2" unique_id=900383906]
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("23_6eqcu")
 attack_data = SubResource("Resource_jilod")
@@ -409,7 +407,7 @@ script = ExtResource("14_qw3uy")
 script = ExtResource("14_qw3uy")
 
 [node name="hit_box # 0" type="Area2D" parent="folder/attack manager/LK basic/frame # 4-4" unique_id=106490476]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("23_6eqcu")
 attack_data = SubResource("Resource_jilod")
@@ -424,7 +422,7 @@ debug_color = Color(1, 0, 0, 0.686275)
 script = ExtResource("14_qw3uy")
 
 [node name="hit_box # 0" type="Area2D" parent="folder/attack manager/LK basic/frame # 5-5" unique_id=1441091616]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("23_6eqcu")
 attack_data = SubResource("Resource_jilod")
@@ -439,6 +437,7 @@ debug_color = Color(1, 0, 0, 0.686275)
 script = ExtResource("14_qw3uy")
 
 [node name="hit_box # 0" type="Area2D" parent="folder/attack manager/LK basic/frame # 6-6" unique_id=821374290]
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("23_6eqcu")
 attack_data = SubResource("Resource_jilod")
@@ -460,6 +459,7 @@ script = ExtResource("14_qw3uy")
 script = ExtResource("14_qw3uy")
 
 [node name="hit_box # 100" type="Area2D" parent="folder/attack manager/HK launch/frame # 2-2" unique_id=549124457]
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("23_6eqcu")
 attack_data = SubResource("Resource_rgd3p")
@@ -474,6 +474,7 @@ debug_color = Color(1, 0, 0, 0.686275)
 script = ExtResource("14_qw3uy")
 
 [node name="hit_box # 100" type="Area2D" parent="folder/attack manager/HK launch/frame # 3-3" unique_id=763989615]
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("23_6eqcu")
 attack_data = SubResource("Resource_rgd3p")
@@ -498,6 +499,7 @@ script = ExtResource("14_qw3uy")
 repeat_this_frame = 100
 
 [node name="hit_box # 0" type="Area2D" parent="folder/attack manager/dqcflk special/frame # 2-6" unique_id=1970861746]
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("23_6eqcu")
 attack_data = SubResource("Resource_7y7to")
@@ -522,6 +524,7 @@ script = ExtResource("14_qw3uy")
 script = ExtResource("14_qw3uy")
 
 [node name="hit_box # 0" type="Area2D" parent="folder/attack manager/bLK basic/frame # 3" unique_id=1020353478]
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("23_6eqcu")
 attack_data = SubResource("Resource_2bl5q")
@@ -536,6 +539,7 @@ debug_color = Color(1, 0, 0, 0.686275)
 script = ExtResource("14_qw3uy")
 
 [node name="hit_box # 0" type="Area2D" parent="folder/attack manager/bLK basic/frame # 4" unique_id=1962713630]
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("23_6eqcu")
 attack_data = SubResource("Resource_2bl5q")
@@ -606,7 +610,7 @@ disabled = true
 debug_color = Color(0, 0, 1, 0.686275)
 
 [node name="hit_box # 100" type="Area2D" parent="folder/attack manager/HP 1/frame # 10" unique_id=1925561619]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("23_6eqcu")
 attack_data = SubResource("Resource_gqyel")
@@ -681,6 +685,7 @@ script = ExtResource("14_qw3uy")
 script = ExtResource("14_qw3uy")
 
 [node name="hit_box # 0" type="Area2D" parent="folder/attack manager/HP 2 w hp/frame # 5" unique_id=181635062]
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("23_6eqcu")
 attack_data = SubResource("Resource_3jr14")
@@ -737,6 +742,3 @@ script = ExtResource("14_qw3uy")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=515648487]
 zoom = Vector2(2, 2)
 script = ExtResource("24_e000a")
-
-[connection signal="animate" from="folder/attack manager" to="player animation tool" method="animate"]
-[connection signal="animate" from="folder/attack manager/dqcflp projectile/frame # 2-2/Projectile # 200" to="folder/attack manager/dqcflp projectile/frame # 2-2/Projectile # 200/projectile animation tool" method="animate"]

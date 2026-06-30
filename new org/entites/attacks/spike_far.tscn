@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="2_vrydi"]
 [ext_resource type="Script" uid="uid://ckkq3f3j2wj34" path="res://new org/systems/attack components/ProjectileArea.gd" id="3_17guq"]
 [ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="4_ai4s0"]
-[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/player components and systems/FrameTimerCompnent.gd" id="5_1fy17"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/enity systems/shared/FrameTimerCompnent.gd" id="5_1fy17"]
 [ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new org/systems/animation/AnimationTool.gd" id="6_68st6"]
 
 [sub_resource type="Resource" id="Resource_co8f4"]

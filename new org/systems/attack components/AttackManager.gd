@@ -1,6 +1,6 @@
 ##the attack manager 
 @tool
-class_name AttackManager extends MoveList
+class_name AttackManager extends Node2D
 #tool buttions
 @export_category("buttons")
 @export var add_attack_button: bool = false ## tool buttion
@@ -8,13 +8,13 @@ class_name AttackManager extends MoveList
 @export var clear_button2: bool = false## tool buttion 3 for insurence 
 @export var clear_button3: bool = false## tool buttion 3 for insurence 
  
-# var that matter usaly from the player 
+
 @export_category("")
 @export var animation_tool: AnimationTool
 @export var host: EntityBase ## this is here to be an easy refence for child nodes
 var hit_expetions: Array[EntityBase] ## prevents hitting the same thing twice with one attack 
 var current_attack: Attack
-var is_attacking: = false
+signal has_hit_signal_attack_manger(data: HitBoxData)
 
 func start_animation(is_facing_right: bool, animation_stuff: Array[AnimationResource]):
 		animation_tool.animate(is_facing_right,animation_stuff)
@@ -24,7 +24,6 @@ func _ready():
 	if (HelperFuncs.check_if_null(host, "AttackManager host", self)
 	or HelperFuncs.check_if_null(animation_tool, "animation tool ", self)):
 		return
-	super._ready()
 	for child in get_children():
 		if child is Attack:
 			for frame: Frame in child.frames:
@@ -32,18 +31,14 @@ func _ready():
 				if box:
 					box.health = host.health_component
 					box.stun_manager = host.stun_manager
-					if host is Player:
-						box.collision_layer = 2
-					elif host is EnemyBase:
-						box.collision_layer = 3
+					box.collision_layer = host.hurt_box_layer
+					
 				box = frame.get_hitboxarea()
 				if box:
-					if host is Player:
-						box.collision_layer = 2
-						box.collision_mask = 2
-					elif host is EnemyBase:
-						box.collision_layer = 3
-						box.collision_mask = 3
+					box.collision_mask = host.hit_box_mask
+					if not box.has_hit_signal.is_connected(_on_has_hit):
+						box.has_hit_signal.connect(_on_has_hit)
+					
 					
 				
 
@@ -53,7 +48,7 @@ func reset_values(attack: Attack):
 	attack.reset()
 
 func is_attack_safe_to_read() -> bool:
-	if is_attacking == false:
+	if host.is_attacking == false:
 		return false
 	return current_attack.active_frame < current_attack.frames.size()
 
@@ -88,9 +83,9 @@ func get_frames_remaining():
 	
 
 	
-## starts an attack and sets [member is_attacking]
+## starts an attack and sets [member host.is_attacking]
 func start_attack(an_attack: Attack):
-	if host.stun_manager.is_stuned: return
+	if host.is_stuned: return
 	if an_attack == null:
 		push_error("AttackManager: tried to start a null attack")
 		return
@@ -98,13 +93,13 @@ func start_attack(an_attack: Attack):
 		current_attack.frames[current_attack.active_frame-1].set_frame_disabled(true)
 		reset_values(current_attack)
 	reset_values(an_attack)
-	if is_attacking == false:
-		is_attacking = true
+	if host.is_attacking == false:
+		host.is_attacking = true
 		current_attack = an_attack
 		print(current_attack.name)
 	# if alrealy attaking and an attack is started cancel the previous attack by reseting it first
-	elif is_attacking == true:
-		is_attacking = true
+	elif host.is_attacking == true:
+		host.is_attacking = true
 		current_attack.reset()
 		current_attack = an_attack
 		an_attack.reset()
@@ -114,7 +109,7 @@ func start_attack(an_attack: Attack):
 
 
 
-#TODO add a check for a child that reenables the dealt damage boolen in the parent 
+#TODO add a check for that reenables the dealt damage boolen in the parent 
 ##checks is attacking varable so that it can stop or contine 
 func continue_attack():
 	if current_attack.frames.is_empty():
@@ -123,16 +118,16 @@ func continue_attack():
 	if current_attack == null:
 		push_error("attack is null")
 		return
-	if host.stun_manager.is_stuned: 
+	if host.is_stuned: 
 		for frame: Frame in current_attack.frames:
 			frame.set_frame_disabled(true)
 			reset_values(current_attack)
-			is_attacking = false
+			host.is_attacking = false
 		return
 	print(current_attack.active_frame + 1)
 	
 	if current_attack.active_frame+1 >= current_attack.frames.size():
-		is_attacking = false 
+		host.is_attacking = false 
 		current_attack.frames[current_attack.active_frame-1].set_frame_disabled(true)
 		reset_values(current_attack)
 	else:
@@ -149,6 +144,13 @@ func continue_attack():
 				current_attack.frames[current_attack.active_frame-1].set_frame_disabled(false)
 
 
+func _on_has_hit(data: HitBoxData):
+	has_hit_signal_attack_manger.emit(data)
+	current_attack.has_hit = true
+	start_animation(host.is_facing_right, current_attack.animation_stuff)
+	OnHitAudioManager.play_hit_sound(current_attack.hit_sound)
+	#TODO make attacks audio per hit box inculde below comment
+	#OnHitAudioManager.play_hit_sound(data.hit_sound)
 
 #------------------------------------------------
 #tool coments section
@@ -180,7 +182,7 @@ func _physics_process(_delta):
 		if clear_button1 and clear_button2 and clear_button3:
 			clear_all_attacks()
 	else:
-		if is_attacking: 
+		if host.is_attacking: 
 			continue_attack()
 			#print("remain " +str(get_frames_remaining()))
 	

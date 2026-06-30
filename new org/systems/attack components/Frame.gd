@@ -94,8 +94,6 @@ func add_new_projectile_box():
 	projectile_box.add_child(animation_tool)
 	animation_tool.thing_to_animate = projectile_box
 	animation_tool.name = "projectile animateor"
-	projectile_box.collision_layer = 2
-	projectile_box.collision_mask = 2
 	projectile_box.owner = get_tree().edited_scene_root
 	frame_timer.owner = get_tree().edited_scene_root
 	animation_tool.owner = get_tree().edited_scene_root

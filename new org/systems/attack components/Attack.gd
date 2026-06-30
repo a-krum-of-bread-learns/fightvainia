@@ -51,7 +51,6 @@ var attack_manager: AttackManager = self.get_parent()
 var frames: Array[Frame] ## the list of frames as childern with duplicates for full attack length. 
 var active_frame: int = 0 ## tracks the active frame
 var has_hit: bool = false
-var has_hit_previous_frame: bool = false
 
 # combo attack will come out the frame after the start frame at the earleist 
 # and at the latest right after the end frame

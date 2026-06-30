@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BossSettings" format=3 uid="uid://50ok3xoymhco"]
+
+[ext_resource type="Script" uid="uid://c4buu38jtc0ws" path="res://new org/systems/enity systems/cpu systems/BossSettings.gd" id="1_xlp2u"]
+
+[resource]
+script = ExtResource("1_xlp2u")
+close_range_max_x = 16.0
+mid_range_max_x = 30.0
+far_range_max_x = 100.0
+hits_until_10_percent_drop_chance = 0
+metadata/_custom_type_script = "uid://c4buu38jtc0ws"

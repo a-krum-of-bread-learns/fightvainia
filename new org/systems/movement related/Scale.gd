@@ -6,11 +6,10 @@ const LEFT = Vector2(-1,1)
 
 ## the thing you want to scacle
 @export var node: Node2D
-@export var input_manager: InputManager
 ## a value to store the scale that is current 
 var current_flip_direction: Vector2 = Vector2.ONE
 ## the check for if turing around
-var is_turning: bool = false
+
 
 
 ##ready set go (3) renaming  
@@ -28,19 +27,19 @@ func set_scale(new_scale: Vector2):
 	node.scale = new_scale
 	if node.scale.x>0: host.is_facing_right = true
 	elif node.scale.x<0: host.is_facing_right = false
-	is_turning = false
+
 		
 #TODO add more conditons to tuitning around  # this may be consederd done else whare
 ## identifies when to flip player on ground
 ## this sets the new scale of the [member node] after the delay from the [meber timer]
-func flip_x_logic():
+func flip_x_logic(dir: int ):
 	if !enabled: 
 		return
 		
 	var new_scale: Vector2 = current_flip_direction
-	if host.is_on_floor() and input_manager.input_direction == -1:
+	if host.is_on_floor() and dir == -1:
 		new_scale = Vector2(-1,1)
-	elif host.is_on_floor() and input_manager.input_direction == 1:
+	elif host.is_on_floor() and dir == 1:
 		new_scale = Vector2(1,1)
 		# only update if direction actually changed
 	if new_scale != current_flip_direction:
