@@ -8,6 +8,7 @@ class_name Attack extends Node2D
 @export var add_end_frame_button: bool = false## tool buttions 
 @export var fix_names_buttion: bool = false## tool buttions 
 @export var reset_visable_disabled_buttion: bool = false## tool buttions 
+@export_group("danger zone")
 @export var clear_frames_button1: bool = false## tool buttions 
 @export var clear_frames_button2: bool = false## tool buttions 
 @export_category("attack properties")

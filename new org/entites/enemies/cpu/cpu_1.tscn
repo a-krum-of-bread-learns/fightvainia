@@ -1,12 +1,11 @@
-[gd_scene format=3 uid="uid://b11h2uyr6b47l"]
+[gd_scene format=3 uid="uid://13tf51i0i6ck"]
 
 [ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new org/systems/animation/AnimationTool.gd" id="2_0jry0"]
-[ext_resource type="Script" uid="uid://ccxb00gf1jcum" path="res://new org/systems/enity systems/shared/Health.gd" id="2_8c73w"]
+[ext_resource type="Script" uid="uid://ccxb00gf1jcum" path="res://new org/systems/entity systems/shared/Health.gd" id="2_8c73w"]
 [ext_resource type="Script" uid="uid://dd0phg7lcqqps" path="res://new org/systems/movement related/Gravity.gd" id="2_8luck"]
-[ext_resource type="Resource" uid="uid://3x15qdhxammi" path="res://new org/entites/agent player stuff/resources?/agent_stats.tres" id="2_b0i3f"]
 [ext_resource type="Script" uid="uid://tmh27lp4axxe" path="res://new org/systems/movement related/Scale.gd" id="2_snyop"]
-[ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://new org/systems/enity systems/shared/StunManager.gd" id="2_ywtyg"]
-[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/enity systems/shared/FrameTimerCompnent.gd" id="3_bc2l7"]
+[ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://new org/systems/entity systems/shared/StunManager.gd" id="2_ywtyg"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/entity systems/shared/FrameTimerCompnent.gd" id="3_bc2l7"]
 [ext_resource type="Script" uid="uid://c8qc0j10c563q" path="res://new org/systems/attack components/AttackManager.gd" id="3_rxiwk"]
 [ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="4_k1v7u"]
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="5_5tbk8"]
@@ -15,7 +14,8 @@
 [ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="8_k1v7u"]
 [ext_resource type="Texture2D" uid="uid://bs6axfrlyj1je" path="res://export versions/v0.1/index.icon.png" id="10_0jry0"]
 [ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://new org/art/copy right free audio assets/session.mp3" id="11_p5e8x"]
-[ext_resource type="Script" uid="uid://b26tsti3xbnx7" path="res://new org/systems/enity systems/cpu systems/basic iai.gd" id="16_bx61f"]
+
+[sub_resource type="GDScript" id="GDScript_vpi37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0i3f"]
 size = Vector2(32, 16)
@@ -57,25 +57,9 @@ metadata/_custom_type_script = "uid://c8e0lbybahcxv"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5e8x"]
 size = Vector2(24, 16)
 
-[node name="cpu1" type="CharacterBody2D" unique_id=718906405 node_paths=PackedStringArray("hurt_box_1", "rays", "timer", "close_bnb_combo", "stun_manager", "attack_manager", "scale_component", "health_component")]
+[node name="cpu1" type="CharacterBody2D" unique_id=718906405]
 collision_layer = 0
-script = ExtResource("16_bx61f")
-walk_velocity_x = 50.0
-chase_velocity_x = 100.0
-chase_range = 200.0
-attack_range_min = 30.0
-attack_range_max = 40.0
-hurt_box_1 = NodePath("HurtBoxArea")
-rays = [NodePath("folder2/IAI folder2/RayCast2D")]
-timer = NodePath("folder2/IAI folder2/FrameTimer")
-close_bnb_combo = [NodePath("folder2/AttackManager/slash"), NodePath("folder2/AttackManager/slash 2")]
-stun_manager = NodePath("folder/StunManager")
-attack_manager = NodePath("folder2/AttackManager")
-scale_component = NodePath("folder/Scale")
-health_component = NodePath("folder/Health")
-stats = ExtResource("2_b0i3f")
-hurt_box_layer = 4
-hit_box_mask = 2
+script = SubResource("GDScript_vpi37")
 metadata/_custom_type_script = "uid://bssckwpf2obbe"
 
 [node name="HurtBoxArea" type="Area2D" parent="." unique_id=850132597 node_paths=PackedStringArray("health", "stun_manager")]
@@ -137,10 +121,9 @@ debug_color = Color(1, 1, 1, 0.41960785)
 
 [node name="folder2" type="Node2D" parent="." unique_id=1379136370]
 
-[node name="AttackManager" type="Node2D" parent="folder2" unique_id=2062697552 node_paths=PackedStringArray("animation_tool", "host")]
+[node name="AttackManager" type="Node2D" parent="folder2" unique_id=2062697552 node_paths=PackedStringArray("animation_tool")]
 script = ExtResource("3_rxiwk")
 animation_tool = NodePath("../../folder/AnimationTool")
-host = NodePath("../..")
 metadata/_custom_type_script = "uid://c8qc0j10c563q"
 
 [node name="slash" type="Node2D" parent="folder2/AttackManager" unique_id=992329136]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bdtelvmkwjuh1"]
 
 [ext_resource type="PackedScene" uid="uid://cwic4qufw2wug" path="res://new org/entites/agent player stuff/base chars.tscn" id="1_a6hav"]
-[ext_resource type="Script" uid="uid://dqfwwo01ngier" path="res://new org/systems/enity systems/shared/BaseSpriteManager.gd" id="2_anoxa"]
+[ext_resource type="Script" uid="uid://dqfwwo01ngier" path="res://new org/systems/entity systems/shared/BaseSpriteManager.gd" id="2_anoxa"]
 [ext_resource type="PackedScene" uid="uid://duw2his5lywxk" path="res://new org/entites/attacks/agent attacks/left_buttion_jab_(x)_lp.tscn" id="2_pk7ux"]
 [ext_resource type="PackedScene" uid="uid://i07c3uwydhut" path="res://new org/entites/attacks/agent attacks/floor_explosion.tscn" id="3_22x0t"]
 [ext_resource type="PackedScene" uid="uid://gu4f3xo60xh2" path="res://new org/entites/attacks/agent attacks/up_buttion_strong_(y)_hp.tscn" id="4_1e7bk"]
@@ -26,7 +26,7 @@
 script = ExtResource("2_anoxa")
 stun_manager = NodePath("../folder/stunManager")
 
-[node name="MoveList" parent="folder" parent_id_path=PackedInt32Array(1784953174) index="1" unique_id=937155038 node_paths=PackedStringArray("light_punch", "down_light_punch", "up_right_light_punch", "heavy_punch", "down_heavy_punch", "forward_heavy_punch", "up_heavy_punch", "air_heavy_punch", "dqcf_light_punch", "fqcd_light_punch", "fqcd_heavy_kick", "uqcf_light_kick", "fqcu_light_kick")]
+[node name="MoveList" parent="folder" parent_id_path=PackedInt32Array(1784953174) index="2" unique_id=937155038 node_paths=PackedStringArray("light_punch", "down_light_punch", "up_right_light_punch", "heavy_punch", "down_heavy_punch", "forward_heavy_punch", "up_heavy_punch", "air_heavy_punch", "dqcf_light_punch", "fqcd_light_punch", "fqcd_heavy_kick", "uqcf_light_kick", "fqcu_light_kick")]
 light_punch = NodePath("../attack manager/left buttion (X) lp")
 down_light_punch = NodePath("../attack manager/left button low (X) lp")
 up_right_light_punch = NodePath("../attack manager/left button overhead (X) lp")
@@ -41,7 +41,10 @@ fqcd_heavy_kick = NodePath("../attack manager/spawn ice block")
 uqcf_light_kick = NodePath("../attack manager/grapling hook")
 fqcu_light_kick = NodePath("../attack manager/grapling hook")
 
-[node name="inputmanager" parent="folder" parent_id_path=PackedInt32Array(1784953174) index="4" unique_id=1544145854]
+[node name="scale" parent="folder" parent_id_path=PackedInt32Array(1784953174) index="4" unique_id=349905362 node_paths=PackedStringArray("node")]
+node = NodePath("..")
+
+[node name="inputmanager" parent="folder" parent_id_path=PackedInt32Array(1784953174) index="5" unique_id=1544145854]
 enabled = false
 
 [node name="left buttion (X) lp" parent="folder/attack manager" parent_id_path=PackedInt32Array(1555584615) index="0" unique_id=508514690 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("2_pk7ux")]

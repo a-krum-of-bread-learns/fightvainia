@@ -10,6 +10,7 @@ class_name Frame extends Node2D
 @export var add_sprite_button: bool = false ## adds a Sprite2D to the frame
 @export var fix_names_buttion: bool = false
 @export var toggle_visable_buttion: bool = false
+@export_group("danger zone")
 @export var clear_frame_button1: bool = false ## there are 2 for insurnce 
 @export var clear_frame_button2: bool = false ## there are 2 for insurnce 
 @export_category("frame info")

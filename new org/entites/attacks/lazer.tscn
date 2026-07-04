@@ -4,12 +4,12 @@
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="2_j6iat"]
 [ext_resource type="Script" uid="uid://ckkq3f3j2wj34" path="res://new org/systems/attack components/ProjectileArea.gd" id="3_81yof"]
 [ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="4_qwge0"]
-[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/enity systems/shared/FrameTimerCompnent.gd" id="5_3akcv"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/entity systems/shared/FrameTimerCompnent.gd" id="5_3akcv"]
 [ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new org/systems/animation/AnimationTool.gd" id="6_xixr4"]
 
 [sub_resource type="Resource" id="Resource_0wlp2"]
 script = ExtResource("4_qwge0")
-stun_type = 2
+stun_type = 4
 hit_type = 2
 block_stun_duration = 25
 block_back_distance = 8.0
@@ -32,7 +32,6 @@ script = ExtResource("2_j6iat")
 repeat_this_frame = 7
 
 [node name="Projectile # 200" type="Area2D" parent="frame # 15-22" unique_id=1324810250 node_paths=PackedStringArray("timer")]
-top_level = true
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_81yof")

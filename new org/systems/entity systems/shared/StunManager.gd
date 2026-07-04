@@ -1,18 +1,21 @@
 #REFACTOR seprate out knock down and wake up into 2 difent stun states to allow for otg to be more doable
 ## holds stun information and moves the entity as well 
 class_name StunManager extends BehaviourBase
-enum STUN_TYPE {BASIC, DEFUALT_KNOCK_DOWN, DEFUALT_LAUNCH, DEFUALT_AIR, BLOCK = 40} ## type of stun
+enum HIT_BOX_STUN_TYPE {CUSTOM = 0, DEFUALT_KNOCK_DOWN = 1,DEFUALT_LAUNCH = 4,}
+enum STUN_TYPE {CUSTOM = 0, DEFUALT_KNOCK_DOWN = 1, DEFUALT_LAUNCH = 4, DEFUALT_ON_FLOOR = 2, DEFUALT_WAKEUP = 3, DEFUALT_AIR = 5, BLOCK = 40} ## type of stun
 @export var player_animation_tool: AnimationTool # for later whne grabs are made
 
 # const if it never changes at runtime
 var remaining_duration: int ## frames remaining
 var speed: Vector2 ## the speed per frame
-
+#TODO ask ai for a small rewite to make curent type work well with next type too 
 var current_type: int ## type need to be tracked
 const DEFUALT_AIR_STUN: Vector2 = Vector2(100,-400)
 const DEFUALT_KNOCKDOWN_STUN: Vector2 = Vector2(0,200)
 const DEFUALT_LAUNCH_STUN: Vector2 = Vector2(50,-400) 
 const PUSH_BACK_TIME_IN_FRAMES: int = 5
+const ON_FLOOR_TIME: int = 45
+const WAKE_UP_TIME: int = 45
 signal stun_has_started(_stun_type)
 signal stun_has_ended
 #TODO use the new animation tool for the stun manager if it makes sensef other wize keep as is
@@ -28,6 +31,7 @@ func get_velocty(displacement: Vector2,stun_dir: Vector2) -> Vector2:
 	return Vector2(displacement*stun_dir)/(get_time())
 ##the twwens in this fucntion are related to push back
 func start_stun_with_tween(attack_data: HitBoxData, default_dir: Vector2, blocked: bool):
+	#TODO difrent hit stop for on block and on hit same with screen shake maybe per attack?
 	HitStop.hit_stop_start(attack_data.hit_stop_frames)
 	host.is_stuned = true
 	#stun direction form attack data 
@@ -56,7 +60,7 @@ func start_stun_with_tween(attack_data: HitBoxData, default_dir: Vector2, blocke
 			host.tween.tween_property(host,"velocity",Vector2(0,0),0)
 			remaining_duration = attack_data.block_stun_duration
 	#basic
-		STUN_TYPE.BASIC: # custom stun based on attack data
+		STUN_TYPE.CUSTOM: # custom stun based on attack data
 			var velocity = get_velocty(attack_data.hit_back_distance_vector,stun_dir)
 			host.tween.tween_property(host,"velocity",attack_data.hit_back_distance_vector*stun_dir,0)
 			host.tween.tween_property(host,"velocity",velocity,get_time()).from(velocity)
@@ -82,11 +86,23 @@ func continue_stun():
 	match current_type:
 		STUN_TYPE.DEFUALT_KNOCK_DOWN: 
 			if host.is_on_floor() and remaining_duration >= 0:
-				remaining_duration -= 1
-				host.velocity = DEFUALT_KNOCKDOWN_STUN
-				host.primary_boxes_and_sprites.disable_all_pimary_boxes_exluding()
-			else: end_stun()
+				current_type = STUN_TYPE.DEFUALT_ON_FLOOR
+				remaining_duration = ON_FLOOR_TIME
+				
+		STUN_TYPE.DEFUALT_ON_FLOOR:
+			host.velocity = Vector2.ZERO
+			remaining_duration -= 1
+			if remaining_duration == 0:
+				current_type = STUN_TYPE.DEFUALT_WAKEUP
+				remaining_duration = WAKE_UP_TIME
 			
+		STUN_TYPE.DEFUALT_WAKEUP: 
+			host.velocity = Vector2.ZERO
+			remaining_duration -= 1
+			host.primary_boxes_and_sprites.disable_all_pimary_boxes_exluding()
+			if remaining_duration <= 0:
+				end_stun()
+				
 		STUN_TYPE.DEFUALT_AIR, STUN_TYPE.DEFUALT_LAUNCH:
 			if remaining_duration > 0:
 				print("stun is air type")
@@ -98,7 +114,7 @@ func continue_stun():
 				if remaining_duration <=0:
 					end_stun()
 
-		STUN_TYPE.BASIC, STUN_TYPE.BLOCK:
+		STUN_TYPE.CUSTOM, STUN_TYPE.BLOCK:
 			remaining_duration -= 1
 			if remaining_duration <= 0:
 				end_stun()

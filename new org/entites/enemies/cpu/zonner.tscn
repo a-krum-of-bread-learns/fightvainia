@@ -10,41 +10,36 @@
 [ext_resource type="PackedScene" uid="uid://od41351s0ekc" path="res://new org/entites/attacks/agent attacks/left_button_low_(x)_lp.tscn" id="16_iw2u6"]
 [ext_resource type="PackedScene" uid="uid://ci8cd0kwoplqn" path="res://new org/entites/attacks/agent attacks/up_button_low_(y)_hp.tscn" id="17_podgt"]
 [ext_resource type="PackedScene" uid="uid://gu4f3xo60xh2" path="res://new org/entites/attacks/agent attacks/up_buttion_strong_(y)_hp.tscn" id="18_bqc2a"]
-[ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://new org/art/copy right free audio assets/session.mp3" id="19_sns3r"]
 [ext_resource type="PackedScene" uid="uid://b50dutlc1lhd4" path="res://new org/entites/attacks/agent attacks/up_buttion_anti_air_(y)_hp.tscn" id="20_ktu25"]
 
-[node name="enemy base" unique_id=518042812 node_paths=PackedStringArray("close_bnb_combo", "close_bnb_low_combo", "close_pokes", "mid_pokes", "far_or_projectile_pokes", "anti_airs") instance=ExtResource("1_u3i0x")]
+[node name="enemy base" unique_id=518042812 instance=ExtResource("1_u3i0x")]
+
+[node name="enemylogic" parent="folder" parent_id_path=PackedInt32Array(1146947319) index="5" unique_id=1044143473 node_paths=PackedStringArray("close_bnb_combo", "close_bnb_low_combo", "close_pokes", "mid_pokes", "far_or_projectile_pokes", "anti_airs")]
 settings = ExtResource("2_iw2u6")
-close_bnb_combo = [NodePath("boss folder/AttackManager/left buttion jab (X) lp"), NodePath("boss folder/AttackManager/left buttion jab (X) lp"), NodePath("boss folder/AttackManager/lazer"), NodePath("boss folder/AttackManager/spike far")]
-close_bnb_low_combo = [NodePath("boss folder/AttackManager/left button low (X) lp"), NodePath("boss folder/AttackManager/left button low (X) lp"), NodePath("boss folder/AttackManager/lazer"), NodePath("boss folder/AttackManager/spike far")]
-close_pokes = [NodePath("boss folder/AttackManager/left buttion jab (X) lp"), NodePath("boss folder/AttackManager/left button low (X) lp"), NodePath("boss folder/AttackManager/up buttion (Y) hp"), NodePath("boss folder/AttackManager/up button low (Y) Hp"), NodePath("boss folder/AttackManager/spike close")]
-mid_pokes = [NodePath("boss folder/AttackManager/up buttion (Y) hp"), NodePath("boss folder/AttackManager/up button low (Y) Hp"), NodePath("boss folder/AttackManager/spike close")]
-far_or_projectile_pokes = [NodePath("boss folder/AttackManager/lazer"), NodePath("boss folder/AttackManager/spike far"), NodePath("boss folder/AttackManager/fire ball")]
-anti_airs = [NodePath("boss folder/AttackManager/up buttion anti air (Y) hp")]
+close_bnb_combo = [NodePath("../AttackManager/left buttion jab (X) lp"), NodePath("../AttackManager/left buttion jab (X) lp"), NodePath("../AttackManager/lazer"), NodePath("../AttackManager/spike far")]
+close_bnb_low_combo = [NodePath("../AttackManager/left button low (X) lp"), NodePath("../AttackManager/left button low (X) lp"), NodePath("../AttackManager/lazer"), NodePath("../AttackManager/spike far")]
+close_pokes = [NodePath("../AttackManager/left button low (X) lp"), NodePath("../AttackManager/left buttion jab (X) lp"), NodePath("../AttackManager/spike close")]
+mid_pokes = [NodePath("../AttackManager/up buttion strong (Y) hp"), NodePath("../AttackManager/up button low (Y) Hp"), NodePath("../AttackManager/spike close")]
+far_or_projectile_pokes = [NodePath("../AttackManager/spike far"), NodePath("../AttackManager/lazer"), NodePath("../AttackManager/fire ball")]
+anti_airs = [NodePath("../AttackManager/up buttion anti air (Y) hp")]
 
-[node name="lazer" parent="boss folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="0" unique_id=990600057 instance=ExtResource("12_bhnnn")]
+[node name="fire ball" parent="folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="0" unique_id=1979542474 instance=ExtResource("12_iw2u6")]
 
-[node name="spike close" parent="boss folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="1" unique_id=1049771095 instance=ExtResource("13_i62j7")]
+[node name="spike close" parent="folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="1" unique_id=1049771095 instance=ExtResource("13_i62j7")]
 
-[node name="spike far" parent="boss folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="2" unique_id=1616460340 instance=ExtResource("14_b0aow")]
+[node name="spike far" parent="folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="2" unique_id=1616460340 instance=ExtResource("14_b0aow")]
 
-[node name="fire ball" parent="boss folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="3" unique_id=1979542474 instance=ExtResource("12_iw2u6")]
+[node name="lazer" parent="folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="3" unique_id=990600057 instance=ExtResource("12_bhnnn")]
 
-[node name="left buttion jab (X) lp" parent="boss folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="4" unique_id=508514690 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("15_yl2xy")]
+[node name="left button low (X) lp" parent="folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="4" unique_id=14818658 instance=ExtResource("16_iw2u6")]
+
+[node name="left buttion jab (X) lp" parent="folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="5" unique_id=508514690 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("15_yl2xy")]
 combo_attacks_dictionary = {
-14: null
+14: NodePath(".")
 }
 
-[node name="left button low (X) lp" parent="boss folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="5" unique_id=14818658 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("16_iw2u6")]
-combo_attacks_dictionary = {
-14: null
-}
+[node name="up buttion anti air (Y) hp" parent="folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="6" unique_id=1455710997 instance=ExtResource("20_ktu25")]
 
-[node name="up buttion (Y) hp" parent="boss folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="6" unique_id=2065512744 instance=ExtResource("18_bqc2a")]
-is_combo_attack = false
-hit_sound = ExtResource("19_sns3r")
+[node name="up buttion strong (Y) hp" parent="folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="7" unique_id=2065512744 instance=ExtResource("18_bqc2a")]
 
-[node name="up button low (Y) Hp" parent="boss folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="7" unique_id=2086936221 instance=ExtResource("17_podgt")]
-
-[node name="up buttion anti air (Y) hp" parent="boss folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="8" unique_id=1455710997 instance=ExtResource("20_ktu25")]
-hit_sound = ExtResource("19_sns3r")
+[node name="up button low (Y) Hp" parent="folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="8" unique_id=2086936221 instance=ExtResource("17_podgt")]

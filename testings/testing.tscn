@@ -5,8 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d0iwhuvde8w6y" path="res://new org/systems/ui/info of channel and github.tscn" id="3_32i3w"]
 [ext_resource type="TileSet" uid="uid://c8rfgs3xlqyue" path="res://new org/art/copy right free art assets/terain/godot icon tile set.tres" id="4_7dbss"]
 [ext_resource type="Script" uid="uid://jav8ndnndy6" path="res://new org/systems/auto load scripts/frame_by_frame_mode_hint.gd" id="5_p47xe"]
-[ext_resource type="PackedScene" uid="uid://b11h2uyr6b47l" path="res://new org/entites/enemies/cpu/cpu_1.tscn" id="6_b04fu"]
-[ext_resource type="PackedScene" uid="uid://c47ugslb0v6y" path="res://new org/entites/enemies/cpu/basic_zonner_fire_ball.tscn" id="7_32i3w"]
+[ext_resource type="PackedScene" uid="uid://cnehwxf4aylum" path="res://new org/entites/enemies/cpu/zonner.tscn" id="6_b04fu"]
 
 [node name="Node2D" type="Node2D" unique_id=1655691674]
 
@@ -38,8 +37,5 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "      frame by frame mode enabled press f to diable or the left menu button "
 
-[node name="cpu1" parent="." unique_id=718906405 instance=ExtResource("6_b04fu")]
-position = Vector2(-328, 216)
-
-[node name="basic zonner fire ball" parent="." unique_id=518042812 instance=ExtResource("7_32i3w")]
-position = Vector2(96, 208)
+[node name="zonner" parent="." unique_id=518042812 instance=ExtResource("6_b04fu")]
+position = Vector2(112, 206)

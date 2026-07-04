@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dahwjgu8w5a4e"]
 
 [ext_resource type="PackedScene" uid="uid://lehj6n73xymd" path="res://new org/entites/enemies/cpu/enemy_base.tscn" id="1_mg2qe"]
-[ext_resource type="Resource" uid="uid://3c1b4qm108yn" path="res://new org/entites/enemies/cpu/settings/far zoner settings.tres" id="2_bd2cq"]
 [ext_resource type="PackedScene" uid="uid://dw6qtmdrh05mx" path="res://new org/entites/attacks/lazer.tscn" id="12_axqw1"]
 [ext_resource type="PackedScene" uid="uid://duw2his5lywxk" path="res://new org/entites/attacks/agent attacks/left_buttion_jab_(x)_lp.tscn" id="13_rh7yx"]
 [ext_resource type="PackedScene" uid="uid://od41351s0ekc" path="res://new org/entites/attacks/agent attacks/left_button_low_(x)_lp.tscn" id="14_turnh"]
@@ -10,12 +9,12 @@
 [ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://new org/art/copy right free audio assets/session.mp3" id="17_5j0cs"]
 [ext_resource type="PackedScene" uid="uid://b50dutlc1lhd4" path="res://new org/entites/attacks/agent attacks/up_buttion_anti_air_(y)_hp.tscn" id="18_cy7dg"]
 
-[node name="lazer zonner" unique_id=518042812 node_paths=PackedStringArray("close_bnb_combo", "close_pokes", "mid_pokes", "far_or_projectile_pokes") instance=ExtResource("1_mg2qe")]
-settings = ExtResource("2_bd2cq")
-close_bnb_combo = [NodePath("boss folder/AttackManager/lazer")]
-close_pokes = [NodePath("boss folder/AttackManager/lazer")]
-mid_pokes = [NodePath("boss folder/AttackManager/lazer")]
-far_or_projectile_pokes = [NodePath("boss folder/AttackManager/lazer")]
+[node name="lazer zonner" unique_id=518042812 instance=ExtResource("1_mg2qe")]
+
+[node name="enemylogic" parent="folder" parent_id_path=PackedInt32Array(572432720) index="6" unique_id=1044143473 node_paths=PackedStringArray("close_pokes", "mid_pokes", "far_or_projectile_pokes")]
+close_pokes = [NodePath("../../boss folder/AttackManager/lazer")]
+mid_pokes = [NodePath("../../boss folder/AttackManager/lazer")]
+far_or_projectile_pokes = [NodePath("../../boss folder/AttackManager/lazer")]
 
 [node name="lazer" parent="boss folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="0" unique_id=990600057 instance=ExtResource("12_axqw1")]
 

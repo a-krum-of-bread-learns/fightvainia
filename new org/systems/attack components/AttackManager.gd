@@ -4,6 +4,7 @@ class_name AttackManager extends Node2D
 #tool buttions
 @export_category("buttons")
 @export var add_attack_button: bool = false ## tool buttion
+@export_group("danger zone")
 @export var clear_button1: bool = false## tool buttion 3 for insurence if all are pressed all childeren will be deleted
 @export var clear_button2: bool = false## tool buttion 3 for insurence 
 @export var clear_button3: bool = false## tool buttion 3 for insurence 

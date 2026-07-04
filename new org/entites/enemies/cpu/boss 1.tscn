@@ -10,13 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://b50dutlc1lhd4" path="res://new org/entites/attacks/agent attacks/up_buttion_anti_air_(y)_hp.tscn" id="15_hscuh"]
 [ext_resource type="PackedScene" uid="uid://i07c3uwydhut" path="res://new org/entites/attacks/agent attacks/floor_explosion.tscn" id="17_dluaq"]
 
-[node name="boss 1" unique_id=518042812 node_paths=PackedStringArray("close_bnb_combo", "close_bnb_low_combo", "close_pokes", "mid_pokes", "anti_airs") instance=ExtResource("1_8l3da")]
+[node name="boss 1" unique_id=518042812 instance=ExtResource("1_8l3da")]
+
+[node name="enemylogic" parent="folder" parent_id_path=PackedInt32Array(572432720) index="6" unique_id=1044143473 node_paths=PackedStringArray("close_bnb_combo", "close_bnb_low_combo", "mid_pokes", "anti_airs")]
 settings = ExtResource("2_r6h4o")
-close_bnb_combo = [NodePath("boss folder/AttackManager/left buttion jab (X) lp"), NodePath("boss folder/AttackManager/left buttion jab (X) lp"), NodePath("boss folder/AttackManager/floor explision")]
-close_bnb_low_combo = [NodePath("boss folder/AttackManager/left button low (X) lp"), NodePath("boss folder/AttackManager/left button low (X) lp"), NodePath("boss folder/AttackManager/floor explision")]
-close_pokes = [NodePath("boss folder/AttackManager/left buttion jab (X) lp"), NodePath("boss folder/AttackManager/left button low (X) lp")]
-mid_pokes = [NodePath("boss folder/AttackManager/up buttion (Y) hp"), NodePath("boss folder/AttackManager/up button low (Y) Hp")]
-anti_airs = [NodePath("boss folder/AttackManager/up buttion anti air (Y) hp")]
+close_bnb_combo = [NodePath("../../boss folder/AttackManager/left buttion jab (X) lp"), NodePath("../../boss folder/AttackManager/left buttion jab (X) lp"), NodePath("../../boss folder/AttackManager/floor explision")]
+close_bnb_low_combo = [NodePath("../../boss folder/AttackManager/left button low (X) lp"), NodePath("../../boss folder/AttackManager/left button low (X) lp"), NodePath("../../boss folder/AttackManager/floor explision")]
+mid_pokes = [NodePath("../../boss folder/AttackManager/up buttion (Y) hp"), NodePath("../../boss folder/AttackManager/up button low (Y) Hp")]
+anti_airs = [NodePath("../../boss folder/AttackManager/up buttion anti air (Y) hp")]
 
 [node name="left buttion jab (X) lp" parent="boss folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="0" unique_id=508514690 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("10_5uoak")]
 combo_attacks_dictionary = {

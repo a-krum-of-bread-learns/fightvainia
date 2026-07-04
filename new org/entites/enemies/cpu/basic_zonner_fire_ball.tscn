@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c47ugslb0v6y"]
 
 [ext_resource type="PackedScene" uid="uid://lehj6n73xymd" path="res://new org/entites/enemies/cpu/enemy_base.tscn" id="1_oaxtw"]
-[ext_resource type="Resource" uid="uid://3c1b4qm108yn" path="res://new org/entites/enemies/cpu/settings/far zoner settings.tres" id="2_wop13"]
 [ext_resource type="PackedScene" uid="uid://bwrmodlels1kk" path="res://new org/entites/attacks/agent attacks/fire_ball.tscn" id="12_fvbbe"]
 [ext_resource type="PackedScene" uid="uid://duw2his5lywxk" path="res://new org/entites/attacks/agent attacks/left_buttion_jab_(x)_lp.tscn" id="13_0m56k"]
 [ext_resource type="PackedScene" uid="uid://od41351s0ekc" path="res://new org/entites/attacks/agent attacks/left_button_low_(x)_lp.tscn" id="14_7oflg"]
@@ -10,12 +9,14 @@
 [ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://new org/art/copy right free audio assets/session.mp3" id="17_iwxqk"]
 [ext_resource type="PackedScene" uid="uid://b50dutlc1lhd4" path="res://new org/entites/attacks/agent attacks/up_buttion_anti_air_(y)_hp.tscn" id="18_j2ufy"]
 
-[node name="fire ball zonner" unique_id=518042812 node_paths=PackedStringArray("close_bnb_combo", "close_pokes", "mid_pokes", "far_or_projectile_pokes") instance=ExtResource("1_oaxtw")]
-settings = ExtResource("2_wop13")
-close_bnb_combo = [NodePath("boss folder/AttackManager/fire ball")]
-close_pokes = [NodePath("boss folder/AttackManager/fire ball")]
-mid_pokes = [NodePath("boss folder/AttackManager/fire ball")]
-far_or_projectile_pokes = [NodePath("boss folder/AttackManager/fire ball")]
+[node name="fire ball zonner" unique_id=518042812 instance=ExtResource("1_oaxtw")]
+
+[node name="enemylogic" parent="folder" parent_id_path=PackedInt32Array(572432720) index="6" unique_id=1044143473 node_paths=PackedStringArray("close_bnb_combo", "close_bnb_low_combo", "close_pokes", "mid_pokes", "far_or_projectile_pokes")]
+close_bnb_combo = [NodePath("../../boss folder/AttackManager/fire ball")]
+close_bnb_low_combo = [NodePath("../../boss folder/AttackManager/fire ball")]
+close_pokes = [NodePath("../../boss folder/AttackManager/fire ball")]
+mid_pokes = [NodePath("../../boss folder/AttackManager/fire ball")]
+far_or_projectile_pokes = [NodePath("../../boss folder/AttackManager/fire ball")]
 
 [node name="fire ball" parent="boss folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="0" unique_id=1979542474 instance=ExtResource("12_fvbbe")]
 

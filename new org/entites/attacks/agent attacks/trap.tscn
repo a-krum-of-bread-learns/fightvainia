@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://eehghwqfhi3w"]
 
 [ext_resource type="Script" uid="uid://cw1p1ehiwg0gs" path="res://testings/spawnable_projectile.gd" id="1_55bpw"]
-[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/enity systems/shared/FrameTimerCompnent.gd" id="2_86nvh"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/entity systems/shared/FrameTimerCompnent.gd" id="2_86nvh"]
 [ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="2_hn6qk"]
 [ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="3_6wiry"]
 [ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://new org/systems/auto load scripts/set cam.gd" id="3_86nvh"]

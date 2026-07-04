@@ -15,6 +15,7 @@ class_name EntityPrimaryHurtBoxesAndSprites extends Node2D
 var standing_hurt_box: CollisionShape2D
 var crouching_hurt_box: CollisionShape2D
 var airborne_hurt_box: CollisionShape2D
+#var otg_hurt_box: CollisionShape2D
 var all_shapes: Array[CollisionShape2D]
 var all_sprites: Array[Sprite2D]
 

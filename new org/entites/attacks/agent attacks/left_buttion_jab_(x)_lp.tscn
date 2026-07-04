@@ -10,7 +10,6 @@
 
 [sub_resource type="Resource" id="Resource_acj6o"]
 script = ExtResource("4_1canf")
-stun_type = 0
 hit_type = 2
 block_stun_duration = 10
 block_back_distance = 6.0
@@ -18,6 +17,7 @@ hit_stun_duration = 15
 hit_back_distance_vector = Vector2(5, 0)
 hit_stop_frames = 10
 damage = 500
+hit_sound = ExtResource("2_acj6o")
 metadata/_custom_type_script = "uid://c8e0lbybahcxv"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lueer"]

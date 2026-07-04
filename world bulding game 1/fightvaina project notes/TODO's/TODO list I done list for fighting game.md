@@ -78,30 +78,10 @@
 - [x] make on hit condition check 
 - [x] make a spawn object thing
 - [x] do a character journey map for values when doing things like doing damage via function names to see the information paths: organize things into a single source of truth and use resources
-- [ ] run?
-- [ ] accessibility options
-- [ ] save system
-- [ ] healing could just be a negative hit box damage?  this needs an exception to self exception
-
-- [ ] consideration motion attacks? like motion inputs for directions rhythm character or something
 - [x] combine player and input manager? i separated them 
-
-- [ ] a bit of combo ui
-- [ ] fix collisions so i can push another player using if im being detected then i will be pushing
-	the layer pushes the mask witch means i need 2 player layers needs a work a round to have both the players push each other 
-
-- [ ] make grabs and command grabs or dont and skip this 
-
-- [ ] make simple boolens for modifiers of hurt and hit boxes? skip this scopecreep
-- [ ] add input release option
-- [ ] ==make a system map to see how it all fits right now== when i return to it
+- [x] add input release option
 - [x] make the last script for the current list of scripts 
-- [ ] do a documentation check 
-- [ ] make a danger zone section for buttons
-
 - [x] learn conditional editor tools or separate projectile animation and entity animation
-
-- [ ] decide on state based movement or fluid movement 
 - [x] make a demo (limits: 1 char 1-3 basic enemy 1 boss that is the same char and a bit of ability to unlock and put it on itch if you use boxes then do it see [[Demo scope ToDo for summer test release of a char|demo scope]] 
 	- [x] 1 char
 	- [x] 3 enemy 
@@ -109,18 +89,10 @@
 		- [x] basic enemy random block and attacks (small combo maybe)
 		- [x] too much reach jump on em spear man 
 	- [x] 1 boss: must be combed 
-
 - [x] make on hit condition check 
 - [x] make a spawn object thing
-
-- [ ] add flexibility to combo attacks so that if i have a 2 hit attack it can follow up differently on hit 1 and hit 2 (example Jamie 4 drink forward heavy kick 3 followups)
 - [x] add spawn object under frames with a button
-- [ ] stuns of type like fire and electricty or ice here
-- [ ] review all process/ physics process functions for witch one is right to use
 - [x] fix stun manager logic so that the thing works on y stun
-
-
-
 - [x] do an art scale again things taht do: primary hurt boxes, colsion shape, attack manager,  the projectile hit box  colison shapes, spites should
 - [x] fix jumping before starting a special move that is grounded (don't apply to grappling hook)
 - [x] error check imporments 
@@ -129,6 +101,36 @@
 	func _ready():
     if max_health <= 0:
         push_error("Health: max_health is 0 | " + _get_context())
-- [ ] make dash an attack and allow it to be canceld by a ton of things 
+- [x] make a danger zone section for buttons
+- [ ] make dash an attack and allow it to be canceled by a ton of things 
 - [ ] make jump start up an attack as well?>
-- [ ] knockdown and wake up separationto allow for otg  
+- [x] knockdown and wake up separation to allow for otg  
+- [ ] run?
+
+- [ ] healing could just be a negative hit box damage?  this needs an exception to self exception
+- [ ] consideration motion attacks? like motion inputs for directions rhythm character or something technicality possible or better way to do the combo attacks
+- [ ] stuns of type like fire and electricity or ice here
+- [ ] review all process/ physics process functions for witch one is right to use
+- [ ] ==make a system map to see how it all fits right now== when i in school
+- [ ] add flexibility to combo attacks so that if i have a 2 hit attack it can follow up differently on hit 1 and hit 2 (example Jamie 4 drink forward heavy kick 3 followups)
+
+- [ ] fix collisions so i can push another player using if i'm being detected then i will be pushing
+	the layer pushes the mask witch means i need 2 player layers needs a work a round to have both the players push each other 
+
+- [ ] make grabs and command grabs or don't and skip this 
+- [ ] make simple boolens for modifiers of hurt and hit boxes? skip this scope creep
+- [ ] decide on state based movement or fluid movement 
+- [ ] do a documentation check 
+- [ ] different hit stop for on block and on hit same with screen shake maybe per attack?
+- [ ] tween error that is being a little annoying now
+
+non fighting game exclusive systems
+- [ ] accessibility options
+- [ ] save system
+- [ ] a bit of combo ui
+- [ ] damage ui 
+- [ ] check all enabled for behavior base stuff 
+
+- [ ] investigate https://github.com/KoBeWi/Metroidvania-System 
+- [ ] investigate https://semver.org
+- [ ] at some point look into puting project on asset librarry

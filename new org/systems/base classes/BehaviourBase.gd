@@ -1,4 +1,3 @@
-
 ## base class for all addional compents that can be disbaled or enabled at will 
 class_name BehaviourBase extends Node 
 ## this lets us chose if we want this to function at all

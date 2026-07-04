@@ -8,7 +8,7 @@ class_name HurtBoxArea extends Area2D
 ## default in the [method fix_color] fuction if the value is changed
 @export var fix_color_buttion: bool = false
 @export_category("component refrence")
-@export var health: Health ##see Health [Health]
+@export var health: SimpleHealthBar ##see Health [Health]
 @export var stun_manager: StunManager ##see StunManager [StunManager]
 
 ##tool script adds a new [HurtBoxArea] colsion shape 2d

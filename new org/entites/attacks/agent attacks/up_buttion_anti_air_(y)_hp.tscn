@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_dhck0"]
 script = ExtResource("4_v8p7c")
-stun_type = 2
+stun_type = 4
 hit_type = 2
 block_stun_duration = 20
 block_back_distance = 60.0

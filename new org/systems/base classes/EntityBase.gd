@@ -12,13 +12,13 @@ var is_crouching: bool = false
 @export var stun_manager: StunManager
 @export var attack_manager: AttackManager
 @export var scale_component: Scale
-@export var health_component: Health
+@export var health_component: SimpleHealthBar
 @export var stats: EntityStats
 @export var primary_boxes_and_sprites: EntityPrimaryHurtBoxesAndSprites
 @export var contol_node: BehaviourBase
 @export var combo_tracker: ComboTracker
-@export var hurt_box_layer: int = 2 ##player defualts used
-@export var hit_box_mask: int = 4 ##player defualts used
+@export var hurt_box_layer: int = 2 ##eneimes hurt on 2 player hurts on 4 use 6 to hurt both
+@export var hit_box_mask: int = 4 ##eneimes hit on 4 player hits on 2 use 6 to hit both
 
 
 
@@ -34,6 +34,7 @@ func _ready() -> void:
 	HelperFuncs.check_if_null(attack_manager, "attack_manager", self)
 	HelperFuncs.check_if_null(scale_component, "scale_component", self)
 	HelperFuncs.check_if_null(primary_boxes_and_sprites, "primary_boxes_and_sprites", self)
+	stun_manager.stun_has_ended.connect(primary_hurt_box_manager)
 
 func get_frames_remaining() -> int:
 	# in hitstun or blockstun - read from stun manager
@@ -51,8 +52,6 @@ func _physics_process(_delta):
 	print(self.name + " block type  " + str(self.block_type))
 	move_and_slide()
 
-
-	
 func primary_hurt_box_manager():
 	if is_on_floor() and is_crouching:
 		primary_boxes_and_sprites.disable_all_pimary_boxes_exluding(primary_boxes_and_sprites.crouching_hurt_box)

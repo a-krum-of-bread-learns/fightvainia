@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="BossSettings" format=3 uid="uid://32wiseu5j5p1"]
 
-[ext_resource type="Script" uid="uid://c4buu38jtc0ws" path="res://new org/systems/enity systems/cpu systems/BossSettings.gd" id="1_y0xkb"]
+[ext_resource type="Script" uid="uid://c4buu38jtc0ws" path="res://new org/systems/entity systems/cpu systems/BossSettings.gd" id="1_y0xkb"]
 
 [resource]
 script = ExtResource("1_y0xkb")
 PREFERED_DISTANCE = 2
-close_range_max_x = 30.0
 mid_range_max_x = 40.0
 far_range_max_x = 150.0
 hits_until_10_percent_drop_chance = 0
+wiff_chance = 0.0
 poke_chance = 0.06
 metadata/_custom_type_script = "uid://c4buu38jtc0ws"
