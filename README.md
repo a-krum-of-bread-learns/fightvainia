@@ -8,41 +8,45 @@ i have some video documenton on building this tool on my youtbe you can check ou
 AttackManager
   Attack
     Frame
-      Hitbox and or Hurtbox
+      Hitbox and or Hurtbox and or sprites
         shapes
 ```
 - attack data per hit box
 - player input system with motion inputs 
 - player movelist orginization
 - sample char
+- sample zonner char 
 - some automatic sprite contol on the attacks 
 - frame by frame mode for contol
 - basic stun manager
 - attack veloicy and posion animations
-    player is animated by changing velcity and math is done to corect the values so the developer can set postion canges and contiol how fast the player moves form one posion to the other
-- a spawan scene object
-- primary hurt box contol
-- the ablity to set a hit sound per attack
+    player is animated by changing velcity and math is done to corect the values so the developer can set postion canges and contiol how fast the player moves form one posion to the other using curves to edit the motion
+- a spawan scene object 
+- primary hurt box secene
+- the ablity to set a hit sound per attack 
 - speical cancels system
-- combo attack / target combo system
-- fully suported motions dash left and right 3 input qaurter circle motions 2 for each of the directions up down left right for a total of 8 but you may add any your self see the move list video and edit move list to do so
+- combo attack / target combo cancel system
+- curent fully suported motions dash left and right 3 input qaurter circle motions 2 for each of the directions up down left right for a total of 8 but you may add any your self see the move list video and edit move list to do so
 - protection against hiting the same target more than once (porjectiles do not hit boxes do)
-- protection from hitting self
+- protection from hiting self
 
 
 ## TODO
-- [ ] make a sample zoner
-- [ ] fix how to code a fighing game input system video 
-- [ ] combo tracking and must be combed proptery x times
+- [x] make a sample zoner 
+- [ ] fix how to code a fighing game input system video (.5/1 there is a pined comment)
+- [x] combo tracking and must be combed proptery x times
 - [ ] grab/ comand grab
-- [ ] impove cancel systems to allow for custom inputs for follow ups insted of just the attack buttions
+- [ ] impove cancel systems to allow for custom inputs for follow ups insted of just the attack buttions or jsut the set speical moves
 - [ ] video on how to make an attack
 - [ ] video on how to make attack system
 - [ ] video on how to make cancel systems
+- [ ] the ablity to set a hit sound per hitbox
+- [ ] save system
+- [ ] put on asset libary and make a video when its on there
 
 ## for code review stuff
 - [ ] consider dash and jump to be an "attack"
-- [ ] decouple move list and attack manger
+- [x] decouple move list and attack manger
 - [ ] clean up and centerialtion of is_proptery like is_facing_right or is_jumping
 - [ ] consider actualy using tool buttions for the tool scripts
 
