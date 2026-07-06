@@ -1,4 +1,4 @@
-class_name ComboTracker extends BehaviourBase
+class_name SelfComboTracker extends BehaviourBase
 @export var must_be_comboed: = false
 @export var must_be_comboed_threshold: int = 0
 signal combo_count_changed(count: int)
@@ -9,10 +9,11 @@ var combo_count: int = 0
 func _ready():
 	self.name = "combo_tracker"
 	super._ready()
+	HelperFuncs.check_if_null(host,"host",self)
 	host.stun_manager.stun_has_ended.connect(reset)
 
 
-func combo_tracker_logic(attack_data: HitBoxData, blocked: bool) -> void:
+func combo_tracker_logic(entity: EntityBase, blocked: bool) -> void:
 	if not enabled:
 		return
 	if blocked == true:

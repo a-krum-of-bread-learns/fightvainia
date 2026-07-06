@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bdtelvmkwjuh1"]
 
 [ext_resource type="PackedScene" uid="uid://cwic4qufw2wug" path="res://new org/entites/agent player stuff/base chars.tscn" id="1_a6hav"]
-[ext_resource type="Script" uid="uid://dqfwwo01ngier" path="res://new org/systems/entity systems/shared/BaseSpriteManager.gd" id="2_anoxa"]
 [ext_resource type="PackedScene" uid="uid://duw2his5lywxk" path="res://new org/entites/attacks/agent attacks/left_buttion_jab_(x)_lp.tscn" id="2_pk7ux"]
 [ext_resource type="PackedScene" uid="uid://i07c3uwydhut" path="res://new org/entites/attacks/agent attacks/floor_explosion.tscn" id="3_22x0t"]
 [ext_resource type="PackedScene" uid="uid://gu4f3xo60xh2" path="res://new org/entites/attacks/agent attacks/up_buttion_strong_(y)_hp.tscn" id="4_1e7bk"]
@@ -18,75 +17,63 @@
 [ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="15_anoxa"]
 [ext_resource type="Resource" uid="uid://8iohifkvslmi" path="res://new org/entites/agent player stuff/animations/dash part 1.tres" id="16_er1ep"]
 [ext_resource type="Resource" uid="uid://ddp2dgmh0djlv" path="res://new org/entites/agent player stuff/animations/dash part 2.tres" id="17_s5bsa"]
-[ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="18_3upj7"]
 
 [node name="player" unique_id=1999747051 instance=ExtResource("1_a6hav")]
 
-[node name="not needed yet" type="Sprite2D" parent="." index="0" unique_id=1655233379 node_paths=PackedStringArray("stun_manager")]
-script = ExtResource("2_anoxa")
-stun_manager = NodePath("../folder/stunManager")
+[node name="MoveList" parent="folder to not be scaled" parent_id_path=PackedInt32Array(83792367) index="2" unique_id=937155038 node_paths=PackedStringArray("light_punch", "down_light_punch", "up_right_light_punch", "air_light_punch", "heavy_punch", "down_heavy_punch", "up_heavy_punch", "air_heavy_punch", "dqcf_light_punch", "fqcd_light_punch", "fqcd_heavy_kick", "uqcf_light_kick", "fqcu_light_kick")]
+light_punch = NodePath("../../folder to be scaled/attack manager/left buttion (X) lp")
+down_light_punch = NodePath("../../folder to be scaled/attack manager/left button low (X) lp")
+up_right_light_punch = NodePath("../../folder to be scaled/attack manager/left button overhead (X) lp")
+air_light_punch = NodePath("../../folder to be scaled/attack manager/left button low (X) lp")
+heavy_punch = NodePath("../../folder to be scaled/attack manager/up buttion (Y) hp")
+down_heavy_punch = NodePath("../../folder to be scaled/attack manager/up button low (Y) Hp")
+up_heavy_punch = NodePath("../../folder to be scaled/attack manager/up buttion anti air (Y) hp")
+air_heavy_punch = NodePath("../../folder to be scaled/attack manager/up button air (Y)")
+dqcf_light_punch = NodePath("../../folder to be scaled/attack manager/fire ball")
+fqcd_light_punch = NodePath("../../folder to be scaled/attack manager/ground explsion")
+fqcd_heavy_kick = NodePath("../../folder to be scaled/attack manager/spawn ice block")
+uqcf_light_kick = NodePath("../../folder to be scaled/attack manager/grapling hook")
+fqcu_light_kick = NodePath("../../folder to be scaled/attack manager/grapling hook")
 
-[node name="MoveList" parent="folder" parent_id_path=PackedInt32Array(1784953174) index="2" unique_id=937155038 node_paths=PackedStringArray("light_punch", "down_light_punch", "up_right_light_punch", "heavy_punch", "down_heavy_punch", "forward_heavy_punch", "up_heavy_punch", "air_heavy_punch", "dqcf_light_punch", "fqcd_light_punch", "fqcd_heavy_kick", "uqcf_light_kick", "fqcu_light_kick")]
-light_punch = NodePath("../attack manager/left buttion (X) lp")
-down_light_punch = NodePath("../attack manager/left button low (X) lp")
-up_right_light_punch = NodePath("../attack manager/left button overhead (X) lp")
-heavy_punch = NodePath("../attack manager/up buttion (Y) hp")
-down_heavy_punch = NodePath("../attack manager/up button low (Y) Hp")
-forward_heavy_punch = NodePath("../attack manager/up buttion (Y) hp")
-up_heavy_punch = NodePath("../attack manager/up buttion anti air (Y) hp")
-air_heavy_punch = NodePath("../attack manager/up button air (Y)")
-dqcf_light_punch = NodePath("../attack manager/fire ball")
-fqcd_light_punch = NodePath("../attack manager/ground explsion")
-fqcd_heavy_kick = NodePath("../attack manager/spawn ice block")
-uqcf_light_kick = NodePath("../attack manager/grapling hook")
-fqcu_light_kick = NodePath("../attack manager/grapling hook")
-
-[node name="scale" parent="folder" parent_id_path=PackedInt32Array(1784953174) index="4" unique_id=349905362 node_paths=PackedStringArray("node")]
-node = NodePath("..")
-
-[node name="inputmanager" parent="folder" parent_id_path=PackedInt32Array(1784953174) index="5" unique_id=1544145854]
+[node name="inputmanager" parent="folder to not be scaled" parent_id_path=PackedInt32Array(83792367) index="5" unique_id=1544145854]
 enabled = false
 
-[node name="left buttion (X) lp" parent="folder/attack manager" parent_id_path=PackedInt32Array(1555584615) index="0" unique_id=508514690 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("2_pk7ux")]
+[node name="left buttion (X) lp" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="0" unique_id=508514690 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("2_pk7ux")]
 combo_attacks_dictionary = {
 14: NodePath(".")
 }
 
-[node name="left button low (X) lp" parent="folder/attack manager" parent_id_path=PackedInt32Array(1555584615) index="1" unique_id=14818658 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("6_g61p2")]
+[node name="left button low (X) lp" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="1" unique_id=14818658 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("6_g61p2")]
 combo_attacks_dictionary = {
 14: NodePath(".")
 }
 
-[node name="left button overhead (X) lp" parent="folder/attack manager" parent_id_path=PackedInt32Array(1555584615) index="2" unique_id=253718347 instance=ExtResource("10_emola")]
+[node name="left button overhead (X) lp" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="2" unique_id=253718347 instance=ExtResource("10_emola")]
 hit_sound = ExtResource("6_yc487")
 
-[node name="up buttion (Y) hp" parent="folder/attack manager" parent_id_path=PackedInt32Array(1555584615) index="3" unique_id=2065512744 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("4_1e7bk")]
+[node name="up buttion (Y) hp" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="3" unique_id=2065512744 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("4_1e7bk")]
 combo_attacks_dictionary = {
 18: NodePath(".")
 }
 hit_sound = ExtResource("6_yc487")
 
-[node name="up button low (Y) Hp" parent="folder/attack manager" parent_id_path=PackedInt32Array(1555584615) index="4" unique_id=2086936221 instance=ExtResource("8_6wa2j")]
+[node name="up button low (Y) Hp" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="4" unique_id=2086936221 instance=ExtResource("8_6wa2j")]
 hit_sound = ExtResource("6_yc487")
 
-[node name="up buttion anti air (Y) hp" parent="folder/attack manager" parent_id_path=PackedInt32Array(1555584615) index="5" unique_id=1455710997 instance=ExtResource("9_emola")]
+[node name="up buttion anti air (Y) hp" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="5" unique_id=1455710997 instance=ExtResource("9_emola")]
 hit_sound = ExtResource("6_yc487")
 
-[node name="up button air (Y)" parent="folder/attack manager" parent_id_path=PackedInt32Array(1555584615) index="6" unique_id=1443320728 instance=ExtResource("15_2ule2")]
+[node name="up button air (Y)" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="6" unique_id=1443320728 instance=ExtResource("15_2ule2")]
 
-[node name="ground explsion" parent="folder/attack manager" parent_id_path=PackedInt32Array(1555584615) index="7" unique_id=2123794268 instance=ExtResource("3_22x0t")]
+[node name="ground explsion" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="7" unique_id=2123794268 instance=ExtResource("3_22x0t")]
 hit_sound = ExtResource("6_yc487")
 
-[node name="grapling hook" parent="folder/attack manager" parent_id_path=PackedInt32Array(1555584615) index="8" unique_id=154535348 instance=ExtResource("11_wagu1")]
+[node name="grapling hook" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="8" unique_id=154535348 instance=ExtResource("11_wagu1")]
 
-[node name="spawn ice block" parent="folder/attack manager" parent_id_path=PackedInt32Array(1555584615) index="9" unique_id=1932217704 instance=ExtResource("14_anoxa")]
+[node name="spawn ice block" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="9" unique_id=1932217704 instance=ExtResource("14_anoxa")]
 
-[node name="fire ball" parent="folder/attack manager" parent_id_path=PackedInt32Array(1555584615) index="10" unique_id=1979542474 instance=ExtResource("13_j33lb")]
+[node name="fire ball" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="10" unique_id=1979542474 instance=ExtResource("13_j33lb")]
 
-[node name="dash" type="Node2D" parent="folder/attack manager" parent_id_path=PackedInt32Array(1555584615) index="11" unique_id=1132306851]
+[node name="dash" type="Node2D" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="11" unique_id=1132306851]
 script = ExtResource("14_3pm7c")
 animation_stuff = Array[ExtResource("15_anoxa")]([ExtResource("16_er1ep"), ExtResource("17_s5bsa")])
-
-[node name="frame # 1-20" type="Node2D" parent="folder/attack manager/dash" index="0" unique_id=1509683763]
-script = ExtResource("18_3upj7")
-repeat_this_frame = 19

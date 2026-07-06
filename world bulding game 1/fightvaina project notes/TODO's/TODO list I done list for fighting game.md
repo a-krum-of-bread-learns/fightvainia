@@ -102,7 +102,8 @@
     if max_health <= 0:
         push_error("Health: max_health is 0 | " + _get_context())
 - [x] make a danger zone section for buttons
-- [ ] make dash an attack and allow it to be canceled by a ton of things 
+- [x] make dash an attack 
+- [ ] make attack dash to be canceled by a ton of things
 - [ ] make jump start up an attack as well?>
 - [x] knockdown and wake up separation to allow for otg  
 - [ ] run?
@@ -127,10 +128,15 @@
 non fighting game exclusive systems
 - [ ] accessibility options
 - [ ] save system
-- [ ] a bit of combo ui
-- [ ] damage ui 
+- [x] a bit of combo ui
+- [x] damage ui conect via health right?
 - [ ] check all enabled for behavior base stuff 
+
+- [ ] make char from scratch and see if there are error checks that are not fully informative 
+
 
 - [ ] investigate https://github.com/KoBeWi/Metroidvania-System 
 - [ ] investigate https://semver.org
-- [ ] at some point look into puting project on asset librarry
+- [ ] major thing put the project on the asset library this month
+- [ ] make a some vids on using the tool 
+	- [ ] a

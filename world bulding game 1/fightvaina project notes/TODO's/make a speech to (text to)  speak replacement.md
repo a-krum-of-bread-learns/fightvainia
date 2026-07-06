@@ -3,3 +3,4 @@
 - [ ] make vocaliod recording stuff
 - [ ] figure out how to do this on my computer
 - [ ] test it and stuff
+- [ ] or find one for free some where open source

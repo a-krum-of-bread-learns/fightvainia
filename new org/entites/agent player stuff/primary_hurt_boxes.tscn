@@ -14,7 +14,7 @@ size = Vector2(16, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhnao"]
 size = Vector2(16, 24)
 
-[node name="Player primary hurtboxes and sprites" type="Node2D" unique_id=994631848 node_paths=PackedStringArray("standing_hurt_box_area", "crouching_hurt_box_area", "airborne_hurt_box_area", "standing_sprite", "crouching_sprite")]
+[node name="Primary hurtboxes and sprites" type="Node2D" unique_id=994631848 node_paths=PackedStringArray("standing_hurt_box_area", "crouching_hurt_box_area", "airborne_hurt_box_area", "standing_sprite", "crouching_sprite")]
 script = ExtResource("1_4gmxm")
 standing_hurt_box_area = NodePath("staning")
 crouching_hurt_box_area = NodePath("crouch")

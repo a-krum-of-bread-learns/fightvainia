@@ -15,7 +15,8 @@ class_name AttackManager extends Node2D
 @export var host: EntityBase ## this is here to be an easy refence for child nodes
 var hit_expetions: Array[EntityBase] ## prevents hitting the same thing twice with one attack 
 var current_attack: Attack
-signal has_hit_signal_attack_manger(data: HitBoxData)
+## the data that needs to be passed is if blocked the entity that was hit
+signal has_hit_signal_attack_manger(entity: EntityBase, blocked: bool)## the flow of this signal is like this first a hit box detects an entity and has hit it then it passed that info to the attackmanger witch then passes it out to everything else as it is more easly refrenceable 
 
 func start_animation(is_facing_right: bool, animation_stuff: Array[AnimationResource]):
 		animation_tool.animate(is_facing_right,animation_stuff)
@@ -145,8 +146,8 @@ func continue_attack():
 				current_attack.frames[current_attack.active_frame-1].set_frame_disabled(false)
 
 
-func _on_has_hit(data: HitBoxData):
-	has_hit_signal_attack_manger.emit(data)
+func _on_has_hit(entity:EntityBase,is_blocked: bool):
+	has_hit_signal_attack_manger.emit(entity,is_blocked)
 	current_attack.has_hit = true
 	start_animation(host.is_facing_right, current_attack.animation_stuff)
 	OnHitAudioManager.play_hit_sound(current_attack.hit_sound)

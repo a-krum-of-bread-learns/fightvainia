@@ -1,4 +1,5 @@
 ## this can hit a hurt box and is where the most happens for damage
+#REFACTOR re write becuse things seem like the could be writen better
 @tool
 class_name HitBoxArea extends ActiveHitBox
 @export_category("buttions")
@@ -7,7 +8,7 @@ class_name HitBoxArea extends ActiveHitBox
 #TODO consider removing this refrence and doing it difrently?
 @onready var attack_manager: AttackManager = get_parent().get_parent().get_parent()## easy refence of the attack manager
 # TODO consider puting a signal here for the damage function to tell projectiles to stop when enity is hit sometimes
-signal has_hit_signal(_attack_data: HitBoxData)
+signal has_hit_signal(entity: EntityBase, is_blocked: bool)
 ## conects singals and is just to warn the hit box has no info and where 
 func _ready():
 	if attack_data == null:
@@ -49,8 +50,8 @@ func damage(area):
 		and attack_manager.hit_expetions.has(attacked_entity) == false): 
 			attack_manager.hit_expetions.append(attacked_entity)
 			#stun and damage calls are inside
-			block_check2(attacked_entity, area)
-			has_hit_signal.emit(attack_data)
+			var is_blocked: bool = block_check2(attacked_entity, area)
+			has_hit_signal.emit(attacked_entity,is_blocked)
 			
 			
 			
@@ -78,13 +79,11 @@ func high_low_block_check(attacked_entity: EntityBase)-> bool:
 	
 	
 #TODO decide on air block
-func block_check2(attacked_entity: EntityBase, area: HurtBoxArea):
-	var position_check: float = self.global_position.x # if self .get parent then it would be based off of the player posion not the fire ball directon regarding the pro8jectile case 
-	#var is facing right
+func block_check2(attacked_entity: EntityBase, area: HurtBoxArea) -> bool:
+	var position_check: float = self.global_position.x # if self .get parent then it would be based off of the player posion not the fire ball directon regarding the projectile case 
 	var attack_from_right: bool = position_check > attacked_entity.global_position.x
 	var high_low_check: bool = high_low_block_check(attacked_entity)
-	var is_blocking: bool = attacked_entity.is_blocking
-	var bit_index = (int(is_blocking) <<3 ) |(int(high_low_check) << 2) | (int(attacked_entity.is_facing_right) << 1) | int(attack_from_right)
+	var bit_index = (int(attacked_entity.is_blocking) <<3 ) |(int(high_low_check) << 2) | (int(attacked_entity.is_facing_right) << 1) | int(attack_from_right)
 	var block_check_look_up: Array[bool] = [
 		false, false, false, false, false, false, false, false,# not blocking
 		false, false, false, false,# blocking but highlow fails
@@ -105,7 +104,7 @@ func block_check2(attacked_entity: EntityBase, area: HurtBoxArea):
 		
 	area.stun_manager.start_stun_with_tween(attack_data,vector_direction, block_check_look_up[bit_index])
 	print(area.health.current_health)
-	
+	return block_check_look_up[bit_index]
 
 
 

@@ -65,6 +65,7 @@ signal jump_signal(direction: Vector2)
 
 func _ready() -> void:
 	self.name = "input_manager"
+	HelperFuncs.check_if_null(host,"host",self)
 	if movement_componet == null: push_error("InputManager: movement_componet not assigned")
 	if scale_component == null: push_error("InputManager: scale_component not assigned")
 	if gravity_component == null: push_error("InputManager: gravity_component not assigned")

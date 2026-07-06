@@ -1,7 +1,6 @@
 #analysis #list 
-apps to try 
-figma or vasilsy to make apps
-
+try using 
+https://quanticfoundry.com/#motivation-model
 experience the problem
 facade experiment 1 of the game have some one play a different fighting game but I give them a set of tutorial instructions instead of the games instructions or with some of the games instructions 
 sysmptons of the problem 
@@ -28,7 +27,7 @@ what spectums
 	
 	
 interview who just ask them if they say no thats ok i could just use some vids they made already 
-	RT and freinds Rin Zoey Sajam Broski Diaphone Esky Northern Lion bitlytic lord knight others in this vain
+	RT and freinds Rin Zoey Sajam Broski Diaphone Esky Northern Lion bitlytic lord knight others in this vain i can alos ask random people on disord or in school i should make these questions tho
 
 
 
@@ -36,6 +35,7 @@ what are posiel insights that i curently may see
 fighting game input is not built to be intuitive for new players but for pr-existing players
 fighting games throw players into the deep end first
 fighting game tutorials and single player modes are bad and bad
+sf6 gave every character a target combo probably
 
 
 youtube links to look at
@@ -193,6 +193,95 @@ the true value of invincible reversal (broski video nice)
 	reversals can completely ignore some chars specific interaction negation sequences that can go into a frame trap so they can be worse
 	reversal supers are worse in almost every situation
 	super flash can eat inputs they cost a lot and are often slow
+
+game balance isn't real (by the GameDesignDirect 1 h vid) 
+	https://youtu.be/uCPQGncOx-Q?si=vBB7YiP3EyjRZQUT
+	games are not longer sold as is 
+	competitive games need to last years
+	developers are expected to keep players engaged
+	why do players quit 
+		new things 
+		real life 
+		this games make me mad
+		if they seen it all and their board 
+	game tuning 
+	tuning is updates to achieve a goal 
+	patch is software update
+	balance is one of the options for the goal
+	goals must be measurable but game balance is not really that measurable. 
+	goals of game balance 
+		1. players want fairness 
+			fairness is not a goal it is very subjective by the person
+			another example league of legend buffs that were never actually sent out
+		2. viewers want verity 
+			flatting out curves may not be good. in gg all of the chars are very very different and unique
+			variety is a more measurable  thing than fairness
+		3.  ***saved for later*** player retention is the goal
+			1. reduce frustration 
+			2. increase and reinforce though full play patterns 
+			3. enable and maintain different payer expression
+	common tuning strategies 
+		telemetry 
+			data lies data can convince you of the wrong thing
+			data needs lots of context
+			2 examples over watch reworked a char 2 times  and league of legends didn't change a high win rate item since it was a win more item
+			without context data is worse than useles 
+			data is rarely qualitative can we trust ranked?
+			1v1 or team tournaments vs causal or online what about specialist investment time.
+			tier lists or data ?
+		survey data
+		players lie
+			players don't know what they want kinda the KI clip on hold back to block the change where they nerf his mid range
+			the players perception is their reality
+			better for who selfish players (clips of influence )
+			tournament results can make people think a char is stronger that they were without even a patch.
+			and example for melee  
+			unknown unknowns and the Dunning Kruger effect
+		tuning  stariges
+			- tuning for flatness 
+				goals fairness and variety 
+				validates efforts by normalizing temerity and survey data
+			- tuning for harmony
+				goal improve retention
+				validation active payer count
+				method smooth out frustration, risk reward outliers and build trust with users through communication and strong vision
+		mandate for tuning
+			you need fairy high level player who is banned from tournament  / tournament rewards 
+			they have no main and use what the community thinks are the weakest and against strong players using the most offending tools or chars 
+			big picture guy who is also good at everyone *me wanting to main random select for my own game*.
+			consider various skill levels deal with low level degenerate game player to retain players
+			be critical and talk with influences be observant 
+	what to prioritizes
+		a hot fix system (meaning a quick update that is not a full game update)
+		monitor community for mega frustrators
+		build comunity trust
+	what to avoid 
+		don't focus on match ups witch are broad
+		don't freak out validate i
+	his method
+		risk vs rewards game 
+			wide (example of head shot) then the example of magneto in mvc3 both light and heavy are TODable. then in gg stive light is weaker combo options and damage. in KI all chars have 5 frame but they ave different ranges and are balanced around their kits instead
+			imbalance can create harmony (zoners grapplers etc or safe jumps witch are high damage safe options)
+		fun vs frustration scale
+			the scale represents the feel of the player and their relationship with the game 
+			loading times maters too
+			one players fun is one players frustration some like long combos and some like not that
+			frustration of all play levels tracking portal punch was bad at low level. or spam sometime asking players to learn is the right decision.
+		reduce though less play patterns
+			rumble verse stop sign nuke example
+			in fighting games you lose control of your char every time you get hit and that is frustrating  (6-8 seconds is pretty annoying that a good number of people get frustrated) make long combos varied and or less frequent
+		know your target audience 
+			use https://quanticfoundry.com/#motivation-model to sort more easily sf6 stale game currently
+		provide many right answers
+			OS safe stuff unapproachable stuff
+			sf6 has a lot of correct answers so that comforting of playstyle doesn't show up
+			use combos like this not just damage setup, meter gain, or damage witch can also be buttion based
+		do things with intent and communicate with players
+			be able to communicate with people with good reasons. and have clear intent
+			mention exactly why you wont share the patch notes some times because you want players to feel that sense of discovery. 
+		addressing a problem is like this 
+			hear it -> investigate -> see pros and cons -> fix if needed -> communicate your reasoning
+		
 ## emergent game play videos
 lets look a this and see how we can track these
 	1.  sajam video # 25, 33
@@ -252,7 +341,7 @@ video numbered some may have been watched already
     50. 
 
 justification for block button 
-	holding down back isn't as telling as removing your attacking hand from attacking and turning it into a blocking hand also back + block as a parry seems neat with forward + block as a counter
+	holding down back isn't as telling as removing your attacking hand from attacking and turning it into a blocking hand also back + block as a parry seems neat with forward + block as a counter for universal or even just char specific
 	run block could be done
 
 need to also make direct lengths of guide
@@ -272,3 +361,4 @@ puppet character, Carl, Zappa, zato
 	because of the information transparency
 	some things of the game may be better when not transparent like patch note maybe for a limited time for the casual feel as a solved meta is a annoying thing for some people.
 	i had the idea of random damage every day but i don't see that as a reasonable thing tho
+	could also add a special even for a single character gets bonus buffs for the day or week to encourage play of them

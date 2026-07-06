@@ -11,3 +11,5 @@ what group is a mode for
 	pvp competivive multiplayer
 	party battle with items casual multiplyer
 	i asked ai to compile something
+tools from websites / data sets
+	https://quanticfoundry.com/#motivation-model

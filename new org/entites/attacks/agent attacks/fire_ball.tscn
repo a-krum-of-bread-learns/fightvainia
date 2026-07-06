@@ -13,7 +13,6 @@
 
 [sub_resource type="Resource" id="Resource_3pm7c"]
 script = ExtResource("7_6vjg7")
-stun_type = 0
 hit_type = 2
 block_stun_duration = 30
 block_back_distance = 16.0

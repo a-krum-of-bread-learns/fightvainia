@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://d3hrcagtig5wb"]
 
 [ext_resource type="PackedScene" uid="uid://lehj6n73xymd" path="res://new org/entites/enemies/cpu/enemy_base.tscn" id="1_2s5cn"]
+[ext_resource type="Script" uid="uid://6xwe037j5sj4" path="res://new org/systems/entity systems/cpu systems/EnemyLogic.gd" id="2_cv66i"]
+[ext_resource type="Resource" uid="uid://3c1b4qm108yn" path="res://new org/entites/enemies/cpu/settings/far zoner settings.tres" id="3_5k1mq"]
 [ext_resource type="PackedScene" uid="uid://dp71uc0na4lwi" path="res://new org/entites/attacks/spike_close.tscn" id="12_ydfeu"]
 [ext_resource type="PackedScene" uid="uid://7ggp08qiu7h3" path="res://new org/entites/attacks/spike_far.tscn" id="13_wtoeq"]
 [ext_resource type="PackedScene" uid="uid://duw2his5lywxk" path="res://new org/entites/attacks/agent attacks/left_buttion_jab_(x)_lp.tscn" id="14_fpa4a"]
@@ -10,32 +12,44 @@
 [ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://new org/art/copy right free audio assets/session.mp3" id="18_v6a34"]
 [ext_resource type="PackedScene" uid="uid://b50dutlc1lhd4" path="res://new org/entites/attacks/agent attacks/up_buttion_anti_air_(y)_hp.tscn" id="19_b1cre"]
 
-[node name="spike zonner" unique_id=518042812 instance=ExtResource("1_2s5cn")]
+[node name="spike zonner" unique_id=518042812 node_paths=PackedStringArray("contol_node") instance=ExtResource("1_2s5cn")]
+contol_node = NodePath("folder to not be scaled/enemylogic2")
 
-[node name="enemylogic" parent="folder" parent_id_path=PackedInt32Array(572432720) index="6" unique_id=1044143473 node_paths=PackedStringArray("close_pokes", "mid_pokes", "far_or_projectile_pokes")]
-close_pokes = [NodePath("../../boss folder/AttackManager/spike close")]
-mid_pokes = [NodePath("../../boss folder/AttackManager/spike close")]
-far_or_projectile_pokes = [NodePath("../../boss folder/AttackManager/spike far")]
+[node name="enemylogic2" type="Node" parent="folder to not be scaled" parent_id_path=PackedInt32Array(401095005) index="6" unique_id=1044143473 node_paths=PackedStringArray("rays", "timer", "close_pokes", "mid_pokes", "far_or_projectile_pokes", "host")]
+script = ExtResource("2_cv66i")
+rays = [NodePath("../../folder to be scaled/boss folder/RayCast2D")]
+settings = ExtResource("3_5k1mq")
+timer = NodePath("../../folder to be scaled/boss folder/FrameTimer")
+humanize_time_in_frames = 20
+pause_time_in_frames = 10
+close_pokes = [null]
+mid_pokes = [null]
+far_or_projectile_pokes = [null]
+enabled = true
+host = NodePath("../..")
+metadata/_custom_type_script = "uid://c5ucrpov3ddtq"
 
-[node name="spike close" parent="boss folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="0" unique_id=1049771095 instance=ExtResource("12_ydfeu")]
+[node name="spike close" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="0" unique_id=1049771095 instance=ExtResource("12_ydfeu")]
 
-[node name="spike far" parent="boss folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="1" unique_id=1616460340 instance=ExtResource("13_wtoeq")]
+[node name="spike far" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="1" unique_id=1616460340 instance=ExtResource("13_wtoeq")]
 
-[node name="left buttion jab (X) lp" parent="boss folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="2" unique_id=508514690 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("14_fpa4a")]
+[node name="left buttion jab (X) lp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="2" unique_id=508514690 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("14_fpa4a")]
 combo_attacks_dictionary = {
 14: null
 }
 
-[node name="left button low (X) lp" parent="boss folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="3" unique_id=14818658 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("15_t38gt")]
+[node name="left button low (X) lp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="3" unique_id=14818658 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("15_t38gt")]
 combo_attacks_dictionary = {
 14: null
 }
 
-[node name="up buttion (Y) hp" parent="boss folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="4" unique_id=2065512744 instance=ExtResource("17_it7aw")]
+[node name="up buttion (Y) hp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="4" unique_id=2065512744 instance=ExtResource("17_it7aw")]
 is_combo_attack = false
 hit_sound = ExtResource("18_v6a34")
 
-[node name="up button low (Y) Hp" parent="boss folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="5" unique_id=2086936221 instance=ExtResource("16_igjoc")]
+[node name="up button low (Y) Hp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="5" unique_id=2086936221 instance=ExtResource("16_igjoc")]
 
-[node name="up buttion anti air (Y) hp" parent="boss folder/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="6" unique_id=1455710997 instance=ExtResource("19_b1cre")]
+[node name="up buttion anti air (Y) hp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="6" unique_id=1455710997 instance=ExtResource("19_b1cre")]
 hit_sound = ExtResource("18_v6a34")
+
+[connection signal="body_entered" from="folder to be scaled/boss folder/detect player" to="folder to not be scaled/enemylogic2" method="_on_area_2d_body_entered"]

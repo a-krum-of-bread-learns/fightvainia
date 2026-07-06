@@ -649,6 +649,7 @@ func _ready():
 	all_attacks.merge(command_normals)
 	all_attacks.merge(neutral_normals)
 	
+	print(JSON.stringify(all_attacks,"\n"))
 	print("Specials: ", all_specials.size())
 	print("Command Normals: ", command_normals.size())
 	print("Neutral Normals: ", neutral_normals.size())

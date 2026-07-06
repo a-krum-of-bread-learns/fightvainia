@@ -16,6 +16,7 @@ var current_flip_direction: Vector2 = Vector2.ONE
 func _ready():
 	self.name= "scale"
 	super._ready()
+	HelperFuncs.check_if_null(host,"host",self)
 	if host.stats == null:
 		push_error("Scale: stats not set on "+ str(host.name))
 		return

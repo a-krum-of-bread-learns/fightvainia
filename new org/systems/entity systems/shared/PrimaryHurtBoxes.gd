@@ -11,7 +11,7 @@ class_name EntityPrimaryHurtBoxesAndSprites extends Node2D
 #@export var standing_stuned_sprite: Sprite2D
 #@export var crouching_stuned_sprite: Sprite2D
 #@export var airborne_stuned_sprite: Sprite2D
-@export var entity: EntityBase
+@export var host: EntityBase
 var standing_hurt_box: CollisionShape2D
 var crouching_hurt_box: CollisionShape2D
 var airborne_hurt_box: CollisionShape2D
@@ -20,25 +20,24 @@ var all_shapes: Array[CollisionShape2D]
 var all_sprites: Array[Sprite2D]
 
 func _ready():
-	if entity == null:
-		push_error("entity not assigned on " + self.name)
+	HelperFuncs.check_if_null(host,"host",self)
 	standing_hurt_box = standing_hurt_box_area.get_child(0)
 	crouching_hurt_box = crouching_hurt_box_area.get_child(0)
 	airborne_hurt_box = airborne_hurt_box_area.get_child(0)
 	all_shapes.append(standing_hurt_box)
 	all_shapes.append(crouching_hurt_box)
 	all_shapes.append(airborne_hurt_box)
-	standing_hurt_box_area.stun_manager = entity.stun_manager
-	standing_hurt_box_area.health = entity.health_component
-	crouching_hurt_box_area.stun_manager = entity.stun_manager
-	crouching_hurt_box_area.health = entity.health_component
-	airborne_hurt_box_area.stun_manager = entity.stun_manager
-	airborne_hurt_box_area.health = entity.health_component
+	standing_hurt_box_area.stun_manager = host.stun_manager
+	standing_hurt_box_area.health = host.health_component
+	crouching_hurt_box_area.stun_manager = host.stun_manager
+	crouching_hurt_box_area.health = host.health_component
+	airborne_hurt_box_area.stun_manager = host.stun_manager
+	airborne_hurt_box_area.health = host.health_component
 	
 	
-	standing_hurt_box_area.collision_layer = entity.hurt_box_layer
-	crouching_hurt_box_area.collision_layer = entity.hurt_box_layer
-	airborne_hurt_box_area.collision_layer = entity.hurt_box_layer
+	standing_hurt_box_area.collision_layer = host.hurt_box_layer
+	crouching_hurt_box_area.collision_layer = host.hurt_box_layer
+	airborne_hurt_box_area.collision_layer = host.hurt_box_layer
 	
 	
 	all_sprites.append(standing_sprite)

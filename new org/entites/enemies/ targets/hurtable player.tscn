@@ -20,12 +20,11 @@ gradient = SubResource("Gradient_lxi42")
 width = 16
 height = 4
 
-[sub_resource type="Gradient" id="Gradient_7ia2k"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 1, 1, 1)
+[sub_resource type="Gradient" id="Gradient_m8xwp"]
+colors = PackedColorArray(0, 0.30588236, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_q2ic0"]
-gradient = SubResource("Gradient_7ia2k")
+gradient = SubResource("Gradient_m8xwp")
 width = 16
 height = 4
 
@@ -38,11 +37,10 @@ stun_manager = NodePath("StunManager")
 health_component = NodePath("simple health bar")
 stats = ExtResource("2_m8xwp")
 primary_boxes_and_sprites = NodePath("Player primary hurtboxes and sprites")
-block_type = 2
 metadata/_custom_type_script = "uid://bssckwpf2obbe"
 
-[node name="Player primary hurtboxes and sprites" parent="." unique_id=994631848 node_paths=PackedStringArray("entity") instance=ExtResource("3_m8xwp")]
-entity = NodePath("..")
+[node name="Player primary hurtboxes and sprites" parent="." unique_id=994631848 node_paths=PackedStringArray("host") instance=ExtResource("3_m8xwp")]
+host = NodePath("..")
 
 [node name="colison box" type="CollisionShape2D" parent="." unique_id=2049379602]
 shape = SubResource("RectangleShape2D_7li3v")

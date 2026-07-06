@@ -1,4 +1,4 @@
-## a base class for anthing that will move like player, enemys, (npc, chects, etc could be interactable insteds)
+## a base class for anthing that will move like player or enemys and will fight
 class_name EntityBase extends CharacterBody2D
 var is_facing_right: bool = true ## holds the direction the Entity is facing
 var is_blocking: bool = false
@@ -15,10 +15,13 @@ var is_crouching: bool = false
 @export var health_component: SimpleHealthBar
 @export var stats: EntityStats
 @export var primary_boxes_and_sprites: EntityPrimaryHurtBoxesAndSprites
+@export var simple_damage_effect: SimpleDamageNumberEffect
 @export var contol_node: BehaviourBase
-@export var combo_tracker: ComboTracker
-@export var hurt_box_layer: int = 2 ##eneimes hurt on 2 player hurts on 4 use 6 to hurt both
-@export var hit_box_mask: int = 4 ##eneimes hit on 4 player hits on 2 use 6 to hit both
+@export var combo_tracker: SelfComboTracker
+@export var on_screen_combo_tracker: ComboTracker
+#@export_enum("player_layers:1", "enemy_layers:2") var layers = 2# this didnt work well
+@export_enum("player:4" , "enemy:2") var hurt_box_layer: int = 2 ##eneimes hurt on 2 player hurts on 4 use 6 to hurt both
+@export_enum("player:2" , "enemy:4") var hit_box_mask: int = 4 ##eneimes hit on 4 player hits on 2 use 6 to hit both
 
 
 
@@ -35,6 +38,7 @@ func _ready() -> void:
 	HelperFuncs.check_if_null(scale_component, "scale_component", self)
 	HelperFuncs.check_if_null(primary_boxes_and_sprites, "primary_boxes_and_sprites", self)
 	stun_manager.stun_has_ended.connect(primary_hurt_box_manager)
+	
 
 func get_frames_remaining() -> int:
 	# in hitstun or blockstun - read from stun manager

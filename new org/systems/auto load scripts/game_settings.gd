@@ -14,3 +14,4 @@ class_name FighingGameSettings
 @export var is_speical_cancelable_special_moves_by_defult_enabled: bool = false
 
 @export var speical_into_special_limit: int = 1
+@export var label_corection_multiplyer: float = 4

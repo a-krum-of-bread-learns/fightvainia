@@ -17,7 +17,8 @@ average person (weakest char) 1 hp or something low
 the standard grappler
 portals
 test dummy (for character tests with tho this is for fighting game )
-card game guy with deck of cards to draw (yugimoto in dragon ball is good refence
+card game guy with deck of cards to draw (yugimoto in dragon ball is good refence)
+	can also be a card game fighting game rogue like character each card is a speical move and that changes based on cards in hand
 puppeteer
 	with dissociate amnesia who killed their own family tiring to help them by they replaced their family with puppets and toys
 copy cat

@@ -22,7 +22,8 @@ signal stun_has_ended
 #TODO have an option for aninmation type stun
 #TODO make the viusals for stuns of type like fire and electricty or ice here
 # FIXME error for hit type overides blocking = grab?
-
+func _ready():
+	HelperFuncs.check_if_null(host,"host",self)
 func get_time()-> float:
 	return PUSH_BACK_TIME_IN_FRAMES/60.0
 	
