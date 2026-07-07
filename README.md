@@ -56,3 +56,6 @@ AttackManager
 ## Attributon 
 TODO addon i use form this guy you can download it in the godot assetlib
 https://github.com/OrigamiDev-Pete/TODO_Manager
+the save system i will likely be using 
+https://github.com/amcaricola/DOT-save-manager
+
