@@ -1,4 +1,5 @@
-## this is the hurt box that is used to ideteify when an [EntityBase] is hurt
+## Detects when an [EntityBase] is hurt. [member health] and [member stun_manager] are
+## set by whichever system owns this box — see [AttackManager] and [Frame].
 @tool
 class_name HurtBoxArea extends Area2D
 @export_category("buttions")
@@ -7,9 +8,8 @@ class_name HurtBoxArea extends Area2D
 ##tool script buttion that is used to reset the debug color to a
 ## default in the [method fix_color] fuction if the value is changed
 @export var fix_color_buttion: bool = false
-@export_category("component refrence")
-@export var health: SimpleHealthBar ##see Health [Health]
-@export var stun_manager: StunManager ##see StunManager [StunManager]
+var health: SimpleHealthBar ##see Health [Health]
+var stun_manager: StunManager ##see StunManager [StunManager]
 
 ##tool script adds a new [HurtBoxArea] colsion shape 2d
 func add_new_hurt_box(): 

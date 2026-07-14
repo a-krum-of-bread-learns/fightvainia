@@ -1,4 +1,10 @@
-## a testing class to have a constant active hit bock to be used to test things
+## Base class for all hit-dealing areas — [HitBoxArea] extends this, and [ProjectileArea]
+## extends [HitBoxArea]. Holds the [member attack_data] used to deal damage and stun.
+##
+## Always active Deals damage on every [HurtBoxArea] overlap and can hit the same
+## target multiple times at once (e.g. standing + crouching hurtboxes), since there's 
+## no exception check like [member AttackManager.hit_expetions] provides.[br]
+## Useful on its own for quick testing without setting up a full [Attack].
 class_name ActiveHitBox extends Area2D
 
 @export var attack_data: HitBoxData

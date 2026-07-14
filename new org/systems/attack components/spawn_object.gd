@@ -3,13 +3,12 @@
 ## Supports both player input triggered spawning and turret style repeated spawning
 ## when driven by an external timer or signal.
 ##
-## Usage:
-## - Assign [thing_to_spawn] in the inspector
-## - Connect an external signal or call [spawn] directly
-## - Set [max_alowed_to_exist] to control how many can exist at once
-## - Enable [overwrite_on_max] to replace the oldest object when the cap is reached if this is desired
-##
-## Note: Spawned objects are responsible for their own despawning via queue_free()
+## Usage:[br]
+## - Assign [member thing_to_spawn] in the inspector[br]
+## - Connect an external signal or call [method spawn] directly, passing the entity's facing direction[br]
+## - Set [member max_alowed_to_exist] to control how many can exist at once[br]
+## - Enable [member overwrite_on_max] to replace the oldest object when the cap is reached[br]
+## Spawned objects are responsible for their own despawning.
 class_name SpawnObject extends Node2D
 @export var thing_to_spawn: PackedScene
 @export var max_alowed_to_exist: int = 5
@@ -17,7 +16,9 @@ class_name SpawnObject extends Node2D
 @export var position_offset: Vector2 = Vector2.ZERO
 var spawned_objects: Array
 
-func spawn(is_facing_right: bool): #conect to signal
+## Spawns [member thing_to_spawn] at this node's position, offset by [member position_offset]
+## flipped for [param is_facing_right]. Connect this to a signal or call directly.
+func spawn(is_facing_right: bool):
 	if thing_to_spawn == null:
 		push_error("SpawnObject: thing_to_spawn is not assigned on " + name)
 		return

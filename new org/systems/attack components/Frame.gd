@@ -1,8 +1,15 @@
-# this script contorls the adding of hurt_boxes and hurt boxes per frame is mostly a tool script 
-## this is a holder and tool script no ipmortant function here other then forcing stucture via tool script 
+## Represents a single frame of an [Attack]'s animation timeline, holding the hitboxes,
+## hurtboxes, projectiles, and sprites active during it as well as helpers to set enabled.
+##
+## One [HitBoxArea]/[HurtBoxArea] per frame is enough — give it multiple [CollisionShape2D]s
+## for multi-shape hits. Positional damage (sweet spots) may come later. [br]
+## [member repeat_this_frame] repeats this frame's reference in [member Attack.frames] to
+## keep it active for extra ticks without extra nodes.[br]
+## @tool section adds buttons for adding children; renaming encodes each child's type
+## (1xx hit box, 2xx projectile, 3xx hurt box, 4xx sprite).[br]
+## [method set_frame_disabled] toggles boxes/sprites and triggers [SpawnObject]s on enable.
 @tool
 class_name Frame extends Node2D
-## buttions to do things
 @export_category("buttions")
 @export var add_hit_box_buttion: bool = false 
 @export var add_projectile_box_buttion: bool = false 
@@ -20,13 +27,22 @@ var spawners: Array[SpawnObject]
 var sprites_array: Array[Sprite2D]
 @onready var attack_manager: AttackManager = self.get_parent().get_parent()
 #TODO add use default sprite support
-
+#region game code
+## Returns this frame's [HitBoxArea] if one exists, otherwise null. Used
+## for block prediction. on enemies
 func get_hitboxarea() -> HitBoxArea:
 	for child in get_children():
 		if child is HitBoxArea:
 			return child
 	return null
 
+func get_projectileboxarea() -> ProjectileArea:
+	for child in get_children():
+		if child is ProjectileArea:
+			return child
+	return null
+
+## Returns this frame's [HurtBoxArea] if one exists, otherwise null.
 func get_hurtboxarea() -> HurtBoxArea:
 	for child in get_children():
 		if child is HurtBoxArea:
@@ -43,6 +59,7 @@ func set_frame_disabled(value: bool):
 	if value:
 		for spawner in spawners:
 			spawner.spawn(attack_manager.host.is_facing_right)
+			
 
 
 ## grabs the CollisionShape2D for box_shapes
@@ -65,6 +82,9 @@ func _ready():
 	if box_shapes.is_empty() and sprites_array.is_empty():
 		push_warning("Frame: " + name + " of attack " + get_parent().name + " has no boxes or sprites, is this intentional?")
 
+#endregion
+
+#region @tool code
 ## setts all CollisionShape2D to be the same disabled state as the first on in the list to make it easier to show a spasific box
 func toggle_this_frames_boxes():
 	var shape_disbaled_1: bool = box_shapes[0].disabled
@@ -151,6 +171,7 @@ func rename_all_children():
 	for child in get_children():
 		move_child(child, child.name.to_int()%100-1)
 	fix_names_buttion = false
+#endregion
 
 ## runs the buttions
 func _physics_process(_delta):

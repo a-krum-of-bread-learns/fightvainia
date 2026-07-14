@@ -24,7 +24,6 @@ metadata/_custom_type_script = "uid://sx7qv8babvbw"
 
 [sub_resource type="Resource" id="Resource_tmup4"]
 script = ExtResource("5_e6xyj")
-stun_type = 0
 hit_type = 1
 block_stun_duration = 19
 block_back_distance = 20.0

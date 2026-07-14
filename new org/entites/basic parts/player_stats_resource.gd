@@ -4,7 +4,7 @@ class_name PlayerStats extends EntityStats
 @export var move_speed: float
 @export var dash_speed: int
 @export var max_dash_duration_frames: int
-@export var run_speed: int
+@export var run_speed: int ## unused in first game
 @export var c_timer_length: int
 @export var max_air_dash_count: int
 @export var max_air_jump_count: int

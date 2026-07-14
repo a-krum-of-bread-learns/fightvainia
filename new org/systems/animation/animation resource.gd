@@ -31,7 +31,7 @@ func get_corection(smoothing_curve: Curve, corection: float) -> float:
 		
 		
 func get_time()-> float:
-	return time_in_frames/60.0
+	return (time_in_frames)/60.0
 	
 func get_velocty_x(is_facing_right: bool) -> float:
 	if smoothing_curve_x == null:

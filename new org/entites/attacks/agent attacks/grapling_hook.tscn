@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="1_ir3hp"]
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="2_qwngo"]
-[ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://new org/art/copy right free audio assets/session.mp3" id="2_ynnf3"]
 [ext_resource type="Texture2D" uid="uid://b2t3qtr1cy383" path="res://new org/art/copy right free art assets/steel grapling hook.png" id="3_33jvn"]
 [ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://new org/systems/attack components/HitBoxArea.gd" id="3_r1ten"]
 [ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://new org/art/copy right free art assets/stating stick.png" id="3_ynnf3"]
@@ -15,7 +14,7 @@ script = ExtResource("6_33jvn")
 stun_type = 3
 hit_type = 2
 block_stun_duration = 15
-block_back_distance = 50
+block_back_distance = 50.0
 hit_stop_frames = 3
 damage = 900
 metadata/_custom_type_script = "uid://c8e0lbybahcxv"
@@ -31,33 +30,34 @@ size = Vector2(4.25, 6.84375)
 
 [node name="grapling hook" type="Node2D" unique_id=154535348]
 script = ExtResource("1_ir3hp")
-hit_sound = ExtResource("2_ynnf3")
+kill_momnetum_of_tween_start = null
+kill_momnetum_of_tween_end = null
 
-[node name="frame # 1-14" type="Node2D" parent="." unique_id=855000482]
+[node name="frame # 1-10" type="Node2D" parent="." unique_id=855000482]
 script = ExtResource("2_qwngo")
-repeat_this_frame = 13
+repeat_this_frame = 9
 
-[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 1-14" unique_id=1877017252]
+[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 1-10" unique_id=1877017252]
 scale = Vector2(0.063, 0.063)
 texture = ExtResource("3_ynnf3")
 
-[node name="frame # 15-26" type="Node2D" parent="." unique_id=826686302]
+[node name="frame # 11-22" type="Node2D" parent="." unique_id=826686302]
 script = ExtResource("2_qwngo")
 repeat_this_frame = 11
 
-[node name="Sprite2D # 401" type="Sprite2D" parent="frame # 15-26" unique_id=1743026829]
+[node name="Sprite2D # 401" type="Sprite2D" parent="frame # 11-22" unique_id=1743026829]
 position = Vector2(25, -24)
 rotation = 0.21118484
 scale = Vector2(0.032, 0.032)
 texture = ExtResource("3_33jvn")
 
-[node name="hit_box # 100" type="Area2D" parent="frame # 15-26" unique_id=1116772027]
-collision_layer = 0
+[node name="hit_box # 100" type="Area2D" parent="frame # 11-22" unique_id=1116772027]
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_r1ten")
 attack_data = SubResource("Resource_ynnf3")
 
-[node name="hit_box" type="CollisionShape2D" parent="frame # 15-26/hit_box # 100" unique_id=1886708601]
+[node name="hit_box" type="CollisionShape2D" parent="frame # 11-22/hit_box # 100" unique_id=1886708601]
 position = Vector2(24.995836, -24.167469)
 rotation = 1.0471976
 scale = Vector2(0.9999999, 0.9999999)
@@ -65,39 +65,39 @@ shape = SubResource("RectangleShape2D_s5bsa")
 disabled = true
 debug_color = Color(1, 0, 0, 0.6862745)
 
-[node name="hurt_box # 300" type="Area2D" parent="frame # 15-26" unique_id=1985027550]
+[node name="hurt_box # 300" type="Area2D" parent="frame # 11-22" unique_id=1985027550]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("5_ynnf3")
 
-[node name="hurt_box" type="CollisionShape2D" parent="frame # 15-26/hurt_box # 300" unique_id=1674598772]
+[node name="hurt_box" type="CollisionShape2D" parent="frame # 11-22/hurt_box # 300" unique_id=1674598772]
 position = Vector2(10.125, -11.421875)
 shape = SubResource("RectangleShape2D_3upj7")
 disabled = true
 debug_color = Color(0, 0, 1, 0.6862745)
 
-[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 15-26" unique_id=786655519]
+[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 11-22" unique_id=786655519]
 position = Vector2(3, 0)
 scale = Vector2(0.063, 0.063)
 texture = ExtResource("7_ynnf3")
 region_enabled = true
 region_rect = Rect2(48, 0, 296, 512)
 
-[node name="frame # 27-48" type="Node2D" parent="." unique_id=262509831]
+[node name="frame # 23-44" type="Node2D" parent="." unique_id=262509831]
 script = ExtResource("2_qwngo")
 repeat_this_frame = 21
 
-[node name="hurt_box # 300" type="Area2D" parent="frame # 27-48" unique_id=511481454]
+[node name="hurt_box # 300" type="Area2D" parent="frame # 23-44" unique_id=511481454]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("5_ynnf3")
 
-[node name="hurt_box" type="CollisionShape2D" parent="frame # 27-48/hurt_box # 300" unique_id=1536274756]
+[node name="hurt_box" type="CollisionShape2D" parent="frame # 23-44/hurt_box # 300" unique_id=1536274756]
 position = Vector2(10.125, -11.421875)
 shape = SubResource("RectangleShape2D_6wwvx")
 disabled = true
 debug_color = Color(0, 0, 1, 0.6862745)
 
-[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 27-48" unique_id=1273337130]
+[node name="Sprite2D # 400" type="Sprite2D" parent="frame # 23-44" unique_id=1273337130]
 scale = Vector2(0.063, 0.063)
 texture = ExtResource("3_ynnf3")

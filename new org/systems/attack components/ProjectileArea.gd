@@ -1,3 +1,14 @@
+## Extends [HitBoxArea] for hitboxes that persist beyond their spawning [Frame] — projectiles.
+##
+## Recommended to add via [Frame]'s add-projectile tool button rather than manually, since
+## it wires up the required children automatically.[br]
+## [member attached_to_entity] controls lifecycle: true means it behaves like a normal
+## attached hitbox, following [Frame]/[Attack] timing and the entity's transform. False
+## means it detaches on activation ([member top_level] is set true) and manages its own
+## enable/disable state via [member is_active] until [member max_lifespan_in_frames] expires
+## or it's manually reset.[br]
+## [b]Known issue:[/b] a detached projectile's boxes can be disabled for one frame by its
+## parent [Frame] advancing past it, before this class's own logic re-enables them.
 @tool
 class_name ProjectileArea extends HitBoxArea
 @export var timer: FrameTimer
@@ -10,11 +21,11 @@ var stay_on_right: bool #TODO use this to make a fix for the side swap porblem
 var is_active_previous: bool
 var is_active: bool = false
 var boxes: Array[CollisionShape2D]
-#FIXME 1 frame is disaled on projectile start up witch shouldent happen 
 @export var add_sprite_button: bool = false ## adds a Sprite2D to the frame
 var sprites_array: Array[Sprite2D]
 # animation stuff
 @export var animation_stuff: Array[AnimationResource]
+
 
 
 
@@ -67,7 +78,7 @@ func enable_disable_boxes():
 func lifespan_check():
 	if is_active == true and is_active_changed():
 		timer.start_frame_timer(max_lifespan_in_frames)
-		animation_tool.animate(attack_manager.host.is_facing_right,animation_stuff)
+		animation_tool.animate(attack_manager.host.is_facing_right,animation_stuff,true,true)
 	elif timer.is_stoped():
 		reset_postion_detached()
 		timer.reset()

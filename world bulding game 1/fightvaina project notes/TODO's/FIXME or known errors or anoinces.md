@@ -10,3 +10,5 @@
 - [x] add bounus frmaes for input history to allow resopnive but delayed cancels 
 	for example input on frame 8 but the move gets cancels on frame 22 where the cancel window is  defined
 - [ ] command normal come out when the direction is in history  and buttion is pressed after outside of buffered array
+- [ ] doing  up upforward jump/lk forwards casues the followng actions the player does grapling hook on ground then jumps a few frames after end of attack.
+- [ ] animation tool is kinda vibes based

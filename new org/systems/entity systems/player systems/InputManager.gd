@@ -49,10 +49,12 @@ var bonus_frames_remaining: int = 0
 var input_direction: int = 0
 @export var input_release_on: bool = false ##acesablity setting or somthing
 @export_group("player info")
+#REFACTOR remove these and set them to player?
 @export var move_list: MoveList
 @export var movement_componet: Movement
 @export var scale_component: Scale
 @export var gravity_component: Gravity
+
 signal dash_signal(direction: Vector2)
 signal jump_signal(direction: Vector2)
 
@@ -66,9 +68,9 @@ signal jump_signal(direction: Vector2)
 func _ready() -> void:
 	self.name = "input_manager"
 	HelperFuncs.check_if_null(host,"host",self)
-	if movement_componet == null: push_error("InputManager: movement_componet not assigned")
-	if scale_component == null: push_error("InputManager: scale_component not assigned")
-	if gravity_component == null: push_error("InputManager: gravity_component not assigned")
+	HelperFuncs.check_if_null(movement_componet, "movement_componet", self)
+	HelperFuncs.check_if_null(scale_component, "scale_component", self)
+	HelperFuncs.check_if_null(gravity_component, "gravity_component", self)
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 
 
@@ -102,14 +104,7 @@ func state_print() -> void:
 ## stops horizontal movement when crouching or attacking
 ## allows movement when on floor, not crouching, and not dashing
 func movement_manager() -> void:
-	if host.is_on_floor() and (host.is_crouching or host.is_attacking):
-		host.velocity.x = 0
-		host.is_dashing = false
-	elif (host.is_on_floor()
-	and not host.is_crouching
-	and host.is_dashing == false):
-		movement_componet.movement_update(input_direction)
-
+	movement_componet.movement_update(input_direction)
 
 # --- input array management ---
 
@@ -309,8 +304,8 @@ func _process(_delta: float) -> void:
 
 	# input_filter runs after chose_action3 so the buffer read by chose_action3
 	# reflects last frame's inputs, not the current frame being built
-	if host.is_dashing == false:
-		chose_action3()
+	#if host.is_dashing == false:
+	chose_action3()
 	if host.is_attacking == false:
 		host.primary_hurt_box_manager()
 		scale_component.flip_x_logic(input_direction)

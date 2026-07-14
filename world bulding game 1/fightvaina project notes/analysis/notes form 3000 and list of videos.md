@@ -281,7 +281,9 @@ game balance isn't real (by the GameDesignDirect 1 h vid)
 			mention exactly why you wont share the patch notes some times because you want players to feel that sense of discovery. 
 		addressing a problem is like this 
 			hear it -> investigate -> see pros and cons -> fix if needed -> communicate your reasoning
-		
+Avatar legends  beta has no discourse (extra trashy)
+	https://youtu.be/fmk1yJ4CUxk?si=uOXDZdghhxT6k2VI
+	this game is easy for existing fighting game players and hard to master for new players is a different story. oki is hard because hard knock downs are only off of suppers. difficulty to pick up 
 ## emergent game play videos
 lets look a this and see how we can track these
 	1.  sajam video # 25, 33
@@ -338,7 +340,18 @@ video numbered some may have been watched already
     47. **What people actually mean when they say strike throw (derogatory)** what it often means is its really easy or constant to get offence. There are some game more strike then throw because either throw is weak or strike are insane. unblock-ables make you move so strike hits you when you move people the weight. Throws are not liked in strike/throw.
     48. **smurfing in fighting games** sbmm seems like a good idea for people. Scissor kick can still beat master players. for 2xko sbmm seems like hard thing
     49. **understanding complex character balance decisions** around the SF6 JP revert chars that are sharp (some that have archetypes) in strength and weaknesses are not supposed to be good or it makes their design not feel like the archetype they also require a change to the match up. their identity matters.
-    50. 
+	50.  **SF always changes the core mechanics with each game** in sf5 you can single hit confirm on mediums in sf6 that is not possible. its a very different game plan they mainly wanted the game to be different. they decisions that are important are very different. other games will try whats popular. the sf6 seems harder than sf5 mechanically because their are a lot of systems
+	51. **Players directly influencing the game balance** people who are in the game so to balance the games. active players are consulting. But as dev make decisions that help achieve the goal. some people are evil because they want to win money and some are good. only a few are good because many are self serving. know the psychology of the players, how they interact, how they feel, how they are fighting them in the game. game balance is music. we need to verify everything. even then the sayjam slam has dealt with it. when a game gets patched all the time so some people tell you to swap to the most power full thing
+	52. **players and developers that are terrified of the game being solved** their are players are using stats for a bunch of decisions and some people do not want that at all. there are things to consider when giving all the data to players at the start some people don't want to give that because game get solved very quick. so i want to try to withhold that information after a large patch and just say you don't get to know what is good anymore and oh boy you will have fun without the frame data or a complete training mode. some people like when the game is not solved. people solve games very fast
+	53. 
+	54. 
+	55. 
+	56. 
+	57. 
+	58. 
+	59. 
+	60. a
+	61. **They are talking about fighting game difficulty on the timeline again**. modern combos are easy or mash able but avatar seems to be very high combo difficulty. but the combo system was pretty open. with higher difficult turns it more into a puzzle. mechanical struggle is a part of the game and can be a balance decision. play tests make the thing very crazy and all for fun and the feeling that fighting play testers can be like wow or man this game is impossible. muscle memory is a thing said. some people want to jump into the ranked (navi style person for advice). at some point every one looks at an outside resource but by playing is the main way. you need to try ideas in training mode then play the game. learning is hard. people invent fake excuses. people reply as if they are AI generated responses. you can do a quarter circle to walk back walk diagionly then walk right to doge an ult in afps
 
 justification for block button 
 	holding down back isn't as telling as removing your attacking hand from attacking and turning it into a blocking hand also back + block as a parry seems neat with forward + block as a counter for universal or even just char specific

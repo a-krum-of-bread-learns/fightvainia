@@ -4,9 +4,9 @@ class_name Gravity extends BehaviourBase
 func _ready():
 	self.name= "gravity"
 	super._ready()
-	if host.stats == null:
-		push_error("Gravity: stats not set on "+host.name)
-		return
+	HelperFuncs.check_if_null(host.stats, "stats", self)
+	
+
 
 
 ## this fucntion alows falling due to gravity
