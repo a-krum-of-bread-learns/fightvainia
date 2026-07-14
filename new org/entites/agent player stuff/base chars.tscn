@@ -14,9 +14,9 @@
 [ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://new org/systems/entity systems/shared/StunManager.gd" id="11_x2twk"]
 [ext_resource type="Script" uid="uid://c8qc0j10c563q" path="res://new org/systems/attack components/AttackManager.gd" id="12_167us"]
 [ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://new org/systems/auto load scripts/set cam.gd" id="13_2vsw6"]
-[ext_resource type="Script" uid="uid://bk1u4fdp8mqch" path="res://new org/systems/ui/on screen combo tracker.gd" id="13_7ia2k"]
 [ext_resource type="Script" uid="uid://cqq0ce0r3nxrj" path="res://new org/systems/entity systems/player systems/moveList.gd" id="14_ji48l"]
 [ext_resource type="Script" uid="uid://b4pafhiqf6us2" path="res://new org/systems/entity systems/cpu systems/SelfComboTracker.gd" id="14_kpemt"]
+[ext_resource type="PackedScene" uid="uid://ctheu4l2kk463" path="res://new org/systems/ui/on screen combo tracker.tscn" id="15_2q7o6"]
 [ext_resource type="Script" uid="uid://dqfwwo01ngier" path="res://new org/systems/entity systems/shared/BaseSpriteManager.gd" id="15_7ia2k"]
 [ext_resource type="Script" uid="uid://bpcoafuum2ks1" path="res://new org/systems/ui/SimpleHealthBar.gd" id="15_lxi42"]
 
@@ -41,13 +41,14 @@ gradient = SubResource("Gradient_lxi42")
 width = 16
 height = 4
 
-[sub_resource type="LabelSettings" id="LabelSettings_kpemt"]
+[sub_resource type="LabelSettings" id="LabelSettings_dib5i"]
 font_size = 64
 font_color = Color(1, 0, 0, 1)
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[node name="player" type="CharacterBody2D" unique_id=2023579452 node_paths=PackedStringArray("stun_manager", "attack_manager", "scale_component", "health_component", "primary_boxes_and_sprites", "simple_damage_effect", "contol_node", "on_screen_combo_tracker")]
+[node name="player" type="CharacterBody2D" unique_id=2023579452 node_paths=PackedStringArray("stun_manager", "attack_manager", "scale_component", "health_component", "primary_boxes_and_sprites", "simple_damage_effect", "control_node", "on_screen_combo_tracker")]
+collision_layer = 3
 script = ExtResource("1_ji48l")
 stun_manager = NodePath("folder to not be scaled/stunManager")
 attack_manager = NodePath("folder to be scaled/attack manager")
@@ -56,8 +57,8 @@ health_component = NodePath("folder to not be scaled/simple health bar")
 stats = ExtResource("2_8it8p")
 primary_boxes_and_sprites = NodePath("folder to be scaled/player primary hurt boxes")
 simple_damage_effect = NodePath("folder to not be scaled/simple damage # effect")
-contol_node = NodePath("folder to not be scaled/inputmanager")
-on_screen_combo_tracker = NodePath("folder to not be scaled/ComboTracker")
+control_node = NodePath("folder to not be scaled/inputmanager")
+on_screen_combo_tracker = NodePath("folder to not be scaled/CanvasLayer")
 hurt_box_layer = 4
 hit_box_mask = 2
 
@@ -87,7 +88,7 @@ offset_right = 168.0
 offset_bottom = 32.0
 scale = Vector2(0.25, 0.25)
 text = "1000"
-label_settings = SubResource("LabelSettings_kpemt")
+label_settings = SubResource("LabelSettings_dib5i")
 horizontal_alignment = 1
 script = ExtResource("4_2q7o6")
 host = NodePath("../..")
@@ -157,13 +158,7 @@ script = ExtResource("14_kpemt")
 host = NodePath("../..")
 metadata/_custom_type_script = "uid://b4pafhiqf6us2"
 
-[node name="ComboTracker" type="Label" parent="folder to not be scaled" unique_id=1349792229 node_paths=PackedStringArray("host")]
-offset_left = -144.0
-offset_top = -96.0
-offset_right = -72.0
-offset_bottom = -73.0
-text = "combo: 3"
-script = ExtResource("13_7ia2k")
+[node name="CanvasLayer" parent="folder to not be scaled" unique_id=290489328 node_paths=PackedStringArray("host") instance=ExtResource("15_2q7o6")]
 host = NodePath("../..")
 
 [node name="folder to be scaled" type="Node2D" parent="." unique_id=1784953174]

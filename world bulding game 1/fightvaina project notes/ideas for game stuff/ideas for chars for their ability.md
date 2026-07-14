@@ -137,4 +137,5 @@ a char with inteonal unituive inputs
 	for a optimal combo you must do forwad lp then dqcf lp for the speical same with down lp with fqcd lp
 a char with spikes that have directional launching depnedign on input
 	a spike that faces left launches left and a sipke that faces right launches right so you can control the position of the opponent for your next move or extend combo
-
+damage effects 
+	turn a person into food

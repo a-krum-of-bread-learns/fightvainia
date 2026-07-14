@@ -106,11 +106,11 @@
 - [ ] make attack dash to be canceled by a ton of things
 - [ ] make jump start up an attack as well?>
 - [x] knockdown and wake up separation to allow for otg  
-- [ ] run?
+- [x] run? not the first game 
 
-- [ ] healing could just be a negative hit box damage?  this needs an exception to self exception
+- [ ] healing could just be a negative hit box damage?  this needs an exception to self exception tho
 - [ ] consideration motion attacks? like motion inputs for directions rhythm character or something technicality possible or better way to do the combo attacks
-- [ ] stuns of type like fire and electricity or ice here
+- [ ] visual stuns of type like fire and electricity or ice here
 - [ ] review all process/ physics process functions for witch one is right to use
 - [ ] ==make a system map to see how it all fits right now== when i in school
 - [ ] add flexibility to combo attacks so that if i have a 2 hit attack it can follow up differently on hit 1 and hit 2 (example Jamie 4 drink forward heavy kick 3 followups)
@@ -118,25 +118,48 @@
 - [ ] fix collisions so i can push another player using if i'm being detected then i will be pushing
 	the layer pushes the mask witch means i need 2 player layers needs a work a round to have both the players push each other 
 
-- [ ] make grabs and command grabs or don't and skip this 
+- [ ] make grabs and command grabs or don't and skip this for game 1
 - [ ] make simple boolens for modifiers of hurt and hit boxes? skip this scope creep
 - [ ] decide on state based movement or fluid movement 
 - [ ] do a documentation check 
 - [ ] different hit stop for on block and on hit same with screen shake maybe per attack?
-- [ ] tween error that is being a little annoying now
+- [x] hit stop and camera set thing that is required for me because i did that for some reason
+- [x] tween error that is being a little annoying now
 
 non fighting game exclusive systems
 - [ ] accessibility options
-- [ ] save system
+- [x] game save system taken from https://github.com/amcaricola/DOT-save-manager
 - [x] a bit of combo ui
 - [x] damage ui conect via health right?
-- [ ] check all enabled for behavior base stuff 
+- [ ] put enabled all for behavior base stuff 
 
 - [ ] make char from scratch and see if there are error checks that are not fully informative 
-
+- [ ] define save-able objects or enabled flags: player, current scene, some numbers, games progression flags settings information
 
 - [ ] investigate https://github.com/KoBeWi/Metroidvania-System 
 - [ ] investigate https://semver.org
 - [ ] major thing put the project on the asset library this month
 - [ ] make a some vids on using the tool 
 	- [ ] a
+- [ ] make the player have Target combos using combo attacks 
+- [ ] hud 
+- [ ] settings and start menu
+- [ ] extend grappling hook to also be moment on hit of certain things
+- [x] block leveling movement tutorial and blocking tutorial
+- [x] consider tight rope and ledge animations probably not
+- [ ] ledge grab or prevent all 1 wide gaps from existing if it isn't a kill pit or directional influence like meltyblood
+- [ ] make the health component not allow over heal and save points can be used with negative damage
+- [ ] plan dash/ maybe the jump button things
+	- [ ] on neutral dash press back dash 
+	- [ ] on forward press forward dash
+- [x] cut scene system (use enabed bool on most things via signal?)
+- [ ] level based saves where its just compleion flags for each scene the simplest system
+- [ ] npc interactsion system but i don't want to nooooo
+- [x] simple dialog system raw text
+- [ ] edit and redo hit box and projectile treatment for support of the following types (after game one) 2 bools then also die on hit
+	- [ ] strike (hitbox as is)
+	- [ ] fireball projectile (projectile detached independent and extended lifespan)
+	- [ ] projectile attached following extended life span
+	- [ ] lazer (projectileattached following projectile not extended lifespan)
+	- [ ] detached indepenant not extened life span????????????? un used
+- [ ] projectile clashing 

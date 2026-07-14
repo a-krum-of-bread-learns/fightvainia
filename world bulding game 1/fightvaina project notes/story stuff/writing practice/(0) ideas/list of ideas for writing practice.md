@@ -122,7 +122,7 @@ describing people interacting
 	chatting while task is worked on 
 	showing/competing who has better (inset talent) 
 	
-Study the Quran 
+maguffinStudy the Quran 
 	stories of the prophets
 		Aaron
 		Abraham
@@ -168,4 +168,5 @@ just ideas
 i just think it funny
 	you ain't (insert slang here) turns into person being extremely (insert slang here) to the point of absurdity  causing mass destruction and fighting Goku or something in the relevant (insert hobby/sport here)
 	overly murderous and torturous description of a spa treatment
-	
+for the world is a simulation and a game partially with code as the underling magic system
+	The developer exists both outside the game and as an inserted version inside the game the inserted has a quest to find themself/ a key item witch is with the important character. The inside developer knows the world is a game and still has administrator status, but has no memories of an important character. The outside developer gives that important character information, but stops communicating once the important character discovers the developer’s inserted version inside the game. when the inserted meets important character the important character emotionally breaks for the dev insert doesn't remember them. a side story shows up to deal with the important character kinda like hero and villain interaction but they aren't killed yet. the insert and real dev meet insert gets the password or maguffin

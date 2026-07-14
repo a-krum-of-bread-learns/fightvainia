@@ -2,7 +2,9 @@ class_name SimpleHealthBar extends TextureProgressBar
 @export var host: EntityBase
 ##holds helth info and the call on death
 var current_health: int ## self explantoy
+
 signal health_changed(change: int)
+signal current_health_value(current: int)
 signal zero_or_less_health
 
 ## sets health to max at start 
@@ -31,6 +33,7 @@ func change_health(change: int, set_health: bool = false):
 	if current_health <= 0:
 		die()
 	health_changed.emit(actual_change)
+	current_health_value.emit(current_health)
 	value = value + actual_change
 
 ## calls what to do on death may be custom for child classes

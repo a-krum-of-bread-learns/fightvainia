@@ -7,7 +7,7 @@ var current_speed: Vector2
 func _ready():
 	self.name = "dash"
 	super._ready()
-	host.contol_node.dash_signal.connect(start_dash)
+	host.control_node.dash_signal.connect(start_dash)
 
 
 func start_dash(dir: Vector2):

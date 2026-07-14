@@ -14,3 +14,7 @@ func _ready():
 		push_warning("BehaviourBase: node has no name, consider naming it")
 	print(name+ " enabled is " + str(enabled)) 
 	if !host: push_error("host is not defined for " +name)
+
+func set_enabled(value: bool):
+	enabled = value
+	

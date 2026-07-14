@@ -11,6 +11,9 @@ screen freeze for some things like tag or drive rush
 press block to throw tech? 
 push back timing for this game fixed timing (during the active frames or during all recovery or a fixed duration after the active frames)
 special move button specific so for meter gain setups and or damage example light combos and specials give more meter mediums give setups and heavy give damage maybe as a per attack thing?
+combo difficulty at the highest level mechanical struggle is a part of the game and can be a balance decision for the entertainment of players
+combo length based decay adjusting how fast the player falls 
+
 
 for a tag game proof of concept for a 10 v 10  a single button enables tag mode and you can call any custom assist (like skull girls) an to do so you need to hold tag + any dir + button or hold tag  store a motion + button -> press tag + dir for assist or use a second input stick
 

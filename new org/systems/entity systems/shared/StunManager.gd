@@ -1,19 +1,29 @@
 #REFACTOR seprate out knock down and wake up into 2 difent stun states to allow for otg to be more doable
 ## holds stun information and moves the entity as well 
 class_name StunManager extends BehaviourBase
+## these 3 are usbale for hitboxes and are expoeted on them
 enum HIT_BOX_STUN_TYPE {CUSTOM = 0, DEFUALT_KNOCK_DOWN = 1,DEFUALT_LAUNCH = 4,}
-enum STUN_TYPE {CUSTOM = 0, DEFUALT_KNOCK_DOWN = 1, DEFUALT_LAUNCH = 4, DEFUALT_ON_FLOOR = 2, DEFUALT_WAKEUP = 3, DEFUALT_AIR = 5, BLOCK = 40} ## type of stun
+##type of stun
+enum STUN_TYPE {
+	CUSTOM = 0, ##the most flexable option 
+	DEFUALT_KNOCK_DOWN = 1, ##best for hiting some one straight down to the ground
+	DEFUALT_LAUNCH = 4, ## for launching someone into the air 
+	DEFUALT_ON_FLOOR = 2, ## otg state meaing they are hit-able on the floor and have not yet entered inot an invunrable state
+	DEFUALT_WAKEUP = 3, ## cant be hit and cant act when waking up may be cahnged for wake up options
+	DEFUALT_AIR = 5, ## if any attack with air stun overide off this will take prioty over that attack's set option
+	BLOCK = 40 ## block stun 
+	}
 @export var player_animation_tool: AnimationTool # for later whne grabs are made
-
+ #TODO make the stuns change when you hit the player on the ground to go into wake up or if the attack is an otg it hits and launches proplery?
 # const if it never changes at runtime
 var remaining_duration: int ## frames remaining
 var speed: Vector2 ## the speed per frame
 #TODO ask ai for a small rewite to make curent type work well with next type too 
 var current_type: int ## type need to be tracked
-const DEFUALT_AIR_STUN: Vector2 = Vector2(100,-400)
-const DEFUALT_KNOCKDOWN_STUN: Vector2 = Vector2(0,200)
-const DEFUALT_LAUNCH_STUN: Vector2 = Vector2(50,-400) 
-const PUSH_BACK_TIME_IN_FRAMES: int = 5
+const DEFUALT_AIR_STUN: Vector2 = Vector2(100,-400) ## values for the coresponding stun 
+const DEFUALT_KNOCKDOWN_STUN: Vector2 = Vector2(0,200)## values for the coresponding stun 
+const DEFUALT_LAUNCH_STUN: Vector2 = Vector2(50,-400) ## values for the coresponding stun 
+const PUSH_BACK_TIME_IN_FRAMES: int = 5 ## the time in witch push back is fully done should be small value 
 const ON_FLOOR_TIME: int = 45
 const WAKE_UP_TIME: int = 45
 signal stun_has_started(_stun_type)
@@ -49,9 +59,10 @@ func start_stun_with_tween(attack_data: HitBoxData, default_dir: Vector2, blocke
 
 
 	# start sthe stun animation by moving the player
-	if host.tween:
-		host.tween.kill() # Abort the previous animation.
-	host.tween = create_tween()
+	if current_type in [STUN_TYPE.BLOCK, STUN_TYPE.CUSTOM, STUN_TYPE.DEFUALT_KNOCK_DOWN]:
+		if host.tween:
+			host.tween.kill()
+		host.tween = create_tween()
 	
 	match current_type:
 		STUN_TYPE.BLOCK: # block based on attack data

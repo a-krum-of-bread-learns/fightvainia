@@ -1,3 +1,4 @@
+## this node contols ennemy behaviour using chances. all settings are stored in the see [BossSettings]
 class_name EnemyLogic extends BehaviourBase
 
 @export_group("components")

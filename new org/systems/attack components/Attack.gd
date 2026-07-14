@@ -1,4 +1,18 @@
-## this script contorls the adding of frames in the scene tree this is mostly a just tool script 
+## Represents a single attack: a sequence of [Frame] children forming its animation and hitbox timeline.
+##
+## Attacks dealing multiple hits across separate frames (multi-hit combos within one [Attack])
+## are not yet implemented, but are intended to be supported in the future.[br]
+## Holds per-attack properties: when it can be canceled, what into, its hit sound, and its
+## velocity-based animation (see [member animation_stuff]). Velocity is animated rather than
+## position directly so the entity still moves via [method CharacterBody2D.move_and_slide] and
+## collides with walls instead of clipping through them.[br]
+## The @tool section adds editor buttons for managing [Frame] children; renaming encodes each
+## frame's number into its node name.[br]
+## [member frames] stores repeated references rather than duplicate nodes — a frame with
+## [member Frame.repeat_this_frame] set appears multiple times in the array so it stays active
+## for that many extra ticks.[br]
+## Once an attack is finished being set up, it is recommended to save it as its own scene
+## so it can be reused or edited independently, keeping the main scene tree smaller.
 @tool
 class_name Attack extends Node2D
 
@@ -20,8 +34,13 @@ class_name Attack extends Node2D
 	set(value):
 		is_speical_cancelable = value
 		notify_property_list_changed()
+@export var has_forced_follow_up: bool = false:
+	set(value):
+		has_forced_follow_up = value
+		notify_property_list_changed()
+
 #@export var is_hit_grab: bool
-#FIXME 1 frame is disaled on projectile start up witch shouldent happen but is minor for now
+#FIXME 1 frame is disaled on projectile start up witch shouldent happen but is minor for now partal fix
 
 ##stuff for combo attacks
 @export_subgroup("combo attacks stuff")
@@ -29,22 +48,27 @@ enum attack_pad {LK=12,HK=16,EXK=13,LP=14,HP=18,EXP=17,LPK=11,HPK=19}
 @export var combo_attacks_dictionary: Dictionary [attack_pad, Attack]
 @export var start_frame_combo: int
 @export var end_frame_combo: int
-var can_combo: = false
+var can_combo: bool = false
 
 @export_subgroup("speical cancel stuff")
 @export var start_frame_speical_cancel: int
 @export var end_frame_speical_cancel: int
-var can_speical_cancel: = false
+var can_speical_cancel: bool = false
 
-@export_subgroup("hit grab stuff")
+@export_subgroup("forced follow up")
+@export var follow_up: Attack
+@export var start_frame_follow_up: int
+@export var end_frame_follow_up: int
+var can_follow_up: bool = false
 
 
 @export_subgroup("tweens stuff \\ animation")
-@export var kill_momnetum_of_tween: bool  = false
+@export var kill_momnetum_of_tween_start: bool = false
+@export var kill_momnetum_of_tween_end: bool = true
+## An ordered sequence of [AnimationResource], played start to finish see [AnimationResource] for more info.
 @export var animation_stuff: Array[AnimationResource]
 @export_subgroup("audio stuff")
 @export var hit_sound: AudioStreamMP3
-
 
 ## these propertys are here for easy refence for the child and parent nodes 
 ## for there respective puropus 
@@ -53,37 +77,8 @@ var frames: Array[Frame] ## the list of frames as childern with duplicates for f
 var active_frame: int = 0 ## tracks the active frame
 var has_hit: bool = false
 
-# combo attack will come out the frame after the start frame at the earleist 
-# and at the latest right after the end frame
-func set_can_combo():
-	if active_frame == start_frame_combo: 
-		can_combo = true
-	elif active_frame == end_frame_combo + 1 or active_frame == 0 : #corection term of +1
-		can_combo = false
-	
 
-func set_can_speical_cancel():
-	if active_frame == start_frame_speical_cancel: 
-		can_speical_cancel = true
-	elif active_frame == end_frame_speical_cancel + 1 or active_frame == 0 : #corection term of +1
-		can_speical_cancel = false
-
-func reset():
-	active_frame = 0 ## tracks the active frame
-	can_speical_cancel = false
-	can_combo = false
-	has_hit = false
-
-
-
-
-func _validate_property(property: Dictionary) -> void:
-	if property.name in ["start_frame_combo", "end_frame_combo","combo_attacks_dictionary"] and not is_combo_attack:
-		property.usage = PROPERTY_USAGE_NO_EDITOR
-	if property.name in ["start_frame_speical_cancel", "end_frame_speical_cancel"] and not is_speical_cancelable:
-		property.usage = PROPERTY_USAGE_NO_EDITOR
-
-
+#region game code
 ##gets children to have a quic reffence 
 func _ready():
 	frames.clear()
@@ -95,8 +90,43 @@ func _ready():
 	for value in combo_attacks_dictionary.values():
 		HelperFuncs.check_if_null(value,"a combo attack is defined but the dictionary",self)
 
+# combo attack will come out the frame after the start frame at the earleist 
+# and at the latest right after the end frame
+func set_can_combo():
+	if active_frame == start_frame_combo: 
+		can_combo = true
+	elif active_frame == end_frame_combo + 1 or active_frame == 0 : #corection term of +1
+		can_combo = false
 
-	
+func set_can_speical_cancel():
+	if active_frame == start_frame_speical_cancel: 
+		can_speical_cancel = true
+	elif active_frame == end_frame_speical_cancel + 1 or active_frame == 0 : #corection term of +1
+		can_speical_cancel = false
+
+func set_can_follow_up():
+	if active_frame == start_frame_follow_up:
+		can_follow_up = true
+	elif active_frame == end_frame_follow_up + 1 or active_frame == 0 : #corection term of +1
+		can_follow_up = false
+
+func reset():
+	active_frame = 0 ## tracks the active frame
+	can_speical_cancel = false
+	can_combo = false
+	has_hit = false
+#endregion
+
+
+#region tool code
+func _validate_property(property: Dictionary) -> void:
+	if property.name in ["start_frame_combo", "end_frame_combo","combo_attacks_dictionary"] and not is_combo_attack:
+		property.usage = PROPERTY_USAGE_NO_EDITOR
+	if property.name in ["start_frame_speical_cancel", "end_frame_speical_cancel"] and not is_speical_cancelable:
+		property.usage = PROPERTY_USAGE_NO_EDITOR
+	if property.name in ["start_frame_follow_up", "end_frame_follow_up", "follow_up"] and not has_forced_follow_up:
+		property.usage = PROPERTY_USAGE_NO_EDITOR
+
 ##adds a new frame as a child of this node of classs Frame
 func add_new_end_frame(): 
 	var new_frame: Frame = Frame.new()
@@ -141,6 +171,7 @@ func rename_frames():
 		frame.name = "frame # " + str(count) + "-" +str(count+(frame.repeat_this_frame))
 		count = count + 1 + frame.repeat_this_frame
 
+#endregion
 # main place to call functions here 
 func _physics_process(_delta):
 	if Engine.is_editor_hint():
@@ -155,6 +186,8 @@ func _physics_process(_delta):
 			set_can_combo()
 		if is_speical_cancelable:
 			set_can_speical_cancel()
+		if has_forced_follow_up: 
+			set_can_follow_up()
 			
 			
 		

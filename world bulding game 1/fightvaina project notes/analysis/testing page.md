@@ -33,6 +33,24 @@ Mohamed sol bad guy with timing hints for the second combo classified as a brand
 | combo 1 with gudance | not much needed                   | 6                                                | yes                |
 | combo 2              | dne                               | 0                                                | no                 |
 |                      |                                   |                                                  |                    |
+
+
+Alan sol bad guy with timing hints for the second combo classified as a brand new player to fgc but not games (this man is a gamer)
+
+| test                          | # of attempts before landing once                                                  | how easy they felt it was out of 10 10 very easy | did it combo fully |
+| ----------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------ | ------------------ |
+| cmobo 1                       | 10                                                                                 | 7                                                | yes                |
+| combo 1 with gudance          | just understanding how special cancels work                                        | 7                                                | yes                |
+| combo 2                       | 100                                                                                | 6                                                | yes                |
+| addinal nortes                | trying 2 attacks into speical was tried but not sure if its easy                   |                                                  |                    |
+| 2xko                          | attack chain in to them selfvs                                                     |                                                  |                    |
+| sf6                           | when trying d d input it was harder than quarter circle becigse timing was unclear | each motion is its own skill a bit               |                    |
+| sf6 combo heavy heavy speical | 20 but timing                                                                      | 10                                               | yes                |
+| sf6 jab jab speical           | 5                                                                                  | 9                                                | yes                |
+|                               |                                                                                    |                                                  |                    |
+
+
+
 sf6 has a pause in its combos with drive rush
 
 sf6 has a pause in its combos with drive rush
