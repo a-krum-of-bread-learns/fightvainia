@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://bdtelvmkwjuh1"]
 
-[ext_resource type="PackedScene" uid="uid://cwic4qufw2wug" path="res://new org/entites/agent player stuff/base chars.tscn" id="1_a6hav"]
-[ext_resource type="PackedScene" uid="uid://duw2his5lywxk" path="res://new org/entites/attacks/agent attacks/left_buttion_jab_(x)_lp.tscn" id="2_pk7ux"]
-[ext_resource type="PackedScene" uid="uid://i07c3uwydhut" path="res://new org/entites/attacks/agent attacks/floor_explosion.tscn" id="3_22x0t"]
-[ext_resource type="PackedScene" uid="uid://gu4f3xo60xh2" path="res://new org/entites/attacks/agent attacks/up_buttion_strong_(y)_hp.tscn" id="4_1e7bk"]
-[ext_resource type="PackedScene" uid="uid://od41351s0ekc" path="res://new org/entites/attacks/agent attacks/left_button_low_(x)_lp.tscn" id="6_g61p2"]
+[ext_resource type="PackedScene" uid="uid://cwic4qufw2wug" path="res://new org/entites/basic parts/base chars.tscn" id="1_a6hav"]
+[ext_resource type="PackedScene" uid="uid://duw2his5lywxk" path="res://new org/entites/agent player stuff/agent attacks/left_buttion_jab_(x)_lp.tscn" id="2_pk7ux"]
+[ext_resource type="PackedScene" uid="uid://i07c3uwydhut" path="res://new org/entites/agent player stuff/agent attacks/floor_explosion.tscn" id="3_22x0t"]
+[ext_resource type="PackedScene" uid="uid://gu4f3xo60xh2" path="res://new org/entites/agent player stuff/agent attacks/up_buttion_strong_(y)_hp.tscn" id="4_1e7bk"]
+[ext_resource type="PackedScene" uid="uid://od41351s0ekc" path="res://new org/entites/agent player stuff/agent attacks/left_button_low_(x)_lp.tscn" id="6_g61p2"]
 [ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://new org/art/copy right free audio assets/session.mp3" id="6_yc487"]
-[ext_resource type="PackedScene" uid="uid://ci8cd0kwoplqn" path="res://new org/entites/attacks/agent attacks/up_button_low_(y)_hp.tscn" id="8_6wa2j"]
-[ext_resource type="PackedScene" uid="uid://b50dutlc1lhd4" path="res://new org/entites/attacks/agent attacks/up_buttion_anti_air_(y)_hp.tscn" id="9_emola"]
-[ext_resource type="PackedScene" uid="uid://cw5fnq8vbjalr" path="res://new org/entites/attacks/agent attacks/left_button_overhead_(x)_lp.tscn" id="10_emola"]
-[ext_resource type="PackedScene" uid="uid://bv6x86onbkurk" path="res://new org/entites/attacks/agent attacks/grapple_followup.tscn" id="11_3pm7c"]
-[ext_resource type="PackedScene" uid="uid://bht2askiamrv1" path="res://new org/entites/attacks/agent attacks/grapling_hook.tscn" id="11_wagu1"]
-[ext_resource type="PackedScene" uid="uid://bwrmodlels1kk" path="res://new org/entites/attacks/agent attacks/fire_ball.tscn" id="13_j33lb"]
+[ext_resource type="PackedScene" uid="uid://ci8cd0kwoplqn" path="res://new org/entites/agent player stuff/agent attacks/up_button_low_(y)_hp.tscn" id="8_6wa2j"]
+[ext_resource type="PackedScene" uid="uid://b50dutlc1lhd4" path="res://new org/entites/agent player stuff/agent attacks/up_buttion_anti_air_(y)_hp.tscn" id="9_emola"]
+[ext_resource type="PackedScene" uid="uid://cw5fnq8vbjalr" path="res://new org/entites/agent player stuff/agent attacks/left_button_overhead_(x)_lp.tscn" id="10_emola"]
+[ext_resource type="PackedScene" uid="uid://bv6x86onbkurk" path="res://new org/entites/agent player stuff/agent attacks/grapple_followup.tscn" id="11_3pm7c"]
+[ext_resource type="PackedScene" uid="uid://bht2askiamrv1" path="res://new org/entites/agent player stuff/agent attacks/grapling_hook.tscn" id="11_wagu1"]
+[ext_resource type="PackedScene" uid="uid://bwrmodlels1kk" path="res://new org/entites/agent player stuff/agent attacks/fire_ball.tscn" id="13_j33lb"]
 [ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="14_3pm7c"]
-[ext_resource type="PackedScene" uid="uid://cw6ku76l6qttd" path="res://new org/entites/attacks/agent attacks/spawn_ice_block.tscn" id="14_anoxa"]
-[ext_resource type="PackedScene" uid="uid://bj2ky72inaiq4" path="res://new org/entites/attacks/agent attacks/up_button_air_(y)_hp.tscn" id="15_2ule2"]
+[ext_resource type="PackedScene" uid="uid://cw6ku76l6qttd" path="res://new org/entites/agent player stuff/agent attacks/spawn_ice_block.tscn" id="14_anoxa"]
+[ext_resource type="PackedScene" uid="uid://bj2ky72inaiq4" path="res://new org/entites/agent player stuff/agent attacks/up_button_air_(y)_hp.tscn" id="15_2ule2"]
 [ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="15_anoxa"]
 [ext_resource type="Resource" uid="uid://8iohifkvslmi" path="res://new org/entites/agent player stuff/animations/dash part 1.tres" id="16_er1ep"]
 [ext_resource type="Resource" uid="uid://ddp2dgmh0djlv" path="res://new org/entites/agent player stuff/animations/dash part 2.tres" id="17_s5bsa"]
@@ -78,8 +78,6 @@ has_forced_follow_up = true
 follow_up = NodePath("../grapple followup")
 start_frame_follow_up = 11
 end_frame_follow_up = 22
-kill_momnetum_of_tween_start = false
-kill_momnetum_of_tween_end = true
 
 [node name="spawn ice block" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="10" unique_id=1932217704 instance=ExtResource("14_anoxa")]
 

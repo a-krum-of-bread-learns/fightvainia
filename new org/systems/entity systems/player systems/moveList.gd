@@ -45,7 +45,6 @@ const U: Array[int] = [8]
 const UR: Array[int] = [9]
 
 # Attack buttons kept as two-digit-ish numeric values in the 11..19 range, but stored as arrays
-# (user requested keeping them as 2 digits then being 12 to 19; original had LPK=11 so we keep 11 for LPK)
 const LPK: Array[int] = [11]
 const LK: Array[int] = [12]
 const EXK: Array[int] = [13]

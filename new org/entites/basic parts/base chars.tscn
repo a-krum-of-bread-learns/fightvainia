@@ -132,19 +132,18 @@ script = ExtResource("5_7ia2k")
 [node name="coyote timer" type="Node" parent="folder to not be scaled/movement folder/movement" unique_id=319577096]
 script = ExtResource("5_7ia2k")
 
-[node name="scale" type="Node" parent="folder to not be scaled" unique_id=349905362 node_paths=PackedStringArray("node", "host")]
+[node name="scale" type="Node" parent="folder to not be scaled" unique_id=349905362 node_paths=PackedStringArray("scale_target", "host")]
 script = ExtResource("7_8it8p")
-node = NodePath("../../folder to be scaled")
+scale_target = NodePath("../../folder to be scaled")
 enabled = true
 host = NodePath("../..")
 
-[node name="inputmanager" type="Node" parent="folder to not be scaled" unique_id=1544145854 node_paths=PackedStringArray("move_list", "movement_componet", "scale_component", "gravity_component", "host")]
+[node name="inputmanager" type="Node" parent="folder to not be scaled" unique_id=1544145854 node_paths=PackedStringArray("move_list", "movement_componet", "scale_component", "host")]
 script = ExtResource("8_e1a3v")
 input_release_on = true
 move_list = NodePath("../MoveList")
 movement_componet = NodePath("../movement folder/movement")
 scale_component = NodePath("../scale")
-gravity_component = NodePath("../movement folder/gravity")
 enabled = true
 host = NodePath("../..")
 

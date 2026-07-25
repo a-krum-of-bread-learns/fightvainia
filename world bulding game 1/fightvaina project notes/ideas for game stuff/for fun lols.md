@@ -14,3 +14,7 @@ rtgame
 
 make petting the dog or the cat or catsune initiates boss music from the action of petting
 add an ad read for my own stuff or just show off my home made plushie 
+
+game padding 
+	fair voting and proportional representation as a cut scene for game time padding and education .
+	unrelated side conversions that can be listened into 

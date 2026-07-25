@@ -18,7 +18,7 @@ func _ready():
 func damage(area):
 	print("entred")
 	if area is HurtBoxArea:
-		area.health.change_health(attack_data.damage)
+		area.health.reduce_health(attack_data.damage)
 		if area.health.host.is_facing_right:
 			area.stun_manager.start_stun_with_tween(attack_data,Vector2(1,1), false)
 		elif area.health.host.is_facing_right == false:

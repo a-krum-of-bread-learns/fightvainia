@@ -15,6 +15,7 @@ metadata/_custom_type_script = "uid://sx7qv8babvbw"
 
 [node name="grapple followup" type="Node2D" unique_id=1662487267]
 script = ExtResource("1_mwhq5")
+kill_momnetum_of_tween_start = true
 kill_momnetum_of_tween_end = false
 animation_stuff = Array[ExtResource("2_tttxy")]([SubResource("Resource_s5bsa")])
 

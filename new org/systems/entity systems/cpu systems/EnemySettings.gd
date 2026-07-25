@@ -1,4 +1,5 @@
-class_name BossSettings extends Resource
+## holds all teh chance and spacing paratemtes of the enemys 
+class_name EnemySettings extends Resource
 @export_group("settings")
 @export_subgroup("main settings")
 @export var self_enabled: bool = true
@@ -7,8 +8,7 @@ class_name BossSettings extends Resource
 @export var run_speed: float = 200.0
 @export var idle_walk_time: int = 120
 @export var idle_pause_time: int = 30
-#REFACTOR make a single source of truth for the states
-@export_enum("close:1", "mid", "far") var PREFERED_DISTANCE: int =1
+@export var preferred_distance: EnemyLogic.PREFERRED_DISTANCE = EnemyLogic.PREFERRED_DISTANCE.CLOSE
 @export var close_range_max_x: float = 20
 @export var mid_range_max_x: float = 200
 @export var far_range_max_x: float = 300

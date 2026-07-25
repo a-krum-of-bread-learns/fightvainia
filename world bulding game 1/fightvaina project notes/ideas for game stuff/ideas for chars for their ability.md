@@ -32,7 +32,6 @@ adventures party should be very very very technical but very rewarding for time 
 	tank - slow close range high health or very few opening big shield guy usually protecting the supports and acting as a distraction for the rush down may have armored attacks 
 	rush down - close range fast attacking and fast moving who strategic  attacks when the opponent is busy with the tank or from where the enemy is not expecting    
 	mage/ healer - ranged attacks good for zoning and can provide some healing 
-
 	an implwmetion may be to use quarter circles  to be from char to char so forward would be tank back would be suport up would be mage down would be dps or somthing 
 trapper 
 non active projectile for cancel ability like Celeste Crystals 
@@ -139,3 +138,8 @@ a char with spikes that have directional launching depnedign on input
 	a spike that faces left launches left and a sipke that faces right launches right so you can control the position of the opponent for your next move or extend combo
 damage effects 
 	turn a person into food
+funny attack that heals 
+	- an attack that heals the opponent and can extend the combo. this can be used to be very mean to some one or can be used to teach some one especially if its a really good attack 
+	- can also be a char with the power of love and friendship or a person that really wants to make you suffer longer 
+	- could have special bonus for healing the opponent too other than just combo extensions
+	- also could be place able healing thing that the opponent can use 

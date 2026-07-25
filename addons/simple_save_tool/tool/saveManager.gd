@@ -1,3 +1,6 @@
+#FIXME EDIT to use a safe save format (json) as claude has ward that resource loader may execute code as is witch is probly a bad thin gto leav in a game
+##edits made to this save manger are the following 
+## by defult debugging is set to true 
 extends Node
 
 ## happens before the save is done
@@ -40,13 +43,14 @@ func _check_file_in_folder(path : String) -> void:
 	else: 
 		_resource = SAVE.new()
 
-#TODO would this crearte a memeory leak askk that 
+
 func _time_deferred(time : float = 0.5) -> bool:
 	await get_tree().create_timer(time).timeout
 	return true
 
 
 # ----- FUNCTIONS -----
+## use this in the read function of the main node that contols the save saving 
 func debugging(is_activate: bool = true) -> void:
 	_is_debugging = is_activate
 	_update_file_path()

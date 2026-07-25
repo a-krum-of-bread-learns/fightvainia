@@ -1,5 +1,11 @@
+## Autoload handling hit stop (game freeze) and screen shake on hit.
+##
+## Call [method hit_stop_start] with a frame count to pause the game and shake the
+## camera for that many frames. Emits [signal hit_stop_fin] once the freeze ends.
+## Does not unpause if [FrameByFrameMode] is controlling the pause instead.
+
 extends Node
-static var frames_left: int
+var frames_left: int
 var cam: Camera2D
 signal hit_stop_fin
 

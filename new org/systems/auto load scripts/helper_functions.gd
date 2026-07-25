@@ -7,9 +7,9 @@ static func roll_chance(chance: float) -> bool:
 	return chance >= randf()
 	
 
-static func check_if_null(value, label: String, node: Node) -> bool:
+static func check_if_null(value, label: String, context_node: Node) -> bool:
 	if value == null:
-		push_error(label + " is null | " + str(node.owner.scene_file_path) + " | " + str(node.get_path()))
+		push_error(label + " is null | " + str(context_node.owner.scene_file_path) + " | " + str(context_node.get_path()))
 		return true
 	return false
 

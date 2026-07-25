@@ -19,36 +19,22 @@ signal has_hit_signal(entity: EntityBase, is_blocked: bool)
 ## conects singals and is just to warn the hit box has no info and where 
 #region game code
 func _ready():
-	validate_attack_data()
+	HelperFuncs.check_if_null(attack_data,"attack_data", self)
+	attack_data.validate_data(self)
 	super._ready()
 	self.collision_mask = attack_manager.host.hit_box_mask
 	
-func validate_attack_data() -> void:
-	var context: String = str(owner.scene_file_path) + " | " + str(get_path())
-	if attack_data == null:
-		push_error("attack_data is null | " + context)
-		return
-	var required_fields := {
-		"stun_type": attack_data.stun_type == -1,
-		"hit_type": attack_data.hit_type == -1,
-		"block_stun_duration": attack_data.block_stun_duration == -1,
-		"block_back_distance": attack_data.block_back_distance == -1,
-		"damage": attack_data.damage == -1,
-	}
-	for field_name in required_fields:
-		if required_fields[field_name]:
-			push_error(field_name + " not assigned | " + context)
-	if attack_data.hit_stun_duration == -1 and not attack_data.stun_type in [1,2,3]:
-		push_error("hit_stun_duration not assigned | " + context)
-	if attack_data.hit_back_distance_vector == Vector2(-1,-1) and not attack_data.stun_type in [1,2,3]:
-		push_error("hit_back_distance_vector not assigned | " + context)
-	if attack_data.hit_stop_frames == 0:
-		push_warning("hit_stop_frames is 0 | " + context)
+
 ## orginal damage is overwritten with better logic [br]
 ## esantaly the fucntion to deal damage if target is valid  blocking logic contained here
 
 func damage(area):
 	if area is HurtBoxArea:
+		#this code is if their is no enity 
+		if area.health == null or area.stun_manager == null:
+			# grapple point / simple hurtbox with no entity behind it - just signal the hit
+			has_hit_signal.emit(null, false)
+			return
 		var attacked_entity: EntityBase = area.health.host 
 		#put here for renable if wanted
 		print(attack_manager.hit_expetions)
@@ -109,7 +95,7 @@ func block_check2(attacked_entity: EntityBase, area: HurtBoxArea) -> bool:
 
 	if not blocked:
 		if attacked_entity.combo_tracker == null or attacked_entity.combo_tracker.damage_allowed():
-			area.health.change_health(attack_data.damage)
+			area.health.reduce_health(attack_data.damage)
 
 	area.stun_manager.start_stun_with_tween(attack_data, vector_direction, blocked)
 	print(area.health.current_health)

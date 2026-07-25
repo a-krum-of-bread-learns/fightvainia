@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bm4rdw71xs3jv"]
+
+[ext_resource type="PackedScene" uid="uid://lehj6n73xymd" path="res://new org/entites/basic parts/enemy_base.tscn" id="1_8l3da"]
+[ext_resource type="Script" uid="uid://6xwe037j5sj4" path="res://new org/systems/entity systems/cpu systems/EnemyLogic.gd" id="2_30itt"]
+[ext_resource type="Resource" uid="uid://50ok3xoymhco" path="res://new org/entites/cpu/boss 1 stuff/boss 1 settings.tres" id="2_r6h4o"]
+[ext_resource type="PackedScene" uid="uid://btufeyfuqt18p" path="res://new org/entites/agent player stuff/primary_hurt_boxes.tscn" id="4_bv60b"]
+[ext_resource type="PackedScene" uid="uid://duw2his5lywxk" path="res://new org/entites/agent player stuff/agent attacks/left_buttion_jab_(x)_lp.tscn" id="10_5uoak"]
+[ext_resource type="PackedScene" uid="uid://od41351s0ekc" path="res://new org/entites/agent player stuff/agent attacks/left_button_low_(x)_lp.tscn" id="11_hxi14"]
+[ext_resource type="PackedScene" uid="uid://ci8cd0kwoplqn" path="res://new org/entites/agent player stuff/agent attacks/up_button_low_(y)_hp.tscn" id="12_dluaq"]
+[ext_resource type="PackedScene" uid="uid://gu4f3xo60xh2" path="res://new org/entites/agent player stuff/agent attacks/up_buttion_strong_(y)_hp.tscn" id="13_pb0oo"]
+[ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://new org/art/copy right free audio assets/session.mp3" id="14_r6h4o"]
+[ext_resource type="PackedScene" uid="uid://b50dutlc1lhd4" path="res://new org/entites/agent player stuff/agent attacks/up_buttion_anti_air_(y)_hp.tscn" id="15_hscuh"]
+[ext_resource type="PackedScene" uid="uid://i07c3uwydhut" path="res://new org/entites/agent player stuff/agent attacks/floor_explosion.tscn" id="17_dluaq"]
+
+[node name="boss 1" unique_id=518042812 instance=ExtResource("1_8l3da")]
+
+[node name="folder#enemylogic" type="Node" parent="folder to not be scaled" parent_id_path=PackedInt32Array(401095005) index="5" unique_id=1044143473 node_paths=PackedStringArray("rays", "ledge_ray", "timer", "close_bnb_combo", "close_bnb_low_combo", "mid_pokes", "anti_airs", "host")]
+script = ExtResource("2_30itt")
+rays = [NodePath("../../folder to be scaled/boss folder/hitbox detect")]
+ledge_ray = NodePath("../../folder to be scaled/boss folder/floor detect")
+settings = ExtResource("2_r6h4o")
+timer = NodePath("../../folder to be scaled/boss folder/FrameTimer")
+humanize_time_in_frames = 20
+pause_time_in_frames = 10
+close_bnb_combo = [null, null, null]
+close_bnb_low_combo = [null, null, null]
+mid_pokes = [null, null]
+anti_airs = [null]
+enabled = true
+host = NodePath("../..")
+metadata/_custom_type_script = "uid://c5ucrpov3ddtq"
+
+[node name="Primary hurtboxes and sprites" parent="folder to be scaled" parent_id_path=PackedInt32Array(1146947319) index="0" unique_id=994631848 node_paths=PackedStringArray("host") instance=ExtResource("4_bv60b")]
+host = NodePath("../..")
+
+[node name="left buttion jab (X) lp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="0" unique_id=508514690 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("10_5uoak")]
+combo_attacks_dictionary = {
+14: null
+}
+
+[node name="left button low (X) lp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="1" unique_id=14818658 instance=ExtResource("11_hxi14")]
+
+[node name="up buttion (Y) hp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="2" unique_id=2065512744 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("13_pb0oo")]
+combo_attacks_dictionary = {
+18: null
+}
+hit_sound = ExtResource("14_r6h4o")
+
+[node name="up button low (Y) Hp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="3" unique_id=2086936221 instance=ExtResource("12_dluaq")]
+
+[node name="up buttion anti air (Y) hp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="4" unique_id=1455710997 instance=ExtResource("15_hscuh")]
+hit_sound = ExtResource("14_r6h4o")
+
+[node name="floor explision" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="5" unique_id=2123794268 instance=ExtResource("17_dluaq")]
+
+[connection signal="body_entered" from="folder to be scaled/boss folder/detect player" to="folder to not be scaled/folder#enemylogic" method="_on_area_2d_body_entered"]

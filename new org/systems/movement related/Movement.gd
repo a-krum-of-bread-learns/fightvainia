@@ -33,15 +33,16 @@ func movement_update(desired_dir: int) -> void:
 		return
 		#air contol secction
 	if not host.is_on_floor():
-		if desired_dir != 0:
-			if host.velocity.x > host.stats.move_speed:
-				pass
-			else:
-				host.velocity.x = clamp(
-				host.velocity.x + desired_dir * 10,
-				-host.stats.move_speed,
-				host.stats.move_speed
-			)
+		var move_speed: float = (host.stats as PlayerStats).move_speed
+		
+		if desired_dir == 0 or sign(host.velocity.x) == desired_dir:
+			if abs(host.velocity.x) < move_speed and desired_dir != 0:
+				host.velocity.x = move_toward(host.velocity.x, move_speed * sign(host.velocity.x), (host.stats as PlayerStats).air_acceleration)# accel
+		else:
+			host.velocity.x = move_toward(host.velocity.x, move_speed * desired_dir, (host.stats as PlayerStats).air_acceleration) #decel
+			
+				
+	
 		# reversing direction mid-air gets a small push each frame; holding the same
 		# direction as current velocity does nothing, so momentum isn't accelerated further
 		#elif sign(host.velocity.x) != sign(desired_dir) and desired_dir != 0:
@@ -77,7 +78,6 @@ if defender air control during hitstun
 	can make a propery that makes the player have stronger infulance when stuned
 	bigger hurt boxes means consistant combos more offten by a lot 
 	
-
 elif no defender air control during hitstun
 	defender has little to no ability to influence position once launched
 	combo routes are consistent and repeatable since the defender's position is predictable

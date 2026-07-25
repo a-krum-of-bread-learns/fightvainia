@@ -1,8 +1,15 @@
+## This is a helper node to animate a node's position or velocity so that it can move.
+##
+## This node creates a tween based on an array of [AnimationResource] provided to it by other nodes.
+## The tween is created by tweening the x component then the y component, done with .parallel. The option for is_relative is available.
+## When the thing to animate is an entity, it uses velocity to prevent clipping through walls, otherwise it uses position.
+## When animating a projectile, checks if that projectile is attached — if attached, tweens local position (relative,
+## following the entity); if detached, tweens global_position with direction_correction applied so
+## displacement.x flips correctly based on which way the entity is facing. Both cases reset done by the projectile itself.
+## all other nodes are just animated by global_position
 class_name AnimationTool extends Node
 @export var thing_to_animate: Node2D
 var tween: Tween = null
-
-
 
 func _tween_part(
 		target: Object, 

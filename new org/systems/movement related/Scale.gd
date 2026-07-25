@@ -1,22 +1,25 @@
-## this is used to change the size of a node and may be used to flip direction as well
+## Flips the direction of the entity and its child nodes.
 ##
+## To use this properly, put everything that should flip — sprites, hitboxes/hurtboxes,
+## attacks, rays, animations — under a folder [Node2D], excluding the entity root itself, and
+## assign that folder as the node to flip. and set [member scale_target]
 class_name Scale extends BehaviourBase
 const RIGHT = Vector2(1,1)
 const LEFT = Vector2(-1,1) 
 
 ## the thing you want to scacle
-@export var node: Node2D
+@export var scale_target: Node2D
 ## a value to store the scale that is current 
 var current_flip_direction: Vector2 = Vector2.ONE
 ## the check for if turing around
 
 
 
-##ready set go (3) renaming  
 func _ready():
 	self.name= "scale"
 	super._ready()
 	HelperFuncs.check_if_null(host,"host",self)
+	HelperFuncs.check_if_null(scale_target,"scale_target",self)
 	if host.stats == null:
 		push_error("Scale: stats not set on "+ str(host.name))
 		return
@@ -25,9 +28,9 @@ func _ready():
 func set_scale(new_scale: Vector2):
 	if !enabled: 
 		return
-	node.scale = new_scale
-	if node.scale.x>0: host.is_facing_right = true
-	elif node.scale.x<0: host.is_facing_right = false
+	scale_target.scale = new_scale
+	if scale_target.scale.x>0: host.is_facing_right = true
+	elif scale_target.scale.x<0: host.is_facing_right = false
 
 		
 #TODO add more conditons to tuitning around  # this may be consederd done else whare
@@ -38,9 +41,9 @@ func flip_x_logic(dir: int ):
 		return
 		
 	var new_scale: Vector2 = current_flip_direction
-	if host.is_on_floor() and dir == -1:
+	if dir == -1:
 		new_scale = Vector2(-1,1)
-	elif host.is_on_floor() and dir == 1:
+	elif dir == 1:
 		new_scale = Vector2(1,1)
 		# only update if direction actually changed
 	if new_scale != current_flip_direction:

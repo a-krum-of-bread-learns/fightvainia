@@ -1,7 +1,8 @@
+## this node trackes and updates the health of an entity in both code and viusaly 
 class_name SimpleHealthBar extends TextureProgressBar
 @export var host: EntityBase
 ##holds helth info and the call on death
-var current_health: int ## self explantoy
+var current_health: float ## self explantoy
 
 signal health_changed(change: int)
 signal current_health_value(current: int)
@@ -19,22 +20,31 @@ func _ready():
 	min_value = 0
 	value = current_health
 
-## changes helth has option to set to a number currently can make it more than max
-#TODO make it a max helth
-func change_health(change: int, set_health: bool = false):
-	var actual_change: int
-	if set_health == false: 
-		actual_change = -change
-		current_health -= change
-	else: 
-		actual_change = change - current_health 
-		current_health = change
-	
+func reduce_health(change: float):
+	current_health = current_health - change
+	health_changed.emit(-change)
+	current_health_value.emit(current_health)
 	if current_health <= 0:
 		die()
+		
+func increse_health(change: float):
+	var previous_health: float = current_health
+	var actual_change: float
+	current_health = min(current_health + change, max_value)
+	actual_change = current_health - previous_health
 	health_changed.emit(actual_change)
 	current_health_value.emit(current_health)
-	value = value + actual_change
+
+
+func set_health(set_val: float):
+	var previous_health: float = current_health
+	var actual_change: float
+	current_health = set_val
+	actual_change = current_health - previous_health
+	health_changed.emit(actual_change)
+	current_health_value.emit(current_health)
+	if current_health <= 0:
+		die()
 
 ## calls what to do on death may be custom for child classes
 func die():
