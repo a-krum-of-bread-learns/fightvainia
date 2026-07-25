@@ -1,6 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://c8rfgs3xlqyue"]
 
 [ext_resource type="Texture2D" uid="uid://dxxtu2redxtmm" path="res://icon.svg" id="1_h25k1"]
+[ext_resource type="PackedScene" uid="uid://dm6cdap4mk4e0" path="res://new org/world/grapple point.tscn" id="2_s22hb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qtgry"]
 texture = ExtResource("1_h25k1")
@@ -134,6 +135,10 @@ use_texture_padding = false
 7:7/0 = 0
 7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_pryp4"]
+scenes/1/scene = ExtResource("2_s22hb")
+
 [resource]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_qtgry")
+sources/1 = SubResource("TileSetScenesCollectionSource_pryp4")

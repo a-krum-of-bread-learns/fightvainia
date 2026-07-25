@@ -1,4 +1,4 @@
-class_name ComboTracker extends CanvasLayer
+class_name ComboCounterDisplay extends CanvasLayer
 @export var host: EntityBase
 @export var label: Label
 var combo_count: int = 0

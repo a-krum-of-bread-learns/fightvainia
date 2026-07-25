@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://c2f5qletyrbub"]
+
+[ext_resource type="Script" uid="uid://c56l0wv4lygfr" path="res://new org/systems/entity systems/shared/PrimaryHurtBoxes.gd" id="1_5rncv"]
+[ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="2_sfb2e"]
+[ext_resource type="Texture2D" uid="uid://dxxtu2redxtmm" path="res://icon.svg" id="3_iikor"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_or5bu"]
+size = Vector2(64, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1oqn1"]
+size = Vector2(64, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhnao"]
+size = Vector2(64, 16)
+
+[node name="Primary hurtboxes and sprites" type="Node2D" unique_id=994631848 node_paths=PackedStringArray("standing_hurt_box_area", "crouching_hurt_box_area", "airborne_hurt_box_area", "standing_sprite", "crouching_sprite")]
+script = ExtResource("1_5rncv")
+standing_hurt_box_area = NodePath("staning")
+crouching_hurt_box_area = NodePath("crouch")
+airborne_hurt_box_area = NodePath("air")
+standing_sprite = NodePath("Sprite2D")
+crouching_sprite = NodePath("Sprite2D")
+
+[node name="staning" type="Area2D" parent="." unique_id=1037534310]
+collision_layer = 6
+collision_mask = 2
+script = ExtResource("2_sfb2e")
+
+[node name="standing" type="CollisionShape2D" parent="staning" unique_id=916061759]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_or5bu")
+
+[node name="crouch" type="Area2D" parent="." unique_id=1402530555]
+collision_layer = 6
+collision_mask = 2
+script = ExtResource("2_sfb2e")
+
+[node name="crouch" type="CollisionShape2D" parent="crouch" unique_id=73212305]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_1oqn1")
+debug_color = Color(0, 0.648903, 0.164648, 0.42)
+
+[node name="air" type="Area2D" parent="." unique_id=875909171]
+collision_layer = 6
+collision_mask = 2
+script = ExtResource("2_sfb2e")
+
+[node name="airborne" type="CollisionShape2D" parent="air" unique_id=97859675]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_hhnao")
+debug_color = Color(0.650842, 0.519428, 0, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1216298518]
+position = Vector2(0, 8)
+scale = Vector2(0.5, 0.125)
+texture = ExtResource("3_iikor")

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dm6cdap4mk4e0"]
+
+[ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="1_yj5r3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yj5r3"]
+size = Vector2(16, 16)
+
+[node name="GrapplePoint" type="Node2D" unique_id=1801411103]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=63976509]
+scale = Vector2(0.080000006, 0.080000006)
+
+[node name="HurtBoxArea" type="Area2D" parent="." unique_id=1123577616]
+collision_layer = 6
+script = ExtResource("1_yj5r3")
+metadata/_custom_type_script = "uid://bmbi4lyfgdixu"
+
+[node name="hurt_box" type="CollisionShape2D" parent="HurtBoxArea" unique_id=650535532]
+shape = SubResource("RectangleShape2D_yj5r3")
+debug_color = Color(0, 0, 1, 0.6862745)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dj4e3ktxupeu1" path="res://new org/systems/game systems/cutscene.gd" id="1_8sax1"]
 [ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://new org/systems/auto load scripts/set cam.gd" id="2_qmptr"]
-[ext_resource type="PackedScene" uid="uid://cca8fe1qvcnch" path="res://new org/entites/enemies/ targets/hurtable player.tscn" id="3_ubxx0"]
+[ext_resource type="PackedScene" uid="uid://cca8fe1qvcnch" path="res://new org/entites/other entites/ targets/hurtable player.tscn" id="3_ubxx0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_87vox"]
 

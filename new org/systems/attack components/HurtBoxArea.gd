@@ -8,9 +8,11 @@ class_name HurtBoxArea extends Area2D
 ##tool script buttion that is used to reset the debug color to a
 ## default in the [method fix_color] fuction if the value is changed
 @export var fix_color_buttion: bool = false
+
 var health: SimpleHealthBar ##see Health [Health]
 var stun_manager: StunManager ##see StunManager [StunManager]
-
+func _ready() -> void:
+	collision_layer = 6
 ##tool script adds a new [HurtBoxArea] colsion shape 2d
 func add_new_hurt_box(): 
 	var hurt_box: CollisionShape2D = CollisionShape2D.new()

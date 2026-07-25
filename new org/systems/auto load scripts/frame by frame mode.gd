@@ -1,3 +1,6 @@
+## Autoload for a debug frame-by-frame mode. Toggled with the "frame by frame mode" input,
+## which pauses the game. While paused, "frame forward" advances exactly one process
+## frame, then re-pauses — used to step through gameplay frame by frame for testing.
 extends Node
 var frame_by_frame_mode_endabled = false
 func _ready() -> void:
@@ -13,5 +16,5 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("frame forward"):
 		if get_tree().paused:
 			get_tree().paused = false   
-			await get_tree().process_frame# this must be the same process tiype
+			await get_tree().process_frame# this must be the same process type
 			get_tree().paused = true

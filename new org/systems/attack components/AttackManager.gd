@@ -151,6 +151,7 @@ func start_attack(an_attack: Attack):
 
 
 #TODO add a check for that reenables the dealt damage boolen in the parent 
+## contiues procesing thogh each frame of the current attack activating and disableing them
 func continue_attack():
 	if current_attack == null:
 		push_error("attack is null")
@@ -195,12 +196,15 @@ func continue_attack():
 				node.is_active = true
 				current_attack.frames[current_attack.active_frame-1].set_frame_disabled(false)
 
-
+## doesnt re-emit if their is no enity 
 func _on_has_hit(entity: EntityBase, is_blocked: bool):
-	has_hit_signal_attack_manger.emit(entity,is_blocked)
 	current_attack.has_hit = true
-	start_animation(host.is_facing_right, current_attack.animation_stuff)
 	OnHitAudioManager.play_hit_sound(current_attack.hit_sound)
+	start_animation(host.is_facing_right, current_attack.animation_stuff)
+	if entity == null:
+		return
+	has_hit_signal_attack_manger.emit(entity,is_blocked)
+	
 	#TODO make attacks audio per hit box inculde below comment
 	#OnHitAudioManager.play_hit_sound(data.hit_sound)
 #endregion

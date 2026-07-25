@@ -1,3 +1,5 @@
+## Displays and fades the damage amount. If the damage is increasing health, the color is
+## green, otherwise it's red.
 class_name SimpleDamageNumberEffect extends Label
 @export var host: EntityBase
 var tween: Tween

@@ -103,12 +103,12 @@
         push_error("Health: max_health is 0 | " + _get_context())
 - [x] make a danger zone section for buttons
 - [x] make dash an attack 
-- [ ] make attack dash to be canceled by a ton of things
-- [ ] make jump start up an attack as well?>
+- [x] make attack dash 
+
 - [x] knockdown and wake up separation to allow for otg  
 - [x] run? not the first game 
+- [x] healing could just be a negative hit box damage?  this needs an exception to self exception tho not this  use heal area insted
 
-- [ ] healing could just be a negative hit box damage?  this needs an exception to self exception tho
 - [ ] consideration motion attacks? like motion inputs for directions rhythm character or something technicality possible or better way to do the combo attacks
 - [ ] visual stuns of type like fire and electricity or ice here
 - [ ] review all process/ physics process functions for witch one is right to use
@@ -120,13 +120,12 @@
 
 - [ ] make grabs and command grabs or don't and skip this for game 1
 - [ ] make simple boolens for modifiers of hurt and hit boxes? skip this scope creep
-- [ ] decide on state based movement or fluid movement 
-- [ ] do a documentation check 
-- [ ] different hit stop for on block and on hit same with screen shake maybe per attack?
+- [x] decide on state based movement or fluid movement (fluid air movement state based on ground)
+- [x] do a documentation check 
+- [ ] do a documentation check  and identify what is a private function with under score prefixing
+- [ ] different hit stop for on block and on hit same with screen shake maybe per attack or box?
 - [x] hit stop and camera set thing that is required for me because i did that for some reason
 - [x] tween error that is being a little annoying now
-
-non fighting game exclusive systems
 - [ ] accessibility options
 - [x] game save system taken from https://github.com/amcaricola/DOT-save-manager
 - [x] a bit of combo ui
@@ -138,17 +137,17 @@ non fighting game exclusive systems
 
 - [ ] investigate https://github.com/KoBeWi/Metroidvania-System 
 - [ ] investigate https://semver.org
-- [ ] major thing put the project on the asset library this month
+- [ ] major thing put the project on the asset library before or after first game?
 - [ ] make a some vids on using the tool 
 	- [ ] a
 - [ ] make the player have Target combos using combo attacks 
-- [ ] hud 
+- [ ] baisc hud
 - [ ] settings and start menu
-- [ ] extend grappling hook to also be moment on hit of certain things
+- [x] give grappling hook auto follow up
 - [x] block leveling movement tutorial and blocking tutorial
 - [x] consider tight rope and ledge animations probably not
-- [ ] ledge grab or prevent all 1 wide gaps from existing if it isn't a kill pit or directional influence like meltyblood
-- [ ] make the health component not allow over heal and save points can be used with negative damage
+- [x] ledge grab or prevent all 1 wide gaps from existing if it isn't a kill pit or directional influence like meltyblood (better air movement)
+
 - [ ] plan dash/ maybe the jump button things
 	- [ ] on neutral dash press back dash 
 	- [ ] on forward press forward dash
@@ -160,6 +159,29 @@ non fighting game exclusive systems
 	- [ ] strike (hitbox as is)
 	- [ ] fireball projectile (projectile detached independent and extended lifespan)
 	- [ ] projectile attached following extended life span
-	- [ ] lazer (projectileattached following projectile not extended lifespan)
+	- [ ] lazer (projectile attached following projectile not extended lifespan)
 	- [ ] detached indepenant not extened life span????????????? un used
 - [ ] projectile clashing 
+- [ ] kill start and end velocity in animation tool split in x and y
+
+
+- [x] move primary boxes to a per entity thing
+- [ ] break up enemy logic in a rewrite
+- [ ] make forest boss random person with simple weapon the character is unfamiliar with (bread)
+- [ ] make jump start up an attack as well?>
+
+
+
+
+- [ ] funny thing attack that heals and is used for combo extensions scope creep but really funny
+- [x] make heal area node alwase active version 
+
+- [ ] identify the main use case for the heal area as negative damage is still possible either by negative damage or with ta little bit of coding so is it just so that it can hit self and doesn't have hit exceptions the reason for things like check points and save nodes maybe re gen is okay while in area but i'm not sure 
+- [x] make the health component not allow over heal
+- [x] make forest enemies
+- [x] simple moving platforms 
+- [ ] simple moving platforms using animation tool as alternate attempt
+- [x] make separate primary boxes for forest enemy wolf
+- [ ] animation tool but visual? unlikey
+	If you want the platform's _speed_ along that path to also feel organic (accelerate into corners, ease at the ends) rather than constant, you could combine both systems — use a `Curve2D`/`PathFollow2D` for the shape of the track, and drive `progress_ratio` using one of your existing `Curve` resources (or even a tween with a custom easing curve) for the timing, rather than linear constant-speed movement along the path
+- [ ] make heal area node work with a check point 

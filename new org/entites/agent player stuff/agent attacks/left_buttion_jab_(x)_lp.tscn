@@ -68,7 +68,7 @@ disabled = true
 debug_color = Color(1, 0, 0, 0.6862745)
 
 [node name="hurt_box # 300" type="Area2D" parent="frame # 5-8" unique_id=402903387]
-collision_layer = 2
+collision_layer = 6
 collision_mask = 0
 script = ExtResource("5_bjukr")
 

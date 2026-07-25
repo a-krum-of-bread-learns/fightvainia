@@ -1,6 +1,5 @@
 class_name Dash extends BehaviourBase
 @export var timer: FrameTimer ## the timer for duration
-#TODO change can_air_action_dash to a count value so it can be use for multiple air dashes and such
 @onready var remaining_air_dashes: int = (host.stats as PlayerStats).max_air_dash_count ## tracks if the player can dach again in air
 var current_speed: Vector2
 #seting the reday name

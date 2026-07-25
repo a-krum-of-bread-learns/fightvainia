@@ -1,4 +1,5 @@
 - search fictional names to make sure to not accidentally be racist 
+- learn the field of Speculative evolution
 - Usual critiques, hammer, hpelling, hunctuation?
 - use thesaurus 
 - pay attention to the tense used

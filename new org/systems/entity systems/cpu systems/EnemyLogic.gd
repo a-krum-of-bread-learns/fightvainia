@@ -3,7 +3,8 @@ class_name EnemyLogic extends BehaviourBase
 
 @export_group("components")
 @export var rays: Array[RayCast2D]
-@export var settings: BossSettings
+@export var ledge_ray: RayCast2D
+@export var settings: EnemySettings
 
 @export_group("timer")
 @export var timer: FrameTimer
@@ -17,7 +18,9 @@ class_name EnemyLogic extends BehaviourBase
 @export var mid_pokes: Array[Attack]
 @export var far_or_projectile_pokes: Array[Attack]
 @export var anti_airs: Array[Attack]
-
+#REFACTOR make a single source of truth for the states
+enum PREFERRED_DISTANCE {CLOSE = 1, MID, FAR}
+enum STATE {IDLE_WALK = -10, IDLE_PAUSE, CLOSE = 1, MID, FAR, VERY_FAR, BLOCK = 40}
 var current_combo: Array[Attack]
 var current_attack_index: int = 0
 var target: EntityBase
@@ -26,8 +29,6 @@ var next_state: STATE = STATE.IDLE_PAUSE
 var target_attack_manager: AttackManager
 var target_current_attack: Attack
 
-#REFACTOR make a single source of truth for the states
-enum STATE {IDLE_WALK = -10, IDLE_PAUSE, CLOSE = 1, MID, FAR, VERY_FAR, BLOCK = 40}
 
 #TODO add jump change and jump attacks for some of this stuff
 #TODO add functionality to check fastest attack
@@ -38,6 +39,18 @@ enum STATE {IDLE_WALK = -10, IDLE_PAUSE, CLOSE = 1, MID, FAR, VERY_FAR, BLOCK = 
 func _ready():
 	self.name = "EnemyLogic"
 	super._ready()
+	
+	var has_error: bool = false
+	has_error = HelperFuncs.check_if_null(host, "host", self)
+	if not has_error:
+		has_error = HelperFuncs.check_if_null(host.primary_boxes_and_sprites, "primary_boxes_and_sprites", self) or has_error
+		if not has_error:
+			has_error = HelperFuncs.check_if_null(host.primary_boxes_and_sprites.standing_hurt_box_area, "standing_hurt_box_area", self) or has_error
+			has_error = HelperFuncs.check_if_null(host.primary_boxes_and_sprites.crouching_hurt_box_area, "crouching_hurt_box_area", self) or has_error
+			has_error = HelperFuncs.check_if_null(host.primary_boxes_and_sprites.airborne_hurt_box_area, "airborne_hurt_box_area", self) or has_error
+	if has_error:
+		return
+		
 	for ray: RayCast2D in rays:
 		ray.collide_with_areas = true
 		ray.collision_mask = 2
@@ -98,7 +111,7 @@ func get_range_state() -> STATE:
 func get_approach_velocity() -> float:
 	if current_state == STATE.VERY_FAR:
 		return settings.run_speed * HelperFuncs.facing_sign(host.is_facing_right)
-	elif current_state <= settings.PREFERED_DISTANCE:
+	elif current_state <= settings.preferred_distance:
 		return settings.walk_speed * -HelperFuncs.facing_sign(host.is_facing_right)
 	else:
 		return settings.walk_speed * HelperFuncs.facing_sign(host.is_facing_right)
@@ -137,9 +150,9 @@ func manage_state() -> void:
 
 	if target == null:
 		match next_state:
-			STATE.IDLE_WALK when timer.is_stoped():
+			STATE.IDLE_WALK when timer.is_stoped() :
 				start_walk_state()
-			STATE.IDLE_PAUSE when timer.is_stoped():
+			STATE.IDLE_PAUSE when timer.is_stoped() or ledge_ray.is_colliding() == false:
 				start_wait_state()
 		return
 

@@ -2,7 +2,7 @@
 - [x] make an object that can be hit without extra baggage
 - [x] force stop animations when hit
 - [x] fix the active hurt box or see if an update fixes the signal 
-- [ ] kill_momnetum_of_tween is unused?
+- [x] kill_momnetum_of_tween is unused? now used
 - [x] fix crouch walking 
 - [ ] projectiles do not have unique hit exceptions so theoretically it may pass right through or hit the same thing twice on one instance
 - [x] fix what the active hurt box is when attacking 
@@ -12,3 +12,4 @@
 - [ ] command normal come out when the direction is in history  and buttion is pressed after outside of buffered array
 - [ ] doing  up upforward jump/lk forwards casues the followng actions the player does grapling hook on ground then jumps a few frames after end of attack.
 - [ ] animation tool is kinda vibes based
+- [ ] can attack when dashing if you have air attack with no dash start up

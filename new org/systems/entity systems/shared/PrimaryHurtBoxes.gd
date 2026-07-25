@@ -1,5 +1,5 @@
 class_name EntityPrimaryHurtBoxesAndSprites extends Node2D
-#seting the reday name
+
 #TODO conisder the reduncancey here if ther is any and 
 #add sprite supeort via ai 
 @export var standing_hurt_box_area: HurtBoxArea

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://duio31altgws"]
+
+[ext_resource type="Script" uid="uid://bk4nssft6t36l" path="res://new org/world/check_or_savepoint.gd" id="1_myumg"]
+[ext_resource type="Script" uid="uid://dy5ywq1jncbo8" path="res://new org/systems/attack components/HealBoxArea.gd" id="2_ejb0y"]
+[ext_resource type="Script" uid="uid://bllbrtp2tw2h7" path="res://new org/systems/attack components/healbox data resource.gd" id="3_l3dnq"]
+
+[sub_resource type="Resource" id="Resource_1ptga"]
+script = ExtResource("3_l3dnq")
+heal_amount = 999999999
+metadata/_custom_type_script = "uid://bllbrtp2tw2h7"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsseo"]
+size = Vector2(32, 64)
+
+[node name="CheckOrSavepoint" type="Node2D" unique_id=1504307618 node_paths=PackedStringArray("heal_area")]
+script = ExtResource("1_myumg")
+heal_area = NodePath("HealBoxArea")
+
+[node name="HealBoxArea" type="Area2D" parent="." unique_id=174966945]
+collision_layer = 6
+collision_mask = 6
+script = ExtResource("2_ejb0y")
+heal_data = SubResource("Resource_1ptga")
+metadata/_custom_type_script = "uid://dy5ywq1jncbo8"
+
+[node name="heal_box" type="CollisionShape2D" parent="HealBoxArea" unique_id=1628273382]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_qsseo")
+debug_color = Color(0, 1, 0, 0.6862745)

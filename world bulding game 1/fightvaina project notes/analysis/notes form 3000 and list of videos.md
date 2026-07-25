@@ -375,3 +375,11 @@ puppet character, Carl, Zappa, zato
 	some things of the game may be better when not transparent like patch note maybe for a limited time for the casual feel as a solved meta is a annoying thing for some people.
 	i had the idea of random damage every day but i don't see that as a reasonable thing tho
 	could also add a special even for a single character gets bonus buffs for the day or week to encourage play of them
+
+
+## technical stuff
+interesting tools
+	https://www.youtube.com/watch?v=b2W8FhHg4Sg
+	a guy made combo tree and combo finding tools for max damage
+	a card game flow chart tool
+	a brute force tool seems interesting but i don't know how to code it

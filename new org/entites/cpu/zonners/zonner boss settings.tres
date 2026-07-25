@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BossSettings" format=3 uid="uid://32wiseu5j5p1"]
 
-[ext_resource type="Script" uid="uid://c4buu38jtc0ws" path="res://new org/systems/entity systems/cpu systems/BossSettings.gd" id="1_y0xkb"]
+[ext_resource type="Script" uid="uid://c4buu38jtc0ws" path="res://new org/systems/entity systems/cpu systems/EnemySettings.gd" id="1_y0xkb"]
 
 [resource]
 script = ExtResource("1_y0xkb")

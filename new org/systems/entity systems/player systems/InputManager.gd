@@ -1,11 +1,9 @@
-## InputManager
-## Manages all player input reading, filtering and action selection.
-## Uses numpad notation for directions (1-9) and numpad +10 for attack buttons.
-## Input history is maintained as an Array[Array] where index 0 is the most recent frame.
-## Two arrays are maintained - input_history for motion detection and buffered_array for
-## attack button buffering. Both grow during hit stop to preserve inputs during freeze frames.
+## Reads and filters player input, builds motion history, and selects attacks.
+## Uses numpad notation for directions and numpad +10 for attack buttons — see [MoveList].
 ##
-## Notation reference:
+## input_history and buffered_array both hold the last several frames of input, newest
+## first, and grow during hit stop to preserve inputs pressed during freeze frames.[br]
+## Notation reference: [br]
 ## Directions: DL=1 D=2 DR=3 L=4 NEUTRAL=5 R=6 UL=7 U=8 UR=9
 ## Attacks: LPK=11 LK=12 EXK=13 LP=14 HP=18 HK=16 EXP=17 HPK=19
 class_name InputManager extends BehaviourBase
@@ -35,7 +33,7 @@ var direction_look_up_array = [
 var input_history: Array[Array] = [[5],[5]]
 ## short window history newest at index 0, used for attack button buffering
 var buffered_array: Array[Array] = [[5],[5]]
-## single frame of inputs built each frame before being pushed into both arrays
+## single frame of inputs built each frame before being pushed into arrays that use it
 var inputs_of_curent_frame_for_attacks: Array[int]
 
 ## how many frames back motion inputs are checked against
@@ -43,8 +41,7 @@ var max_check_frames: int = 20
 ## how many frames an attack button press stays valid for action selection
 var max_buffer_frames: int = 5
 
-## extra frames the buffer stays large after hit stop ends
-## commented out until cancel window tuning is needed
+## the number of extra frames the buffer stays larger- for after hit stop ends set in [method resize_and_append_to_array]
 var bonus_frames_remaining: int = 0
 var input_direction: int = 0
 @export var input_release_on: bool = false ##acesablity setting or somthing
@@ -53,7 +50,7 @@ var input_direction: int = 0
 @export var move_list: MoveList
 @export var movement_componet: Movement
 @export var scale_component: Scale
-@export var gravity_component: Gravity
+
 
 signal dash_signal(direction: Vector2)
 signal jump_signal(direction: Vector2)
@@ -64,15 +61,23 @@ signal jump_signal(direction: Vector2)
 @export var fake_D: bool
 @export var fake_L: bool
 
-
+## prints all relevant player state values for debugging
+func state_print() -> void:
+	print("dash: " + str(host.is_dashing))
+	print("jumping: " + str(host.is_jumping))
+	print("attacking: " + str(host.is_attacking))
+	print("crouch: " + str(host.is_crouching))
+	print("block: " + str(host.is_blocking))
+	print("stun: " + str(host.is_stuned))
+	print("falling: " + str(host.is_falling))
+	
+#region setup
 func _ready() -> void:
 	self.name = "input_manager"
 	HelperFuncs.check_if_null(host,"host",self)
 	HelperFuncs.check_if_null(movement_componet, "movement_componet", self)
 	HelperFuncs.check_if_null(scale_component, "scale_component", self)
-	HelperFuncs.check_if_null(gravity_component, "gravity_component", self)
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
-
 
 
 ## simulates button presses using exported booleans
@@ -86,46 +91,20 @@ func press() -> void:
 	else: Input.action_release("right")
 	if fake_U: Input.action_press("up")
 	else: Input.action_release("up")
+#endregion
 
 
-## prints all relevant player state values for debugging
-func state_print() -> void:
-	print("dash: " + str(host.is_dashing))
-	print("jumping: " + str(host.is_jumping))
-	print("attacking: " + str(host.is_attacking))
-	print("crouch: " + str(host.is_crouching))
-	print("block: " + str(host.is_blocking))
-	print("stun: " + str(host.is_stuned))
-	print("falling: " + str(gravity_component.is_falling))
-
-
-# --- movement ---
-
-## stops horizontal movement when crouching or attacking
-## allows movement when on floor, not crouching, and not dashing
-func movement_manager() -> void:
-	movement_componet.movement_update(input_direction)
-
-# --- input array management ---
-
-## checks if a full motion sequence exists in input history AND
-## the corresponding attack button is in the buffer
-## sequence and Attack_buttion use numpad notation values
-
-
-## searches an entire array for a single input value across all frames
-## used for attack button buffer checking since buttons are two digit values
-## and cannot be passed through sequence_spliter
-
-#--------------------------------------------------------------end of movemnt hadling 
-#--------------------------------------------------------------start of array managent 
+#region input array management
+## checks if a full motion sequence exists in input_history AND the corresponding
+## attack button is in buffered_array. sequence and Attack_buttion use numpad notation.
 #this doent implie dash can work how i want
 func buffer_check(input_h: Array, sequence: Array[int], Attack_buttion: Array[int]) -> bool:
 	if reader(input_h,sequence).size() > 0 and reader_single_input(buffered_array,Attack_buttion[0]):
 		return true
 	return false
 
-## checks if there is a matcing value in the provided array this is uded to buffer things 
+## searches an entire array for a single input value across all frames
+## used for attack button buffer checking since buttons are two digit values
 func reader_single_input(array: Array, what: int)-> bool:
 	if array == null:
 		push_error("Array empty when calling single input check")
@@ -136,13 +115,10 @@ func reader_single_input(array: Array, what: int)-> bool:
 	return false
 
 
-
 ## scans input history for a completed motion sequence
 ## allows gaps between inputs so neutral frames do not break motions
 ## returns a dictionary of end_index:sequence pairs for all valid completions
 ## lowest index = most recent completion since history is newest first
-
-## retuns the index of the sequnce if its vaild
 func reader(input_h: Array[Array], digits: Array[int]):
 	var sequnce: Array[int] = digits.duplicate()
 	var correct_digits: int = 0
@@ -231,11 +207,10 @@ func input_filter() -> void:
 
 	resize_and_append_to_array(input_history, max_check_frames, inputs_of_curent_frame_for_attacks)
 	resize_and_append_to_array(buffered_array, max_buffer_frames, inputs_of_curent_frame_for_attacks)
+#endregion
 
 
-
-# --- action selection ---
-
+#region action selection
 ## checks a single attack dictionary for a valid input match
 ## uses a 4 part key: [is_on_floor, is_facing_right, motion_sequence, attack_button]
 ## picks the most recently completed motion when multiple valid sequences exist
@@ -264,7 +239,7 @@ func chose_actions_get_attack(dic: Dictionary[MoveList.AttackKey, Attack]):
 		#loop end
 		if most_recent_attack: host.attack_manager.start_attack(most_recent_attack)#starts the attack
 		
-	print(valids)
+	#print(valids)
 
 ## selects attacks in priority order: specials > command normals > neutral normals
 ## when already attacking checks for special cancels and combo continuations
@@ -287,7 +262,7 @@ func chose_action3() -> void:
 			and host.attack_manager.current_attack.has_hit):
 				print("you did it")
 				host.attack_manager.start_attack(host.attack_manager.current_attack.combo_attacks_dictionary[key])
-
+#endregion
 
 
 func _process(_delta: float) -> void:
@@ -300,7 +275,7 @@ func _process(_delta: float) -> void:
 		return
 	host.is_crouching = Input.is_action_pressed("down") and host.is_on_floor()
 	input_direction = round(Input.get_axis("left", "right"))
-	movement_manager()
+	movement_componet.movement_update(input_direction)
 
 	# input_filter runs after chose_action3 so the buffer read by chose_action3
 	# reflects last frame's inputs, not the current frame being built
@@ -322,4 +297,4 @@ func _process(_delta: float) -> void:
 			jump_signal.emit(input_direction)
 	else:
 		host.primary_boxes_and_sprites.disable_all_pimary_sprites_excluding()
-	#print(input_history)
+	#state_print()

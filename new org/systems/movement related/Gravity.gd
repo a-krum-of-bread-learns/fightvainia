@@ -1,4 +1,4 @@
-## holds all the main movemnt opptions may want to splitit up into separte compents
+## gives an enityt some gravity to pull it down to the ground set in the stats
 class_name Gravity extends BehaviourBase
 
 func _ready():
