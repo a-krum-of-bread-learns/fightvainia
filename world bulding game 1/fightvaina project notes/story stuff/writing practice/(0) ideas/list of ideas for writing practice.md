@@ -161,10 +161,14 @@ for games
 	a person who made many claims that they would never do something or claims that would never happen to me. forced into a situation where they are forced to do it and send the message to the reader / player that it can happen to them the reader/player will always face suffering... 
 	soon.
 just ideas
-	story without names or writing descriptors other or kept to a bare minimum may use different font for each characters in a book and nameless in visual media 
-	charaters that are multifaced based on who they are interaticn with so char a and b act very difrtnyl from b and c  and very diffrent form a and c tho that may just be charater interation with spical relatiosn ships but it may help with working form a charater blue print
-	write in past tense for a char who can see into the future or for the certainty of a future event declared by such a character (bread could occasionally)
-	the detective hides a murder case because they are the criminal
+	- story without names or writing descriptors other or kept to a bare minimum may use different font for each characters in a book and nameless in visual media 
+	- characters that are multifaced based on who they are interacting with so char a and b act very difrtnyl from b and c  and very diffrent form a and c tho that may just be charater interation with spical relatiosn ships but it may help with working form a charater blue print
+	- write in past tense for a char who can see into the future or for the certainty of a future event declared by such a character (bread could occasionally)
+	- the detective hides a murder case because they are the criminal
+	- a mentor and a student the mentor is evil and the student is good the mentor teaches the student and eventual they face the mentor as the final challenge of the first story there is more than 1 way to end it (all can hurt emotionally ) details the mentor even with inhuman actions that are hinted at or could be seen a very plausible still holds the core values of an educator must teach their student to be better then themselves and to use their knowledge 
+		- list of names : AL, Alistair Iven, Galen P. Thorne, Claude, Claudian, Gemel Alistair, Shenxun, Xun Shen, Li Xun, Shen Li, Dai Xun, Galen Rook
+		- core message: Do not become someone who only follows outputs, orders, or instructions. Learn enough to judge them., A fool follows answers. A student learns enough to judge them., You were never meant to obey me. You were meant to learn enough to judge me, You taught me not to follow outputs, orders, or instructions blindly. So now I am judging yours.
+		
 i just think it funny
 	you ain't (insert slang here) turns into person being extremely (insert slang here) to the point of absurdity  causing mass destruction and fighting Goku or something in the relevant (insert hobby/sport here)
 	overly murderous and torturous description of a spa treatment

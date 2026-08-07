@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cpx7476smhscn"
+path="res://.godot/imported/freesound_community-punch-2-37333.mp3-d67a8a0a6a00edfca1e533241379bd95.mp3str"
+
+[deps]
+
+source_file="res://addons/fightvainia auto load loader/new org/art/copy right free audio assets/freesound_community-punch-2-37333.mp3"
+dest_files=["res://.godot/imported/freesound_community-punch-2-37333.mp3-d67a8a0a6a00edfca1e533241379bd95.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

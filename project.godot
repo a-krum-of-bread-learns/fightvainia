@@ -21,14 +21,14 @@ config/icon="res://icon.svg"
 
 [audio]
 
-buses/default_bus_layout="res://new org/systems/audio/default_bus_layout.tres"
+buses/default_bus_layout="res://addons/fightvainia auto load loader/new org/systems/audio/default_bus_layout.tres"
 
 [autoload]
 
-FrameByFrameMode="*res://new org/systems/auto load scripts/frame by frame mode.gd"
-HitStop="*res://new org/systems/auto load scripts/hit stop and shake.gd"
-OnHitAudioManager="*uid://b7jnflpn70njb"
 SAVE_MANAGER="*uid://ctt30dnwyf7w6"
+FrameByFrameMode="*uid://c1kvhg0c1hba"
+OnHitAudioManager="*uid://b7jnflpn70njb"
+HitStopAndShake="*uid://dscfw2cvfrphr"
 
 [display]
 
@@ -46,18 +46,19 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/simple_save_tool/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/fightvainia auto load loader/plugin.cfg", "res://addons/fightvainia/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
-"res://new org/art/": "purple",
-"res://new org/entites/": "blue",
-"res://new org/systems/": "orange",
-"res://new org/systems/animation/defults/": "teal",
-"res://new org/systems/base classes/": "orange",
-"res://new org/systems/ui/": "green",
-"res://testings/": "gray"
+"res://addons/fightvainia auto load loader/new org/art/": "purple",
+"res://addons/fightvainia auto load loader/new org/entites/": "blue",
+"res://addons/fightvainia auto load loader/new org/systems/": "orange",
+"res://addons/fightvainia auto load loader/new org/systems/animation/defults/": "teal",
+"res://addons/fightvainia auto load loader/new org/systems/base classes/": "orange",
+"res://addons/fightvainia auto load loader/new org/systems/ui/": "green",
+"res://testings/": "gray",
+"res://video making to be deleted/": "red"
 }
 
 [input]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemySettings" format=3 uid="uid://32wiseu5j5p1"]
+
+[ext_resource type="Script" uid="uid://c4buu38jtc0ws" path="res://addons/fightvainia auto load loader/new org/systems/entity systems/cpu systems/EnemySettings.gd" id="1_y0xkb"]
+
+[resource]
+script = ExtResource("1_y0xkb")
+mid_range_max_x = 40.0
+far_range_max_x = 150.0
+humanize_time_in_frames = 20
+pause_time_in_frames = 10
+hits_until_10_percent_drop_chance = 0
+wiff_chance = 0.0
+poke_chance = 0.06
+metadata/_custom_type_script = "uid://c4buu38jtc0ws"

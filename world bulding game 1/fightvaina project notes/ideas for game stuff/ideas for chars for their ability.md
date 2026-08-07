@@ -143,3 +143,5 @@ funny attack that heals
 	- can also be a char with the power of love and friendship or a person that really wants to make you suffer longer 
 	- could have special bonus for healing the opponent too other than just combo extensions
 	- also could be place able healing thing that the opponent can use 
+mical Jackson (idk if this name is right but ill go with )
+	a char that never faces you and simple beats you up without looking at your character and always is moon walking 

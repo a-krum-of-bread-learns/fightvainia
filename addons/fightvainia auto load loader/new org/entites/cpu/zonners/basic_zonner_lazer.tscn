@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dahwjgu8w5a4e"]
+
+[ext_resource type="PackedScene" uid="uid://lehj6n73xymd" path="res://addons/fightvainia auto load loader/new org/entites/basic parts/enemy_base.tscn" id="1_mg2qe"]
+[ext_resource type="PackedScene" uid="uid://btufeyfuqt18p" path="res://addons/fightvainia auto load loader/new org/entites/basic parts/primary_hurt_boxes.tscn" id="4_0x0bo"]
+[ext_resource type="PackedScene" uid="uid://dw6qtmdrh05mx" path="res://addons/fightvainia auto load loader/new org/entites/cpu/zonners/zonner attacks/lazer.tscn" id="12_axqw1"]
+[ext_resource type="PackedScene" uid="uid://duw2his5lywxk" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/agent attacks/left_buttion_jab_(x)_lp.tscn" id="13_rh7yx"]
+[ext_resource type="PackedScene" uid="uid://od41351s0ekc" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/agent attacks/left_button_low_(x)_lp.tscn" id="14_turnh"]
+[ext_resource type="PackedScene" uid="uid://ci8cd0kwoplqn" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/agent attacks/up_button_low_(y)_hp.tscn" id="15_3w20u"]
+[ext_resource type="PackedScene" uid="uid://gu4f3xo60xh2" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/agent attacks/up_buttion_strong_(y)_hp.tscn" id="16_rr6t5"]
+[ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://addons/fightvainia auto load loader/new org/art/copy right free audio assets/session.mp3" id="17_5j0cs"]
+[ext_resource type="PackedScene" uid="uid://b50dutlc1lhd4" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/agent attacks/up_buttion_anti_air_(y)_hp.tscn" id="18_cy7dg"]
+
+[node name="lazer zonner" unique_id=518042812 node_paths=PackedStringArray("primary_boxes_and_sprites") instance=ExtResource("1_mg2qe")]
+primary_boxes_and_sprites = NodePath("folder to be scaled/Primary hurtboxes and sprites")
+
+[node name="Primary hurtboxes and sprites" parent="folder to be scaled" parent_id_path=PackedInt32Array(1146947319) index="0" unique_id=994631848 node_paths=PackedStringArray("host") instance=ExtResource("4_0x0bo")]
+host = NodePath("../..")
+
+[node name="lazer" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="0" unique_id=990600057 instance=ExtResource("12_axqw1")]
+
+[node name="left buttion jab (X) lp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="1" unique_id=508514690 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("13_rh7yx")]
+combo_attacks_dictionary = {
+14: null
+}
+
+[node name="left button low (X) lp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="2" unique_id=14818658 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("14_turnh")]
+combo_attacks_dictionary = {
+14: null
+}
+
+[node name="up buttion (Y) hp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="3" unique_id=2065512744 instance=ExtResource("16_rr6t5")]
+is_combo_attack = false
+hit_sound = ExtResource("17_5j0cs")
+
+[node name="up button low (Y) Hp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="4" unique_id=2086936221 instance=ExtResource("15_3w20u")]
+
+[node name="up buttion anti air (Y) hp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="5" unique_id=1455710997 instance=ExtResource("18_cy7dg")]
+hit_sound = ExtResource("17_5j0cs")

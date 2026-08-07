@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ctheu4l2kk463"]
+
+[ext_resource type="Script" uid="uid://bk1u4fdp8mqch" path="res://addons/fightvainia auto load loader/new org/systems/ui/on screen combo tracker.gd" id="1_kvjyl"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=290489328 node_paths=PackedStringArray("label")]
+script = ExtResource("1_kvjyl")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="." unique_id=2098012992]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "combo: x"

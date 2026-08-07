@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dp71uc0na4lwi"]
+
+[ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://addons/fightvainia auto load loader/new org/systems/attack components/Attack.gd" id="1_6dkqp"]
+[ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://addons/fightvainia auto load loader/new org/systems/attack components/Frame.gd" id="2_c6hsi"]
+[ext_resource type="Script" uid="uid://ckkq3f3j2wj34" path="res://addons/fightvainia auto load loader/new org/systems/attack components/ProjectileArea.gd" id="3_blnyq"]
+[ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://addons/fightvainia auto load loader/new org/systems/attack components/hitbox data resouce.gd" id="4_omyc5"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://addons/fightvainia auto load loader/new org/systems/entity systems/shared/FrameTimerCompnent.gd" id="5_frwy5"]
+[ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://addons/fightvainia auto load loader/new org/systems/animation/AnimationTool.gd" id="6_7cpsx"]
+
+[sub_resource type="Resource" id="Resource_co8f4"]
+script = ExtResource("4_omyc5")
+stun_type = 4
+hit_type = 2
+block_stun_duration = 24
+block_back_distance = 8.0
+hit_stop_frames = 1
+damage = 1000
+air_stun_overide = true
+metadata/_custom_type_script = "uid://c8e0lbybahcxv"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58th0"]
+size = Vector2(24, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8g1if"]
+size = Vector2(8, 16)
+
+[node name="spike close" type="Node2D" unique_id=1049771095]
+script = ExtResource("1_6dkqp")
+
+[node name="frame # 1-16" type="Node2D" parent="." unique_id=1474220934]
+script = ExtResource("2_c6hsi")
+repeat_this_frame = 15
+
+[node name="frame # 17-30" type="Node2D" parent="." unique_id=438416136]
+script = ExtResource("2_c6hsi")
+repeat_this_frame = 15
+
+[node name="Projectile # 200" type="Area2D" parent="frame # 17-30" unique_id=352686921 node_paths=PackedStringArray("timer")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_blnyq")
+timer = NodePath("frame timer")
+attached_to_entity = true
+max_lifespan_in_frames = 16
+attack_data = SubResource("Resource_co8f4")
+
+[node name="frame timer" type="Node" parent="frame # 17-30/Projectile # 200" unique_id=428283564]
+script = ExtResource("5_frwy5")
+
+[node name="projectile animateor" type="Node" parent="frame # 17-30/Projectile # 200" unique_id=1290276220 node_paths=PackedStringArray("thing_to_animate")]
+script = ExtResource("6_7cpsx")
+thing_to_animate = NodePath("..")
+
+[node name="hit_box" type="CollisionShape2D" parent="frame # 17-30/Projectile # 200" unique_id=758167146]
+position = Vector2(28, 8)
+shape = SubResource("RectangleShape2D_58th0")
+disabled = true
+debug_color = Color(1, 0, 0, 0.6862745)
+
+[node name="hit_box2" type="CollisionShape2D" parent="frame # 17-30/Projectile # 200" unique_id=1848255271]
+position = Vector2(28, -8)
+shape = SubResource("RectangleShape2D_8g1if")
+disabled = true
+debug_color = Color(1, 0, 0, 0.6862745)
+
+[node name="frame # 31-46" type="Node2D" parent="." unique_id=10828252]
+script = ExtResource("2_c6hsi")
+repeat_this_frame = 15

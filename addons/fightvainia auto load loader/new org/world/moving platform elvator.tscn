@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://586i15dkianl"]
+
+[ext_resource type="Texture2D" uid="uid://d3ouypsble60q" path="res://addons/fightvainia auto load loader/new org/art/copy right free art assets/electic ball.png" id="1_51pfs"]
+[ext_resource type="Script" uid="uid://bmp0rwjfi3dvs" path="res://addons/fightvainia auto load loader/new org/world/SimpleMovingPlatform.gd" id="2_5tu21"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqxxu"]
+size = Vector2(80, 16)
+
+[node name="Path2D" type="Path2D" unique_id=227953112 node_paths=PackedStringArray("pathfollow", "anibody")]
+script = ExtResource("2_5tu21")
+use_by_pixel = true
+pathfollow = NodePath("PathFollow2D")
+anibody = NodePath("PathFollow2D/AnimatableBody2D")
+pause_every_x_pixels = null
+pause_time_in_seconds = null
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=627554094]
+rotates = false
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="PathFollow2D" unique_id=1413950642]
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/AnimatableBody2D" unique_id=268320150]
+position = Vector2(-8, 32)
+scale = Vector2(0.35714287, 0.4)
+texture = ExtResource("1_51pfs")
+region_enabled = true
+region_rect = Rect2(144, 176, 224, 160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/AnimatableBody2D" unique_id=853968545]
+position = Vector2(-8, 8)
+shape = SubResource("RectangleShape2D_uqxxu")
+one_way_collision = true
+one_way_collision_margin = 2.0

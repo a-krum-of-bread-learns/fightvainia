@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c87jsl6ogb0ow"]
+
+[ext_resource type="PackedScene" uid="uid://cwic4qufw2wug" path="res://addons/fightvainia auto load loader/new org/entites/basic parts/base chars.tscn" id="1_cfxny"]
+[ext_resource type="Script" uid="uid://bb5lwdc0ivd5v" path="res://addons/fightvainia auto load loader/new org/entites/basic parts/player_stats_resource.gd" id="2_f05e7"]
+[ext_resource type="PackedScene" uid="uid://btufeyfuqt18p" path="res://addons/fightvainia auto load loader/new org/entites/basic parts/primary_hurt_boxes.tscn" id="3_syg20"]
+
+[sub_resource type="Resource" id="Resource_ry67h"]
+script = ExtResource("2_f05e7")
+metadata/_custom_type_script = "uid://bb5lwdc0ivd5v"
+
+[node name="Node2D" type="Node2D" unique_id=1555136089]
+
+[node name="player" parent="." unique_id=2023579452 instance=ExtResource("1_cfxny")]
+stats = SubResource("Resource_ry67h")
+
+[node name="Primary hurtboxes and sprites" parent="player/folder to be scaled" parent_id_path=PackedInt32Array(2023579452, 1784953174) index="2" unique_id=994631848 node_paths=PackedStringArray("host") instance=ExtResource("3_syg20")]
+host = NodePath("../..")
+
+[editable path="player"]

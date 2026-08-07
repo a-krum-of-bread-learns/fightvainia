@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://cwswtqltbswej"]
+
+[ext_resource type="Script" uid="uid://bc138sw520jg2" path="res://video making to be deleted/mini attack stucture/attack_mini.gd" id="1_b5x7i"]
+[ext_resource type="Script" uid="uid://cndvixx204uly" path="res://video making to be deleted/mini attack stucture/attack_manager_mini.gd" id="1_v5a3l"]
+[ext_resource type="Script" uid="uid://m4p70ov154i0" path="res://video making to be deleted/mini attack stucture/frame_mini.gd" id="3_n38u6"]
+[ext_resource type="Script" uid="uid://dncflr2d5jfl1" path="res://video making to be deleted/mini attack stucture/hitbox_mini.gd" id="4_1tuyg"]
+[ext_resource type="Script" uid="uid://b3lwr5bxsee50" path="res://video making to be deleted/mini attack stucture/hurtbox_mini.gd" id="5_s0p85"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxl8p"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_du21o"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1tuyg"]
+size = Vector2(18, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1tuyg"]
+
+[node name="Node2D" type="Node2D" unique_id=731951416]
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=570115221]
+
+[node name="attack_managermini" type="Node2D" parent="player" unique_id=1763307473 node_paths=PackedStringArray("test_attack")]
+script = ExtResource("1_v5a3l")
+test_attack = NodePath("attackmini")
+metadata/_custom_type_script = "uid://cndvixx204uly"
+
+[node name="attackmini" type="Node2D" parent="player/attack_managermini" unique_id=2137228514 node_paths=PackedStringArray("follow_up")]
+script = ExtResource("1_b5x7i")
+follow_up = NodePath(".")
+metadata/_custom_type_script = "uid://bc138sw520jg2"
+
+[node name="framemini2" type="Node2D" parent="player/attack_managermini/attackmini" unique_id=1854788875]
+script = ExtResource("3_n38u6")
+repeat_this_frame = 10
+metadata/_custom_type_script = "uid://m4p70ov154i0"
+
+[node name="framemini" type="Node2D" parent="player/attack_managermini/attackmini" unique_id=1574125441]
+script = ExtResource("3_n38u6")
+repeat_this_frame = 4
+metadata/_custom_type_script = "uid://m4p70ov154i0"
+
+[node name="hitboxmini" type="Area2D" parent="player/attack_managermini/attackmini/framemini" unique_id=1411019493]
+script = ExtResource("4_1tuyg")
+metadata/_custom_type_script = "uid://dncflr2d5jfl1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/attack_managermini/attackmini/framemini/hitboxmini" unique_id=23487644]
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_gxl8p")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="hurtboxmini" type="Area2D" parent="player/attack_managermini/attackmini/framemini" unique_id=1510084793]
+script = ExtResource("5_s0p85")
+metadata/_custom_type_script = "uid://b3lwr5bxsee50"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/attack_managermini/attackmini/framemini/hurtboxmini" unique_id=1221549287]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_du21o")
+
+[node name="framemini4" type="Node2D" parent="player/attack_managermini/attackmini" unique_id=967507968]
+script = ExtResource("3_n38u6")
+repeat_this_frame = 5
+metadata/_custom_type_script = "uid://m4p70ov154i0"
+
+[node name="hitboxmini" type="Area2D" parent="player/attack_managermini/attackmini/framemini4" unique_id=903252746]
+script = ExtResource("4_1tuyg")
+metadata/_custom_type_script = "uid://dncflr2d5jfl1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/attack_managermini/attackmini/framemini4/hitboxmini" unique_id=466450796]
+position = Vector2(23, 0)
+shape = SubResource("RectangleShape2D_1tuyg")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=259817179]
+
+[node name="target" type="CharacterBody2D" parent="." unique_id=423654584]
+
+[node name="hurtboxmini" type="Area2D" parent="target" unique_id=2066788310 node_paths=PackedStringArray("player")]
+script = ExtResource("5_s0p85")
+player = NodePath("..")
+metadata/_custom_type_script = "uid://b3lwr5bxsee50"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="target/hurtboxmini" unique_id=337722325]
+position = Vector2(32, 0)
+shape = SubResource("CircleShape2D_1tuyg")

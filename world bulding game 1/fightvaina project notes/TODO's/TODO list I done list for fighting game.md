@@ -130,7 +130,7 @@
 - [x] game save system taken from https://github.com/amcaricola/DOT-save-manager
 - [x] a bit of combo ui
 - [x] damage ui conect via health right?
-- [ ] put enabled all for behavior base stuff 
+- [ ] put all_enabled for behavior base stuff ? or is is just input manger needed
 
 - [ ] make char from scratch and see if there are error checks that are not fully informative 
 - [ ] define save-able objects or enabled flags: player, current scene, some numbers, games progression flags settings information
@@ -185,3 +185,8 @@
 - [ ] animation tool but visual? unlikey
 	If you want the platform's _speed_ along that path to also feel organic (accelerate into corners, ease at the ends) rather than constant, you could combine both systems — use a `Curve2D`/`PathFollow2D` for the shape of the track, and drive `progress_ratio` using one of your existing `Curve` resources (or even a tween with a custom easing curve) for the timing, rather than linear constant-speed movement along the path
 - [ ] make heal area node work with a check point 
+- [x] try the tool buttions: they are worse
+- [ ] for asset lib relese
+	- [ ] set the strings in add input to match the code
+	- [ ] conform to godot code guide lines and ai usage to help maybe
+- [ ] make screen shake dependent on how + you are

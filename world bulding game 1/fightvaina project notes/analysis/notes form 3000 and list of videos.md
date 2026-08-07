@@ -281,9 +281,15 @@ game balance isn't real (by the GameDesignDirect 1 h vid)
 			mention exactly why you wont share the patch notes some times because you want players to feel that sense of discovery. 
 		addressing a problem is like this 
 			hear it -> investigate -> see pros and cons -> fix if needed -> communicate your reasoning
-Avatar legends  beta has no discourse (extra trashy)
+Avatar legends beta has no discourse (extra trashy)
 	https://youtu.be/fmk1yJ4CUxk?si=uOXDZdghhxT6k2VI
-	this game is easy for existing fighting game players and hard to master for new players is a different story. oki is hard because hard knock downs are only off of suppers. difficulty to pick up 
+	 this game is easy for existing fighting game players and hard to master for new players is a different story. oki is hard because hard knock downs are only off of suppers. difficulty to pick up
+what fighting games can learn form skate sims 
+	https://youtu.be/sJHdhq8hE24?si=9fZuk35-HLhnEizn
+	 both skate and fighting games. a notation system is good and can transfer information but to a new player this information is meaningless. numpad notation is numbers and is almost universal and is easy to use. why don't they complain in skating sims vs fighting games: fighting game inputs are abstracted from the move and the difficulty of the move is not correlated to the difficulty of the input in skating sims they are. that wastent much i found help full but ok maybe a re watch is needed 
+why i like avatar legends (broski)
+	https://youtu.be/kWdZAh1R4GA?si=EQbrA0lKenOVttAK
+	 the defensive options are very interactive when it comes to block strings for example there are flow moves you can use to go under the first hit of a fire ball and then armor the second to get a critical hit. its also has low mid and high? that can be doged by flow so flow seeme like a really cool thing i need to study. i did think what if i make a precision platformer stage to doge some ones attacks and design a character too 
 ## emergent game play videos
 lets look a this and see how we can track these
 	1.  sajam video # 25, 33
