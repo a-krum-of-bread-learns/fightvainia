@@ -60,3 +60,8 @@ https://github.com/OrigamiDev-Pete/TODO_Manager
 the save system i will likely be using 
 https://github.com/amcaricola/DOT-save-manager
 
+
+
+## example on issues
+
+Documentation reference and guidelines for #3.
