@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://qxbhnmphixub"]
 
-[ext_resource type="PackedScene" uid="uid://cca8fe1qvcnch" path="res://addons/fightvainia auto load loader/new org/entites/other entites/ targets/hurtable player.tscn" id="1_ydgiy"]
-[ext_resource type="PackedScene" uid="uid://bdtelvmkwjuh1" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/player agent.tscn" id="2_b04fu"]
-[ext_resource type="PackedScene" uid="uid://d0iwhuvde8w6y" path="res://addons/fightvainia auto load loader/new org/systems/ui/info of channel and github.tscn" id="3_32i3w"]
-[ext_resource type="TileSet" uid="uid://c8rfgs3xlqyue" path="res://addons/fightvainia auto load loader/new org/art/copy right free art assets/terain/godot icon tile set.tres" id="4_7dbss"]
-[ext_resource type="Script" uid="uid://jav8ndnndy6" path="res://addons/fightvainia auto load loader/new org/systems/auto load scripts/frame_by_frame_mode_hint.gd" id="5_p47xe"]
-[ext_resource type="PackedScene" uid="uid://cnehwxf4aylum" path="res://addons/fightvainia auto load loader/new org/entites/cpu/zonners/zonner.tscn" id="6_b04fu"]
+[ext_resource type="PackedScene" uid="uid://cca8fe1qvcnch" path="res://new org/entites/other entites/ targets/hurtable player.tscn" id="1_ydgiy"]
+[ext_resource type="PackedScene" uid="uid://bdtelvmkwjuh1" path="res://new org/entites/agent player stuff/player agent.tscn" id="2_b04fu"]
+[ext_resource type="PackedScene" uid="uid://d0iwhuvde8w6y" path="res://new org/systems/ui/info of channel and github.tscn" id="3_32i3w"]
+[ext_resource type="TileSet" uid="uid://c8rfgs3xlqyue" path="res://new org/art/copy right free art assets/terain/godot icon tile set.tres" id="4_7dbss"]
+[ext_resource type="Script" uid="uid://jav8ndnndy6" path="res://new org/systems/auto load scripts/frame_by_frame_mode_hint.gd" id="5_p47xe"]
+[ext_resource type="PackedScene" uid="uid://cnehwxf4aylum" path="res://new org/entites/cpu/zonners/zonner.tscn" id="6_b04fu"]
 
 [node name="Node2D" type="Node2D" unique_id=1655691674]
 

@@ -17,8 +17,8 @@ script = ExtResource("1_myumg")
 heal_area = NodePath("HealBoxArea")
 
 [node name="HealBoxArea" type="Area2D" parent="." unique_id=174966945]
-collision_layer = 6
-collision_mask = 6
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("2_ejb0y")
 heal_data = SubResource("Resource_1ptga")
 metadata/_custom_type_script = "uid://dy5ywq1jncbo8"

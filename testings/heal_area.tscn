@@ -4,9 +4,3 @@
 
 [node name="Area2D" type="Area2D" unique_id=423764402]
 script = ExtResource("1_rikly")
-heal_amount = null
-heal_percent = null
-one_shot = null
-affects_self_only = null
-affects_allies = null
-affects_enemies = null

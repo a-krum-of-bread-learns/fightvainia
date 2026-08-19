@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cw1p1ehiwg0gs" path="res://testings/spawnable_projectile.gd" id="1_55bpw"]
 [ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/entity systems/shared/FrameTimerCompnent.gd" id="2_86nvh"]
 [ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="2_hn6qk"]
-[ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="3_6wiry"]
+[ext_resource type="Script" uid="uid://bb1wtn63y7sur" path="res://new org/systems/attack components/hitbox data resouce.gd" id="3_6wiry"]
 [ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://new org/systems/auto load scripts/set cam.gd" id="3_86nvh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hn6qk"]
@@ -25,10 +25,9 @@ metadata/_custom_type_script = "uid://sx7qv8babvbw"
 
 [sub_resource type="Resource" id="Resource_skon6"]
 script = ExtResource("3_6wiry")
-stun_type = 0
 hit_type = 2
 block_stun_duration = 10
-block_back_distance = 30
+block_back_distance = 30.0
 hit_stun_duration = 50
 hit_back_distance_vector = Vector2(0, -100)
 damage = 1000

@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="2_q15th"]
 [ext_resource type="Curve" uid="uid://dyio4lhjl3s7l" path="res://new org/systems/animation/defults/defaults/decresing velocity or constant deceleration.tres" id="3_fd2rx"]
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="3_tmup4"]
-[ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://new org/systems/attack components/HitBoxArea.gd" id="4_fd2rx"]
+[ext_resource type="Script" uid="uid://c13qe4fn2fxbb" path="res://new org/systems/attack components/HitBoxArea.gd" id="4_fd2rx"]
 [ext_resource type="Texture2D" uid="uid://bhn4w2idgg11o" path="res://new org/art/copy right free art assets/crouch.png" id="4_tmup4"]
-[ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="5_e6xyj"]
+[ext_resource type="Script" uid="uid://bb1wtn63y7sur" path="res://new org/systems/attack components/hitbox data resouce.gd" id="5_e6xyj"]
 [ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="6_8wvil"]
 [ext_resource type="Texture2D" uid="uid://m6lptdl5apmt" path="res://new org/art/copy right free art assets/step forward baton swing low.png" id="7_q15th"]
 
@@ -86,7 +86,7 @@ disabled = true
 debug_color = Color(1, 0, 0, 0.6862745)
 
 [node name="hurt_box # 300" type="Area2D" parent="frame # 9-12" unique_id=2006424160]
-collision_layer = 2
+collision_layer = 6
 collision_mask = 0
 script = ExtResource("6_8wvil")
 

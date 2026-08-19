@@ -1,1 +1,0 @@
-controls screen shake and number of frames frozen 

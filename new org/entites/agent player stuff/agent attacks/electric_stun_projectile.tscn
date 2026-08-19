@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://ckkq3f3j2wj34" path="res://new org/systems/attack components/ProjectileArea.gd" id="3_fxeu5"]
 [ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://new org/art/copy right free art assets/stating stick.png" id="3_gctcy"]
 [ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="4_gctcy"]
-[ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="5_ltga2"]
+[ext_resource type="Script" uid="uid://bb1wtn63y7sur" path="res://new org/systems/attack components/hitbox data resouce.gd" id="5_ltga2"]
 [ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/entity systems/shared/FrameTimerCompnent.gd" id="6_bsih0"]
 [ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new org/systems/animation/AnimationTool.gd" id="7_wxbti"]
 [ext_resource type="Texture2D" uid="uid://d3ouypsble60q" path="res://new org/art/copy right free art assets/electic ball.png" id="8_hslo8"]
@@ -28,10 +28,9 @@ metadata/_custom_type_script = "uid://sx7qv8babvbw"
 
 [sub_resource type="Resource" id="Resource_xf6kq"]
 script = ExtResource("5_ltga2")
-stun_type = 0
 hit_type = 2
 block_stun_duration = 30
-block_back_distance = 40
+block_back_distance = 40.0
 hit_stun_duration = 70
 hit_back_distance_vector = Vector2(0, 0)
 damage = 400
@@ -57,7 +56,7 @@ script = ExtResource("2_hslo8")
 
 [node name="Projectile # 200" type="Area2D" parent="frame # 17-17" unique_id=1748326035 node_paths=PackedStringArray("timer")]
 top_level = true
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_fxeu5")
 timer = NodePath("frame timer")
@@ -91,5 +90,3 @@ repeat_this_frame = 31
 [node name="Sprite2D # 400" type="Sprite2D" parent="frame # 18-49" unique_id=1337333378]
 scale = Vector2(0.063, 0.063)
 texture = ExtResource("3_gctcy")
-
-[connection signal="start_animation" from="frame # 17-17/Projectile # 200" to="frame # 17-17/Projectile # 200/projectile animateor" method="animate"]

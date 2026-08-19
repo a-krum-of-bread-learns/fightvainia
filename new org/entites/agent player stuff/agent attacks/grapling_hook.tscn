@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="1_ir3hp"]
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="2_qwngo"]
 [ext_resource type="Texture2D" uid="uid://b2t3qtr1cy383" path="res://new org/art/copy right free art assets/steel grapling hook.png" id="3_33jvn"]
-[ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://new org/systems/attack components/HitBoxArea.gd" id="3_r1ten"]
+[ext_resource type="Script" uid="uid://c13qe4fn2fxbb" path="res://new org/systems/attack components/HitBoxArea.gd" id="3_r1ten"]
 [ext_resource type="Texture2D" uid="uid://c7wailodkfh8r" path="res://new org/art/copy right free art assets/stating stick.png" id="3_ynnf3"]
 [ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new org/systems/attack components/HurtBoxArea.gd" id="5_ynnf3"]
-[ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="6_33jvn"]
+[ext_resource type="Script" uid="uid://bb1wtn63y7sur" path="res://new org/systems/attack components/hitbox data resouce.gd" id="6_33jvn"]
 [ext_resource type="Texture2D" uid="uid://dminbco6164xr" path="res://new org/art/copy right free art assets/shoot up.png" id="7_ynnf3"]
 
 [sub_resource type="Resource" id="Resource_ynnf3"]
@@ -64,7 +64,7 @@ disabled = true
 debug_color = Color(1, 0, 0, 0.6862745)
 
 [node name="hurt_box # 300" type="Area2D" parent="frame # 11-22" unique_id=1985027550]
-collision_layer = 2
+collision_layer = 6
 collision_mask = 0
 script = ExtResource("5_ynnf3")
 
@@ -86,7 +86,7 @@ script = ExtResource("2_qwngo")
 repeat_this_frame = 21
 
 [node name="hurt_box # 300" type="Area2D" parent="frame # 23-44" unique_id=511481454]
-collision_layer = 2
+collision_layer = 6
 collision_mask = 0
 script = ExtResource("5_ynnf3")
 

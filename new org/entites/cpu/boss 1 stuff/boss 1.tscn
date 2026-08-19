@@ -14,23 +14,21 @@
 
 [node name="boss 1" unique_id=518042812 instance=ExtResource("1_8l3da")]
 
-[node name="folder#enemylogic" type="Node" parent="folder to not be scaled" parent_id_path=PackedInt32Array(401095005) index="5" unique_id=1044143473 node_paths=PackedStringArray("rays", "ledge_ray", "timer", "close_bnb_combo", "close_bnb_low_combo", "mid_pokes", "anti_airs", "host")]
+[node name="folder#enemylogic" type="Node" parent="folder to not be scaled" parent_id_path=PackedInt32Array(401095005) index="5" unique_id=1044143473 node_paths=PackedStringArray("close_bnb_combo", "close_bnb_low_combo", "mid_pokes", "anti_airs", "rays", "ledge_ray", "timer", "host")]
 script = ExtResource("2_30itt")
-rays = [NodePath("../../folder to be scaled/boss folder/hitbox detect")]
-ledge_ray = NodePath("../../folder to be scaled/boss folder/floor detect")
 settings = ExtResource("2_r6h4o")
-timer = NodePath("../../folder to be scaled/boss folder/FrameTimer")
-humanize_time_in_frames = 20
-pause_time_in_frames = 10
 close_bnb_combo = [null, null, null]
 close_bnb_low_combo = [null, null, null]
 mid_pokes = [null, null]
 anti_airs = [null]
+rays = [NodePath("../../folder to be scaled/boss folder/hitbox detect")]
+ledge_ray = NodePath("../../folder to be scaled/boss folder/floor detect")
+timer = NodePath("../../folder to be scaled/boss folder/FrameTimer")
 enabled = true
 host = NodePath("../..")
 metadata/_custom_type_script = "uid://c5ucrpov3ddtq"
 
-[node name="Primary hurtboxes and sprites" parent="folder to be scaled" parent_id_path=PackedInt32Array(1146947319) index="0" unique_id=994631848 node_paths=PackedStringArray("host") instance=ExtResource("4_bv60b")]
+[node name="Primary hurtboxes and sprites2" parent="folder to be scaled" parent_id_path=PackedInt32Array(1146947319) index="0" unique_id=994631848 node_paths=PackedStringArray("host") instance=ExtResource("4_bv60b")]
 host = NodePath("../..")
 
 [node name="left buttion jab (X) lp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="0" unique_id=508514690 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("10_5uoak")]

@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://ckkq3f3j2wj34" path="res://new org/systems/attack components/ProjectileArea.gd" id="4_rgscb"]
 [ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="5_fapfo"]
 [ext_resource type="Resource" uid="uid://b2eh4wty7ne67" path="res://new org/entites/agent player stuff/animations/basic_forward_moving_projectile.tres" id="6_jbmxp"]
-[ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="7_6vjg7"]
+[ext_resource type="Script" uid="uid://bb1wtn63y7sur" path="res://new org/systems/attack components/hitbox data resouce.gd" id="7_6vjg7"]
 [ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/entity systems/shared/FrameTimerCompnent.gd" id="8_verx4"]
 [ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new org/systems/animation/AnimationTool.gd" id="9_j2by7"]
 [ext_resource type="Texture2D" uid="uid://go1s0hxf847i" path="res://new org/art/copy right free art assets/explosion.png" id="10_njxgs"]

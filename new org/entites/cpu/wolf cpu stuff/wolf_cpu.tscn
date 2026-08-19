@@ -4,8 +4,8 @@
 [ext_resource type="Resource" uid="uid://rrorr4qhbafc" path="res://new org/entites/cpu/wolf cpu stuff/wolf cpu settings.tres" id="2_1l361"]
 [ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="2_mafee"]
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new org/systems/attack components/Frame.gd" id="3_1l361"]
-[ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://new org/systems/attack components/HitBoxArea.gd" id="4_txipi"]
-[ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://new org/systems/attack components/hitbox data resouce.gd" id="5_gtiof"]
+[ext_resource type="Script" uid="uid://c13qe4fn2fxbb" path="res://new org/systems/attack components/HitBoxArea.gd" id="4_txipi"]
+[ext_resource type="Script" uid="uid://bb1wtn63y7sur" path="res://new org/systems/attack components/hitbox data resouce.gd" id="5_gtiof"]
 [ext_resource type="PackedScene" uid="uid://c2f5qletyrbub" path="res://new org/entites/cpu/wolf cpu stuff/wolf_primary_hurt_boxes.tscn" id="7_fl4r7"]
 
 [sub_resource type="Resource" id="Resource_xck2a"]
@@ -60,8 +60,8 @@ debug_color = Color(1, 0, 0, 0.6862745)
 script = ExtResource("3_1l361")
 repeat_this_frame = 20
 
+[node name="Primary hurtboxes and sprites2" parent="folder to be scaled" parent_id_path=PackedInt32Array(1146947319) index="2" unique_id=994631848 node_paths=PackedStringArray("host") instance=ExtResource("7_fl4r7")]
+host = NodePath("../..")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="folder to be scaled/boss folder/detect player" parent_id_path=PackedInt32Array(1655518541) index="0" unique_id=1473084035]
 shape = SubResource("CircleShape2D_mafee")
-
-[node name="Primary hurtboxes and sprites" parent="folder to be scaled" parent_id_path=PackedInt32Array(1146947319) index="2" unique_id=994631848 node_paths=PackedStringArray("host") instance=ExtResource("7_fl4r7")]
-host = NodePath("../..")

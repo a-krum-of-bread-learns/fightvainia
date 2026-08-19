@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="BossSettings" format=3 uid="uid://3c1b4qm108yn"]
+[gd_resource type="Resource" script_class="EnemySettings" format=3 uid="uid://3c1b4qm108yn"]
 
-[ext_resource type="Script" uid="uid://c4buu38jtc0ws" path="res://new org/systems/entity systems/cpu systems/EnemySettings.gd" id="1_a7jr7"]
+[ext_resource type="Script" uid="uid://l44o6rb7c7t1" path="res://new org/systems/entity systems/cpu systems/EnemySettings.gd" id="1_a7jr7"]
 
 [resource]
 script = ExtResource("1_a7jr7")
-PREFERED_DISTANCE = 2
 close_range_max_x = 30.0
 mid_range_max_x = 40.0
 far_range_max_x = 80.0

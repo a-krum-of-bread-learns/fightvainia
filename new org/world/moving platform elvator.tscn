@@ -11,8 +11,6 @@ script = ExtResource("2_5tu21")
 use_by_pixel = true
 pathfollow = NodePath("PathFollow2D")
 anibody = NodePath("PathFollow2D/AnimatableBody2D")
-pause_every_x_pixels = null
-pause_time_in_seconds = null
 
 [node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=627554094]
 rotates = false

@@ -28,14 +28,14 @@ gradient = SubResource("Gradient_m8xwp")
 width = 16
 height = 4
 
-[node name="hurt able" type="CharacterBody2D" unique_id=373821748 node_paths=PackedStringArray("stun_manager", "health_component", "primary_boxes_and_sprites")]
+[node name="hurt able" type="CharacterBody2D" unique_id=373821748 node_paths=PackedStringArray("primary_boxes_and_sprites", "stun_manager", "health_component")]
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_wr0em")
-stun_manager = NodePath("StunManager")
-health_component = NodePath("simple health bar")
 stats = ExtResource("2_m8xwp")
 primary_boxes_and_sprites = NodePath("Player primary hurtboxes and sprites")
+stun_manager = NodePath("StunManager")
+health_component = NodePath("simple health bar")
 metadata/_custom_type_script = "uid://bssckwpf2obbe"
 
 [node name="Player primary hurtboxes and sprites" parent="." unique_id=994631848 node_paths=PackedStringArray("host") instance=ExtResource("3_m8xwp")]
