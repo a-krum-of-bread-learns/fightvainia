@@ -18,3 +18,6 @@ add an ad read for my own stuff or just show off my home made plushie
 game padding 
 	fair voting and proportional representation as a cut scene for game time padding and education .
 	unrelated side conversions that can be listened into 
+
+retun to game stuff
+	at save points the character thinks about what they want to do (main quest)  and also get a story recap option

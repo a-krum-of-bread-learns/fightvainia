@@ -104,7 +104,7 @@ func add_new_sprite():
 	add_sprite_button = false
 	
 	
-func _process(_delta):
+func _physics_process(_delta):
 	if Engine.is_editor_hint(): 
 		if add_sprite_button: add_new_sprite()
 	else:

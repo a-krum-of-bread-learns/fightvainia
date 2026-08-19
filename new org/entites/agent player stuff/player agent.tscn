@@ -1,25 +1,29 @@
 [gd_scene format=3 uid="uid://bdtelvmkwjuh1"]
 
-[ext_resource type="PackedScene" uid="uid://cwic4qufw2wug" path="res://new org/entites/basic parts/base chars.tscn" id="1_a6hav"]
-[ext_resource type="PackedScene" uid="uid://duw2his5lywxk" path="res://new org/entites/agent player stuff/agent attacks/left_buttion_jab_(x)_lp.tscn" id="2_pk7ux"]
-[ext_resource type="PackedScene" uid="uid://i07c3uwydhut" path="res://new org/entites/agent player stuff/agent attacks/floor_explosion.tscn" id="3_22x0t"]
-[ext_resource type="PackedScene" uid="uid://gu4f3xo60xh2" path="res://new org/entites/agent player stuff/agent attacks/up_buttion_strong_(y)_hp.tscn" id="4_1e7bk"]
-[ext_resource type="PackedScene" uid="uid://od41351s0ekc" path="res://new org/entites/agent player stuff/agent attacks/left_button_low_(x)_lp.tscn" id="6_g61p2"]
-[ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://new org/art/copy right free audio assets/session.mp3" id="6_yc487"]
-[ext_resource type="PackedScene" uid="uid://ci8cd0kwoplqn" path="res://new org/entites/agent player stuff/agent attacks/up_button_low_(y)_hp.tscn" id="8_6wa2j"]
-[ext_resource type="PackedScene" uid="uid://b50dutlc1lhd4" path="res://new org/entites/agent player stuff/agent attacks/up_buttion_anti_air_(y)_hp.tscn" id="9_emola"]
-[ext_resource type="PackedScene" uid="uid://cw5fnq8vbjalr" path="res://new org/entites/agent player stuff/agent attacks/left_button_overhead_(x)_lp.tscn" id="10_emola"]
-[ext_resource type="PackedScene" uid="uid://bv6x86onbkurk" path="res://new org/entites/agent player stuff/agent attacks/grapple_followup.tscn" id="11_3pm7c"]
-[ext_resource type="PackedScene" uid="uid://bht2askiamrv1" path="res://new org/entites/agent player stuff/agent attacks/grapling_hook.tscn" id="11_wagu1"]
-[ext_resource type="PackedScene" uid="uid://bwrmodlels1kk" path="res://new org/entites/agent player stuff/agent attacks/fire_ball.tscn" id="13_j33lb"]
-[ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new org/systems/attack components/Attack.gd" id="14_3pm7c"]
-[ext_resource type="PackedScene" uid="uid://cw6ku76l6qttd" path="res://new org/entites/agent player stuff/agent attacks/spawn_ice_block.tscn" id="14_anoxa"]
-[ext_resource type="PackedScene" uid="uid://bj2ky72inaiq4" path="res://new org/entites/agent player stuff/agent attacks/up_button_air_(y)_hp.tscn" id="15_2ule2"]
-[ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="15_anoxa"]
-[ext_resource type="Resource" uid="uid://8iohifkvslmi" path="res://new org/entites/agent player stuff/animations/dash part 1.tres" id="16_er1ep"]
-[ext_resource type="Resource" uid="uid://ddp2dgmh0djlv" path="res://new org/entites/agent player stuff/animations/dash part 2.tres" id="17_s5bsa"]
+[ext_resource type="PackedScene" uid="uid://cwic4qufw2wug" path="res://addons/fightvainia auto load loader/new org/entites/basic parts/base chars.tscn" id="1_a6hav"]
+[ext_resource type="Resource" uid="uid://3x15qdhxammi" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/resources?/agent_stats.tres" id="2_2tl4n"]
+[ext_resource type="PackedScene" uid="uid://duw2his5lywxk" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/agent attacks/left_buttion_jab_(x)_lp.tscn" id="2_pk7ux"]
+[ext_resource type="PackedScene" uid="uid://i07c3uwydhut" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/agent attacks/floor_explosion.tscn" id="3_22x0t"]
+[ext_resource type="PackedScene" uid="uid://gu4f3xo60xh2" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/agent attacks/up_buttion_strong_(y)_hp.tscn" id="4_1e7bk"]
+[ext_resource type="PackedScene" uid="uid://od41351s0ekc" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/agent attacks/left_button_low_(x)_lp.tscn" id="6_g61p2"]
+[ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://addons/fightvainia auto load loader/new org/art/copy right free audio assets/session.mp3" id="6_yc487"]
+[ext_resource type="PackedScene" uid="uid://ci8cd0kwoplqn" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/agent attacks/up_button_low_(y)_hp.tscn" id="8_6wa2j"]
+[ext_resource type="PackedScene" uid="uid://b50dutlc1lhd4" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/agent attacks/up_buttion_anti_air_(y)_hp.tscn" id="9_emola"]
+[ext_resource type="PackedScene" uid="uid://cw5fnq8vbjalr" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/agent attacks/left_button_overhead_(x)_lp.tscn" id="10_emola"]
+[ext_resource type="PackedScene" uid="uid://bv6x86onbkurk" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/agent attacks/grapple_followup.tscn" id="11_3pm7c"]
+[ext_resource type="PackedScene" uid="uid://bht2askiamrv1" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/agent attacks/grapling_hook.tscn" id="11_wagu1"]
+[ext_resource type="PackedScene" uid="uid://bwrmodlels1kk" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/agent attacks/fire_ball.tscn" id="13_j33lb"]
+[ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://addons/fightvainia auto load loader/new org/systems/attack components/Attack.gd" id="14_3pm7c"]
+[ext_resource type="PackedScene" uid="uid://cw6ku76l6qttd" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/agent attacks/spawn_ice_block.tscn" id="14_anoxa"]
+[ext_resource type="PackedScene" uid="uid://bj2ky72inaiq4" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/agent attacks/up_button_air_(y)_hp.tscn" id="15_2ule2"]
+[ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://addons/fightvainia auto load loader/new org/systems/animation/animation resource.gd" id="15_anoxa"]
+[ext_resource type="Resource" uid="uid://8iohifkvslmi" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/animations/dash part 1.tres" id="16_er1ep"]
+[ext_resource type="Resource" uid="uid://ddp2dgmh0djlv" path="res://addons/fightvainia auto load loader/new org/entites/agent player stuff/animations/dash part 2.tres" id="17_s5bsa"]
+[ext_resource type="PackedScene" uid="uid://btufeyfuqt18p" path="res://addons/fightvainia auto load loader/new org/entites/basic parts/primary_hurt_boxes.tscn" id="20_h4red"]
 
-[node name="player" unique_id=1999747051 instance=ExtResource("1_a6hav")]
+[node name="player" unique_id=1999747051 node_paths=PackedStringArray("primary_boxes_and_sprites") instance=ExtResource("1_a6hav")]
+stats = ExtResource("2_2tl4n")
+primary_boxes_and_sprites = NodePath("folder to be scaled/Primary hurtboxes and sprites")
 
 [node name="MoveList" parent="folder to not be scaled" parent_id_path=PackedInt32Array(83792367) index="3" unique_id=937155038 node_paths=PackedStringArray("light_punch", "down_light_punch", "up_right_light_punch", "air_light_punch", "heavy_punch", "down_heavy_punch", "up_heavy_punch", "air_heavy_punch", "dqcf_light_punch", "fqcd_light_punch", "fqcd_heavy_kick", "uqcf_light_kick", "fqcu_light_kick", "air_uqcf_light_kick", "air_fqcu_light_kick")]
 light_punch = NodePath("../../folder to be scaled/attack manager/left buttion (X) lp")
@@ -86,3 +90,6 @@ end_frame_follow_up = 22
 [node name="dash" type="Node2D" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="12" unique_id=1132306851]
 script = ExtResource("14_3pm7c")
 animation_stuff = Array[ExtResource("15_anoxa")]([ExtResource("16_er1ep"), ExtResource("17_s5bsa")])
+
+[node name="Primary hurtboxes and sprites" parent="folder to be scaled" parent_id_path=PackedInt32Array(1784953174) index="2" unique_id=994631848 node_paths=PackedStringArray("host") instance=ExtResource("20_h4red")]
+host = NodePath("../..")

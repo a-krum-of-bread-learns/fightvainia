@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AnimationResource" format=3 uid="uid://x8doshw2cu3h"]
 
-[ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new org/systems/animation/animation resource.gd" id="1_i8ded"]
+[ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://addons/fightvainia auto load loader/new org/systems/animation/animation resource.gd" id="1_i8ded"]
 
 [sub_resource type="Curve" id="Curve_uxavv"]
 _data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]

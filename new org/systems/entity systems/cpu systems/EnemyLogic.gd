@@ -1,16 +1,7 @@
 ## this node contols ennemy behaviour using chances. all settings are stored in the see [BossSettings]
 class_name EnemyLogic extends BehaviourBase
 
-@export_group("components")
-@export var rays: Array[RayCast2D]
-@export var ledge_ray: RayCast2D
 @export var settings: EnemySettings
-
-@export_group("timer")
-@export var timer: FrameTimer
-@export var humanize_time_in_frames: int = 0
-@export var pause_time_in_frames: int = 0
-
 @export_group("combos")
 @export var close_bnb_combo: Array[Attack]
 @export var close_bnb_low_combo: Array[Attack]
@@ -18,6 +9,11 @@ class_name EnemyLogic extends BehaviourBase
 @export var mid_pokes: Array[Attack]
 @export var far_or_projectile_pokes: Array[Attack]
 @export var anti_airs: Array[Attack]
+
+@export_group("dont touch")
+@export var rays: Array[RayCast2D]
+@export var ledge_ray: RayCast2D
+@export var timer: FrameTimer
 #REFACTOR make a single source of truth for the states
 enum PREFERRED_DISTANCE {CLOSE = 1, MID, FAR}
 enum STATE {IDLE_WALK = -10, IDLE_PAUSE, CLOSE = 1, MID, FAR, VERY_FAR, BLOCK = 40}
@@ -124,10 +120,10 @@ func approch_behaviour() -> void:
 		return
 	if not timer.is_stoped():
 		return
-	timer.start_frame_timer(humanize_time_in_frames)
+	timer.start_frame_timer(settings.humanize_time_in_frames)
 	host.scale_component.set_scale(Scale.RIGHT if host.is_facing_right else Scale.LEFT)
 	if HelperFuncs.roll_chance(settings.pause_chance):
-		timer.start_frame_timer(pause_time_in_frames)
+		timer.start_frame_timer(settings.pause_time_in_frames)
 		host.is_crouching = true
 		host.velocity.x = 0
 		return

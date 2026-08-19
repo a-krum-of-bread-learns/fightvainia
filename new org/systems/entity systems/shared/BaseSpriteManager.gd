@@ -1,3 +1,4 @@
+## shows stuns but viusal
 class_name BaseSpriteManager extends Sprite2D
 @export var stun_manager: StunManager
 

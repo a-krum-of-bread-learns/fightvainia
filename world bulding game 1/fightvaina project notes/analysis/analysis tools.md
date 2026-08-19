@@ -4,6 +4,7 @@ table  [[table analysis]]
 costumer journey map
 study people
 problem tree [[problem tree]]
+frame by frame [[frame by frame animation analysis]] 
 notes from 3000 and video notes [[notes form 3000 and list of videos]] 
 what group is a mode for
 	metriodvaina single

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PlayerStats" format=3 uid="uid://3x15qdhxammi"]
 
-[ext_resource type="Script" uid="uid://bb5lwdc0ivd5v" path="res://new org/entites/basic parts/player_stats_resource.gd" id="1_yxt5y"]
+[ext_resource type="Script" uid="uid://bb5lwdc0ivd5v" path="res://addons/fightvainia auto load loader/new org/entites/basic parts/player_stats_resource.gd" id="1_yxt5y"]
 
 [resource]
 script = ExtResource("1_yxt5y")

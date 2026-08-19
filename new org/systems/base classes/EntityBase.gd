@@ -17,22 +17,22 @@ var is_falling: bool = true
 var is_dashing: bool = false
 var is_jumping: bool = false
 var is_crouching: bool = false
+@export var stats: EntityStats
+@export_enum("player:4" , "enemy:2") var hurt_box_layer: int = 2 ##eneimes hurt on 2 player hurts on 4 use 6 to hurt both
+@export_enum("player:2" , "enemy:4") var hit_box_mask: int = 4 ##eneimes hit on 4 player hits on 2 use 6 to hit both
+@export var primary_boxes_and_sprites: EntityPrimaryHurtBoxesAndSprites
+@export_group("dont touch if you have no idea what these are")
 @export var stun_manager: StunManager
 @export var attack_manager: AttackManager
 @export var scale_component: Scale
 @export var health_component: SimpleHealthBar
-@export var stats: EntityStats
-@export var primary_boxes_and_sprites: EntityPrimaryHurtBoxesAndSprites
+
 @export var simple_damage_effect: SimpleDamageNumberEffect
 @export var control_node: BehaviourBase ## if enemy use [EnemyLogic] if player use [InputManager]
 @export var combo_tracker: SelfComboTracker
 @export var on_screen_combo_tracker: ComboCounterDisplay
 #@export_enum("player_layers:1", "enemy_layers:2") var layers = 2# this didnt work well
-@export_enum("player:4" , "enemy:2") var hurt_box_layer: int = 2 ##eneimes hurt on 2 player hurts on 4 use 6 to hurt both
-@export_enum("player:2" , "enemy:4") var hit_box_mask: int = 4 ##eneimes hit on 4 player hits on 2 use 6 to hit both
 signal set_enabled(value: bool)
-
-
 @export_enum("error:-1","LOW:1","ALL:2","OVERHEAD:3") var block_type: int = 3
 enum BLOCK_TYPE {LOW=1, ALL=2, OVER=3} ## type of block
 var tween: Tween = null

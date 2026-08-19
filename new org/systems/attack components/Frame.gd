@@ -21,11 +21,15 @@ class_name Frame extends Node2D
 @export var clear_frame_button1: bool = false ## there are 2 for insurnce 
 @export var clear_frame_button2: bool = false ## there are 2 for insurnce 
 @export_category("frame info")
-@export_range(0,300) var repeat_this_frame: int = 0
+@export_range(0,300) var repeat_this_frame: int = 0:
+	set(value):
+		repeat_this_frame = value
+		reqest_rename.emit()
 var box_shapes: Array[CollisionShape2D] ## 2 layers down in the forced structor are CollisionShape2D refrenced here
 var spawners: Array[SpawnObject]
 var sprites_array: Array[Sprite2D]
 @onready var attack_manager: AttackManager = self.get_parent().get_parent()
+signal reqest_rename
 #TODO add use default sprite support
 #region game code
 ## Returns this frame's [HitBoxArea] if one exists, otherwise null. Used
@@ -81,12 +85,15 @@ func _ready():
 			sprites_array.append(node)
 	if box_shapes.is_empty() and sprites_array.is_empty():
 		push_warning("Frame: " + name + " of attack " + get_parent().name + " has no boxes or sprites, is this intentional?")
+		#TODO this may be better in a diffrent way 
+		reqest_rename.connect((get_parent() as Attack).rename_frames)
 
 #endregion
 
 #region @tool code
 ## setts all CollisionShape2D to be the same disabled state as the first on in the list to make it easier to show a spasific box
 func toggle_this_frames_boxes():
+	_ready()
 	var shape_disbaled_1: bool = box_shapes[0].disabled
 	for shape in box_shapes:
 		if shape.disabled == shape_disbaled_1:
@@ -101,7 +108,6 @@ func add_new_hit_box():
 	print(get_children(true))
 	print("added hit_box")
 	add_hit_box_buttion = false
-	set_frame_disabled(true)
 	rename_all_children()
 	
 func add_new_projectile_box(): 
@@ -121,7 +127,6 @@ func add_new_projectile_box():
 	print(get_children(true))
 	print("added projectile_box")
 	add_projectile_box_buttion = false
-	set_frame_disabled(true)
 	rename_all_children()
 
 ##adds hurt box to secene tree
@@ -132,7 +137,6 @@ func add_new_hurt_box():
 	print(get_children(true))
 	print("added end frame")
 	add_hurt_box_buttion = false
-	set_frame_disabled(true)
 	rename_all_children()
 
 ## adds a Sprite2D to the scene tree hidden by default to match frame disabled state

@@ -55,6 +55,18 @@ var input_direction: int = 0
 signal dash_signal(direction: Vector2)
 signal jump_signal(direction: Vector2)
 
+#an idea but not sure if its a good one maybe just instuctions to set the input map 
+#@export_category("input map")
+#@export var up_input_name: StringName = "up"
+#@export var down_input_name: StringName = "down"
+#@export var left_input_name: StringName = "left"
+#@export var right_input_name: StringName = "right"
+#@export var light_punch_input_name: StringName = "LP"
+#@export var light_kick_input_name: StringName = "LK and jump"
+#@export var heavy_punch_input_name: StringName = "HP"
+#@export var heavy_kick_input_name: StringName = "HK and block"
+
+
 @export_category("fake inputs")
 @export var fake_U: bool
 @export var fake_R: bool
@@ -139,10 +151,10 @@ func reader(input_h: Array[Array], digits: Array[int]):
 ## this intentionally grows the buffer during hit stop giving a larger cancel window
 func resize_and_append_to_array(array: Array, max_size: int, this_frame_inputs: Array[int]) -> void:
 	if array.size() > max_size + 1:
-		if HitStop.frames_left == 0:
+		if HitStopAndShake.frames_left == 0:
 			push_warning("input history exceeded max size by more than 1 frame, something is adding to it externally")
 	array.push_front(this_frame_inputs.duplicate())
-	if HitStop.frames_left > 0:
+	if HitStopAndShake.frames_left > 0:
 		if host.attack_manager.is_attack_safe_to_read():
 			bonus_frames_remaining = host.attack_manager.current_attack.start_frame_combo-host.attack_manager.current_attack.active_frame
 		return
@@ -163,7 +175,6 @@ func resize_and_append_to_array(array: Array, max_size: int, this_frame_inputs: 
 ## when the game is unpaused one frame at a time
 func input_filter() -> void:
 	inputs_of_curent_frame_for_attacks.clear()
-
 	var up: bool = Input.is_action_pressed("up")
 	var down: bool = Input.is_action_pressed("down")
 	var left: bool = Input.is_action_pressed("left")
@@ -251,7 +262,7 @@ func chose_action3() -> void:
 	if host.is_attacking == false:
 		chose_actions_get_attack(move_list.neutral_normals)
 	else:
-		if ( host.attack_manager.current_attack.can_speical_cancel
+		if (host.attack_manager.current_attack.can_speical_cancel
 		and host.attack_manager.current_attack.has_hit):
 			chose_actions_get_attack(move_list.all_specials)
 
@@ -267,7 +278,7 @@ func chose_action3() -> void:
 
 func _process(_delta: float) -> void:
 	# frame by frame mode - record inputs but skip all game logic until unpaused
-	if get_tree().paused and HitStop.frames_left <= 0:
+	if get_tree().paused and HitStopAndShake.frames_left <= 0:
 		return
 	input_filter()
 	# stunned - record inputs but skip action selection and movement

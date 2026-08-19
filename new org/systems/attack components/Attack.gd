@@ -18,14 +18,13 @@ class_name Attack extends Node2D
 
 ## tool buttions 
 @export_category("tool buttons")
-#@export_tool_button("add_end_frame_button") var add_end_frame = add_new_end_frame change these later
 @export var add_end_frame_button: bool = false## tool buttions 
 @export var fix_names_buttion: bool = false## tool buttions 
 @export var reset_visable_disabled_buttion: bool = false## tool buttions 
 @export_group("danger zone")
 @export var clear_frames_button1: bool = false## tool buttions 
 @export var clear_frames_button2: bool = false## tool buttions 
-@export_category("attack properties")
+@export_category("intermeidate attack properties")
 @export var is_combo_attack: bool = false:
 	set(value):
 		is_combo_attack = value
@@ -111,6 +110,8 @@ func set_can_follow_up():
 		can_follow_up = false
 
 func reset():
+	for frame: Frame in frames:
+		frame.set_frame_disabled(true)
 	active_frame = 0 ## tracks the active frame
 	can_speical_cancel = false
 	can_combo = false
@@ -120,11 +121,14 @@ func reset():
 
 #region tool code
 func _validate_property(property: Dictionary) -> void:
-	if property.name in ["start_frame_combo", "end_frame_combo","combo_attacks_dictionary"] and not is_combo_attack:
+	if (property.name in ["start_frame_combo", "end_frame_combo","combo_attacks_dictionary"] 
+	and not is_combo_attack):
 		property.usage = PROPERTY_USAGE_NO_EDITOR
-	if property.name in ["start_frame_speical_cancel", "end_frame_speical_cancel"] and not is_speical_cancelable:
+	if (property.name in ["start_frame_speical_cancel", "end_frame_speical_cancel"]
+	and not is_speical_cancelable):
 		property.usage = PROPERTY_USAGE_NO_EDITOR
-	if property.name in ["start_frame_follow_up", "end_frame_follow_up", "follow_up"] and not has_forced_follow_up:
+	if (property.name in ["start_frame_follow_up", "end_frame_follow_up", "follow_up"]
+	and not has_forced_follow_up):
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 
 ##adds a new frame as a child of this node of classs Frame

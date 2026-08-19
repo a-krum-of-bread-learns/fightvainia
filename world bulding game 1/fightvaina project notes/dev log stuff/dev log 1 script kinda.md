@@ -4,9 +4,11 @@ things i want to talk about
 at the begin of all videos / recording say bismallah and as-salamu alakum, hello welcome to this video (video topic) i recommend you take notes while watching to help you retain the information for your own projects with a physical or digital note book. as notes are very good to have when you what to check something again.
 
 
-at the end of all videos say salam and i hope this was of benift for you and i hope you took notes to retain the information too
+at the end of all videos say salam and i hope this was of benift for you and i hope you took notes to retain the information to
 
-- input management without motion inputs (**done**) 
+should try motion canvas.
+
+- [x] input management without motion inputs  
 	*assumptions* 
 	1. *you know what a fighting game is* 
 	2. *you may have an interest in coding a fighting game* 
@@ -20,10 +22,10 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 	this can also be done with a binary look up table (or truth table or Bit mask lookup table) like this ==(image and truth table image)== corresponding to the table as shown
 	now lets consider the player decides to use a joy stick instead of a d-pad or hit box. the joy stick doesn't give whole as it is an analog input  ==(clip with joy stick and position values)== values so we need to account for that by rounding or adjusting the value to be working
 	however when working with attack buttons we do want more then 1 input to be read at the same time for things like L punch + L kick = grab in sf6  or 3 buttons in guilty gear  = roman cancel ==(then show stock footage)== here is a visual example of how i did it for my project ==(show the 4 attack buttons)==  staring with 4 attack buttons when i press 2 of them i read that at both pressed at the same time i read it as 3 inputs ==(show the expanded buttons for the 2 pressed)==
-- basic fighting game num-pad notation **not sure if i should explain it**
-	num-pad notation can be used as one way to represent inputs in fighting games we can also use it to help us in code for people who are familiar with it or just have a number pad next to them when developing the motion in puts her are a few examples ==(examples 3 -5 one with a change example even tho i dont plan to have charge moves in my game )== 
-	now that you have seen a few examples lets try a few for you to test you self if you understand it ==(a few for practice)==
-- move list variable management  and choose action (**done**) 
+- [x] sequences for fighting games
+- [x] how to develop a fighting game with more of the code stuff
+
+- [x] move list variable management  and choose action  
 	==(pull images regarding an attack from an existing video game to make the visual tree)==
 	when making a fighting game you will quickly realize that its really hard to mange all the attacks without a nice system to stay organized
 	in games with simpler combat systems they usually have 1 maybe 2 attack buttons at most 
@@ -68,7 +70,7 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 	to end off this video here is my full move list at the time of recording witch is over 600 lines of code. when i need to edit this very large repetitive file i use AI. I do this since it may be considered torture to have some one manually edit this file to just add a sequence and i would be surprised if this file is made to be a lot larger.
 	video description 
 	I go over how to keep attacks organized when fighting game characters have so many showing mostly the code side of this system while being more of an overview rather than step by step as it is a file for just managing variables.
-- how to code a fighting game input system (**done**)
+- [x] how to code a fighting game input system 
 	assumptions
 	1. you know num-pad notation
 	2. you understand some games have motion inputs for attacks
@@ -311,28 +313,74 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 	in the chose action function we edit the move list key to be format of the Attack Key we just made and edit the parameters to match. next for clarity we add a type declaration to the for loop witch may just be a Godot thing. then we add an input check for the attack buttons before we check the sequence  
 	editors note when i did the test i had digits as type Array not Array[int] its changed back to Array[int] a little later. then a little later we also edit how we call the sequence reader and here we can fix the typing for the sequcne reader
 	buffered redo i make a function that takes in the buffed history and a single input. i then loop though  that history and check if it has the input we are taking in. if it does return true otherwise return false. next we edit the attack button parameter in attack key form a sting to the type we really want to use in my case i use int. we then make this change to the move list as well. we then replace when we check for an attack button to be pressed  with a call for the function we just made
-- attack system 2 videos or 2 parts 1 for overview and 1 for code not including cancels multi hit attacks 
-	manager, attacks, frame, hit/hurt boxes and collision shapes, the forced structure too
-	manger outline 
-		is attacking
+- [ ] basic fighting game num-pad notation **not sure if i should explain it**
+	num-pad notation can be used as one way to represent inputs in fighting games we can also use it to help us in code for people who are familiar with it or just have a number pad next to them when developing the motion in puts her are a few examples ==(examples 3 -5 one with a change example even tho i dont plan to have charge moves in my game )== 
+	now that you have seen a few examples lets try a few for you to test you self if you understand it ==(a few for practice)
+- [ ] attack system 2 videos or 2 parts 1 for overview and 1 for code not including cancels multi hit attacks 
+	- manager, attacks, frame, hit/hurt boxes and collision shapes, the forced structure too visible collision shapes 
+	- make sure to have a spot saved on the screen for current script
+	- video parts
+		how attacks work: visual run through of attacks 
+		multi hit attacks: 
+		visual of cancel windows and the simplest form forced follow up 
+	- quiz qestion where should the code for telling when the cancel window is be 
+	- attack manger
+	- attack 
+	- hit box
+	- manger outline 
 		current attack
 		start and contue attack
-	attack outline 
+	- attack outline 
 		mainly a container with a few propteys and a reset function for its self
 		active frame 
 		frames: array[frame]
-	frame outline
+	- frame outline
 		repeat this frame 
 		set frame disabled
-	hitbox outline
+	- hitbox outline
 		on area entered 
 		damage (use queue free)
 		set collision layer and mask
-	hurt box out line
+		has hit signal
+	- hurt box out line
 		set collision layer and mask
 		refence to host/ char body 2d or just hurt box and stun manager
+	self hit protection
+	- additional end of vid stuff:
+		show how i do cancels and where for what a little bit 
+	==script parts== 
+	first we need to decide what attack we will use then  we can start that attack getting us into our attack system making sure start attack is our only entry point. the attack system is made of 5 key parts attack manager witch starts and continues the attacks. attack witch stores some information like what the current frame is . the frame node holds all of the hit and hurt boxes tuning them on and off when the frame is enabled or disabled. lastly is the hit and hurt boxes used for hit detection and store information like damage while the collision shapes make the shaep of the attack 
 	
-- combo attacks and speical cancels system (target combo)
+	
+	attack layer: under the attack manger we need to have bunch attacks to chose from. the attack manager will be told what attack to start form some input system or a direct call. it will save that attack and use the properties only it knows like what frame its currently on.  
+	frame layer: next in the frame layer you have all your frames that each have their own boxes and shapes. when moving from one frame to the next we enable the frame we are on and disable the previous one. 
+	
+	hit/hurt boxes and shapes: this layer is for hit detection and the shape of the attacks. when we hit something with a hit box it needs to tell the attack manager something was hit and the opponent that it was hit and call some functions.
+
+	code blocks 
+	define all the classes and hurt box is small so we can finish it now 
+	attackmanger: we can define our variables right away we can use is_attacking and current_attack in our start function and we can define continue attack witch we will fill out later. lastly we can define the physics process function so we can  start the attack when we input something and continue attacking if is_attacking is true. test attack in a full system would be in an input management class but for the video and testing we defined it here instead.
+	Attack: we define our variables to know the full set and the active frame. in the ready function we look one layer down and we just fill out the array with a type check. then we can define reset attack function where we will disable all the frames and set the active frame to 0. but we still need a helper from the frame class
+	frame: we can define 2 variables repeat this frame we will use later and box_shapes we can use right away. in the ready function we need to go 2 layers down. one layer below we have the hit and hurt boxes then below that we have the shapes of those boxes. once we verify they are in fact collision shapes we can store them in the array and also have them disabled by default. then we can define our helper function set frame disabled witch sets the boxes to enabled or disabled efectively turning the frame on or off .  then we can go back up to our attack loop though all of its frames and disable them when we reset attack
+	hitbox: here we need to define a signal has_hit. we also need to define the hit box data for example damage. we need some references to  our own player and attack manager witch are 3 and 4 layers up. for the ready function we connect the signal on area entered to our damage function. this signal comes form extending Area2D. and we set the mask. in the damage function we can just print that it was called for now.
+	continue attack func: going back to the attack manger and its continue attack func we can print the frame number and make a helper variable to track the current frame. next lets add the end condition  if the attack has ran through all of its frames stops and reset the attack. other wise enable the current frame and incrment the active frame for next time. we should also disable the previous frame making sure not to call it when its on the start frame to prevent an error
+	we can test our code but before that double check your input is set in the input map. LP is a custom input in my project. once you are done that make this test scene as shown here the colors are just for clarity  
+	after quiz : the corect aswer is damage was called when it shouldnet have been but if you got any of the others check you code against these scripts after withc ill contiue with the corect answer. 
+	self hit detection: so what actually happened. lets start by checking what we built. we made an attack with both a hit box and a hurt box. then when the frame was enabled the hit box detected that same hurt box. but since they are on the same player we need to have self hit prevention. lets go to our damage function in hitbox and add proper detection now. first we only care if the thing is a hurt box. then lets add our player the hit exceptions. then we check if the thing we are trying to hit is in the exceptions, if not we add it. next we can check if the attack is blocked witch is not covered in this video and do things based on that. lastly we tell the attack manger we hit something passing important info using the has hit signal. we also would call some functions on the player we hit but we haven't defined any of those so they commented out. and just to prevent the error i defined a block check that just returns false.
+	we can now move to the attack manger because the signal still needs to be connected. first define the function we want to connect the signal to this one re emits its self and print the name of the player it hit. then in the ready function we need to reach down several layers until we reach the hit/ hurt box layer then if its a hit box and the signal has not been connected connect the signal. next if its hurt box assign the player so that the hit prevention can work
+	lets test again. update previous the scene you made to look like this make sure to select the hurt box of the Target and set the export to the value of the target. the assignment of every thing else is handled by the code we made. ill wait 5 seconds for you to pause
+	when you run scene and press your attack button what is your output. both names only the player only. the target only. or errors.  we are expecting only the target name to be printed as we just tried making a self hit prevention system. so make sure to double check your scene tree and your code. 
+	just a few more things to add right now our frames are exactly 1 frame per node witch is too many. in the attack i showed earlier i showed 8 frames 2  start up 1 active and 5 recovery. but if we repeat frames we can represent it with just 3 instead. lets go to the ready function in our frame script and add frames for the number of times we want to repeat this frame .  what this does is basically allow us to do is reduce how many frames we need by just setting the number of times you want it to repeat. 
+	the final thing to add to our code in start attack is to allow for **basic** attack canceling in case our input system allows that. we need to reset the current attack and the new attack before we start the attack.
+	
+	bonus content: 
+	that is the main portion of the video. i have a few things from my full system that if you are interested in feel free to take a short look 
+	new outro:
+	thanks for watching if you want to support this open source project share, like, subscribe or contribute. you can also watch any of my other videos. feel free to take my code to make you own game
+	intro: want to make a frame perfect attack system you've come to the right place 
+	in this video ill teach you how to make a attack system even if you have nothing else in your project 
+	
+- [ ] combo attacks and speical cancels system (target combo)
 	in games like devil may cry, highfi rush, Metal Gear Rising: Revengeance, Beyoneta and many ==(sevral images or clips)== fighting games and more they have what i am calling a combo attack but may be known as  or target combo or rhythm attack or special cancel system 
 	to put it simply it is an attack that is followed by another attack within some time frame 
 	for a visual representation that is not an example ==(put a frame bar with x length show it normally then do it again but start a combo attack before ending it )==
@@ -368,8 +416,8 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 	```
 	some considerations 
 	1. should the attack combo
-- responsible/ respectful usage of AI in code development  could be a video on its own
-- how high low blocking works including projectile case 
+- [ ] responsible/ respectful usage of AI in code development could be a video on its own
+- [ ] how high low blocking works including projectile case 
 	*assumptions* 
 	1. *blocking exists* 
 	2. *you may have an interest in coding a block mechanic* 
@@ -434,10 +482,7 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 
 	some additional consideration 
 	1. you need to decide how damage works using i-frames or hit exceptions 
-
-
-- one way to handle frame by frame stuff ?
-- quick debug tool for frame by frame stuff 
+- [ ] quick debug tool for frame by frame stuff 
 	when working on a fighting game one of the most important things is frame data.  what we need is something that freezes the game but still allows us to control it in some ways like giving inputs 1 frame at a time. for Godot there are 2 key things for this one a nodes process_mode and 2 the scene tree. 
 	we can use the scene tree and its boolean property paused to freeze the game. then we can un-pause the game for 1 frame at a time when we want to progress it. if we try to make this we will find that we can pause it but not un pause this is where the process_mode comes in. for something to work when the scene tree is paused its process mode must be changed  from the default type. 
 	this code paused and unpauses only
@@ -461,6 +506,79 @@ at the end of all videos say salam and i hope this was of benift for you and i h
 			await get_tree().process_frame# this must be the same process tiype
 			get_tree().paused = true
 	```
+- [ ] how to make a simple attack with
+	0. if you don't already have the setting =="debug > visible collision shapes on"== i recomed setting it.
+	1. make new scene and instantiate the scene base character then select the root node (the ==character body 2D== or right click and turn on editable children if the scene is is not the root)
+	2. since we are only making an attack just 
+	3.  look for the ==attack manger node== and click on it this node will hold and manage all attacks. once you click on attack manger then on the right make sure you are on the ==inspector tab== look for and click on add attack when you press it you should see a new node appear in the scene tree with a name similar to this @Node2D@30553 rename it as you like then make sure its selected. 
+	4. you should see a ==buttons section and intermediate attack properties== for now ignore those properties until the intermediate section/ video. 
+	5. once its selected in the inspector you should see new buttons the first ==adds a frame node== the other 2 are for when we are editing our attack but we are still creating so skip them for now. for your first attack it is recommended to add 3 frame nodes if you are just debugging or want to get a feel for the fame data
+	6. once those are added click on each frame and decide how many times you want it to repeat using the ==repeat this frame property under frame info== when you change the number you can see how it updates the name of the frame node to give you an accurate picture of the duration. 
+	7. once you are satisfied with how long the attack is then you can click on the middle frame node where we will add more nodes.
+	8.  there there are multiple ==add buttons== for the beginner section we will not use the projectile or spawn object buttons. as those are more complex and projectile builds on hit box
+	9. if you have art your attack is based on add a sprite under the frame currently only 1 frame of animation is supported per frame but multiple sprites are supported 
+	10. the hit box add just 1 then click on it. you will see a it named and a warning next to it that is the collision shape is not added warning so you can add one using the ==editor or a button i made that adds a square collision shape==. there are more than just square shapes in Godot
+	11. using the ==2D editor== or the inspector you can manipulate ==the box==. you can also add another collision shape to make more complex shapes form simple shapes ill add another one and also move it around. 
+	12. once I'm happy with that ill click on the the ==hurt box area== again and then edit the attack data there are a lot of properties so try them all out most are kinda of self explanatory if you know fighting games decently well if you don't care i have provided a sample data witch you can quick load.
+	13. next you can click on the frame node and add a hurt box and manipulate it as well. now just to make sure you didn't break anything on acaedent make sure the nodes under the attack manger look like this tree if any node is not in its correct level that node will be ignored by the system
+	14. congrats you made you first simple attack. to save it right click the attack node with the name you renamed it to then save as branch. the scene tree will hide the other node below the attack so you don't change it by mistake. if you want to edit the attack again open the scene it saved to and edit as you like
+	15. the final most important thing is to assign the attack as well see creating a player or cpu for that  but for players assign to the move list node and cpu to the combos and pokes in enemy logic
+- [ ] how to make advanced attacks
+	0. if you have not watched the first beginner video do that first
+	1. 
+- [ ] how to make a cpu or a character
+	to make a player or CPU is pretty similar
+	1. first instantiate the scene base character or enemy base give them the stats you want  for players use player stats for enemies use enemy stats
+	2. next add or make the attacks to the attack manager see the make an attack series
+	3. next assign the attacks. for players assign them to the move list node where you can decide on weather the attack is a special move or a normal.
+	4. for the cpu click on enemy logic assign the attack to one of the lists in combos  and edit the settings as you please then 
+	5. finally assign a primary hurt boxes scene to the entity. to change the primary hurt boxes of the entity you are making then duplicate the the original primary hurt boxes and sprites scene and edit its collision shapes and sprites. then assign it and make sure its in folder to be scaled so the art flips properly 
+- [ ] project overview 
+	0. v = (there isn't any good resource... + (right? -> e)) x (the project + this channel me and goals add akrum in this part)
+	1. there isn't any good resource on how to make a fighting game from scratch. right? my to that question answer was no. 
+	2. a) what is this thing and how is it being developed and by who 
+		- so i decided to make the fightvainia project. 
+		- a low code fighting game creation tool focusing on the character creator its also these thing ==image list of==: copyleft, GNU 3 licence, the Godot engine open development. 
+		-  made me by a_krum_of_bread_learns about 90% and free token usage of Claude 8% 1% community and 1 % other git projects. now before you leave the project is open development you can stare at me thinking to solve problems on youtube and twitch and verify how much i actually use AI witch would be nice.
+		- on git hub branches:
+			- core is close to release ready and bloat/ a_krum's own game stuff is mostly removed
+			- main is the working branch for a_krum_of_bread_learns and his own game 
+			- AI code review is for large code refactors over a good amount of time and a person still works on it recording the work on YouTube
+	3. who am i 
+		- I'm Muslim a student in university studying engineering as well as a person who likes a verity of games 
+		- enjoys watching the chanels Veritum, RinPenrose, RTgame, Aliens rock or similar for fun and a small part of the FGC for research and fun   
+		- i m learning japanes becue i want to knows arabic somewhat 
+		- regarding game development and expedience in the fgc im pretty new to both so don't expect anything perfect 
+	4. why release a 0.5.0 version and not wait till 1.0.0
+		- community contributions
+		- bugs idk how to fix listed on something git hub
+		- get feedback on new features or others find bugs for me
+		- see how close to ready this is from others
+		- i go back to school  
+	5. b) some one in the fgc please tell people this exists 
+		- help me
+	6. b) where can you find me 
+		-  i will not make social media accounts i would rather delete them 
+		-  don't contact me if you are not part of this list i like my privacy
+			i emailed you, you one of the following form this list and i may be willing to work with subject to conversations: Veritum, RTgame, Rin Penrose Ch. and Snebby or Zoey the manger of managing Rin's things, brian_f/trash talk, broski, sajam, Diaphone, justan wong, lord kight, a video game development company that will use godot or wants to make a fighting game using my system (may cost my tuition in payment). 
+			companies/games/people i may be okay with colabing/cross overs or stuff with on **my terms when it comes to character clothing. "game core value no sexualization of people ever"** then subject to discussion: Pal world, Terraria, Chaos Zero Nightmare, Path To Nowhere, toby fox, camellia (かめりあ), Lena Ranie, the people behind after image, team cherry, people behind guacamelee 
+			you made a real bug report in the issues or are trying to contribute.
+- [ ] set up with version number let 0.5.0 and Godot version 4.6.3 
+	1.  set up for the project set up on a fresh install
+		- open project > project settings > plugins > fightvainia auto loads. this enables hit stop and shake, partly the frame by frame mode script, and the on hit audio manager, 
+		- next we can set up inputs either *run the add_inputs script to get my default input map that is like this ==image of input maps==* the other option if you have an existing input system  is to edit the 2 following the files input manger and frame_by_frame_mode search them up using the filter files option ==\<image of it==
+		- you can try out an example scene to get a feel for the current default movement (mostly flexible in air and state based on ground) and how default attacking feels (when attacking walking is disabled attacks have customization of animations numbers aren't exact)
+	
+	- a) rember if you want to use the project look up copy left and the gnu3 licnce to before making your decion
+	- b) welcome to my channel subscribe or not see you next summer
+- [ ] dev update 1?
+- [ ] how to experment in code
+- [ ] how to design match ups in video games
+	need to analyze how to pick a match up first as well as the tools each char has and what makes a severe shift in match up from altering there tools	
+	one idea is have a already designed charter and design a counter for them only without it being a property that can be univeral
+
+- [ ] what were my decisions making the game who affected them 
+
 
 == lessons learned==
 from how to code a fighting game input system
@@ -469,3 +587,5 @@ from how to code a fighting game input system
 	making a tutorial video that works is hard
 from move list 
 	I can edit the full time line using the sequence button to pull up its effects
+from attack tree 
+	LibreOffice impress and power point are great editing tools that are easy to use for images and some animations

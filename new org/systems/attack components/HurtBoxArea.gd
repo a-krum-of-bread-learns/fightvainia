@@ -20,7 +20,7 @@ func add_new_hurt_box():
 	add_child(hurt_box) 
 	hurt_box.owner = get_tree().edited_scene_root
 	hurt_box.name = "hurt_box"
-	hurt_box.debug_color= Color8(0,0,255,175)
+	hurt_box.debug_color= Color8(0,0,255,100)
 	print("added hurt_box")
 	add_hurt_box_buttion = false
 	
@@ -28,7 +28,7 @@ func add_new_hurt_box():
 func fix_color():
 	for child in get_children():
 		if child is CollisionShape2D:
-			child.debug_color= Color8(0,0,255,175)
+			child.debug_color= Color8(0,0,255,100)
 	fix_color_buttion =false
 
 ##_physics_process is _physics_process (2)

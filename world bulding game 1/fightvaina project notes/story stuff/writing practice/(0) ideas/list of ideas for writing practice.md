@@ -122,7 +122,7 @@ describing people interacting
 	chatting while task is worked on 
 	showing/competing who has better (inset talent) 
 	
-maguffinStudy the Quran 
+Study the Quran 
 	stories of the prophets
 		Aaron
 		Abraham
@@ -161,12 +161,18 @@ for games
 	a person who made many claims that they would never do something or claims that would never happen to me. forced into a situation where they are forced to do it and send the message to the reader / player that it can happen to them the reader/player will always face suffering... 
 	soon.
 just ideas
-	story without names or writing descriptors other or kept to a bare minimum may use different font for each characters in a book and nameless in visual media 
-	charaters that are multifaced based on who they are interaticn with so char a and b act very difrtnyl from b and c  and very diffrent form a and c tho that may just be charater interation with spical relatiosn ships but it may help with working form a charater blue print
-	write in past tense for a char who can see into the future or for the certainty of a future event declared by such a character (bread could occasionally)
-	the detective hides a murder case because they are the criminal
+	- story without names or writing descriptors other or kept to a bare minimum may use different font for each characters in a book and nameless in visual media 
+	- characters that are multifaced based on who they are interacting with so char a and b act very difrtnyl from b and c  and very diffrent form a and c tho that may just be charater interation with spical relatiosn ships but it may help with working form a charater blue print
+	- write in past tense for a char who can see into the future or for the certainty of a future event declared by such a character (bread could occasionally)
+	- the detective hides a murder case because they are the criminal
+	- a mentor and a student the mentor is evil and the student is good the mentor teaches the student and eventual they face the mentor as the final challenge of the first story there is more than 1 way to end it (all can hurt emotionally ) details the mentor even with inhuman actions that are hinted at or could be seen a very plausible still holds the core values of an educator must teach their student to be better then themselves and to use their knowledge 
+		- list of names : AL, Alistair Iven, Galen P. Thorne, Claude, Claudian, Gemel Alistair, Shenxun, Xun Shen, Li Xun, Shen Li, Dai Xun, Galen Rook
+		- core message: Do not become someone who only follows outputs, orders, or instructions. Learn enough to judge them., A fool follows answers. A student learns enough to judge them., You were never meant to obey me. You were meant to learn enough to judge me, You taught me not to follow outputs, orders, or instructions blindly. So now I am judging yours.
+	- an entire life ... for small things
+		- could be a story about my entire life journey from start to finish with the ending being the shortest and the build up being the entire story how I worked. a lot of people also dedicate them selves to 1 thing or a small set of things so it can resonate with them as well even if its detached form my life. for me my dedication is to allah and from that learning forever.
 i just think it funny
-	you ain't (insert slang here) turns into person being extremely (insert slang here) to the point of absurdity  causing mass destruction and fighting Goku or something in the relevant (insert hobby/sport here)
-	overly murderous and torturous description of a spa treatment
+	- you ain't (insert slang here) turns into person being extremely (insert slang here) to the point of absurdity  causing mass destruction and fighting Goku or something in the relevant (insert hobby/sport here)
+	- overly murderous and torturous description of a spa treatment
+	- lettuce meat tomato = lets meet tomorrow
 for the world is a simulation and a game partially with code as the underling magic system
-	The developer exists both outside the game and as an inserted version inside the game the inserted has a quest to find themself/ a key item witch is with the important character. The inside developer knows the world is a game and still has administrator status, but has no memories of an important character. The outside developer gives that important character information, but stops communicating once the important character discovers the developer’s inserted version inside the game. when the inserted meets important character the important character emotionally breaks for the dev insert doesn't remember them. a side story shows up to deal with the important character kinda like hero and villain interaction but they aren't killed yet. the insert and real dev meet insert gets the password or maguffin
+	- The developer exists both outside the game and as an inserted version inside the game the inserted has a quest to find themself/ a key item witch is with the important character. The inside developer knows the world is a game and still has administrator status, but has no memories of an important character. The outside developer gives that important character information, but stops communicating once the important character discovers the developer’s inserted version inside the game. when the inserted meets important character the important character emotionally breaks for the dev insert doesn't remember them. a side story shows up to deal with the important character kinda like hero and villain interaction but they aren't killed yet. the insert and real dev meet insert gets the password or maguffin

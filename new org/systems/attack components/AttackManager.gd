@@ -45,7 +45,8 @@ class_name AttackManager extends Node2D
 @export var clear_button3: bool = false## tool buttion 3 for insurence 
  
 
-@export_category("")
+@export_category("dont touch")
+@export_group("dont touch")
 @export var animation_tool: AnimationTool
 @export var host: EntityBase ## this is here to be an easy refence for child nodes
 var hit_expetions: Array[EntityBase] ## prevents hitting the same thing twice with one attack 
@@ -131,19 +132,10 @@ func start_attack(an_attack: Attack):
 		push_error("AttackManager: tried to start a null attack")
 		return
 	if current_attack: 
-		current_attack.frames[current_attack.active_frame-1].set_frame_disabled(true)
 		reset_values(current_attack)
 	reset_values(an_attack)
-	if host.is_attacking == false:
-		host.is_attacking = true
-		current_attack = an_attack
-		print(current_attack.name)
-	# if alrealy attaking and an attack is started cancel the previous attack by reseting it first
-	elif host.is_attacking == true:
-		host.is_attacking = true
-		current_attack.reset()
-		current_attack = an_attack
-		an_attack.reset()
+	host.is_attacking = true
+	current_attack = an_attack
 		
 	if current_attack.animation_stuff:
 		start_animation(host.is_facing_right,current_attack.animation_stuff)
@@ -159,12 +151,10 @@ func continue_attack():
 	if current_attack.frames.is_empty():
 		push_error("AttackManager: attack has no frames in " + current_attack.name)
 		return
-
+	#print(current_attack.active_frame)
 	if host.is_stuned:
-		for frame: Frame in current_attack.frames:
-			frame.set_frame_disabled(true)
-			reset_values(current_attack)
-			host.is_attacking = false
+		reset_values(current_attack)
+		host.is_attacking = false
 		return
 
 	var previous_frame: Frame = current_attack.frames[current_attack.active_frame - 1] if current_attack.active_frame != 0 else null

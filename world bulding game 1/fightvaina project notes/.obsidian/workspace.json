@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "857e325f1ecc2129",
+        "id": "e283625193c0112a",
         "type": "tabs",
         "children": [
           {
-            "id": "25a44c5d155b4604",
+            "id": "3c17a211aae5c0be",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TODO's/TODO list I done list for fighting game.md",
+                "file": "ideas for game stuff/for fun lols.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "TODO list I done list for fighting game"
+              "title": "for fun lols"
             }
           }
         ]
@@ -41,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -53,7 +55,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "for fun lol",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,7 +76,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -169,44 +172,44 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "25a44c5d155b4604",
+  "active": "3c17a211aae5c0be",
   "lastOpenFiles": [
-    "ideas for game stuff/ideas for chars for their ability.md",
-    "TODO's/TODO list I done list for fighting game.md",
-    "story stuff/game 0/reference searches.md",
-    "story stuff/game 0/game 0 story.md",
-    "ideas for game stuff/for fun lols.md",
-    "TODO's/FIXME or known errors or anoinces.md",
-    "TODO's/Demo scope ToDo for summer test release of a char.md",
-    "story stuff/writing practice/critique of common or important and super notes.md",
-    "story stuff/setting.md",
-    "analysis/notes form 3000 and list of videos.md",
-    "ideas for game stuff/balance decisions to consider some that other games don't have.md",
-    "ideas for game stuff/Events or alternate game modes and system ideas.md",
-    "ideas for game stuff/educational enemys.md",
-    "ideas for game stuff/other games.md",
-    "TODO's/video making.md",
-    "analysis/testing page.md",
-    "analysis/facade notes and plan.md",
-    "story stuff/writing practice/(0) ideas/list of ideas for writing practice.md",
-    "story stuff/charaters.md",
-    "story stuff/miscellaneous world stuff.md",
-    "story stuff/plot order + game progression.md",
-    "story stuff/some story questions to help or confuse.md",
-    "story stuff/summry plot.md",
-    "story stuff/game 0",
-    "what should I do regarding geting funding and who to publish/notes on what is a indie dev company.md",
-    "TODO's/make a speech to (text to)  speak replacement.md",
+    "what should I do regarding geting funding and who to publish/monetization.md",
     "what should I do regarding geting funding and who to publish/hmmm.md",
-    "tool kit of tools/Toolkit Files.base",
+    "what should I do regarding geting funding and who to publish/notes on what is a indie dev company.md",
+    "dev log stuff/dev log 1 script kinda.md",
+    "TODO's/FIXME or known errors or anoinces.md",
+    "dev log stuff/dev log scripts kinda.md",
+    "TODO's/TODO list I done list for fighting game.md",
+    "TODO's/make a speech to (text to)  speak replacement.md",
+    "core game values.md",
+    "story stuff/writing practice/(0) ideas/list of ideas for writing practice.md",
+    "ideas for game stuff/ideas art stuff.md",
+    "ideas for game stuff/ideas for chars for their ability.md",
+    "ideas for game stuff/for fun lols.md",
+    "ideas for game stuff/Events or alternate game modes and system ideas.md",
+    "ideas for game stuff/Colabs i'm willing to.md",
+    "ideas for game stuff/balance decisions to consider some that other games don't have.md",
+    "art things/the plan.md",
+    "art things",
+    "analysis/notes form 3000 and list of videos.md",
+    "analysis/analysis tools.md",
+    "analysis/frame by frame animation analysis.md",
+    "TODO's/video making.md",
+    "analysis/facade notes and plan.md",
+    "story stuff/game 0/reference searches.md",
+    "ideas for game stuff/other games.md",
+    "ideas for game stuff/educational enemys.md",
+    "analysis/the need statements.md",
     "sort-able search view.base",
+    "story stuff/game 0",
+    "tool kit of tools/Toolkit Files.base",
     "tool kit of tools/visual art",
     "tool kit of tools/time management",
     "tool kit of tools/story",
     "tool kit of tools/project management",
     "tool kit of tools/process design",
     "tool kit of tools/logic",
-    "tool kit of tools/learning",
     "Pasted image 20260617192847.png",
     "chars/Untitled.canvas",
     "fighing game taxamony breakdown.canvas"

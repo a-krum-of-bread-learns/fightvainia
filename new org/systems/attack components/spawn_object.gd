@@ -1,7 +1,7 @@
 ## SpawnObject
 ## A general purpose spawner that manages a pool of spawned objects.
 ## Supports both player input triggered spawning and turret style repeated spawning
-## when driven by an external timer or signal.
+## when driven by an external timer or signal. 
 ##
 ## Usage:[br]
 ## - Assign [member thing_to_spawn] in the inspector[br]
@@ -9,9 +9,10 @@
 ## - Set [member max_alowed_to_exist] to control how many can exist at once[br]
 ## - Enable [member overwrite_on_max] to replace the oldest object when the cap is reached[br]
 ## Spawned objects are responsible for their own despawning.
+
 class_name SpawnObject extends Node2D
 @export var thing_to_spawn: PackedScene
-@export var max_alowed_to_exist: int = 5
+@export var max_alowed_to_exist: int = 1 ## curently set to 1 onlt if used on a player
 @export var overwrite_on_max: bool = false
 @export var position_offset: Vector2 = Vector2.ZERO
 var spawned_objects: Array

@@ -51,7 +51,7 @@ func get_velocty(displacement: Vector2,stun_dir: Vector2) -> Vector2:
 ##the twwens in this fucntion are related to push back
 func start_stun_with_tween(attack_data: HitBoxData, default_dir: Vector2, blocked: bool):
 	#TODO difrent hit stop for on block and on hit same with screen shake maybe per attack?
-	HitStop.hit_stop_start(attack_data.hit_stop_frames)
+	HitStopAndShake.hit_stop_start(attack_data.hit_stop_frames)
 	host.is_stuned = true
 	#stun direction form attack data 
 	var stun_dir: Vector2 = (default_dir*1 if attack_data.stun_away == true else default_dir*-1)

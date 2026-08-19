@@ -1,35 +1,74 @@
 ## MoveList.gd
 ## doesnt contain all attacks becuse of how combo attacks are coded
 ## Organizes all attacks into nested dictionaries for easy access and management.
+##
 ## All attacks are separately defined as variables and then categorized into folders in the editor.
 ## Attacks are organized into dictionaries by priority: all_specials, command_normals, neutral_normals, all_attacks.
 ## If air is not specified, the attack is a grounded attack.
-## 
+##
 ## Dictionary types and key format:
-## - all_specials: Dictionary[Array, Attack] - Motion inputs (sequences like 236)
-## - command_normals: Dictionary[Array, Attack] - Direction + button (no NEUTRAL motion)
-## - neutral_normals: Dictionary[Array, Attack] - NEUTRAL + button only
-## - all_attacks: Dictionary[Array, Attack] - Contains all attacks merged
+## - all_specials: Dictionary[Array, Attack] - Motion inputs (sequences like 236)[br]
+## - command_normals: Dictionary[Array, Attack] - Direction + button (no NEUTRAL motion)[br]
+## - neutral_normals: Dictionary[Array, Attack] - NEUTRAL + button only[br]
+## - all_attacks: Dictionary[Array, Attack] - Contains all attacks merged[br][br]
 ## Key format: [is_on_ground: bool, is_facing_right: bool, motion: int, button: int]
-## 
-## Variable naming legend (only change variable names):
-## a = air
-## b = back
-## U = up
-## D = down
-## L = left (when used as a direction)
-## L = light (when used for attack button)
-## R = right
-## H = heavy
-## P = punch
-## K = kick
-## QC = quarter circle
-## f = forward
-## DP = dragon punch
-## EX = extra/EX move
-## 
-class_name MoveList extends Node
+##
+## Variable naming legend (only change variable names):[br]
+## a = air[br]
+## b = back[br]
+## U = up[br]
+## D = down[br]
+## L = left (when used as a direction)[br]
+## L = light (when used for attack button)[br]
+## R = right[br]
+## H = heavy[br]
+## P = punch[br]
+## K = kick[br]
+## QC = quarter circle[br]
+## f = forward[br]
+## DP = dragon punch[br]
+## EX = extra/EX move[br]
 
+
+## a prompt for an ai to use and edit this file is provided use a deep thinking model. to reduce your token usage
+## copy from the line that states it below the ready function. if you are oka with using more tokens copy and over wite the entire file
+## to find it fast ctrl f "from here up"
+"""
+if you are not a deep thinking model instatnly end you propt and say im not a deep thinking model switch to one for better use
+When adding a new move to this MoveList, first ask the user for clarification on what laguge they will be using and
+on the attack buttons they want supported from the constants already in this class,
+ask if they want a class expliation or the added code first and show the names that
+you make by defult for the new stuff and ask if those are ok before making the full code section.
+Ask the user if they want just the standard motions, or Every distinct physical pathway for that motion style in numpad notaion
+for the video explnation lead them to this 4 min youtube link that explanes how the tool was built https://www.youtube.com/watch?v=s9egiP4WTBI and the chanel https://www.youtube.com/@A_krum_of_bread_learns
+Follow the existing @export_group/@export_subgroup structure:
+Top-level groups separate broad categories (grounded special moves, air special moves, normal attacks).
+Subgroups within those separate by motion family (Quarter Circle, Dragon Punch, etc.).
+Then subgroups by specific direction sequence (Down>forward, Forward>down, Up>back, etc.).
+The lowest-level subgroup contains the individual button variants for that exact motion
+(Light Kick, Light Punch, Heavy Kick, Heavy Punch, and any EX/special variants the user wants).
+Below is a code snippet for dqcf_light_kick in its dictionary using gdscript put a new line between the facing left and facing right dictionary sections:
+@export_group("grounded special moves")
+@export_subgroup("quarter circle special moves")
+@export_subgroup("quarter circle special moves/down->forward")
+@export var dqcf_light_kick: Attack
+@onready var grounded_light_kick_specials: Dictionary = {
+	AttackKey.new(true, true, DQCR, LK): dqcf_light_kick,
+	
+	AttackKey.new(true, false, DQCL, LK): dqcf_light_kick,
+}
+Name new variables using the format [state]_[motion]_[button]. Airborne attacks are prefixed with 
+air (e.g. air_down_right_light_kick). for the motions in this format make sure it starts and ends
+with both the start and and direction (DQCL,LDPD,etc)
+Check the existing motion constants and naming legend in the file before introducing a new one — 
+if an existing motion constant already matches what's needed, reuse it rather than duplicating it.
+All quarter circle motions exluding EX and PK and all normals exlusing EX and PK are already supported by default ask if they want to add suprot for those .
+
+if the user is using gd script tell the user not to paste over all of the existing code but to only add the smaller section you're providing
+once they finish pasting also tell them to add to the ready function if there is anything missing or needed to be added 
+"""
+
+class_name MoveList extends Node
 # -------------------------
 # Input and button constants
 # -------------------------
@@ -44,7 +83,7 @@ const UL: Array[int] = [7]
 const U: Array[int] = [8]
 const UR: Array[int] = [9]
 
-# Attack buttons kept as two-digit-ish numeric values in the 11..19 range, but stored as arrays
+# Attack buttons kept as two-digit-ish numeric values in the 11..19 range to sortof match numapad notation, but stored as arrays
 const LPK: Array[int] = [11]
 const LK: Array[int] = [12]
 const EXK: Array[int] = [13]
@@ -64,10 +103,11 @@ const RQCD: Array[int] = [6,3,2]
 const LQCU: Array[int] = [4,7,8]
 const RQCU: Array[int] = [6,9,8]
 
-const RDPD: Array[int] = [6,2,3]
-const LDPD: Array[int] = [4,2,1]
-const RDPU: Array[int] = [6,8,9]
-const LDPU: Array[int] = [4,8,7]
+
+const RDPD: Array[int] = [6,2,3]## note dp is not used or defined as an attack just the motion on fresh install
+const LDPD: Array[int] = [4,2,1]## note dp is not used or defined as an attack just the motion on fresh install
+const RDPU: Array[int] = [6,8,9]## note dp is not used or defined as an attack just the motion on fresh install
+const LDPU: Array[int] = [4,8,7]## note dp is not used or defined as an attack just the motion on fresh install
 
 const DASHR: Array[int] = [5,6,5,6]
 const DASHL: Array[int] = [5,4,5,4]
@@ -89,6 +129,67 @@ class AttackKey extends  Resource:
 		is_facing_right = right
 		sequence = sequnce
 		attack_button = attack_b
+# -------------------------
+# Organized dictionaries for priority checking
+# -------------------------
+@onready var all_specials: Dictionary[AttackKey, Attack] = {}
+@onready var command_normals: Dictionary[AttackKey, Attack] = {}
+@onready var neutral_normals: Dictionary[AttackKey, Attack] = {}
+@onready var all_attacks: Dictionary[AttackKey, Attack] = {}
+
+# removes all the nulls and filters attacks into priority categories
+func _ready():
+	var normals_temp: Dictionary[AttackKey, Attack] = {}
+	
+	# Merge all normals into temp dictionary
+	normals_temp.merge(grounded_light_kick_normals)
+	normals_temp.merge(air_light_kick_normals)
+	normals_temp.merge(grounded_light_punch_normals)
+	normals_temp.merge(air_light_punch_normals)
+	normals_temp.merge(grounded_heavy_kick_normals)
+	normals_temp.merge(air_heavy_kick_normals)
+	normals_temp.merge(grounded_heavy_punch_normals)
+	normals_temp.merge(air_heavy_punch_normals)
+	
+	# Merge all specials
+	all_specials.merge(grounded_light_kick_specials)
+	all_specials.merge(air_light_kick_specials)
+	all_specials.merge(grounded_light_punch_specials)
+	all_specials.merge(air_light_punch_specials)
+	all_specials.merge(grounded_heavy_kick_specials)
+	all_specials.merge(air_heavy_kick_specials)
+	all_specials.merge(grounded_heavy_punch_specials)
+	all_specials.merge(air_heavy_punch_specials)
+	
+	# Filter normals into command_normals and neutral_normals
+	for key: AttackKey in normals_temp.keys():
+		if normals_temp[key] == null:
+			continue # Skip null entries
+		
+		# key.motion is the motion array; compare to NEUTRAL constant
+		if key.sequence == NEUTRAL:
+			neutral_normals[key] = normals_temp[key]
+		else:
+			command_normals[key] = normals_temp[key]
+	
+	# Remove nulls from specials
+	for key in all_specials.keys():
+		if all_specials[key] == null:
+			all_specials.erase(key)
+	
+	# Merge everything into all_attacks (for compatibility/debugging)
+	all_attacks.merge(all_specials)
+	all_attacks.merge(command_normals)
+	all_attacks.merge(neutral_normals)
+	
+	
+	print("Specials: ", all_specials.size())
+	print("Command Normals: ", command_normals.size())
+	print("Neutral Normals: ", neutral_normals.size())
+	print("Total Attacks: ", all_attacks.size())
+
+#----------------------------------------------------------------------#
+# for the full ai propmt copy from here up pas this line is just the vriable managemnt format that the ai coulf explain to you for the docuemt coment
 
 # -------------------------
 # all of these are individual Attacks (exported)
@@ -594,62 +695,3 @@ class AttackKey extends  Resource:
 	AttackKey.new(false, false, RQCD, HP): air_bqcd_heavy_punch,
 	AttackKey.new(false, false, UQCR, HP): air_uqcb_heavy_punch,
 	AttackKey.new(false, false, RQCU, HP): air_bqcu_heavy_punch}
-
-# -------------------------
-# Organized dictionaries for priority checking
-# -------------------------
-@onready var all_specials: Dictionary[AttackKey, Attack] = {}
-@onready var command_normals: Dictionary[AttackKey, Attack] = {}
-@onready var neutral_normals: Dictionary[AttackKey, Attack] = {}
-@onready var all_attacks: Dictionary[AttackKey, Attack] = {}
-
-# removes all the nulls and filters attacks into priority categories
-func _ready():
-	var normals_temp: Dictionary[AttackKey, Attack] = {}
-	
-	# Merge all normals into temp dictionary
-	normals_temp.merge(grounded_light_kick_normals)
-	normals_temp.merge(air_light_kick_normals)
-	normals_temp.merge(grounded_light_punch_normals)
-	normals_temp.merge(air_light_punch_normals)
-	normals_temp.merge(grounded_heavy_kick_normals)
-	normals_temp.merge(air_heavy_kick_normals)
-	normals_temp.merge(grounded_heavy_punch_normals)
-	normals_temp.merge(air_heavy_punch_normals)
-	
-	# Merge all specials
-	all_specials.merge(grounded_light_kick_specials)
-	all_specials.merge(air_light_kick_specials)
-	all_specials.merge(grounded_light_punch_specials)
-	all_specials.merge(air_light_punch_specials)
-	all_specials.merge(grounded_heavy_kick_specials)
-	all_specials.merge(air_heavy_kick_specials)
-	all_specials.merge(grounded_heavy_punch_specials)
-	all_specials.merge(air_heavy_punch_specials)
-	
-	# Filter normals into command_normals and neutral_normals
-	for key: AttackKey in normals_temp.keys():
-		if normals_temp[key] == null:
-			continue # Skip null entries
-		
-		# key.motion is the motion array; compare to NEUTRAL constant
-		if key.sequence == NEUTRAL:
-			neutral_normals[key] = normals_temp[key]
-		else:
-			command_normals[key] = normals_temp[key]
-	
-	# Remove nulls from specials
-	for key in all_specials.keys():
-		if all_specials[key] == null:
-			all_specials.erase(key)
-	
-	# Merge everything into all_attacks (for compatibility/debugging)
-	all_attacks.merge(all_specials)
-	all_attacks.merge(command_normals)
-	all_attacks.merge(neutral_normals)
-	
-	
-	print("Specials: ", all_specials.size())
-	print("Command Normals: ", command_normals.size())
-	print("Neutral Normals: ", neutral_normals.size())
-	print("Total Attacks: ", all_attacks.size())

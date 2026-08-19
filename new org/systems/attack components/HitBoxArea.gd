@@ -29,25 +29,25 @@ func _ready():
 ## esantaly the fucntion to deal damage if target is valid  blocking logic contained here
 
 func damage(area):
-	if area is HurtBoxArea:
-		#this code is if their is no enity 
-		if area.health == null or area.stun_manager == null:
-			# grapple point / simple hurtbox with no entity behind it - just signal the hit
-			has_hit_signal.emit(null, false)
-			return
-		var attacked_entity: EntityBase = area.health.host 
-		#put here for renable if wanted
-		print(attack_manager.hit_expetions)
-		#prevents hiting self even if i hit somthing else
-		if attack_manager.hit_expetions.is_empty():
-			attack_manager.hit_expetions.append(attack_manager.host)
-		# prevents self damage and hitting again
-		if (get_parent().get_children().has(area) == false 
-		and attack_manager.hit_expetions.has(attacked_entity) == false): 
-			attack_manager.hit_expetions.append(attacked_entity)
-			#stun and damage calls are inside
-			var is_blocked: bool = block_check2(attacked_entity, area)
-			has_hit_signal.emit(attacked_entity,is_blocked)
+	if area is not HurtBoxArea:
+		return
+	#this code is if their is no enity 
+	if area.health == null or area.stun_manager == null:
+		# grapple point / simple hurtbox with no entity behind it - just signal the hit
+		has_hit_signal.emit(null, false)
+		return
+	var attacked_entity: EntityBase = area.health.host 
+	#put here for renable if wanted
+	print(attack_manager.hit_expetions)
+	#prevents hiting self even if i hit somthing else
+	if attack_manager.hit_expetions.is_empty():
+		attack_manager.hit_expetions.append(attack_manager.host)
+	# prevents self damage and hitting again
+	if attack_manager.hit_expetions.has(attacked_entity) == false: 
+		attack_manager.hit_expetions.append(attacked_entity)
+		#stun and damage calls are inside
+		var is_blocked: bool = block_check2(attacked_entity, area)
+		has_hit_signal.emit(attacked_entity,is_blocked)
 			
 			
 			
@@ -107,7 +107,7 @@ func block_check2(attacked_entity: EntityBase, area: HurtBoxArea) -> bool:
 func fix_color():
 	for child in get_children():
 		if child is CollisionShape2D:
-			child.debug_color= Color8(255,0,0,175)
+			child.debug_color= Color8(255,0,0,100)
 	fix_color_buttion = false
 
 
@@ -118,7 +118,7 @@ func add_new_hit_box():
 	add_child(hit_box) 
 	hit_box.owner = get_tree().edited_scene_root
 	hit_box.name = "hit_box"
-	hit_box.debug_color= Color8(255,0,0,175)
+	hit_box.debug_color= Color8(255,0,0,100)
 	print("added hit_box")
 	add_hit_box_buttion = false
 #endregion

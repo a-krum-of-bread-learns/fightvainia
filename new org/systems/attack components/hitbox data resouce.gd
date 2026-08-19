@@ -20,7 +20,11 @@ enum HIT_TYPE {LOW=1, MID=2, OVER=3}
 @export var hit_sound: AudioStream
 
 func _validate_property(property: Dictionary) -> void:
-	if property.name in ["hit_stun_duration", "hit_back_distance_vector"] and stun_type in [StunManager.STUN_TYPE.DEFUALT_LAUNCH, StunManager.STUN_TYPE.DEFUALT_AIR]:
+	if (property.name in ["hit_stun_duration", "hit_back_distance_vector"] 
+	and stun_type in 
+	[StunManager.STUN_TYPE.DEFUALT_LAUNCH,
+	StunManager.STUN_TYPE.DEFUALT_AIR,
+	StunManager.STUN_TYPE.DEFUALT_KNOCK_DOWN]):
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 
 
@@ -39,7 +43,11 @@ func validate_data(owner) -> void:
 			push_error(field_name + " not assigned | " + context)
 	if hit_stun_duration == -1 and not stun_type in [1,2,3]:
 		push_error("hit_stun_duration not assigned | " + context)
-	if hit_back_distance_vector == Vector2(-1,-1) and not stun_type in [StunManager.STUN_TYPE.DEFUALT_KNOCK_DOWN,StunManager.STUN_TYPE.DEFUALT_ON_FLOOR,StunManager.STUN_TYPE.DEFUALT_WAKEUP]:
+	if (hit_back_distance_vector == Vector2(-1,-1)
+	 and not stun_type in
+	[StunManager.STUN_TYPE.DEFUALT_KNOCK_DOWN,
+	StunManager.STUN_TYPE.DEFUALT_ON_FLOOR,
+	StunManager.STUN_TYPE.DEFUALT_WAKEUP]):
 		push_error("hit_back_distance_vector not assigned | " + context)
 	if hit_stop_frames == 0:
 		push_warning("hit_stop_frames is 0 | " + context)
