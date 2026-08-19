@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dahwjgu8w5a4e"]
 
 [ext_resource type="PackedScene" uid="uid://lehj6n73xymd" path="res://new org/entites/basic parts/enemy_base.tscn" id="1_mg2qe"]
-[ext_resource type="PackedScene" uid="uid://btufeyfuqt18p" path="res://new org/entites/agent player stuff/primary_hurt_boxes.tscn" id="4_0x0bo"]
 [ext_resource type="PackedScene" uid="uid://dw6qtmdrh05mx" path="res://new org/entites/cpu/zonners/zonner attacks/lazer.tscn" id="12_axqw1"]
 [ext_resource type="PackedScene" uid="uid://duw2his5lywxk" path="res://new org/entites/agent player stuff/agent attacks/left_buttion_jab_(x)_lp.tscn" id="13_rh7yx"]
 [ext_resource type="PackedScene" uid="uid://od41351s0ekc" path="res://new org/entites/agent player stuff/agent attacks/left_button_low_(x)_lp.tscn" id="14_turnh"]
@@ -10,11 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://new org/art/copy right free audio assets/session.mp3" id="17_5j0cs"]
 [ext_resource type="PackedScene" uid="uid://b50dutlc1lhd4" path="res://new org/entites/agent player stuff/agent attacks/up_buttion_anti_air_(y)_hp.tscn" id="18_cy7dg"]
 
-[node name="lazer zonner" unique_id=518042812 node_paths=PackedStringArray("primary_boxes_and_sprites") instance=ExtResource("1_mg2qe")]
-primary_boxes_and_sprites = NodePath("folder to be scaled/Primary hurtboxes and sprites")
-
-[node name="Primary hurtboxes and sprites" parent="folder to be scaled" parent_id_path=PackedInt32Array(1146947319) index="0" unique_id=994631848 node_paths=PackedStringArray("host") instance=ExtResource("4_0x0bo")]
-host = NodePath("../..")
+[node name="lazer zonner" unique_id=518042812 instance=ExtResource("1_mg2qe")]
 
 [node name="lazer" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="0" unique_id=990600057 instance=ExtResource("12_axqw1")]
 

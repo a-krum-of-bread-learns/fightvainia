@@ -1,20 +1,20 @@
-[gd_scene format=3 uid="uid://cwic4qufw2wug"]
+[gd_scene format=3 uid="uid://pgt1kyoeqfrh"]
 
-[ext_resource type="Script" uid="uid://bssckwpf2obbe" path="res://addons/fightvainia auto load loader/new org/systems/base classes/EntityBase.gd" id="1_ji48l"]
-[ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://addons/fightvainia auto load loader/new org/systems/animation/AnimationTool.gd" id="3_7bb02"]
-[ext_resource type="Script" uid="uid://dyei4crukt6rc" path="res://addons/fightvainia auto load loader/new org/systems/ui/simple_damage_#_effect.gd" id="4_2q7o6"]
-[ext_resource type="Script" uid="uid://dn37qd1n3kapy" path="res://addons/fightvainia auto load loader/new org/systems/entity systems/player systems/Dash.gd" id="4_lxi42"]
-[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://addons/fightvainia auto load loader/new org/systems/entity systems/shared/FrameTimerCompnent.gd" id="5_7ia2k"]
-[ext_resource type="Script" uid="uid://dbsvrd6tasmbw" path="res://addons/fightvainia auto load loader/new org/systems/entity systems/player systems/Movement.gd" id="6_e1a3v"]
-[ext_resource type="Script" uid="uid://dd0phg7lcqqps" path="res://addons/fightvainia auto load loader/new org/systems/entity systems/shared/Gravity.gd" id="6_kpemt"]
-[ext_resource type="Script" uid="uid://tmh27lp4axxe" path="res://addons/fightvainia auto load loader/new org/systems/entity systems/shared/Scale.gd" id="7_8it8p"]
-[ext_resource type="Script" uid="uid://br4ap3ju1friv" path="res://addons/fightvainia auto load loader/new org/systems/entity systems/player systems/InputManager.gd" id="8_e1a3v"]
-[ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://addons/fightvainia auto load loader/new org/systems/entity systems/shared/StunManager.gd" id="11_x2twk"]
-[ext_resource type="Script" uid="uid://c8qc0j10c563q" path="res://addons/fightvainia auto load loader/new org/systems/attack components/AttackManager.gd" id="12_167us"]
-[ext_resource type="Script" uid="uid://cqq0ce0r3nxrj" path="res://addons/fightvainia auto load loader/new org/systems/entity systems/player systems/moveList.gd" id="14_ji48l"]
-[ext_resource type="PackedScene" uid="uid://ctheu4l2kk463" path="res://addons/fightvainia auto load loader/new org/systems/ui/on screen combo tracker.tscn" id="15_2q7o6"]
-[ext_resource type="Script" uid="uid://dqfwwo01ngier" path="res://addons/fightvainia auto load loader/new org/systems/entity systems/shared/BaseSpriteManager.gd" id="15_7ia2k"]
-[ext_resource type="Script" uid="uid://bpcoafuum2ks1" path="res://addons/fightvainia auto load loader/new org/systems/ui/SimpleHealthBar.gd" id="15_lxi42"]
+[ext_resource type="Script" uid="uid://bssckwpf2obbe" path="res://new org/systems/base classes/EntityBase.gd" id="1_ji48l"]
+[ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new org/systems/animation/AnimationTool.gd" id="3_7bb02"]
+[ext_resource type="Script" uid="uid://dyei4crukt6rc" path="res://new org/systems/ui/simple_damage_#_effect.gd" id="4_2q7o6"]
+[ext_resource type="Script" uid="uid://dn37qd1n3kapy" path="res://new org/systems/movement related/Dash.gd" id="4_lxi42"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/entity systems/shared/FrameTimerCompnent.gd" id="5_7ia2k"]
+[ext_resource type="Script" uid="uid://dbsvrd6tasmbw" path="res://new org/systems/movement related/Movement.gd" id="6_e1a3v"]
+[ext_resource type="Script" uid="uid://dd0phg7lcqqps" path="res://new org/systems/movement related/Gravity.gd" id="6_kpemt"]
+[ext_resource type="Script" uid="uid://tmh27lp4axxe" path="res://new org/systems/movement related/Scale.gd" id="7_8it8p"]
+[ext_resource type="Script" uid="uid://br4ap3ju1friv" path="res://new org/systems/entity systems/player systems/InputManager.gd" id="8_e1a3v"]
+[ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://new org/systems/entity systems/shared/StunManager.gd" id="11_x2twk"]
+[ext_resource type="Script" uid="uid://c8qc0j10c563q" path="res://new org/systems/attack components/AttackManager.gd" id="12_167us"]
+[ext_resource type="Script" uid="uid://cqq0ce0r3nxrj" path="res://new org/systems/entity systems/player systems/moveList.gd" id="14_ji48l"]
+[ext_resource type="PackedScene" uid="uid://ctheu4l2kk463" path="res://new org/systems/ui/on screen combo tracker.tscn" id="15_2q7o6"]
+[ext_resource type="Script" uid="uid://dqfwwo01ngier" path="res://new org/systems/entity systems/shared/BaseSpriteManager.gd" id="15_7ia2k"]
+[ext_resource type="Script" uid="uid://bpcoafuum2ks1" path="res://new org/systems/ui/SimpleHealthBar.gd" id="15_lxi42"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e1a3v"]
 radius = 4.0
@@ -43,12 +43,11 @@ font_color = Color(1, 0, 0, 1)
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[node name="player" type="CharacterBody2D" unique_id=2023579452 node_paths=PackedStringArray("primary_boxes_and_sprites", "stun_manager", "attack_manager", "scale_component", "health_component", "simple_damage_effect", "control_node", "on_screen_combo_tracker")]
+[node name="player" type="CharacterBody2D" unique_id=2023579452 node_paths=PackedStringArray("stun_manager", "attack_manager", "scale_component", "health_component", "simple_damage_effect", "control_node", "on_screen_combo_tracker")]
 collision_layer = 3
 script = ExtResource("1_ji48l")
 hurt_box_layer = 4
 hit_box_mask = 2
-primary_boxes_and_sprites = NodePath("")
 stun_manager = NodePath("folder to not be scaled/stunManager")
 attack_manager = NodePath("folder to be scaled/attack manager")
 scale_component = NodePath("folder to not be scaled/scale")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ng1sp60quj8"]
 
-[ext_resource type="Script" uid="uid://bw2nl8mojdujh" path="res://addons/fightvainia_auto_load_loader/1_start_here/example_parts/add_inputs.gd" id="1_i8eui"]
+[ext_resource type="Script" uid="uid://bw2nl8mojdujh" path="res://addons/fightvainia auto load loader/1_start_here/example_parts/add_inputs.gd" id="1_i8eui"]
 
 [node name="instuctions open 2d read me" type="Label" unique_id=1235293246]
 offset_right = 40.0

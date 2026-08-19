@@ -15,6 +15,8 @@ class_name EnemySettings extends Resource
 @export var out_of_range_x: float = 500
 @export var anti_air_delta_min_y: float = -25
 @export var anti_air_delta_max_y: float = -80
+@export var humanize_time_in_frames: int = 5
+@export var pause_time_in_frames: int = 10
 @export_subgroup("chance settings")
 @export_range(0,1,.01) var attack_chance: float = .02 # at 0.02 its roughly 1 attack a second
 #REFACTOR allow compatbity with 1 type of multi hit attac where it is a automantic follow up via combo attak like system

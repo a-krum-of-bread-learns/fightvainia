@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://3c1b4qm108yn" path="res://new org/entites/cpu/zonners/far zoner settings.tres" id="10_a6mv1"]
 [ext_resource type="Script" uid="uid://bpcoafuum2ks1" path="res://new org/systems/ui/SimpleHealthBar.gd" id="11_sm0k2"]
 [ext_resource type="Script" uid="uid://c8qc0j10c563q" path="res://new org/systems/attack components/AttackManager.gd" id="12_ccegc"]
+[ext_resource type="PackedScene" uid="uid://btufeyfuqt18p" path="res://new org/entites/agent player stuff/primary_hurt_boxes.tscn" id="12_vnudt"]
 [ext_resource type="Texture2D" uid="uid://d3ouypsble60q" path="res://new org/art/copy right free art assets/electic ball.png" id="13_4c8fg"]
 [ext_resource type="Script" uid="uid://dqfwwo01ngier" path="res://new org/systems/entity systems/shared/BaseSpriteManager.gd" id="14_823si"]
 
@@ -36,15 +37,15 @@ gradient = SubResource("Gradient_lxi42")
 width = 16
 height = 4
 
-[node name="enemy base2" type="CharacterBody2D" unique_id=518042812 node_paths=PackedStringArray("stun_manager", "attack_manager", "scale_component", "health_component", "primary_boxes_and_sprites")]
+[node name="enemy base2" type="CharacterBody2D" unique_id=518042812 node_paths=PackedStringArray("primary_boxes_and_sprites", "stun_manager", "attack_manager", "scale_component", "health_component")]
 collision_layer = 0
 script = ExtResource("1_8l8eb")
+stats = ExtResource("2_vnudt")
+primary_boxes_and_sprites = NodePath("folder to be scaled/Primary hurtboxes and sprites")
 stun_manager = NodePath("folder to not be scaled/StunManager")
 attack_manager = NodePath("folder to be scaled/AttackManager")
 scale_component = NodePath("folder to not be scaled/Scale")
 health_component = NodePath("folder to not be scaled/simple health bar")
-stats = ExtResource("2_vnudt")
-primary_boxes_and_sprites = NodePath("")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=103021113]
 position = Vector2(0, 8)
@@ -89,12 +90,10 @@ metadata/_custom_type_script = "uid://b4pafhiqf6us2"
 
 [node name="enemylogic" type="Node" parent="folder to not be scaled" unique_id=1044143473 node_paths=PackedStringArray("rays", "ledge_ray", "timer", "host")]
 script = ExtResource("9_k0bdp")
+settings = ExtResource("10_a6mv1")
 rays = [NodePath("../../folder to be scaled/boss folder/hitbox detect")]
 ledge_ray = NodePath("../../folder to be scaled/boss folder/floor detect")
-settings = ExtResource("10_a6mv1")
 timer = NodePath("../../folder to be scaled/boss folder/FrameTimer")
-humanize_time_in_frames = 20
-pause_time_in_frames = 10
 enabled = true
 host = NodePath("../..")
 metadata/_custom_type_script = "uid://c5ucrpov3ddtq"
@@ -112,6 +111,9 @@ script = ExtResource("11_sm0k2")
 host = NodePath("../..")
 
 [node name="folder to be scaled" type="Node2D" parent="." unique_id=1146947319]
+
+[node name="Primary hurtboxes and sprites" parent="folder to be scaled" unique_id=994631848 node_paths=PackedStringArray("host") instance=ExtResource("12_vnudt")]
+host = NodePath("../..")
 
 [node name="AttackManager" type="Node2D" parent="folder to be scaled" unique_id=1268911525 node_paths=PackedStringArray("animation_tool", "host")]
 script = ExtResource("12_ccegc")

@@ -14,6 +14,7 @@ func _enable_plugin():
 	#add_autoload_singleton(HIT_STOP_AND_SHAKE,"res://addons/fightvainia auto load loader/new org/systems/auto load scripts/hit stop and shake.gd")
 
 func _disable_plugin():
-	remove_autoload_singleton(FRAME_BY_FRAME_MODE)
-	remove_autoload_singleton(ON_HIT_AUDIO_MANAGER)
-	remove_autoload_singleton(HIT_STOP_AND_SHAKE)
+	pass
+	#remove_autoload_singleton(FRAME_BY_FRAME_MODE)
+	#remove_autoload_singleton(ON_HIT_AUDIO_MANAGER)
+	#remove_autoload_singleton(HIT_STOP_AND_SHAKE)

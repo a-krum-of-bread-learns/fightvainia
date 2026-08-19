@@ -26,9 +26,9 @@ buses/default_bus_layout="res://addons/fightvainia auto load loader/new org/syst
 [autoload]
 
 SAVE_MANAGER="*uid://ctt30dnwyf7w6"
-FrameByFrameMode="*uid://c1kvhg0c1hba"
-OnHitAudioManager="*uid://b7jnflpn70njb"
+FrameByFrameMode="*uid://cqm7upl72t033"
 HitStopAndShake="*uid://dscfw2cvfrphr"
+OnHitAudioManager="*uid://b7jnflpn70njb"
 
 [display]
 
@@ -46,7 +46,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/fightvainia auto load loader/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/fightvainia auto load loader/plugin.cfg", "res://addons/gdscript_refactoring/plugin.cfg")
 
 [file_customization]
 

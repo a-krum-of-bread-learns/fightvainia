@@ -13,7 +13,7 @@ func _ready():
 	host.stun_manager.stun_has_ended.connect(reset)
 
 
-func combo_tracker_logic(entity: EntityBase, blocked: bool) -> void:
+func combo_tracker_logic(_entity: EntityBase, blocked: bool) -> void:
 	if not enabled:
 		return
 	if blocked == true:

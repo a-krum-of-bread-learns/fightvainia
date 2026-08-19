@@ -20,8 +20,9 @@ var is_crouching: bool = false
 @export var stats: EntityStats
 @export_enum("player:4" , "enemy:2") var hurt_box_layer: int = 2 ##eneimes hurt on 2 player hurts on 4 use 6 to hurt both
 @export_enum("player:2" , "enemy:4") var hit_box_mask: int = 4 ##eneimes hit on 4 player hits on 2 use 6 to hit both
-@export var primary_boxes_and_sprites: EntityPrimaryHurtBoxesAndSprites
+@export var override_primary_boxes_and_sprites: EntityPrimaryHurtBoxesAndSprites
 @export_group("dont touch if you have no idea what these are")
+@export var primary_boxes_and_sprites: EntityPrimaryHurtBoxesAndSprites
 @export var stun_manager: StunManager
 @export var attack_manager: AttackManager
 @export var scale_component: Scale
@@ -45,8 +46,10 @@ func _ready() -> void:
 	HelperFuncs.check_if_null(attack_manager, "attack_manager", self)
 	HelperFuncs.check_if_null(scale_component, "scale_component", self)
 	HelperFuncs.check_if_null(primary_boxes_and_sprites, "primary_boxes_and_sprites", self)
+	if override_primary_boxes_and_sprites:
+		primary_boxes_and_sprites.queue_free()
+		primary_boxes_and_sprites = override_primary_boxes_and_sprites
 	stun_manager.stun_has_ended.connect(primary_hurt_box_manager)
-	
 
 func get_frames_remaining() -> int:
 	# in hitstun or blockstun - read from stun manager

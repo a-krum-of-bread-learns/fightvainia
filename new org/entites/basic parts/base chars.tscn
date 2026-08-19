@@ -47,20 +47,20 @@ font_color = Color(1, 0, 0, 1)
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[node name="player" type="CharacterBody2D" unique_id=2023579452 node_paths=PackedStringArray("stun_manager", "attack_manager", "scale_component", "health_component", "primary_boxes_and_sprites", "simple_damage_effect", "control_node", "on_screen_combo_tracker")]
+[node name="player" type="CharacterBody2D" unique_id=2023579452 node_paths=PackedStringArray("primary_boxes_and_sprites", "stun_manager", "attack_manager", "scale_component", "health_component", "simple_damage_effect", "control_node", "on_screen_combo_tracker")]
 collision_layer = 3
 script = ExtResource("1_ji48l")
+stats = ExtResource("2_8it8p")
+hurt_box_layer = 4
+hit_box_mask = 2
+primary_boxes_and_sprites = NodePath("folder to be scaled/player primary hurt boxes")
 stun_manager = NodePath("folder to not be scaled/stunManager")
 attack_manager = NodePath("folder to be scaled/attack manager")
 scale_component = NodePath("folder to not be scaled/scale")
 health_component = NodePath("folder to not be scaled/simple health bar")
-stats = ExtResource("2_8it8p")
-primary_boxes_and_sprites = NodePath("folder to be scaled/player primary hurt boxes")
 simple_damage_effect = NodePath("folder to not be scaled/simple damage # effect")
 control_node = NodePath("folder to not be scaled/inputmanager")
 on_screen_combo_tracker = NodePath("folder to not be scaled/CanvasLayer")
-hurt_box_layer = 4
-hit_box_mask = 2
 
 [node name="the player colision box" type="CollisionShape2D" parent="." unique_id=693442404]
 position = Vector2(0, 8)
