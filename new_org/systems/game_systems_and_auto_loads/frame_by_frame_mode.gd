@@ -7,6 +7,11 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _physics_process(_delta: float) -> void:
+<<<<<<< HEAD:new_org/systems/game_systems_and_auto_loads/frame_by_frame_mode.gd
+=======
+	if frame_by_frame_mode_endabled:
+		get_tree().paused = true
+>>>>>>> 32c5fff (improvemnts from core added file renames to snake case needed and exports should be checked):new org/systems/auto load scripts/frame by frame mode.gd
 	if Input.is_action_just_pressed("frame by frame mode"): 
 		get_tree().paused = !get_tree().paused
 		frame_by_frame_mode_endabled = not frame_by_frame_mode_endabled

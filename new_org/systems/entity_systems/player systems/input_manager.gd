@@ -55,6 +55,27 @@ var input_direction: int = 0
 signal dash_signal(direction: Vector2)
 signal jump_signal(direction: Vector2)
 
+<<<<<<< HEAD:new_org/systems/entity_systems/player systems/input_manager.gd
+=======
+#an idea but not sure if its a good one maybe just instuctions to set the input map 
+#@export_category("input map")
+#@export var up_input_name: StringName = "up"
+#@export var down_input_name: StringName = "down"
+#@export var left_input_name: StringName = "left"
+#@export var right_input_name: StringName = "right"
+#@export var light_punch_input_name: StringName = "LP"
+#@export var light_kick_input_name: StringName = "LK and jump"
+#@export var heavy_punch_input_name: StringName = "HP"
+#@export var heavy_kick_input_name: StringName = "HK and block"
+
+
+@export_category("fake inputs")
+@export var fake_U: bool
+@export var fake_R: bool
+@export var fake_D: bool
+@export var fake_L: bool
+
+>>>>>>> 32c5fff (improvemnts from core added file renames to snake case needed and exports should be checked):new org/systems/entity systems/player systems/InputManager.gd
 ## prints all relevant player state values for debugging
 func state_print() -> void:
 	print("dash: " + str(host.is_dashing))

@@ -132,6 +132,7 @@ class AttackKey extends  Resource:
 # -------------------------
 # Organized dictionaries for priority checking
 # -------------------------
+<<<<<<< HEAD:new_org/systems/entity_systems/player systems/move_list.gd
 
 # editable forms
 @onready var middle_normals: Dictionary[AttackKey, Attack] = {}
@@ -142,6 +143,11 @@ class AttackKey extends  Resource:
 @onready var neutral_normals: Dictionary[AttackKey, Attack] = {}
 @onready var command_normals: Dictionary[AttackKey, Attack] = {}
 @onready var all_specials: Dictionary[AttackKey, Attack] = {}
+=======
+@onready var all_specials: Dictionary[AttackKey, Attack] = {}
+@onready var command_normals: Dictionary[AttackKey, Attack] = {}
+@onready var neutral_normals: Dictionary[AttackKey, Attack] = {}
+>>>>>>> 32c5fff (improvemnts from core added file renames to snake case needed and exports should be checked):new org/systems/entity systems/player systems/moveList.gd
 @onready var all_attacks: Dictionary[AttackKey, Attack] = {}
 
 # removes all the nulls and filters attacks into priority categories
@@ -168,6 +174,7 @@ func _ready():
 	all_specials.merge(grounded_heavy_punch_specials)
 	all_specials.merge(air_heavy_punch_specials)
 	
+<<<<<<< HEAD:new_org/systems/entity_systems/player systems/move_list.gd
 	# Filter normals into command_normals and neutral_normals adn assgin the middles to the lefts and rights 
 	for key: AttackKey in normals_temp.keys():
 		# key.motion is the motion array; compare to NEUTRAL constant
@@ -234,6 +241,19 @@ func _ready():
 		if command_normals[key] == null:
 			command_normals.erase(key)
 			
+=======
+	# Filter normals into command_normals and neutral_normals
+	for key: AttackKey in normals_temp.keys():
+		if normals_temp[key] == null:
+			continue # Skip null entries
+		
+		# key.motion is the motion array; compare to NEUTRAL constant
+		if key.sequence == NEUTRAL:
+			neutral_normals[key] = normals_temp[key]
+		else:
+			command_normals[key] = normals_temp[key]
+	
+>>>>>>> 32c5fff (improvemnts from core added file renames to snake case needed and exports should be checked):new org/systems/entity systems/player systems/moveList.gd
 	# Remove nulls from specials
 	for key in all_specials.keys():
 		if all_specials[key] == null:

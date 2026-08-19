@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://ct8yq6jcoijjq"]
+
+[ext_resource type="PackedScene" uid="uid://cwic4qufw2wug" path="res://addons/fightvainia_auto_load_loader/new_org/entites/basic_parts/base_chars.tscn" id="1_xpdem"]
+[ext_resource type="Resource" uid="uid://3x15qdhxammi" path="res://addons/fightvainia_auto_load_loader/new_org/entites/agent_player_stuff/resources/agent_stats.tres" id="2_5mkcn"]
+[ext_resource type="PackedScene" uid="uid://casbu3dgbqja0" path="res://addons/fightvainia_auto_load_loader/1_start_here/example_parts/attack 1 basic.tscn" id="3_8vq4w"]
+[ext_resource type="PackedScene" uid="uid://u8kr6ellcod0" path="res://addons/fightvainia_auto_load_loader/1_start_here/example_parts/attack 2 movement.tscn" id="4_3ko8b"]
+[ext_resource type="PackedScene" uid="uid://jo6dbskmqngv" path="res://addons/fightvainia_auto_load_loader/1_start_here/example_parts/attack 3 spawnable object.tscn" id="5_hr4te"]
+[ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://addons/fightvainia_auto_load_loader/new_org/systems/attack components/attack.gd" id="6_hr4te"]
+[ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://addons/fightvainia_auto_load_loader/new_org/systems/attack components/frame.gd" id="7_5a7yf"]
+[ext_resource type="Script" uid="uid://idwdlgrbo585" path="res://addons/fightvainia_auto_load_loader/new_org/systems/attack components/hit_box_area.gd" id="8_xrevd"]
+[ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://addons/fightvainia_auto_load_loader/new_org/systems/attack components/hurt_box_area.gd" id="9_37iel"]
+[ext_resource type="Script" uid="uid://c8e0lbybahcxv" path="res://addons/fightvainia_auto_load_loader/new_org/systems/attack components/hitbox_data_resouce.gd" id="9_h3mls"]
+
+[sub_resource type="Resource" id="Resource_b6lmx"]
+script = ExtResource("9_h3mls")
+stun_type = 1
+metadata/_custom_type_script = "uid://c8e0lbybahcxv"
+
+[node name="example player" unique_id=2023579452 instance=ExtResource("1_xpdem")]
+stats = ExtResource("2_5mkcn")
+
+[node name="MoveList" parent="folder to not be scaled" parent_id_path=PackedInt32Array(83792367) index="3" unique_id=937155038 node_paths=PackedStringArray("light_punch", "dqcf_light_punch", "uqcf_light_punch")]
+light_punch = NodePath("../../folder to be scaled/attack manager/simple move")
+dqcf_light_punch = NodePath("../../folder to be scaled/attack manager/complex move")
+uqcf_light_punch = NodePath("../../folder to be scaled/attack manager/toph wall but not exactly")
+
+[node name="simple move" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="0" unique_id=398067717 instance=ExtResource("3_8vq4w")]
+
+[node name="complex move" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="1" unique_id=1844417608 instance=ExtResource("4_3ko8b")]
+
+[node name="toph wall but not exactly" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="2" unique_id=1900891256 instance=ExtResource("5_hr4te")]
+
+[node name="_Node2D_30553" type="Node2D" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="3" unique_id=465107428]
+script = ExtResource("6_hr4te")
+
+[node name="frame # 1-8" type="Node2D" parent="folder to be scaled/attack manager/_Node2D_30553" index="0" unique_id=231922983]
+script = ExtResource("7_5a7yf")
+repeat_this_frame = 7
+
+[node name="frame # 9-9" type="Node2D" parent="folder to be scaled/attack manager/_Node2D_30553" index="1" unique_id=436058630]
+script = ExtResource("7_5a7yf")
+
+[node name="hit_box # 100" type="Area2D" parent="folder to be scaled/attack manager/_Node2D_30553/frame # 9-9" index="0" unique_id=201669355]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("8_xrevd")
+attack_data = SubResource("Resource_b6lmx")
+
+[node name="hurt_box # 300" type="Area2D" parent="folder to be scaled/attack manager/_Node2D_30553/frame # 9-9" index="1" unique_id=1803359101]
+collision_layer = 4
+script = ExtResource("9_37iel")
+
+[node name="Sprite2D # 400" type="Sprite2D" parent="folder to be scaled/attack manager/_Node2D_30553/frame # 9-9" index="2" unique_id=1036024726]
+
+[node name="frame # 10-10" type="Node2D" parent="folder to be scaled/attack manager/_Node2D_30553" index="2" unique_id=1187273662]
+script = ExtResource("7_5a7yf")

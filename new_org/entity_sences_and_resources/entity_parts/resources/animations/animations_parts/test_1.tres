@@ -1,6 +1,10 @@
 [gd_resource type="Resource" script_class="AnimationResource" format=3 uid="uid://ct5kbj6vs60fb"]
 
+<<<<<<< HEAD:new_org/entity_sences_and_resources/entity_parts/resources/animations/animations_parts/test_1.tres
 [ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new_org/systems/resource_scripts/animation_resource.gd" id="1_xvwko"]
+=======
+[ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://addons/fightvainia auto load loader/new org/systems/animation/animation resource.gd" id="1_5m182"]
+>>>>>>> 32c5fff (improvemnts from core added file renames to snake case needed and exports should be checked):new org/systems/animation/defults/test animations/test_curves1.tres
 
 [sub_resource type="Curve" id="Curve_5m182"]
 _data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0364238, 0.0, 0, 0]

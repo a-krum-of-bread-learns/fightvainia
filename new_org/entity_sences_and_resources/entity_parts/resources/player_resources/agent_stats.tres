@@ -1,6 +1,10 @@
 [gd_resource type="Resource" script_class="PlayerStats" format=3 uid="uid://3x15qdhxammi"]
 
+<<<<<<< HEAD:new_org/entity_sences_and_resources/entity_parts/resources/player_resources/agent_stats.tres
 [ext_resource type="Script" uid="uid://bb5lwdc0ivd5v" path="res://new_org/systems/resource_scripts/player_stats_resource.gd" id="1_yxt5y"]
+=======
+[ext_resource type="Script" uid="uid://bb5lwdc0ivd5v" path="res://addons/fightvainia auto load loader/new org/entites/basic parts/player_stats_resource.gd" id="1_yxt5y"]
+>>>>>>> 32c5fff (improvemnts from core added file renames to snake case needed and exports should be checked):new org/entites/agent player stuff/resources?/agent_stats.tres
 
 [resource]
 script = ExtResource("1_yxt5y")

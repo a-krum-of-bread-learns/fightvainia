@@ -23,8 +23,13 @@ func _validate_property(property: Dictionary) -> void:
 	if (property.name in ["hit_stun_duration", "hit_back_distance_vector"] 
 	and stun_type in 
 	[StunManager.STUN_TYPE.DEFUALT_LAUNCH,
+<<<<<<< HEAD:new_org/systems/resource_scripts/hitbox_data_resouce.gd
 	StunManager.STUN_TYPE.DEFUALT_ON_FLOOR,
 	StunManager.STUN_TYPE.DEFUALT_WAKEUP]):
+=======
+	StunManager.STUN_TYPE.DEFUALT_AIR,
+	StunManager.STUN_TYPE.DEFUALT_KNOCK_DOWN]):
+>>>>>>> 32c5fff (improvemnts from core added file renames to snake case needed and exports should be checked):new org/systems/attack components/hitbox data resouce.gd
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 
 
@@ -45,7 +50,14 @@ func validate_data(owner) -> void:
 	and stun_type == StunManager.STUN_TYPE.CUSTOM):
 		push_error("hit_stun_duration not assigned | " + context)
 	if (hit_back_distance_vector == Vector2(-1,-1)
+<<<<<<< HEAD:new_org/systems/resource_scripts/hitbox_data_resouce.gd
 	 and stun_type == StunManager.STUN_TYPE.CUSTOM):
+=======
+	 and not stun_type in
+	[StunManager.STUN_TYPE.DEFUALT_KNOCK_DOWN,
+	StunManager.STUN_TYPE.DEFUALT_ON_FLOOR,
+	StunManager.STUN_TYPE.DEFUALT_WAKEUP]):
+>>>>>>> 32c5fff (improvemnts from core added file renames to snake case needed and exports should be checked):new org/systems/attack components/hitbox data resouce.gd
 		push_error("hit_back_distance_vector not assigned | " + context)
 	if hit_stop_frames == 0:
 		push_warning("hit_stop_frames is 0 | " + context)
