@@ -101,3 +101,40 @@ more ai fights / battle against the boss akrum on random select so he has to fig
 
 facade 2 use melty blood or sf6
 	 reason to use sf6 most or all chars have a target combo so it may be a good test to see if those help players feel like they are doing the cool stuff fairly soon 
+
+
+## facade 2 
+lets try melty blood for the facade
+	set up  rapid beat off
+	any char with a qcf special move that is easy 
+	should melty blood have more hit stop
+	 2 loop combo chars that might be good 
+	 mash, maids,  
+	 training mode in training 
+	modes single play survival  easy since its their first time 
+	under color settings you can cahge rapid beat
+
+### set of instructions 
+first open the game melty blood type lamina if not open already or tell Akrum to open it. next navigate to the mode training> free training 
+
+pick one of the following 3 characters this tutorial has been made for
+hisui 
+kohaku
+mash
+pick a color and for the setting called rapid beat turn it to a+b 
+pick aoko aozaki for akram 
+
+tut basic movement 
+	jump: (up) 
+	~~high jump: (down then up)~~
+	walk: (hold forward or back) 
+	crouch: (hold down)
+	run/dash:  (RT +direction) or (double tap direction)
+	air actions section you only have one of these
+	double jump: jump in air 
+	air dash: dash in air 
+	practices these until you feel comfortable moving how you'd like
+	
+
+combo 1 abcDc
+abc qcf b abc qcfb or abc qcf b b/c qcf b

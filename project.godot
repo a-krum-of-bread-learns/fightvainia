@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="fightingvaina"
-run/main_scene="uid://qxbhnmphixub"
+run/main_scene="uid://b51mwlrtfmqd8"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -25,6 +25,7 @@ SAVE_MANAGER="*uid://ctt30dnwyf7w6"
 FrameByFrameMode="*uid://cqm7upl72t033"
 HitStopAndShake="*uid://dscfw2cvfrphr"
 OnHitAudioManager="*uid://b7jnflpn70njb"
+MenuControllerRoot="*uid://yaufmskfjxc2"
 
 [display]
 
@@ -42,16 +43,19 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/fightvainia auto load loader/plugin.cfg", "res://addons/gdscript_refactoring/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/gdscript_refactoring/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
-"res://new org/art/": "purple",
-"res://new org/entites/": "blue",
-"res://new org/systems/": "orange",
-"res://new org/systems/ui/": "green",
-"res://new org/world/": "yellow",
+"res://addons/": "gray",
+"res://addons/fightvainia_auto_load_loader/": "pink",
+"res://new_org/": "blue",
+"res://new_org/art/": "purple",
+"res://new_org/entity_sences_and_resources/": "blue",
+"res://new_org/systems/": "orange",
+"res://new_org/systems/ui/": "green",
+"res://new_org/world/": "yellow",
 "res://testings/": "gray"
 }
 

@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cnehwxf4aylum"]
+
+[ext_resource type="PackedScene" uid="uid://lehj6n73xymd" path="res://new_org/entity_sences_and_resources/entity_parts/bases/enemy_base.tscn" id="1_u3i0x"]
+[ext_resource type="Script" uid="uid://l44o6rb7c7t1" path="res://new_org/systems/resource_scripts/enemy_settings.gd" id="2_5q5m5"]
+[ext_resource type="PackedScene" uid="uid://dw6qtmdrh05mx" path="res://new_org/entity_sences_and_resources/entity_parts/attacks/lazer.tscn" id="12_bhnnn"]
+[ext_resource type="PackedScene" uid="uid://bwrmodlels1kk" path="res://new_org/entity_sences_and_resources/entity_parts/attacks/fire_ball.tscn" id="12_iw2u6"]
+[ext_resource type="PackedScene" uid="uid://dp71uc0na4lwi" path="res://new_org/entity_sences_and_resources/entity_parts/attacks/spike_close.tscn" id="13_i62j7"]
+[ext_resource type="PackedScene" uid="uid://7ggp08qiu7h3" path="res://new_org/entity_sences_and_resources/entity_parts/attacks/spike_far.tscn" id="14_b0aow"]
+[ext_resource type="PackedScene" uid="uid://duw2his5lywxk" path="res://new_org/entity_sences_and_resources/entity_parts/attacks/left_buttion_jab_(x)_lp.tscn" id="15_yl2xy"]
+[ext_resource type="PackedScene" uid="uid://od41351s0ekc" path="res://new_org/entity_sences_and_resources/entity_parts/attacks/left_button_low_(x)_lp.tscn" id="16_iw2u6"]
+[ext_resource type="PackedScene" uid="uid://ci8cd0kwoplqn" path="res://new_org/entity_sences_and_resources/entity_parts/attacks/up_button_low_(y)_hp.tscn" id="17_podgt"]
+[ext_resource type="PackedScene" uid="uid://gu4f3xo60xh2" path="res://new_org/entity_sences_and_resources/entity_parts/attacks/up_buttion_strong_(y)_hp.tscn" id="18_bqc2a"]
+[ext_resource type="PackedScene" uid="uid://b50dutlc1lhd4" path="res://new_org/entity_sences_and_resources/entity_parts/attacks/up_buttion_anti_air_(y)_hp.tscn" id="20_ktu25"]
+
+[sub_resource type="Resource" id="Resource_6gdmn"]
+script = ExtResource("2_5q5m5")
+hits_until_10_percent_drop_chance = 0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6gdmn"]
+size = Vector2(40, 32)
+
+[node name="enemy base" unique_id=518042812 instance=ExtResource("1_u3i0x")]
+
+[node name="enemylogic" parent="folder to not be scaled" parent_id_path=PackedInt32Array(401095005) index="5" unique_id=1044143473 node_paths=PackedStringArray("close_bnb_combo", "close_bnb_low_combo", "close_pokes", "mid_pokes", "far_or_projectile_pokes", "anti_airs")]
+settings = SubResource("Resource_6gdmn")
+close_bnb_combo = [NodePath("../../folder to be scaled/AttackManager/left buttion jab (X) lp"), NodePath("../../folder to be scaled/AttackManager/left buttion jab (X) lp"), NodePath("../../folder to be scaled/AttackManager/lazer"), NodePath("../../folder to be scaled/AttackManager/spike far")]
+close_bnb_low_combo = [NodePath("../../folder to be scaled/AttackManager/left button low (X) lp"), NodePath("../../folder to be scaled/AttackManager/left button low (X) lp"), NodePath("../../folder to be scaled/AttackManager/lazer"), NodePath("../../folder to be scaled/AttackManager/spike far")]
+close_pokes = [NodePath("../../folder to be scaled/AttackManager/left button low (X) lp"), NodePath("../../folder to be scaled/AttackManager/left buttion jab (X) lp"), NodePath("../../folder to be scaled/AttackManager/spike close")]
+mid_pokes = [NodePath("../../folder to be scaled/AttackManager/up buttion strong (Y) hp"), NodePath("../../folder to be scaled/AttackManager/up button low (Y) Hp"), NodePath("../../folder to be scaled/AttackManager/spike close")]
+far_or_projectile_pokes = [NodePath("../../folder to be scaled/AttackManager/spike far"), NodePath("../../folder to be scaled/AttackManager/lazer"), NodePath("../../folder to be scaled/AttackManager/fire ball")]
+anti_airs = [NodePath("../../folder to be scaled/AttackManager/up buttion anti air (Y) hp")]
+
+[node name="fire ball" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="0" unique_id=1979542474 instance=ExtResource("12_iw2u6")]
+
+[node name="spike close" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="1" unique_id=1049771095 instance=ExtResource("13_i62j7")]
+
+[node name="spike far" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="2" unique_id=1616460340 instance=ExtResource("14_b0aow")]
+
+[node name="lazer" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="3" unique_id=990600057 instance=ExtResource("12_bhnnn")]
+
+[node name="left button low (X) lp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="4" unique_id=14818658 instance=ExtResource("16_iw2u6")]
+
+[node name="left buttion jab (X) lp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="5" unique_id=508514690 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("15_yl2xy")]
+combo_attacks_dictionary = {
+14: NodePath(".")
+}
+
+[node name="up buttion anti air (Y) hp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="6" unique_id=1455710997 instance=ExtResource("20_ktu25")]
+
+[node name="up buttion strong (Y) hp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="7" unique_id=2065512744 instance=ExtResource("18_bqc2a")]
+
+[node name="up button low (Y) Hp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="8" unique_id=2086936221 instance=ExtResource("17_podgt")]
+
+[node name="detect player" parent="folder to be scaled/boss folder" parent_id_path=PackedInt32Array(511238329) index="0" unique_id=1655518541]
+visible = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="folder to be scaled/boss folder/detect player" index="0" unique_id=777756258]
+shape = SubResource("RectangleShape2D_6gdmn")

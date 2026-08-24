@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b7poxv1jmn217"]
 
-[ext_resource type="Script" uid="uid://c07awirmkkk7k" path="res://new org/entites/other entites/non moving/turret.gd" id="1_saglm"]
-[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new org/systems/entity systems/shared/FrameTimerCompnent.gd" id="6_yrusv"]
-[ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://new org/systems/auto load scripts/set cam.gd" id="8_prbi6"]
+[ext_resource type="Script" uid="uid://c07awirmkkk7k" path="res://new_org/systems/entity_systems/turret.gd" id="1_saglm"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new_org/systems/entity_systems/shared/frame_timer_compnent.gd" id="6_yrusv"]
+[ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://new_org/systems/game_systems_and_auto_loads/set_cam.gd" id="8_prbi6"]
 
 [node name="Node2D" type="Node2D" unique_id=304602988 node_paths=PackedStringArray("frame_timer")]
 script = ExtResource("1_saglm")

@@ -15,20 +15,20 @@
 - [ ] can attack when dashing if you have air attack with no dash start up
 
 for main branch from core branch
-- [ ] the frame node has a set disabled true where it shouldent in 3  of the add functions
-- [ ] the frame node should call ready when the togle visable buttion is pressed
-- [ ] make the renames automatic when the value is changed
+- [x] the frame node has a set disabled true where it shouldent in 3  of the add functions
+- [x] the frame node should call ready when the togle visable buttion is pressed
+- [x] make the renames automatic when the value is changed
 	@export_range(0,300) var repeat_this_frame: int = 0:
 	set(value):
 		repeat_this_frame = value
 		reqest_rename.emit()
-- [ ] defult knock down doesnt hide the vector propites of the attack data
-- [ ] move @export var humanize_time_in_frames: int = 0 @export var pause_time_in_frames: int = 0 to enemy settings and reorder the exports with do not touch 
-- [ ] remove enemy base empty file and health ,gd
-- [ ] in hitbox damage fucntion remove the  this part of the if stament get_parent().get_children().has(area) == false 
-- [ ] start attack has been shortened
-- [ ] un indent damage in hitbox area
-- [ ] pysics profcess in frame byy frame mode needed
+- [x] defult knock down doesnt hide the vector propites of the attack data
+- [x] move @export var humanize_time_in_frames: int = 0 @export var pause_time_in_frames: int = 0 to enemy settings and reorder the exports with do not touch 
+- [x] remove enemy base empty file and health ,gd
+- [x] in hitbox damage fucntion remove the  this part of the if stament get_parent().get_children().has(area) == false 
+- [x] start attack has been shortened
+- [x] un indent damage in hitbox area
+- [x] pysics profcess in frame byy frame mode needed
 
 
 for all breanches

@@ -112,7 +112,7 @@
 - [ ] consideration motion attacks? like motion inputs for directions rhythm character or something technicality possible or better way to do the combo attacks
 - [ ] visual stuns of type like fire and electricity or ice here
 - [ ] review all process/ physics process functions for witch one is right to use
-- [ ] ==make a system map to see how it all fits right now== when i in school 
+- [ ] ==make a system map to see how it all fits right now== when i in school or videos?
 
 - [ ] add flexibility to combo attacks so that if i have a 2 hit attack it can follow up differently on hit 1 and hit 2 (example Jamie 4 drink forward heavy kick 3 followups)
 
@@ -143,7 +143,7 @@
 
 - [ ] investigate https://github.com/KoBeWi/Metroidvania-System 
 - [ ] investigate https://semver.org
-- [ ] major thing put the project on the asset library before or after first game?
+- [x] major thing put the project on the asset library before or after first game?
 - [ ] make a some vids on using the tool 
 	- [ ] a
 - [ ] make the player have Target combos using combo attacks 
@@ -176,9 +176,6 @@
 - [ ] make forest boss random person with simple weapon the character is unfamiliar with (bread)
 - [ ] make jump start up an attack as well?>
 
-
-
-
 - [ ] funny thing attack that heals and is used for combo extensions scope creep but really funny
 - [x] make heal area node alwase active version 
 
@@ -188,12 +185,27 @@
 - [x] simple moving platforms 
 - [ ] simple moving platforms using animation tool as alternate attempt
 - [x] make separate primary boxes for forest enemy wolf
-- [ ] animation tool but visual? unlikey
+- [x] animation tool but visual? unlikey
 	If you want the platform's _speed_ along that path to also feel organic (accelerate into corners, ease at the ends) rather than constant, you could combine both systems — use a `Curve2D`/`PathFollow2D` for the shape of the track, and drive `progress_ratio` using one of your existing `Curve` resources (or even a tween with a custom easing curve) for the timing, rather than linear constant-speed movement along the path
+	this is too much to try to make work removed for now
 - [ ] make heal area node work with a check point 
 - [x] try the tool buttions: they are worse
-- [ ] for asset lib relese
-	- [ ] set the strings in add input to match the code
-	- [ ] conform to godot code guide lines and ai usage to help maybe
+- [x] for asset lib relese
+	- [x] set the strings in add input to match the code
+	- [x] conform to godot code guide lines and ai usage to help maybe
 - [ ] make screen shake dependent on how + you are
-- [ ] unified modeling language class diagram fro attack system
+- [x] unified modeling language class diagram fro attack system no its bad have a video instead
+- [ ] core systems remaining to make / know how to use 
+	- [ ] save loading 
+	- [ ] menus 
+		- [x] start menu
+		- [x] settings
+		- [x] pause
+		- [x] cut scene
+		- [ ] ui feedback
+	- [ ] for level select none just a continue button
+	- [ ] balance
+	- [x] dialog system and cut scene system for simple things
+	- [ ] ui theme resource not game one?
+		- this has all the control nodes in a way you can edit all then assign the resource to the nodes 
+ - [ ] should there be a cut scene script extended to also have a scene change and a dialogue version

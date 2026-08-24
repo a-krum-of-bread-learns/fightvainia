@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bv6x86onbkurk"]
+
+[ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new_org/systems/entity_systems/shared/attack_tree_components/attack.gd" id="1_mwhq5"]
+[ext_resource type="Script" uid="uid://sx7qv8babvbw" path="res://new_org/systems/resource_scripts/animation_resource.gd" id="2_tttxy"]
+[ext_resource type="Curve" uid="uid://c42e5g30q0cp2" path="res://new_org/entity_sences_and_resources/entity_parts/resources/animations/curves/constant_velocity.tres" id="3_3lwuk"]
+[ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new_org/systems/entity_systems/shared/attack_tree_components/frame.gd" id="4_dmnxv"]
+
+[sub_resource type="Resource" id="Resource_s5bsa"]
+script = ExtResource("2_tttxy")
+smoothing_curve_x = ExtResource("3_3lwuk")
+smoothing_curve_y = ExtResource("3_3lwuk")
+time_in_frames = 12
+displacement = Vector2(50, -50)
+metadata/_custom_type_script = "uid://sx7qv8babvbw"
+
+[node name="grapple followup" type="Node2D" unique_id=1662487267]
+script = ExtResource("1_mwhq5")
+kill_momnetum_of_tween_start = true
+kill_momnetum_of_tween_end = false
+animation_stuff = Array[ExtResource("2_tttxy")]([SubResource("Resource_s5bsa")])
+
+[node name="frame # 1-4" type="Node2D" parent="." unique_id=2022274485]
+script = ExtResource("4_dmnxv")
+repeat_this_frame = 3

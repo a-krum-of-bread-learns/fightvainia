@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c47ugslb0v6y"]
+
+[ext_resource type="PackedScene" uid="uid://lehj6n73xymd" path="res://new_org/entity_sences_and_resources/entity_parts/bases/enemy_base.tscn" id="1_oaxtw"]
+[ext_resource type="PackedScene" uid="uid://bwrmodlels1kk" path="res://new_org/entity_sences_and_resources/entity_parts/attacks/fire_ball.tscn" id="12_fvbbe"]
+[ext_resource type="PackedScene" uid="uid://duw2his5lywxk" path="res://new_org/entity_sences_and_resources/entity_parts/attacks/left_buttion_jab_(x)_lp.tscn" id="13_0m56k"]
+[ext_resource type="PackedScene" uid="uid://od41351s0ekc" path="res://new_org/entity_sences_and_resources/entity_parts/attacks/left_button_low_(x)_lp.tscn" id="14_7oflg"]
+[ext_resource type="PackedScene" uid="uid://ci8cd0kwoplqn" path="res://new_org/entity_sences_and_resources/entity_parts/attacks/up_button_low_(y)_hp.tscn" id="15_axexk"]
+[ext_resource type="PackedScene" uid="uid://gu4f3xo60xh2" path="res://new_org/entity_sences_and_resources/entity_parts/attacks/up_buttion_strong_(y)_hp.tscn" id="16_6aqev"]
+[ext_resource type="AudioStream" uid="uid://d0npi3n5pcxik" path="res://new_org/art/copy right free audio assets/session.mp3" id="17_iwxqk"]
+[ext_resource type="PackedScene" uid="uid://b50dutlc1lhd4" path="res://new_org/entity_sences_and_resources/entity_parts/attacks/up_buttion_anti_air_(y)_hp.tscn" id="18_j2ufy"]
+
+[node name="fire ball zonner" unique_id=518042812 instance=ExtResource("1_oaxtw")]
+
+[node name="fire ball" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="0" unique_id=1979542474 instance=ExtResource("12_fvbbe")]
+
+[node name="left buttion jab (X) lp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="1" unique_id=508514690 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("13_0m56k")]
+combo_attacks_dictionary = {
+14: null
+}
+
+[node name="left button low (X) lp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="2" unique_id=14818658 node_paths=PackedStringArray("combo_attacks_dictionary") instance=ExtResource("14_7oflg")]
+combo_attacks_dictionary = {
+14: null
+}
+
+[node name="up buttion (Y) hp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="3" unique_id=2065512744 instance=ExtResource("16_6aqev")]
+is_combo_attack = false
+hit_sound = ExtResource("17_iwxqk")
+
+[node name="up button low (Y) Hp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="4" unique_id=2086936221 instance=ExtResource("15_axexk")]
+
+[node name="up buttion anti air (Y) hp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="5" unique_id=1455710997 instance=ExtResource("18_j2ufy")]
+hit_sound = ExtResource("17_iwxqk")

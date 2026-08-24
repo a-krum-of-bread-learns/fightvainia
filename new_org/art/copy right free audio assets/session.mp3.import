@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d0npi3n5pcxik"
+path="res://.godot/imported/session.mp3-7664c40750b78cdfd2833f4c64026ba3.mp3str"
+
+[deps]
+
+source_file="res://new_org/art/copy right free audio assets/session.mp3"
+dest_files=["res://.godot/imported/session.mp3-7664c40750b78cdfd2833f4c64026ba3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

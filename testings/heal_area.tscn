@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://doxorluopa0gj"]
 
-[ext_resource type="Script" uid="uid://dy5ywq1jncbo8" path="res://new org/systems/attack components/HealBoxArea.gd" id="1_rikly"]
+[ext_resource type="Script" uid="uid://dy5ywq1jncbo8" path="res://new_org/systems/entity_systems/shared/attack_tree_components/healbox_area.gd" id="1_rikly"]
 
 [node name="Area2D" type="Area2D" unique_id=423764402]
 script = ExtResource("1_rikly")

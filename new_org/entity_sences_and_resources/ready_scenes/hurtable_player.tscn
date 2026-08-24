@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cca8fe1qvcnch"]
+
+[ext_resource type="Script" uid="uid://bssckwpf2obbe" path="res://new_org/systems/entity_systems/base_classes/entity_base.gd" id="1_wr0em"]
+[ext_resource type="Resource" uid="uid://3x15qdhxammi" path="res://new_org/entity_sences_and_resources/entity_parts/resources/player_resources/agent_stats.tres" id="2_m8xwp"]
+[ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://new_org/systems/entity_systems/shared/stun_manager.gd" id="3_efw5k"]
+[ext_resource type="PackedScene" uid="uid://btufeyfuqt18p" path="res://new_org/entity_sences_and_resources/entity_parts/primary_boxes/defult_primary_hurt_boxes.tscn" id="3_m8xwp"]
+[ext_resource type="Script" uid="uid://dd0phg7lcqqps" path="res://new_org/systems/entity_systems/shared/gravity.gd" id="5_wr0em"]
+[ext_resource type="Texture2D" uid="uid://dxxtu2redxtmm" path="res://icon.svg" id="6_lx4nb"]
+[ext_resource type="Script" uid="uid://bpcoafuum2ks1" path="res://new_org/systems/ui/simple_health_bar.gd" id="7_m8xwp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7li3v"]
+size = Vector2(16, 32)
+
+[sub_resource type="Gradient" id="Gradient_lxi42"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.19626169, 0.19626169, 0.19626169, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_juid5"]
+gradient = SubResource("Gradient_lxi42")
+width = 16
+height = 4
+
+[sub_resource type="Gradient" id="Gradient_m8xwp"]
+colors = PackedColorArray(0, 0.30588236, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q2ic0"]
+gradient = SubResource("Gradient_m8xwp")
+width = 16
+height = 4
+
+[node name="hurt able" type="CharacterBody2D" unique_id=373821748 node_paths=PackedStringArray("primary_boxes_and_sprites", "stun_manager", "health_component")]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_wr0em")
+stats = ExtResource("2_m8xwp")
+primary_boxes_and_sprites = NodePath("Player primary hurtboxes and sprites")
+stun_manager = NodePath("StunManager")
+health_component = NodePath("simple health bar")
+metadata/_custom_type_script = "uid://bssckwpf2obbe"
+
+[node name="Player primary hurtboxes and sprites" parent="." unique_id=994631848 node_paths=PackedStringArray("host") instance=ExtResource("3_m8xwp")]
+host = NodePath("..")
+
+[node name="colison box" type="CollisionShape2D" parent="." unique_id=2049379602]
+shape = SubResource("RectangleShape2D_7li3v")
+debug_color = Color(0, 0, 1, 0.686275)
+
+[node name="StunManager" type="Node" parent="." unique_id=1789624980 node_paths=PackedStringArray("host")]
+script = ExtResource("3_efw5k")
+enabled = true
+host = NodePath("..")
+metadata/_custom_type_script = "uid://b8564hciniqu3"
+
+[node name="Gravity" type="Node" parent="." unique_id=578468248 node_paths=PackedStringArray("host")]
+script = ExtResource("5_wr0em")
+enabled = true
+host = NodePath("..")
+metadata/_custom_type_script = "uid://dd0phg7lcqqps"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=468996346]
+position = Vector2(-9.536743e-07, -9.536743e-07)
+scale = Vector2(0.12500001, 0.24999999)
+texture = ExtResource("6_lx4nb")
+
+[node name="simple health bar" type="TextureProgressBar" parent="." unique_id=1892036640 node_paths=PackedStringArray("host")]
+offset_left = -8.0
+offset_top = -32.0
+offset_right = 8.0
+offset_bottom = -28.0
+value = 50.0
+rounded = true
+texture_under = SubResource("GradientTexture2D_juid5")
+texture_progress = SubResource("GradientTexture2D_q2ic0")
+script = ExtResource("7_m8xwp")
+host = NodePath("..")

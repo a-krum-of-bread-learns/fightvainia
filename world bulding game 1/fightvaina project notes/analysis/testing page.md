@@ -3,7 +3,8 @@
 ## facade
 for notes go to [[facade notes and plan]] 
 
-new player table test lara (completely new player to video games with a controller )
+new player table test LA (completely new player to video games with a controller ) 
+- 1h 30 min
 
 | test                    | # of attempts before landing once | how easy they felt it was out of 10 10 very easy | did it combo fully   |
 | ----------------------- | --------------------------------- | ------------------------------------------------ | -------------------- |
@@ -14,7 +15,9 @@ new player table test lara (completely new player to video games with a controll
 notes sol combo 1 is button into special and are using 2 different buttons witch wasn't too bad 
 elphelt combo 1 would be doable without the sepical move
 
-Qing ling on elphelt valanitne also clasifed as a brand new player to video game (reson never used a contoler for games)
+Ql on elphelt valanitne also clasifed as a brand new player to video game (reson never used a contoler for games)
+
+- 2h
 
 | test                 | # of attempts before landing once | how easy they felt it was out of 10 10 very easy | did it combo fully |
 | -------------------- | --------------------------------- | ------------------------------------------------ | ------------------ |
@@ -25,7 +28,8 @@ Qing ling on elphelt valanitne also clasifed as a brand new player to video game
 |                      |                                   |                                                  |                    |
 
 
-Mohamed sol bad guy with timing hints for the second combo classified as a brand new player
+MOE sol bad guy with timing hints for the second combo classified as a brand new player
+- 1 h
 
 | test                 | # of attempts before landing once | how easy they felt it was out of 10 10 very easy | did it combo fully |
 | -------------------- | --------------------------------- | ------------------------------------------------ | ------------------ |
@@ -35,7 +39,8 @@ Mohamed sol bad guy with timing hints for the second combo classified as a brand
 |                      |                                   |                                                  |                    |
 
 
-Alan sol bad guy with timing hints for the second combo classified as a brand new player to fgc but not games (this man is a gamer)
+AL sol bad guy with timing hints for the second combo classified as a brand new player to fgc but not games (this man is a gamer)
+- 3h
 
 | test                          | # of attempts before landing once                                                  | how easy they felt it was out of 10 10 very easy | did it combo fully |
 | ----------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------ | ------------------ |
@@ -50,11 +55,23 @@ Alan sol bad guy with timing hints for the second combo classified as a brand ne
 |                               |                                                                                    |                                                  |                    |
 
 
+## test asset library with ql 1:20 h:mm
+- notes 
+	- when making making a new scene don't delete the root node if you want the instantiate menu
+	- you cant delete editable children even if inherited 
+	- the player doesn't need to be a root node if its children are editable
+	- require a restart for the buttons too 
+	- player doesn't have default stats placed on it nor does attack the errors should 
+	- attack data is not auto
+	- improve errors maybe and state file name and scene and node name
+	- store page needs a better image when opened 
+	- the file needs to be moved form the zip so that addons can be installed right
+
 
 sf6 has a pause in its combos with drive rush
 
 sf6 has a pause in its combos with drive rush
-note make a part to practivce cancels and expain cancels more
+note make a part to practice cancels and explain cancels more
 # self plays games
 for notes go to [[self plays games]] 
 

@@ -293,6 +293,32 @@ why i like avatar legends (broski)
 its time to review... tokon 
 	https://www.youtube.com/watch?v=d3ZDFvuk8XI
 	they have both well expianied combo tirals and puzzle mode combos that dont have play back
+## riot game shuts down 2xko 
+i may want to do a video and compare the games 
+	https://youtu.be/-DOwUIHZplk?si=bMbblq1buoM2ZjrS maximilim
+	https://youtu.be/-e5YZ2kS9c4?si=APfr3gIIPKXBqoas sayjam
+	- riot seemed like it wanted to kill the game but was obligated to release it 
+	- they have a net code thats a server rather then peer rather than peer to peer
+	- input system seems like it was not good for members of the fgc 
+	- it did have complexity
+	https://youtu.be/vtnhTwAiHwI?si=rBBK2gjjgceNMBd3 but like after the 12 min mark 
+	- its marketing was only to the core fgc but not to the general public
+	- game was made for fighting game players
+	- mashing at low level felt like it didn't exist
+	- arcane got old fast
+	- no single player or story mode until the rouge like (really)
+	- free to play need mass appeal and casual players are the whales
+	https://youtu.be/gSyZGfeKPDo?si=XOeb8zooD3mWQY9c brian_f
+	- says it was obvious from the get go 
+	- game felt it never launched
+	- form a different of his vids he shows lack of marketing poorly, estimated expectations, niche with a niche, lack of content, doesn't have"it"
+	- that vid is called "2xko - what went wrong  with riot's league of legends fighting game" 
+	- game sounded bad sound design
+	- sf6 sounds better according to brian
+	- was not good enough for the fighting game players
+	- tag fighters are harder to make
+	
+	
 ## emergent game play videos
 lets look a this and see how we can track these
 	1.  sajam video # 25, 33

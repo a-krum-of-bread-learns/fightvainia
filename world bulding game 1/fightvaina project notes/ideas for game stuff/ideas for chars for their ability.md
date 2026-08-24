@@ -145,3 +145,5 @@
     - also could be place able healing thing that the opponent can use
 - mical Jackson (idk if this name is right but ill go with )
     - a char that never faces you and simple beats you up without looking at your character and always is moon walking
+- char with cute muscle 
+	- they have a pet or something that fights on with or on behalf of the player

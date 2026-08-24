@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://50ic2uy0h86f" path="res://addons/simple_save_tool/example/example.gd" id="1_k33v6"]
 [ext_resource type="Script" uid="uid://1pns4moeow0x" path="res://addons/simple_save_tool/example/playerExample.gd" id="2_86i8c"]
 [ext_resource type="Texture2D" uid="uid://bjcih6vfqps6" path="res://addons/simple_save_tool/example/icon.svg" id="2_yb4ho"]
-[ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://new org/systems/auto load scripts/set cam.gd" id="4_ay7c6"]
+[ext_resource type="Script" uid="uid://khr84mdfp2hk" path="res://new_org/systems/game_systems_and_auto_loads/set_cam.gd" id="4_ay7c6"]
 
 [node name="node" type="Node" unique_id=466817357]
 script = ExtResource("1_k33v6")

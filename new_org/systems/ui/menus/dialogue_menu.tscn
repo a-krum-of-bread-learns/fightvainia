@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cc6vqgiayjg40"]
+
+[ext_resource type="Script" uid="uid://dtae1xpj3n2vf" path="res://new_org/systems/ui/menus/dialogue_menu.gd" id="1_7hmn8"]
+[ext_resource type="Texture2D" uid="uid://bjcih6vfqps6" path="res://addons/simple_save_tool/example/icon.svg" id="2_frysa"]
+
+[node name="dialoug menu" type="Control" unique_id=812066282 node_paths=PackedStringArray("dialogue_text_box", "defult_focus")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7hmn8")
+dialogue_text_box = NodePath("NinePatchRect/MarginContainer/HBoxContainer/RichTextLabel")
+defult_focus = NodePath("NinePatchRect/MarginContainer/HBoxContainer/RichTextLabel")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=794708035]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -212.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_frysa")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect" unique_id=642489900]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer" unique_id=496309946]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=157408359]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 24
+text = "test of the text so i can see if things "
+fit_content = true

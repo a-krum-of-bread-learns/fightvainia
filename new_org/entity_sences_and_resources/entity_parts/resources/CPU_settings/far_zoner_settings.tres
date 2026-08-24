@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemySettings" format=3 uid="uid://3c1b4qm108yn"]
+
+[ext_resource type="Script" uid="uid://l44o6rb7c7t1" path="res://new_org/systems/resource_scripts/enemy_settings.gd" id="1_a7jr7"]
+
+[resource]
+script = ExtResource("1_a7jr7")
+close_range_max_x = 30.0
+mid_range_max_x = 40.0
+far_range_max_x = 80.0
+attack_chance = 0.1
+hits_until_10_percent_drop_chance = 0
+block_chance = 0.0
+corect_block_type_chance = 0.0
+wiff_chance = 0.0
+anti_air_chance = 0.0
+poke_chance = 0.1
+ignore_tolrance_chance = 0.0
+pause_chance = 0.0
+metadata/_custom_type_script = "uid://c4buu38jtc0ws"

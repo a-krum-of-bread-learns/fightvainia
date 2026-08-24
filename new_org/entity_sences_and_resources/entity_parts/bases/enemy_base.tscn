@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://lehj6n73xymd"]
+
+[ext_resource type="Script" uid="uid://bssckwpf2obbe" path="res://new_org/systems/entity_systems/base_classes/entity_base.gd" id="1_8l8eb"]
+[ext_resource type="Resource" uid="uid://3x15qdhxammi" path="res://new_org/entity_sences_and_resources/entity_parts/resources/player_resources/agent_stats.tres" id="2_vnudt"]
+[ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new_org/systems/entity_systems/shared/animation_tool.gd" id="3_hocd5"]
+[ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://new_org/systems/entity_systems/shared/stun_manager.gd" id="4_fa8jb"]
+[ext_resource type="Script" uid="uid://tmh27lp4axxe" path="res://new_org/systems/entity_systems/shared/scale.gd" id="5_hrbsn"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new_org/systems/entity_systems/shared/frame_timer_compnent.gd" id="6_wg58f"]
+[ext_resource type="Script" uid="uid://dd0phg7lcqqps" path="res://new_org/systems/entity_systems/shared/gravity.gd" id="7_q3phk"]
+[ext_resource type="Script" uid="uid://b4pafhiqf6us2" path="res://new_org/systems/entity_systems/cpu_systems/self_combo_tracker.gd" id="8_2at12"]
+[ext_resource type="Script" uid="uid://6xwe037j5sj4" path="res://new_org/systems/entity_systems/cpu_systems/enemy_logic.gd" id="9_k0bdp"]
+[ext_resource type="Resource" uid="uid://3c1b4qm108yn" path="res://new_org/entity_sences_and_resources/entity_parts/resources/CPU_settings/far_zoner_settings.tres" id="10_a6mv1"]
+[ext_resource type="Script" uid="uid://bpcoafuum2ks1" path="res://new_org/systems/ui/simple_health_bar.gd" id="11_sm0k2"]
+[ext_resource type="Script" uid="uid://c8qc0j10c563q" path="res://new_org/systems/entity_systems/shared/attack_tree_components/attack_manager.gd" id="12_ccegc"]
+[ext_resource type="PackedScene" uid="uid://btufeyfuqt18p" path="res://new_org/entity_sences_and_resources/entity_parts/primary_boxes/defult_primary_hurt_boxes.tscn" id="12_vnudt"]
+[ext_resource type="Texture2D" uid="uid://d3ouypsble60q" path="res://new_org/art/copy right free art assets/electic_ball.png" id="13_4c8fg"]
+[ext_resource type="Script" uid="uid://dqfwwo01ngier" path="res://new_org/systems/entity_systems/shared/base_sprite_manager.gd" id="14_823si"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hxi14"]
+radius = 4.0
+height = 16.0
+
+[sub_resource type="Gradient" id="Gradient_7ia2k"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.19626169, 0.19626169, 0.19626169, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5n6d3"]
+gradient = SubResource("Gradient_7ia2k")
+width = 16
+height = 4
+
+[sub_resource type="Gradient" id="Gradient_lxi42"]
+colors = PackedColorArray(0, 0.30588236, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wf3xy"]
+gradient = SubResource("Gradient_lxi42")
+width = 16
+height = 4
+
+[node name="enemy base2" type="CharacterBody2D" unique_id=518042812 node_paths=PackedStringArray("primary_boxes_and_sprites", "stun_manager", "attack_manager", "scale_component", "health_component")]
+collision_layer = 0
+script = ExtResource("1_8l8eb")
+stats = ExtResource("2_vnudt")
+primary_boxes_and_sprites = NodePath("folder to be scaled/Primary hurtboxes and sprites")
+stun_manager = NodePath("folder to not be scaled/StunManager")
+attack_manager = NodePath("folder to be scaled/AttackManager")
+scale_component = NodePath("folder to not be scaled/Scale")
+health_component = NodePath("folder to not be scaled/simple health bar")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=103021113]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_hxi14")
+
+[node name="folder to not be scaled" type="Node2D" parent="." unique_id=401095005]
+
+[node name="AnimationTool" type="Node" parent="folder to not be scaled" unique_id=577974913 node_paths=PackedStringArray("thing_to_animate")]
+script = ExtResource("3_hocd5")
+thing_to_animate = NodePath("../..")
+metadata/_custom_type_script = "uid://ia0tuvmco8v8"
+
+[node name="StunManager" type="Node" parent="folder to not be scaled" unique_id=1609257829 node_paths=PackedStringArray("player_animation_tool", "host")]
+script = ExtResource("4_fa8jb")
+player_animation_tool = NodePath("../AnimationTool")
+enabled = true
+host = NodePath("../..")
+metadata/_custom_type_script = "uid://b8564hciniqu3"
+
+[node name="Scale" type="Node" parent="folder to not be scaled" unique_id=172836908 node_paths=PackedStringArray("scale_target", "host")]
+script = ExtResource("5_hrbsn")
+scale_target = NodePath("../../folder to be scaled")
+enabled = true
+host = NodePath("../..")
+metadata/_custom_type_script = "uid://tmh27lp4axxe"
+
+[node name="FrameTimer" type="Node" parent="folder to not be scaled/Scale" unique_id=647065623]
+script = ExtResource("6_wg58f")
+metadata/_custom_type_script = "uid://dkek8a7podljt"
+
+[node name="Gravity" type="Node" parent="folder to not be scaled" unique_id=865491729 node_paths=PackedStringArray("host")]
+script = ExtResource("7_q3phk")
+enabled = true
+host = NodePath("../..")
+metadata/_custom_type_script = "uid://dd0phg7lcqqps"
+
+[node name="ComboTracker" type="Node" parent="folder to not be scaled" unique_id=768163549 node_paths=PackedStringArray("host")]
+script = ExtResource("8_2at12")
+enabled = true
+host = NodePath("../..")
+metadata/_custom_type_script = "uid://b4pafhiqf6us2"
+
+[node name="enemylogic" type="Node" parent="folder to not be scaled" unique_id=1044143473 node_paths=PackedStringArray("rays", "ledge_ray", "timer", "host")]
+script = ExtResource("9_k0bdp")
+settings = ExtResource("10_a6mv1")
+rays = [NodePath("../../folder to be scaled/boss folder/hitbox detect")]
+ledge_ray = NodePath("../../folder to be scaled/boss folder/floor detect")
+timer = NodePath("../../folder to be scaled/boss folder/FrameTimer")
+enabled = true
+host = NodePath("../..")
+metadata/_custom_type_script = "uid://c5ucrpov3ddtq"
+
+[node name="simple health bar" type="TextureProgressBar" parent="folder to not be scaled" unique_id=1323738402 node_paths=PackedStringArray("host")]
+offset_left = -8.0
+offset_top = -32.0
+offset_right = 8.0
+offset_bottom = -28.0
+value = 50.0
+rounded = true
+texture_under = SubResource("GradientTexture2D_5n6d3")
+texture_progress = SubResource("GradientTexture2D_wf3xy")
+script = ExtResource("11_sm0k2")
+host = NodePath("../..")
+
+[node name="folder to be scaled" type="Node2D" parent="." unique_id=1146947319]
+
+[node name="Primary hurtboxes and sprites" parent="folder to be scaled" unique_id=994631848 node_paths=PackedStringArray("host") instance=ExtResource("12_vnudt")]
+host = NodePath("../..")
+
+[node name="AttackManager" type="Node2D" parent="folder to be scaled" unique_id=1268911525 node_paths=PackedStringArray("animation_tool", "host")]
+script = ExtResource("12_ccegc")
+animation_tool = NodePath("../../folder to not be scaled/AnimationTool")
+host = NodePath("../..")
+metadata/_custom_type_script = "uid://c8qc0j10c563q"
+
+[node name="boss folder" type="Node2D" parent="folder to be scaled" unique_id=511238329]
+
+[node name="detect player" type="Area2D" parent="folder to be scaled/boss folder" unique_id=1655518541]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="folder to be scaled/boss folder" unique_id=115548378 node_paths=PackedStringArray("stun_manager")]
+position = Vector2(-6.7762636e-21, -4.038968e-28)
+rotation = 1.5707964
+scale = Vector2(0.14176987, 0.10088769)
+texture = ExtResource("13_4c8fg")
+region_enabled = true
+region_rect = Rect2(144, 176, 224, 160)
+script = ExtResource("14_823si")
+stun_manager = NodePath("../../../folder to not be scaled/StunManager")
+
+[node name="FrameTimer" type="Node" parent="folder to be scaled/boss folder" unique_id=456519195]
+script = ExtResource("6_wg58f")
+metadata/_custom_type_script = "uid://dkek8a7podljt"
+
+[node name="hitbox detect" type="RayCast2D" parent="folder to be scaled/boss folder" unique_id=1969562427]
+position = Vector2(-24, 0)
+target_position = Vector2(48, 0)
+collision_mask = 2
+
+[node name="floor detect" type="RayCast2D" parent="folder to be scaled/boss folder" unique_id=2066493639]
+position = Vector2(0, 16)
+target_position = Vector2(8, 8)
+hit_from_inside = true
+
+[connection signal="body_entered" from="folder to be scaled/boss folder/detect player" to="folder to not be scaled/enemylogic" method="_on_area_2d_body_entered"]
