@@ -55,24 +55,6 @@ var input_direction: int = 0
 signal dash_signal(direction: Vector2)
 signal jump_signal(direction: Vector2)
 
-#an idea but not sure if its a good one maybe just instuctions to set the input map 
-#@export_category("input map")
-#@export var up_input_name: StringName = "up"
-#@export var down_input_name: StringName = "down"
-#@export var left_input_name: StringName = "left"
-#@export var right_input_name: StringName = "right"
-#@export var light_punch_input_name: StringName = "LP"
-#@export var light_kick_input_name: StringName = "LK and jump"
-#@export var heavy_punch_input_name: StringName = "HP"
-#@export var heavy_kick_input_name: StringName = "HK and block"
-
-
-@export_category("fake inputs")
-@export var fake_U: bool
-@export var fake_R: bool
-@export var fake_D: bool
-@export var fake_L: bool
-
 ## prints all relevant player state values for debugging
 func state_print() -> void:
 	print("dash: " + str(host.is_dashing))
@@ -90,19 +72,6 @@ func _ready() -> void:
 	HelperFuncs.check_if_null(movement_componet, "movement_componet", self)
 	HelperFuncs.check_if_null(scale_component, "scale_component", self)
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
-
-
-## simulates button presses using exported booleans
-## warning: releases any held button that is not set to true
-func press() -> void:
-	if fake_D: Input.action_press("down")
-	else: Input.action_release("down")
-	if fake_L: Input.action_press("left")
-	else: Input.action_release("left")
-	if fake_R: Input.action_press("right")
-	else: Input.action_release("right")
-	if fake_U: Input.action_press("up")
-	else: Input.action_release("up")
 #endregion
 
 
@@ -192,9 +161,6 @@ func input_filter() -> void:
 	var bit_index = (int(up) << 3) | (int(down) << 2) | (int(left) << 1) | int(right)
 	inputs_of_curent_frame_for_attacks.append_array(direction_look_up_array[bit_index])
 
-	if Input.is_action_pressed("fake inputs enabled"):
-		press()
-
 	# frame by frame mode uses held state so attacks register on the advanced frame
 	if FrameByFrameMode.frame_by_frame_mode_endabled:
 		if (light_kick_hold and heavy_kick_hold): inputs_of_curent_frame_for_attacks.append_array(MoveList.EXK)
@@ -250,7 +216,6 @@ func chose_actions_get_attack(dic: Dictionary[MoveList.AttackKey, Attack]):
 		#loop end
 		if most_recent_attack: host.attack_manager.start_attack(most_recent_attack)#starts the attack
 		
-	#print(valids)
 
 ## selects attacks in priority order: specials > command normals > neutral normals
 ## when already attacking checks for special cancels and combo continuations
@@ -271,7 +236,6 @@ func chose_action3() -> void:
 			if (reader_single_input(buffered_array,key) 
 			and host.attack_manager.current_attack.can_combo
 			and host.attack_manager.current_attack.has_hit):
-				print("you did it")
 				host.attack_manager.start_attack(host.attack_manager.current_attack.combo_attacks_dictionary[key])
 #endregion
 
@@ -310,4 +274,4 @@ func _physics_process(_delta: float) -> void:
 	else:
 		host.primary_boxes_and_sprites.disable_all_pimary_sprites_excluding()
 	#state_print()
-	print(input_history)
+	#print(input_history)

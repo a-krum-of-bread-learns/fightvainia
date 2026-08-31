@@ -78,7 +78,7 @@ func enable_disable_boxes():
 func lifespan_check():
 	if is_active == true and is_active_changed():
 		timer.start_frame_timer(max_lifespan_in_frames)
-		animation_tool.animate(attack_manager.host.is_facing_right,animation_stuff,true,true)
+		animation_tool.animate(attack_manager.host.is_facing_right,animation_stuff,false,false,false,false)
 	elif timer.is_stoped():
 		reset_postion_detached()
 		timer.reset()

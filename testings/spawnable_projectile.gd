@@ -19,7 +19,6 @@ func _validate_property(property: Dictionary) -> void:
 func _ready():
 	super._ready()
 	timer.start_frame_timer(max_lifespan_in_frames)
-	animate.emit(is_facing_right,animation_stuff)
 
 func lifespan_check():
 	if timer.is_stoped():

@@ -30,6 +30,12 @@ mid_pokes = [NodePath("../../folder to be scaled/AttackManager/up buttion strong
 far_or_projectile_pokes = [NodePath("../../folder to be scaled/AttackManager/spike far"), NodePath("../../folder to be scaled/AttackManager/lazer"), NodePath("../../folder to be scaled/AttackManager/fire ball")]
 anti_airs = [NodePath("../../folder to be scaled/AttackManager/up buttion anti air (Y) hp")]
 
+[node name="detect player" parent="folder to be scaled/boss folder" parent_id_path=PackedInt32Array(511238329) index="0" unique_id=1655518541]
+visible = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="folder to be scaled/boss folder/detect player" index="0" unique_id=777756258]
+shape = SubResource("RectangleShape2D_6gdmn")
+
 [node name="fire ball" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="0" unique_id=1979542474 instance=ExtResource("12_iw2u6")]
 
 [node name="spike close" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="1" unique_id=1049771095 instance=ExtResource("13_i62j7")]
@@ -50,9 +56,3 @@ combo_attacks_dictionary = {
 [node name="up buttion strong (Y) hp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="7" unique_id=2065512744 instance=ExtResource("18_bqc2a")]
 
 [node name="up button low (Y) Hp" parent="folder to be scaled/AttackManager" parent_id_path=PackedInt32Array(1268911525) index="8" unique_id=2086936221 instance=ExtResource("17_podgt")]
-
-[node name="detect player" parent="folder to be scaled/boss folder" parent_id_path=PackedInt32Array(511238329) index="0" unique_id=1655518541]
-visible = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="folder to be scaled/boss folder/detect player" index="0" unique_id=777756258]
-shape = SubResource("RectangleShape2D_6gdmn")

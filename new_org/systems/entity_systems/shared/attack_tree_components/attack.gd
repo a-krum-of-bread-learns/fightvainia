@@ -61,10 +61,12 @@ var can_follow_up: bool = false
 
 
 @export_subgroup("tweens stuff \\ animation")
-@export var kill_momnetum_of_tween_start: bool = false
-@export var kill_momnetum_of_tween_end: bool = true
 ## An ordered sequence of [AnimationResource], played start to finish see [AnimationResource] for more info.
 @export var animation_stuff: Array[AnimationResource]
+@export var keep_momnetum_of_tween_start_x: bool = false
+@export var keep_momnetum_of_tween_start_y: bool = false
+@export var keep_momnetum_of_tween_end_x: bool = false
+@export var keep_momnetum_of_tween_end_y: bool = false
 @export_subgroup("audio stuff")
 @export var hit_sound: AudioStreamMP3
 

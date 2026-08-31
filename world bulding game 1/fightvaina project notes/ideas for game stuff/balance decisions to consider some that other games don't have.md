@@ -15,6 +15,7 @@
 - combo length based decay adjusting how fast the player falls 
 - hitboxes with no shape to force a punish counter state without an active frame
 - chip damage to prevent too much strong defense
+- adjusting the combos so that the number of speical moves for max danage is low loike 2 or 3 max comparted to things like sf6 where its very high like 8 for jp
 
 
 for a tag game proof of concept for a 10 v 10  a single button enables tag mode and you can call any custom assist (like skull girls) an to do so you need to hold tag + any dir + button or hold tag  store a motion + button -> press tag + dir for assist or use a second input stick
@@ -41,3 +42,10 @@ how the heck do i want turning around to work / qcb and other back moves to work
 - **during combo using a back move** 
 	- move has turn around property and cancel able (universal back attack) when the move is used turn around during the attack and so you'd get a forward special move
 	- move is cancel able without turn around property (down back and up back and some down or up attacks) you'd get a back special move 
+3 hit auto combo that gives good oki as the default rapid beat /rapid beat ender on the ground. cooler thing in the air require a bit more execution
+
+directional thows with more purpose than left or right
+	- side switch + 5 far(back)
+	- knock down +50 or more close(down) at risk of throw loops
+	- corner carry + 5 mid(forward)
+	- combo + can be combed close  (neutual or up)

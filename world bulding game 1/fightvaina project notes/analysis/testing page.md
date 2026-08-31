@@ -106,3 +106,13 @@ melty blood system testing
 	2 extions maximum 
 	on knockdown hit damage it greatly reduced
 
+
+AD melty blood on kohaku played call of duty and forza horizn 4 years ago 2h 
+
+| test                    | # of attempts before landing once | how easy they felt it was out of 10 10 very easy               | did it combo fully |
+| ----------------------- | --------------------------------- | -------------------------------------------------------------- | ------------------ |
+| combo 1                 | 7                                 | 6 because of the diagonal launcher and that it has tbe be down | yes                |
+| combo 2                 | 30                                | 2                                                              | yes                |
+| combo 2 but with triger | 5                                 | 5                                                              |                    |
+enjoyed and had a good time with a melty blood style cancel system
+i should be less specific with the inputs for the combos so that acb and Da,Db,Dc are considered the same 

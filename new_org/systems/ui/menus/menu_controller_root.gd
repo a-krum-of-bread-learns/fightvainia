@@ -65,11 +65,11 @@ func get_root_menu_based_on_game_state() -> MenuBase:
 
 
 func _physics_process(_delta: float) -> void:
-	if (Input.is_action_just_pressed("HK and block") 
-	and menu_path[-1] is not DialogueMenu):
-		back_1_menu()
-		if menu_path.is_empty():
-			get_tree().paused = false
+	if Input.is_action_just_pressed("HK and block") and menu_path: 
+		if menu_path[-1] is not DialogueMenu:
+			back_1_menu()
+			if menu_path.is_empty():
+				get_tree().paused = false
 	if menu_path.is_empty() and Input.is_action_just_pressed("menu"):
 		open_menu(pause_menu)
 		get_tree().paused = true

@@ -23,7 +23,7 @@
 [node name="player" unique_id=1999747051 node_paths=PackedStringArray("override_primary_boxes_and_sprites") instance=ExtResource("1_gbfpt")]
 override_primary_boxes_and_sprites = NodePath("folder to be scaled/Primary hurtboxes and sprites")
 
-[node name="MoveList" parent="folder to not be scaled" parent_id_path=PackedInt32Array(83792367) index="3" unique_id=937155038 node_paths=PackedStringArray("light_punch", "down_light_punch", "up_right_light_punch", "air_light_punch", "heavy_punch", "down_heavy_punch", "up_heavy_punch", "air_heavy_punch", "dqcf_light_punch", "fqcd_light_punch", "fqcd_heavy_kick", "uqcf_light_kick", "fqcu_light_kick", "air_uqcf_light_kick", "air_fqcu_light_kick")]
+[node name="MoveList" parent="folder to not be scaled" parent_id_path=PackedInt32Array(83792367) index="0" unique_id=937155038 node_paths=PackedStringArray("light_punch", "down_light_punch", "up_right_light_punch", "air_light_punch", "heavy_punch", "down_heavy_punch", "up_heavy_punch", "air_heavy_punch", "dqcf_light_punch", "fqcd_light_punch", "fqcd_heavy_kick", "uqcf_light_kick", "fqcu_light_kick", "air_uqcf_light_kick", "air_fqcu_light_kick")]
 light_punch = NodePath("../../folder to be scaled/attack manager/left buttion (X) lp")
 down_light_punch = NodePath("../../folder to be scaled/attack manager/left button low (X) lp")
 up_right_light_punch = NodePath("../../folder to be scaled/attack manager/left button overhead (X) lp")
@@ -71,6 +71,8 @@ hit_sound = ExtResource("5_wq1sh")
 hit_sound = ExtResource("5_wq1sh")
 
 [node name="grapple followup" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="8" unique_id=1662487267 instance=ExtResource("11_35m4n")]
+keep_momnetum_of_tween_end_x = true
+keep_momnetum_of_tween_end_y = true
 
 [node name="grapling hook" parent="folder to be scaled/attack manager" parent_id_path=PackedInt32Array(1555584615) index="9" unique_id=154535348 node_paths=PackedStringArray("follow_up") instance=ExtResource("12_7fi0y")]
 has_forced_follow_up = true

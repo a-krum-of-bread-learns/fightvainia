@@ -64,7 +64,6 @@ func _physics_process(_delta):
 	#print(self.name + " posion " + str(self.global_position))
 	#print(self.name + " block type  " + str(self.block_type))
 	move_and_slide()
-	print(is_dashing)
 
 func primary_hurt_box_manager():
 	if is_on_floor() and is_crouching:

@@ -32,8 +32,10 @@ func _tween_part(
 
 func animate(is_facing_right: bool, 
 		animation_stuff: Array[AnimationResource], 
-		kill_momentum_start: bool, 
-		kill_momentum_end: bool,
+		keep_momentum_start_x: bool, 
+		keep_momentum_start_y: bool, 
+		keep_momentum_end_x: bool,
+		keep_momentum_end_y: bool,
 		loops_times: int = 1,
 	) -> void:
 	
@@ -49,13 +51,16 @@ func animate(is_facing_right: bool,
 
 	for i in loops_times:
 		if thing_to_animate is EntityBase:
-			if kill_momentum_start:
-				thing_to_animate.velocity = Vector2.ZERO
+			thing_to_animate.velocity = thing_to_animate.velocity*Vector2(keep_momentum_start_x,keep_momentum_start_y)
 			for part in animation_stuff:
 				_tween_part(thing_to_animate, part, "velocity:x", "velocity:y",
 					part.get_velocty_x(is_facing_right), part.get_velocty_y(), false)
-			if kill_momentum_end:
+			if keep_momentum_end_x and keep_momentum_end_y: pass
+			elif keep_momentum_end_x: tween.tween_property(thing_to_animate, "velocity:y", 0, 0)
+			elif keep_momentum_end_y: tween.tween_property(thing_to_animate, "velocity:x", 0, 0)
+			else:
 				tween.tween_property(thing_to_animate, "velocity", Vector2.ZERO, 0)
+				
 
 		elif thing_to_animate is ProjectileArea:
 			var direction_correction: int = int(is_facing_right) * 2 - 1

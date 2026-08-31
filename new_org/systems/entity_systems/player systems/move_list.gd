@@ -132,9 +132,16 @@ class AttackKey extends  Resource:
 # -------------------------
 # Organized dictionaries for priority checking
 # -------------------------
-@onready var all_specials: Dictionary[AttackKey, Attack] = {}
-@onready var command_normals: Dictionary[AttackKey, Attack] = {}
+
+# editable forms
+@onready var middle_normals: Dictionary[AttackKey, Attack] = {}
+@onready var down_diag_normals: Dictionary[AttackKey, Attack] = {}
+@onready var left_right_normals: Dictionary[AttackKey, Attack] = {}
+@onready var up_diag_normals: Dictionary[AttackKey, Attack] = {}
+# end forms
 @onready var neutral_normals: Dictionary[AttackKey, Attack] = {}
+@onready var command_normals: Dictionary[AttackKey, Attack] = {}
+@onready var all_specials: Dictionary[AttackKey, Attack] = {}
 @onready var all_attacks: Dictionary[AttackKey, Attack] = {}
 
 # removes all the nulls and filters attacks into priority categories
@@ -161,17 +168,72 @@ func _ready():
 	all_specials.merge(grounded_heavy_punch_specials)
 	all_specials.merge(air_heavy_punch_specials)
 	
-	# Filter normals into command_normals and neutral_normals
+	# Filter normals into command_normals and neutral_normals adn assgin the middles to the lefts and rights 
 	for key: AttackKey in normals_temp.keys():
-		if normals_temp[key] == null:
-			continue # Skip null entries
-		
 		# key.motion is the motion array; compare to NEUTRAL constant
-		if key.sequence == NEUTRAL:
-			neutral_normals[key] = normals_temp[key]
-		else:
-			command_normals[key] = normals_temp[key]
+		if key.sequence in [D,NEUTRAL,U]:
+			middle_normals[key] = normals_temp[key]
+		elif key.sequence in [UL,UR]:
+			up_diag_normals[key] = normals_temp[key]
+		elif key.sequence in [DL,DR]:
+			down_diag_normals[key] = normals_temp[key]
+		elif key.sequence in [L,R]:
+			left_right_normals[key] = normals_temp[key]
+			
+	for key in middle_normals.keys():
+		if middle_normals[key] ==null:
+			for neutral_key: AttackKey in middle_normals.keys():
+				if (neutral_key.sequence == NEUTRAL
+				and neutral_key.attack_button == key.attack_button
+				and neutral_key.is_on_floor == key.is_on_floor
+				and neutral_key.is_facing_right == key.is_facing_right):
+					middle_normals[key] = middle_normals[neutral_key]
+	for key in up_diag_normals.keys():
+		if up_diag_normals[key] == null:
+			for up_middle_key: AttackKey in middle_normals.keys():
+				if (up_middle_key.sequence == U
+				and up_middle_key.attack_button == key.attack_button
+				and up_middle_key.is_on_floor == key.is_on_floor
+				and up_middle_key.is_facing_right == key.is_facing_right):
+					up_diag_normals[key] = middle_normals[up_middle_key]
 	
+	for key in down_diag_normals.keys():
+		if down_diag_normals[key] == null:
+			for down_middle_key: AttackKey in middle_normals.keys():
+				if (down_middle_key.sequence == D
+				and down_middle_key.attack_button == key.attack_button
+				and down_middle_key.is_on_floor == key.is_on_floor
+				and down_middle_key.is_facing_right == key.is_facing_right):
+					down_diag_normals[key] = middle_normals[down_middle_key]
+					
+	for key in left_right_normals.keys():
+		if left_right_normals[key] == null:
+			for neutral_key: AttackKey in middle_normals.keys():
+				if (neutral_key.sequence == NEUTRAL
+				and neutral_key.attack_button == key.attack_button
+				and neutral_key.is_on_floor == key.is_on_floor
+				and neutral_key.is_facing_right == key.is_facing_right):
+					left_right_normals[key] = middle_normals[neutral_key]
+
+	
+	for key: AttackKey in middle_normals.keys():
+		if key.sequence == NEUTRAL:
+			neutral_normals[key] = middle_normals[key]
+		else:
+			command_normals[key] = middle_normals[key]
+	
+	command_normals.merge(up_diag_normals)
+	command_normals.merge(down_diag_normals)
+	command_normals.merge(left_right_normals)
+	
+	for key in neutral_normals.keys():
+		if neutral_normals[key] == null:
+			neutral_normals.erase(key)
+			
+	for key in command_normals.keys():
+		if command_normals[key] == null:
+			command_normals.erase(key)
+			
 	# Remove nulls from specials
 	for key in all_specials.keys():
 		if all_specials[key] == null:
@@ -293,15 +355,15 @@ func _ready():
 	AttackKey.new(true, false, UL, LP): up_right_light_punch}
 
 @export_subgroup("air light punch normal Attacks")
-@export var air_light_punch: Attack
-@export var air_down_left_punch: Attack
+@export var air_light_punch: Attack 
+@export var air_down_left_punch: Attack 
 @export var air_down_punch: Attack
 @export var air_down_right_punch: Attack
-@export var air_back_punch: Attack
-@export var air_forward_punch: Attack
-@export var air_up_left_punch: Attack
+@export var air_back_punch: Attack 
+@export var air_forward_punch: Attack 
+@export var air_up_left_punch: Attack 
 @export var air_up_punch: Attack
-@export var air_up_right_punch: Attack
+@export var air_up_right_punch: Attack 
 
 @onready var air_light_punch_normals: Dictionary = {
 	AttackKey.new(false, true, NEUTRAL, LP): air_light_punch,

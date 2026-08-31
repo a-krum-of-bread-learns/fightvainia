@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new_org/systems/entity_systems/shared/attack_tree_components/attack.gd" id="1_usvwf"]
 [ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new_org/systems/entity_systems/shared/attack_tree_components/frame.gd" id="2_0846i"]
-[ext_resource type="Script" path="res://addons/fightvainia_auto_load_loader/new_org/systems/attack components/hit_box_area.gd" id="3_qwdgb"]
-[ext_resource type="Resource" uid="uid://bajxaagqltb2x" path="res://addons/fightvainia_auto_load_loader/1_start_here/example_parts/example attack data.tres" id="4_hk7h3"]
+[ext_resource type="Script" uid="uid://c13qe4fn2fxbb" path="res://new_org/systems/entity_systems/shared/attack_tree_components/hitbox_area.gd" id="3_qwdgb"]
+[ext_resource type="Script" uid="uid://bb1wtn63y7sur" path="res://new_org/systems/resource_scripts/hitbox_data_resouce.gd" id="4_vdn6p"]
 [ext_resource type="Texture2D" uid="uid://cir3dielh53ly" path="res://new_org/art/copy right free art assets/jab.png" id="5_wmdpf"]
+
+[sub_resource type="Resource" id="Resource_i6lti"]
+script = ExtResource("4_vdn6p")
+metadata/_custom_type_script = "uid://bb1wtn63y7sur"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7t4p"]
 size = Vector2(16, 8)
@@ -24,7 +28,7 @@ repeat_this_frame = 2
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_qwdgb")
-attack_data = ExtResource("4_hk7h3")
+attack_data = SubResource("Resource_i6lti")
 
 [node name="hit_box" type="CollisionShape2D" parent="frame # 6-8/hit_box # 100" unique_id=1110409690]
 position = Vector2(16, -8)

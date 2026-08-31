@@ -24,7 +24,8 @@ size = Vector2(24, 15)
 [sub_resource type="CircleShape2D" id="CircleShape2D_mafee"]
 radius = 48.0
 
-[node name="wolf cpu" unique_id=518042812 instance=ExtResource("1_jq4jg")]
+[node name="wolf cpu" unique_id=518042812 node_paths=PackedStringArray("override_primary_boxes_and_sprites") instance=ExtResource("1_jq4jg")]
+override_primary_boxes_and_sprites = NodePath("folder to be scaled/Primary hurtboxes and sprites2")
 
 [node name="enemylogic" parent="folder to not be scaled" parent_id_path=PackedInt32Array(401095005) index="5" unique_id=1044143473 node_paths=PackedStringArray("close_bnb_combo")]
 settings = ExtResource("2_1l361")

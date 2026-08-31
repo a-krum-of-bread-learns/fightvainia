@@ -65,3 +65,14 @@ buttion usage method
 | sf6          | 6 attacks + 4 move/moitons                                                                                                                            | 2                       | 3                   |
 | apex         | 5 move + 4 aim+1 crouch+ 4(tack, grenade, aim ping weapon mode), +4(chose grenade, heal,additional tactical effect), 4:(jump loot, reload, swap) = 24 | melee,                  | 1 ult               |
 | bare shooter | 5 move + 4 aim+ aim                                                                                                                                   | melee swap              | 0                   |
+
+
+# steam charts as of as of aug 24
+
+| steam charts         | 24 hour peak | all time |
+| -------------------- | ------------ | -------- |
+| sf6                  | 33k          | 72k      |
+| brawlhalla           | 15k          | 34k      |
+| umvc3                | 206          | 1.7k     |
+| tekken 8             | 8k           | 46k      |
+| dragon ball fighterz | 600          | 44k      |

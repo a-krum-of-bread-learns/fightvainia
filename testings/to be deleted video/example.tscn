@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dljkl47isyy3l"]
+
+[ext_resource type="PackedScene" uid="uid://cwic4qufw2wug" path="res://new_org/entity_sences_and_resources/entity_parts/bases/base_chars.tscn" id="1_qt7fj"]
+[ext_resource type="PackedScene" uid="uid://byw3u0soprge4" path="res://testings/to be deleted video/forward_attack.tscn" id="2_qt7fj"]
+[ext_resource type="PackedScene" uid="uid://blvhw4jjxe26a" path="res://testings/to be deleted video/up.tscn" id="3_306ui"]
+[ext_resource type="PackedScene" uid="uid://dg1ac1r3eqfsy" path="res://testings/to be deleted video/down.tscn" id="4_36bjf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qt7fj"]
+size = Vector2(64, 20)
+
+[node name="Node2D" type="Node2D" unique_id=1251492387]
+
+[node name="player" parent="." unique_id=2023579452 instance=ExtResource("1_qt7fj")]
+
+[node name="folder player UI" parent="player" index="1" unique_id=1649685736]
+visible = false
+
+[node name="MoveList" parent="player/folder to not be scaled" parent_id_path=PackedInt32Array(2023579452, 83792367) index="0" unique_id=937155038 node_paths=PackedStringArray("light_punch", "up_light_punch", "air_light_punch", "air_down_punch", "air_up_punch")]
+light_punch = NodePath("../../folder to be scaled/attack manager/forward attack")
+up_light_punch = NodePath("../../folder to be scaled/attack manager/up")
+air_light_punch = NodePath("../../folder to be scaled/attack manager/forward attack")
+air_down_punch = NodePath("../../folder to be scaled/attack manager/down")
+air_up_punch = NodePath("../../folder to be scaled/attack manager/up")
+
+[node name="forward attack" parent="player/folder to be scaled/attack manager" parent_id_path=PackedInt32Array(2023579452, 1555584615) index="0" unique_id=431819146 instance=ExtResource("2_qt7fj")]
+
+[node name="up" parent="player/folder to be scaled/attack manager" parent_id_path=PackedInt32Array(2023579452, 1555584615) index="1" unique_id=165771243 instance=ExtResource("3_306ui")]
+
+[node name="down" parent="player/folder to be scaled/attack manager" parent_id_path=PackedInt32Array(2023579452, 1555584615) index="2" unique_id=1245260796 instance=ExtResource("4_36bjf")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2053632363]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=509294957]
+position = Vector2(0, 64)
+shape = SubResource("RectangleShape2D_qt7fj")
+
+[editable path="player"]

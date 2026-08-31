@@ -1,6 +1,5 @@
-class_name ComboCounterDisplay extends CanvasLayer
+class_name ComboCounterDisplay extends Label
 @export var host: EntityBase
-@export var label: Label
 var combo_count: int = 0
 var target: EntityBase
 
@@ -28,5 +27,5 @@ func reset():
 func update_text():
 	if combo_count >= 2:
 		self.visible = true
-		label.text = ("combo: " + str(combo_count))
+		text = ("combo: " + str(combo_count))
 	else: self.visible = false

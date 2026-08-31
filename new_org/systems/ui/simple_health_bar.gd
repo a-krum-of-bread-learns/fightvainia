@@ -19,6 +19,7 @@ func _ready():
 	max_value = host.stats.max_health
 	min_value = 0
 	value = current_health
+	health_changed.connect(_on_health_changed)
 
 func reduce_health(change: float):
 	current_health = current_health - change
@@ -52,5 +53,8 @@ func die():
 	zero_or_less_health.emit()
 	#queue_free()
 	
+func _on_health_changed(_unused):
+	value =current_health
+	pass
 	
 	

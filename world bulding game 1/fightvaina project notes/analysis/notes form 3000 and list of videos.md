@@ -11,6 +11,7 @@ sysmptons of the problem
 	the steep learing curve 
 	newplayers dont want to try the game
 	high price 
+	incomplete games on release 
 
 
 interviews video reserch 
@@ -24,19 +25,32 @@ what spectums
 	clasical-SSB/platfrom
 	medtriodvaina-figthing game
 	skill level
-	
+	developers
 	
 interview who just ask them if they say no thats ok i could just use some vids they made already 
 	RT and freinds Rin Zoey Sajam Broski Diaphone Esky Northern Lion bitlytic lord knight others in this vain i can alos ask random people on disord or in school i should make these questions tho
 
 
 
-what are posiel insights that i curently may see
-fighting game input is not built to be intuitive for new players but for pr-existing players
-fighting games throw players into the deep end first
-fighting game tutorials and single player modes are bad and bad
-sf6 gave every character a target combo probably
+### what are posiel insights that i curently may see
+- fighting game input is not built to be intuitive for new players but for pr-existing players
+- fighting games throw players into the deep end first
+- fighting game tutorials and single player modes are bad and bad
+- sf6 gave every character a target combo probably
+- motion inputs aren't visually intuitive (exept that one guy with half circles in gg)
+- cool stuff can be very easy
+- more single player content is needed
+- fighting game difficulty isn't in the buttons or controls (2xko had "simple inputs" but extreamly high execution)
+- 
 
+# play testing
+https://www.youtube.com/watch?v=_AvKJqzuLiY
+- i should do some kind of playtest like this dev
+- they found that the controller was the thing that needed to fix 
+- they had a feed back form for the game 
+- they made a focused movement area for the play test
+- i don't actual have a good keyboard experience for speed testing
+- a public play test would get a lot more info 
 
 youtube links to look at
 - the problem with teaching fighting games
@@ -293,32 +307,87 @@ why i like avatar legends (broski)
 its time to review... tokon 
 	https://www.youtube.com/watch?v=d3ZDFvuk8XI
 	they have both well expianied combo tirals and puzzle mode combos that dont have play back
-## riot game shuts down 2xko 
-i may want to do a video and compare the games 
-	https://youtu.be/-DOwUIHZplk?si=bMbblq1buoM2ZjrS maximilim
-	https://youtu.be/-e5YZ2kS9c4?si=APfr3gIIPKXBqoas sayjam
-	- riot seemed like it wanted to kill the game but was obligated to release it 
-	- they have a net code thats a server rather then peer rather than peer to peer
-	- input system seems like it was not good for members of the fgc 
-	- it did have complexity
-	https://youtu.be/vtnhTwAiHwI?si=rBBK2gjjgceNMBd3 but like after the 12 min mark 
-	- its marketing was only to the core fgc but not to the general public
-	- game was made for fighting game players
-	- mashing at low level felt like it didn't exist
-	- arcane got old fast
-	- no single player or story mode until the rouge like (really)
-	- free to play need mass appeal and casual players are the whales
-	https://youtu.be/gSyZGfeKPDo?si=XOeb8zooD3mWQY9c brian_f
-	- says it was obvious from the get go 
-	- game felt it never launched
-	- form a different of his vids he shows lack of marketing poorly, estimated expectations, niche with a niche, lack of content, doesn't have"it"
-	- that vid is called "2xko - what went wrong  with riot's league of legends fighting game" 
-	- game sounded bad sound design
-	- sf6 sounds better according to brian
-	- was not good enough for the fighting game players
-	- tag fighters are harder to make
-	
-	
+## riot game shuts down 2xko
+Maximilian: [https://youtu.be/-DOwUIHZplk?si=bMbblq1buoM2ZjrS](https://youtu.be/-DOwUIHZplk?si=bMbblq1buoM2ZjrS)
+- Riot seemed like it wanted to kill the game but was obligated to release it.
+- They have netcode that runs through a server rather than peer-to-peer.
+- The input system seemed like it wasn't good for members of the FGC.
+- It did have complexity.
+
+~12 min mark: [https://youtu.be/vtnhTwAiHwI?si=rBBK2gjjgceNMBd3](https://youtu.be/vtnhTwAiHwI?si=rBBK2gjjgceNMBd3)
+- Its marketing was only aimed at the core FGC, not the general public.
+- The game was made for fighting game players.
+- Mashing at low level felt like it didn't exist.
+- Arcane got old fast.
+- There was no single-player or story mode until the roguelike — really.
+- Free to play needs mass appeal, and casual players are the whales.
+
+Brian_F ("2XKO - What Went Wrong With Riot's League of Legends Fighting Game"): [https://youtu.be/gSyZGfeKPDo?si=XOeb8zooD3mWQY9c](https://youtu.be/gSyZGfeKPDo?si=XOeb8zooD3mWQY9c)
+- Says it was obvious from the get-go.
+- The game felt like it never launched.
+- From a different one of his videos: poor marketing, poorly managed expectations, niche within  niche, lack of content, doesn't have "it."
+- The game sounded bad — sound design.
+- SF6 sounds better, according to Brian.
+- It wasn't good enough for fighting game players.
+- Tag fighters are harder to make.
+https://youtu.be/69SX2m7r-F8?si=yPzf4S9_EW2AmxoU Diaphone
+- believes free to play is the right monetization strategy
+- best net code 
+- lots of depth liked the parry and rewarded game sense
+- released waaaaaaaay to late
+- how did they only get 11 chars in 10 years
+- didn't work on console and launched basically 3 times
+- bad launch balance and very bug prone 
+- hard to on-board
+- patches changed combo routes and too frequent because of 2 cycles 
+- change in direction for development
+- shop and monetization was bad 
+- cant play cross region 
+- fuzes were ok 
+https://youtu.be/w4kB616haYk?si=_t2125vsS3chUIaB
+- The brothers who made rollback netcode and Evo tried to make their own game and were acquired by Riot. They also wanted to remove skill execution.
+- Riot was a second mover in the genre and removed some of the friction for new players to the genre.
+- The longer the time from announcement to release, the higher the expectations may become.
+- Tag means hard to play for casual players, but a love letter to the tag people.
+- The bigger games are 1v1 and are far more casual than tag games — by a lot, like 2–20x.
+- The FGC needs a good product too.
+- It took nearly 10 years to release.
+- It turned into the Arcane fighter, which was a problem.
+- They made the multiplayer stuff, which was probably something that could have been good, but it's three layers of niche.
+- "Project L" was a name that stuck as loss, and "2XKO" was seen as a terrible name — but Melty Blood and UNI are also fighting game names.
+- The alpha labs were very bad, and only having 10 characters was a terrible decision from Riot.
+- The players were never getting the characters they wanted.
+- When playing the game, it had a bit more quality and netcode that impressed people from the FGC.
+- The monetization of the game was terrible, and unlocking characters was a bit of a grind.
+- Self-note: however, some people got choice paralysis, so I'm questioning if a gacha style that takes a few weeks is okay.
+- FOMO is nonexistent in the FGC — fighting game players main a character, not all the characters. The main complaint was: "I wanted to give the game money and it wouldn't let me."
+- The game was not known by anyone except the FGC — it was never even mentioned in the Riot launcher, and not on Steam either. What were they doing?
+- Also the anticheat.
+- Riot was good at launches, so making sure it didn't get advertising was an intentional decision to kill it.
+- It was called the best fighting game, and won fighting game of the year.
+- There was trimming before the game's actual launch, and no real casual on-ramp remained.
+- The game still seemed to have a good launch.
+- They eventually said half of the devs were gone, and killed the game by saying it wasn't growing.
+- They took down motion inputs but put too many other walls up — tag, 6 buttons, hard to play. The team fight fuse was an argument.
+- The PVE was made in 4 months and became the biggest thing, but players wanted a story mode and an arcade mode.
+- The console release was doing terribly and couldn't get fixed, despite most players being on console.
+- At CEO, the game was small; Marvel Tokon also arrived around then.
+- 2XKO said it's "time to die" and refunded the game.
+- One of the devs wanted to make a game that was interesting rather than a success — a fun game was his job, profitable was not, and he also wasn't in a leadership role.
+https://youtu.be/pmKFVjvCfVc?si=nk-PzEsB3VPCFsvV thyphoonbh
+- its a long term thing for the free to play games
+- brawlhalla it was already doing when when it was acquired 
+- tags fighters are hard and conflict with the free to play model
+- brwallhalla has 2-3 hit true combos
+https://youtu.be/WYjUJij4jME?si=J47H5tACROkLfoTb
+- the game needs to just work and function properly 
+- just make a game that just works 
+
+should games stop using motion inputs 
+	https://youtu.be/ytIXKtoEmT4?si=KDM9tf-3rsUSqZII
+	much of the fighting games moved from very varied motion but it seems they are mostly consolidating to qc. motion inputs if they have them should have a slight benefit witch sf6 did. if dp is down down it must auto correct the direction witch makes it way stronger. auto combos are good and are fair to exist. auto combos make cool stuff happen more. have the option for both modern and classic controls
+# summary for 2xko dies notes
+the game was a niche in a niche that was made for the core fgc audience only and not made with any content geared towards new players. it had a few good ideas like how the netcode was done and fuzes but failed in execution of so many other things. monetization was badly designed. the knowledge of the games release was its never coming out or the game is dead before its out because half the team is gone. no tie in to the brand of league of legends. the patch cycle had a 2 patches delay from each other and was heavily influenced by twitter. riot also wanted to kill it from the look of it. it wasn't working on console nor on steam and had kernel level anti cheat. overall a bad product
 ## emergent game play videos
 lets look a this and see how we can track these
 	1.  sajam video # 25, 33

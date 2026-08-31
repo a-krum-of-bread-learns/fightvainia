@@ -58,7 +58,13 @@ signal has_hit_signal_attack_manger(entity: EntityBase, blocked: bool)
 
 
 func start_animation(is_facing_right: bool, animation_stuff: Array[AnimationResource]):
-		animation_tool.animate(is_facing_right,animation_stuff,current_attack.kill_momnetum_of_tween_start, current_attack.kill_momnetum_of_tween_end)
+		animation_tool.animate(
+			is_facing_right,
+			animation_stuff,
+			current_attack.keep_momnetum_of_tween_start_x,
+			current_attack.keep_momnetum_of_tween_start_y,
+			current_attack.keep_momnetum_of_tween_end_x,
+			current_attack.keep_momnetum_of_tween_end_y)
 		
 ## sets the hurtboxes to link with the health compnet and stun manager
 func _ready():

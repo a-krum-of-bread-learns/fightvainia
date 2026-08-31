@@ -4,7 +4,7 @@
 class_name HurtBoxArea extends Area2D
 @export_category("buttions")
 ##tool script buttion adds a cosion shape for this area hurtbox
-@export var add_hurt_box_buttion: bool = false
+@export var add_hurt_box_shape: bool = false
 ##tool script buttion that is used to reset the debug color to a
 ## default in the [method fix_color] fuction if the value is changed
 @export var fix_color_buttion: bool = false
@@ -22,7 +22,7 @@ func add_new_hurt_box():
 	hurt_box.name = "hurt_box"
 	hurt_box.debug_color= Color8(0,0,255,100)
 	print("added hurt_box")
-	add_hurt_box_buttion = false
+	add_hurt_box_shape = false
 	
 ##tool script fixes [member CollisionShape2D.debug_color] to defult 
 func fix_color():
@@ -35,7 +35,7 @@ func fix_color():
 ## just buttion checks for the tool script
 func _physics_process(_delta):
 	if Engine.is_editor_hint():
-		if add_hurt_box_buttion: add_new_hurt_box()
+		if add_hurt_box_shape: add_new_hurt_box()
 		if fix_color_buttion: fix_color()
 	else:
 		pass

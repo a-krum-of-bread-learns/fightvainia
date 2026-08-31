@@ -147,3 +147,4 @@
     - a char that never faces you and simple beats you up without looking at your character and always is moon walking
 - char with cute muscle 
 	- they have a pet or something that fights on with or on behalf of the player
+- the terreria grabling hook

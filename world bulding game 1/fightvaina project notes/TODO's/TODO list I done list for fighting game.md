@@ -209,3 +209,18 @@
 	- [ ] ui theme resource not game one?
 		- this has all the control nodes in a way you can edit all then assign the resource to the nodes 
  - [ ] should there be a cut scene script extended to also have a scene change and a dialogue version
+ - [ ] hurt boxes may want to override the hit audio like in hollow knight where the saw blades have a clack sound 
+
+
+
+
+
+
+
+
+
+
+
+
+
+- [ ] roll back net code nice https://www.youtube.com/watch?v=zvqQPbT8rAE&list=PLCBLMvLIundBXwTa6gwlOUNc29_9btoir [[roll back ?]]  

@@ -5,6 +5,7 @@
 - [x] kill_momnetum_of_tween is unused? now used
 - [x] fix crouch walking 
 - [ ] projectiles do not have unique hit exceptions so theoretically it may pass right through or hit the same thing twice on one instance
+- [ ] the set cam warning runs before a cam can be set
 - [x] fix what the active hurt box is when attacking 
 - [x] fix cancels being only on the very first frame when using hit stop 
 - [x] add bounus frmaes for input history to allow resopnive but delayed cancels 
@@ -32,7 +33,7 @@ for main branch from core branch
 
 
 for all breanches
-- [ ] make unset direction normal default to the no input or the crouch version 9,7=8 4,6=5 and 1,3=2
+- [x] make unset direction normal default to the no input or the crouch version 9,7=8 4,6=5 and 1,3=2
 - [ ] make the naming scheme consist for all attacks in the move list as light is not stated directly on some attacks
 - [ ] the spawn object for the player spawns all at once when used
 - [ ] kill momentum should be outside of the loop 

@@ -7,6 +7,7 @@ var tween: Tween
 func _ready() -> void:
 	HelperFuncs.check_if_null(host,"host",self)
 	host.health_component.health_changed.connect(_on_damage_taken)
+	modulate.a = 0
 
 func _on_damage_taken(damage: int):
 	if damage >=0:

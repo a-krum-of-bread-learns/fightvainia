@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bssckwpf2obbe" path="res://new_org/systems/entity_systems/base_classes/entity_base.gd" id="1_hb2w8"]
 [ext_resource type="Resource" uid="uid://3x15qdhxammi" path="res://new_org/entity_sences_and_resources/entity_parts/resources/player_resources/agent_stats.tres" id="2_dmxh8"]
 [ext_resource type="Script" uid="uid://bpcoafuum2ks1" path="res://new_org/systems/ui/simple_health_bar.gd" id="3_63f7t"]
+[ext_resource type="LabelSettings" uid="uid://dix1bo0mbnfpo" path="res://new_org/systems/ui/defult_label_settings.tres" id="3_bcxhv"]
+[ext_resource type="Script" uid="uid://bk1u4fdp8mqch" path="res://new_org/systems/ui/on_screen_combo_tracker.gd" id="4_ixx48"]
 [ext_resource type="Script" uid="uid://dyei4crukt6rc" path="res://new_org/systems/ui/simple_damage_#_effect.gd" id="4_nxkqq"]
 [ext_resource type="Script" uid="uid://ia0tuvmco8v8" path="res://new_org/systems/entity_systems/shared/animation_tool.gd" id="5_bjhmp"]
 [ext_resource type="Script" uid="uid://cqq0ce0r3nxrj" path="res://new_org/systems/entity_systems/player systems/move_list.gd" id="6_taoi4"]
@@ -14,7 +16,6 @@
 [ext_resource type="Script" uid="uid://br4ap3ju1friv" path="res://new_org/systems/entity_systems/player systems/input_manager.gd" id="12_7anc2"]
 [ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://new_org/systems/entity_systems/shared/stun_manager.gd" id="13_s2gk1"]
 [ext_resource type="Script" uid="uid://b4pafhiqf6us2" path="res://new_org/systems/entity_systems/cpu_systems/self_combo_tracker.gd" id="14_fd788"]
-[ext_resource type="PackedScene" uid="uid://ctheu4l2kk463" path="res://new_org/systems/ui/on_screen_combo_tracker.tscn" id="15_k0xew"]
 [ext_resource type="PackedScene" uid="uid://btufeyfuqt18p" path="res://new_org/entity_sences_and_resources/entity_parts/primary_boxes/defult_primary_hurt_boxes.tscn" id="16_ty7cu"]
 [ext_resource type="Script" uid="uid://c8qc0j10c563q" path="res://new_org/systems/entity_systems/shared/attack_tree_components/attack_manager.gd" id="17_ho2p1"]
 [ext_resource type="Script" uid="uid://dqfwwo01ngier" path="res://new_org/systems/entity_systems/shared/base_sprite_manager.gd" id="18_nat2x"]
@@ -24,25 +25,25 @@
 radius = 4.0
 height = 15.0
 
-[sub_resource type="Gradient" id="Gradient_ji48l"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.19626169, 0.19626169, 0.19626169, 1)
+[sub_resource type="Gradient" id="Gradient_hveqg"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 0.35686275)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_kpemt"]
-gradient = SubResource("Gradient_ji48l")
-width = 16
-height = 4
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vi3c6"]
+gradient = SubResource("Gradient_hveqg")
+width = 512
+height = 32
 
 [sub_resource type="Gradient" id="Gradient_lxi42"]
 colors = PackedColorArray(0, 0, 1, 1, 0, 1, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_x6e7s"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w14lw"]
 gradient = SubResource("Gradient_lxi42")
-width = 16
-height = 4
+width = 512
+height = 32
 
-[sub_resource type="LabelSettings" id="LabelSettings_dib5i"]
-font_size = 64
+[sub_resource type="LabelSettings" id="LabelSettings_xngtb"]
+font_size = 256
 font_color = Color(1, 0, 0, 1)
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
@@ -54,120 +55,139 @@ stats = ExtResource("2_dmxh8")
 hurt_box_layer = 4
 hit_box_mask = 2
 primary_boxes_and_sprites = NodePath("folder to be scaled/player primary hurt boxes")
-stun_manager = NodePath("folder to not be scaled/stunManager")
+stun_manager = NodePath("folder to not be scaled/dont touch/stunManager")
 attack_manager = NodePath("folder to be scaled/attack manager")
-scale_component = NodePath("folder to not be scaled/scale")
-health_component = NodePath("folder to not be scaled/simple health bar")
-simple_damage_effect = NodePath("folder to not be scaled/simple damage # effect")
+scale_component = NodePath("folder to not be scaled/dont touch/scale")
+health_component = NodePath("folder player UI/Control/simple health bar")
+simple_damage_effect = NodePath("folder player UI/Control/simple damage # effect")
 control_node = NodePath("folder to not be scaled/inputmanager")
-on_screen_combo_tracker = NodePath("folder to not be scaled/CanvasLayer")
+on_screen_combo_tracker = NodePath("folder player UI/Control/combo tracker")
 
 [node name="the player colision box" type="CollisionShape2D" parent="." unique_id=693442404]
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_e1a3v")
 debug_color = Color(1, 1, 1, 0.42)
 
-[node name="folder to not be scaled" type="Node2D" parent="." unique_id=83792367]
+[node name="folder player UI" type="CanvasLayer" parent="." unique_id=1649685736]
 
-[node name="simple health bar" type="TextureProgressBar" parent="folder to not be scaled" unique_id=1392582295 node_paths=PackedStringArray("host")]
-offset_left = -8.0
-offset_top = -32.0
-offset_right = 8.0
-offset_bottom = -28.0
+[node name="Control" type="Control" parent="folder player UI" unique_id=1595385727]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="combo tracker" type="Label" parent="folder player UI/Control" unique_id=1183131510 node_paths=PackedStringArray("host")]
+layout_mode = 0
+offset_top = 192.0
+offset_right = 75.0
+offset_bottom = 215.0
+text = "combo: x "
+label_settings = ExtResource("3_bcxhv")
+script = ExtResource("4_ixx48")
+host = NodePath("../../..")
+
+[node name="simple health bar" type="TextureProgressBar" parent="folder player UI/Control" unique_id=309060217 node_paths=PackedStringArray("host")]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 16.0
 value = 50.0
 rounded = true
-texture_under = SubResource("GradientTexture2D_kpemt")
-texture_progress = SubResource("GradientTexture2D_x6e7s")
+texture_under = SubResource("GradientTexture2D_vi3c6")
+texture_progress = SubResource("GradientTexture2D_w14lw")
 script = ExtResource("3_63f7t")
-host = NodePath("../..")
+host = NodePath("../../..")
 
-[node name="simple damage # effect" type="Label" parent="folder to not be scaled" unique_id=1158970245 node_paths=PackedStringArray("host")]
-offset_left = -24.0
-offset_top = -56.0
-offset_right = 168.0
-offset_bottom = 32.0
+[node name="simple damage # effect" type="Label" parent="folder player UI/Control" unique_id=724148788 node_paths=PackedStringArray("host")]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 24.0
+offset_right = 232.0
+offset_bottom = 112.0
 scale = Vector2(0.25, 0.25)
 text = "1000"
-label_settings = SubResource("LabelSettings_dib5i")
+label_settings = SubResource("LabelSettings_xngtb")
 horizontal_alignment = 1
 script = ExtResource("4_nxkqq")
-host = NodePath("../..")
+host = NodePath("../../..")
 
-[node name="AnimationTool" type="Node" parent="folder to not be scaled" unique_id=1033031355 node_paths=PackedStringArray("thing_to_animate")]
-script = ExtResource("5_bjhmp")
-thing_to_animate = NodePath("../..")
-metadata/_custom_type_script = "uid://ia0tuvmco8v8"
+[node name="folder to not be scaled" type="Node2D" parent="." unique_id=83792367]
 
 [node name="MoveList" type="Node" parent="folder to not be scaled" unique_id=937155038]
 script = ExtResource("6_taoi4")
 metadata/_custom_type_script = "uid://cqq0ce0r3nxrj"
 
-[node name="movement folder" type="Node" parent="folder to not be scaled" unique_id=1037400380]
-
-[node name="dash" type="Node" parent="folder to not be scaled/movement folder" unique_id=838071016 node_paths=PackedStringArray("timer", "host")]
-script = ExtResource("7_itxic")
-timer = NodePath("max duration")
-host = NodePath("../../..")
-
-[node name="max duration" type="Node" parent="folder to not be scaled/movement folder/dash" unique_id=1776512625]
-script = ExtResource("8_23il5")
-metadata/_custom_type_script = "uid://dkek8a7podljt"
-
-[node name="gravity" type="Node" parent="folder to not be scaled/movement folder" unique_id=1590230677 node_paths=PackedStringArray("host")]
-script = ExtResource("9_5o1rw")
-host = NodePath("../../..")
-
-[node name="movement" type="Node" parent="folder to not be scaled/movement folder" unique_id=538386796 node_paths=PackedStringArray("prejump_timer", "coyote_timer", "host")]
-script = ExtResource("10_th71y")
-prejump_timer = NodePath("prejump delay")
-coyote_timer = NodePath("coyote timer")
-host = NodePath("../../..")
-
-[node name="prejump delay" type="Node" parent="folder to not be scaled/movement folder/movement" unique_id=627670931]
-script = ExtResource("8_23il5")
-
-[node name="coyote timer" type="Node" parent="folder to not be scaled/movement folder/movement" unique_id=319577096]
-script = ExtResource("8_23il5")
-
-[node name="scale" type="Node" parent="folder to not be scaled" unique_id=349905362 node_paths=PackedStringArray("scale_target", "host")]
-script = ExtResource("11_w7qy7")
-scale_target = NodePath("../../folder to be scaled")
-host = NodePath("../..")
-
 [node name="inputmanager" type="Node" parent="folder to not be scaled" unique_id=1544145854 node_paths=PackedStringArray("move_list", "movement_componet", "scale_component", "host")]
 script = ExtResource("12_7anc2")
 input_release_on = true
 move_list = NodePath("../MoveList")
-movement_componet = NodePath("../movement folder/movement")
-scale_component = NodePath("../scale")
+movement_componet = NodePath("../dont touch/movement folder/movement")
+scale_component = NodePath("../dont touch/scale")
 host = NodePath("../..")
 
-[node name="stunManager" type="Node" parent="folder to not be scaled" unique_id=845563521 node_paths=PackedStringArray("player_animation_tool", "host")]
+[node name="dont touch" type="Node" parent="folder to not be scaled" unique_id=1032357110]
+
+[node name="AnimationTool" type="Node" parent="folder to not be scaled/dont touch" unique_id=1033031355 node_paths=PackedStringArray("thing_to_animate")]
+script = ExtResource("5_bjhmp")
+thing_to_animate = NodePath("../../..")
+metadata/_custom_type_script = "uid://ia0tuvmco8v8"
+
+[node name="movement folder" type="Node" parent="folder to not be scaled/dont touch" unique_id=1037400380]
+
+[node name="dash" type="Node" parent="folder to not be scaled/dont touch/movement folder" unique_id=838071016 node_paths=PackedStringArray("timer", "host")]
+script = ExtResource("7_itxic")
+timer = NodePath("max duration")
+host = NodePath("../../../..")
+
+[node name="max duration" type="Node" parent="folder to not be scaled/dont touch/movement folder/dash" unique_id=1776512625]
+script = ExtResource("8_23il5")
+metadata/_custom_type_script = "uid://dkek8a7podljt"
+
+[node name="gravity" type="Node" parent="folder to not be scaled/dont touch/movement folder" unique_id=1590230677 node_paths=PackedStringArray("host")]
+script = ExtResource("9_5o1rw")
+host = NodePath("../../../..")
+
+[node name="movement" type="Node" parent="folder to not be scaled/dont touch/movement folder" unique_id=538386796 node_paths=PackedStringArray("prejump_timer", "coyote_timer", "host")]
+script = ExtResource("10_th71y")
+prejump_timer = NodePath("prejump delay")
+coyote_timer = NodePath("coyote timer")
+host = NodePath("../../../..")
+
+[node name="prejump delay" type="Node" parent="folder to not be scaled/dont touch/movement folder/movement" unique_id=627670931]
+script = ExtResource("8_23il5")
+
+[node name="coyote timer" type="Node" parent="folder to not be scaled/dont touch/movement folder/movement" unique_id=319577096]
+script = ExtResource("8_23il5")
+
+[node name="scale" type="Node" parent="folder to not be scaled/dont touch" unique_id=349905362 node_paths=PackedStringArray("scale_target", "host")]
+script = ExtResource("11_w7qy7")
+scale_target = NodePath("../../../folder to be scaled")
+host = NodePath("../../..")
+
+[node name="stunManager" type="Node" parent="folder to not be scaled/dont touch" unique_id=845563521 node_paths=PackedStringArray("player_animation_tool", "host")]
 script = ExtResource("13_s2gk1")
 player_animation_tool = NodePath("../AnimationTool")
-host = NodePath("../..")
+host = NodePath("../../..")
 
-[node name="SelfComboTracker" type="Node" parent="folder to not be scaled" unique_id=1239535944 node_paths=PackedStringArray("host")]
+[node name="SelfComboTracker" type="Node" parent="folder to not be scaled/dont touch" unique_id=1239535944 node_paths=PackedStringArray("host")]
 script = ExtResource("14_fd788")
-host = NodePath("../..")
+host = NodePath("../../..")
 metadata/_custom_type_script = "uid://b4pafhiqf6us2"
 
-[node name="CanvasLayer" parent="folder to not be scaled" unique_id=290489328 node_paths=PackedStringArray("host") instance=ExtResource("15_k0xew")]
-host = NodePath("../..")
-
 [node name="folder to be scaled" type="Node2D" parent="." unique_id=1784953174]
+
+[node name="attack manager" type="Node2D" parent="folder to be scaled" unique_id=1555584615 node_paths=PackedStringArray("animation_tool", "host")]
+script = ExtResource("17_ho2p1")
+animation_tool = NodePath("../../folder to not be scaled/dont touch/AnimationTool")
+host = NodePath("../..")
 
 [node name="player primary hurt boxes" parent="folder to be scaled" unique_id=994631848 node_paths=PackedStringArray("host") instance=ExtResource("16_ty7cu")]
 host = NodePath("../..")
 
-[node name="attack manager" type="Node2D" parent="folder to be scaled" unique_id=1555584615 node_paths=PackedStringArray("animation_tool", "host")]
-script = ExtResource("17_ho2p1")
-animation_tool = NodePath("../../folder to not be scaled/AnimationTool")
-host = NodePath("../..")
-
 [node name="not needed yet" type="Sprite2D" parent="folder to be scaled" unique_id=1112794490 node_paths=PackedStringArray("stun_manager")]
 script = ExtResource("18_nat2x")
-stun_manager = NodePath("../../folder to not be scaled/stunManager")
+stun_manager = NodePath("../../folder to not be scaled/dont touch/stunManager")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1374441659]
 position = Vector2(0, -17)

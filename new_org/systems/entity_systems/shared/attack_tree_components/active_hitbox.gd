@@ -23,5 +23,5 @@ func damage(area):
 			area.stun_manager.start_stun_with_tween(attack_data,Vector2(1,1), false)
 		elif area.health.host.is_facing_right == false:
 			area.stun_manager.start_stun_with_tween(attack_data,Vector2(-1,1), false)
-	print(area.health.current_health)
+	#print(area.health.current_health)
 			

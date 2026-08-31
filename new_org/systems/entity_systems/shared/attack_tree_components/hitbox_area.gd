@@ -10,7 +10,7 @@
 @tool
 class_name HitBoxArea extends ActiveHitBox
 @export_category("buttions")
-@export var add_hit_box_buttion: bool = false
+@export var add_hit_box_shape: bool = false
 @export var fix_color_buttion: bool = false
 #TODO consider removing this refrence and doing it difrently?
 @onready var attack_manager: AttackManager = get_parent().get_parent().get_parent()## easy refence of the attack manager
@@ -120,14 +120,14 @@ func add_new_hit_box():
 	hit_box.name = "hit_box"
 	hit_box.debug_color= Color8(255,0,0,100)
 	print("added hit_box")
-	add_hit_box_buttion = false
+	add_hit_box_shape = false
 #endregion
 
 #runs the tools needed for the script using buttion
 ## just buttion checks for the tool script
 func _physics_process(_delta):
 	if Engine.is_editor_hint():
-		if add_hit_box_buttion: add_new_hit_box()
+		if add_hit_box_shape: add_new_hit_box()
 		if fix_color_buttion: fix_color()
 	else:
 		pass

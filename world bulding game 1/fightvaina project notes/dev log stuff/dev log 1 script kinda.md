@@ -316,7 +316,7 @@ should try motion canvas.
 - [ ] basic fighting game num-pad notation **not sure if i should explain it**
 	num-pad notation can be used as one way to represent inputs in fighting games we can also use it to help us in code for people who are familiar with it or just have a number pad next to them when developing the motion in puts her are a few examples ==(examples 3 -5 one with a change example even tho i dont plan to have charge moves in my game )== 
 	now that you have seen a few examples lets try a few for you to test you self if you understand it ==(a few for practice)
-- [ ] attack system 2 videos or 2 parts 1 for overview and 1 for code not including cancels multi hit attacks 
+- [x] attack system for code not including cancels multi hit attacks 
 	- manager, attacks, frame, hit/hurt boxes and collision shapes, the forced structure too visible collision shapes 
 	- make sure to have a spot saved on the screen for current script
 	- video parts
@@ -379,7 +379,32 @@ should try motion canvas.
 	thanks for watching if you want to support this open source project share, like, subscribe or contribute. you can also watch any of my other videos. feel free to take my code to make you own game
 	intro: want to make a frame perfect attack system you've come to the right place 
 	in this video ill teach you how to make a attack system even if you have nothing else in your project 
+- [ ] how to use fightvania one shot record (never again probably)
+	pre req have godot and the addon from the assest store visabel colsion shapes enabled
+	another set up thing is to decide if you want a custom input map or to use the default for this ill use the defualt by open the file set input map and runing the scene with tthe value enabled set to true so that the input map gets set then ill restart godot so that it shows up in porject settings. 
 	
+	note that some names files and other things may have different names or locations depending on when you install the addon just keep that in mind when following the instructions.
+	doing this will add some auto loads the most important one being a frame by frame mode tool to help debug and adjust the game. as well as a few others for game feel witch are not covered in this video 
+	once we have the addon installed and godot open we can go to the addons folder and open the the file set inputs. if we click on the label on the right youll see a boolen called enable. if we run the scene with it set to true we will set a default input map. if we run the secne with it off then the sedult input map will be deleted. when prompted press reload from disk then reload current projects . 
+	next lets make a charater open a new scene add a node 2d click instantiate a scene. make sure  addon is turned on then serch for base char  right click on base char and trun on editable children . lets alos hide all of this UI that is just getting in our way right now by hiding it. then we can move and focus on our player. if we click on the player we can sea few propetsy we can edit and we can see that the player stats has a default assigned ill leave it but its good to know that it can be changed. next in the scene tree lets find attack manger then click on it. when we do we can see a new button in the inspector tab  called add attack when we click on it a new node appears in the scene tree we can then rename it ill call it forward attack 1. if we then select it we can see in the inspector a new set of buttons so ill add 3 frames. next ill click on the middle frame then chose what i want to add ill add just a hitbox but if i wanted i could add a hurt box too. ill then click on the hitbox and give it a shape by clicking add hit box shape witch also gets rid of the warning. i can then move the shape we added around and adjust it however i like. the next thing i want to do is adjust the frame data so ill click on the first frame look for the propety repeat this frame and add 5 frames. you'll see that the names get updated in the scene tree then ill do the same with the other frames. we can now try to run the scene when we do we will get a null error but it we look a bit further and click on errors then look we can see that here it says the attack data is not assigned and it tells us witch node. so lets go to that hit box click on and  find the attack data. lets make a new and chose some values for it then when we run the scene. it will run fine just. we can also save the attack data for reuse so lets click the drop down then  click save as. we can name it and pick a location ill call it my attack data. then if we adjacently remove the data we can just load it form the saved one.  for the othe attacks ill do them in a time lapse. now that the charates attacks are done we still need to assign them to some inputs. so look for move list in the scene tree. click on it in the inspector click on normal attack then grounded light punch lets assign forward attack to light punch and up attack to up light punch. then so we can attack in the air lets go to air light punch and assign the forward to air light punch up to air up and down to air down. we can then run the scene and try out the attacks. if you used the default input map then the inputs would be the direction and the K key  if you use the key board or the left joy button if you use a controller. what you may also notice is that when holding a direction other than the ones we had assigned the attack still comes out. this is because part of it is handled by some code in the background. it work like this if no attack is assigned do nothing. if an attack is assigned then don't overwrite it. when only some attack are assigned it tries to take neutral and assign it to up and down with out overwriting. next it tries to assigns the left and right as of the attack. this is repeated independently for each attack button and none of the special moves. so if only nural is assing it looks like this and if only up and down are asinged it looks liket this
+	is this the end of the video.  great you did it you made the kight form hollow knight's starting attacks. these are the most improtant fundamentals of using this tool to make  characters or cpu attacks there are alot more options that are a bit more advanced like  attacks with movement attack canceling and more feature geared to wards fighting game charters much of witch is included in fightvania already and some features that are work in progress. feel free to follow along as i develop the tool and use it to make my own games eventually 
+	
+	as an example we will make the knight form hollow knight just to get familiar with the basics of making an attack. 
+	set up open the input set up file and turn on the addon 
+	run the input set up scene then restart if you want the inputs
+	if you want to remove them just change this bool in the script and run again
+	open the example try the 3 attacks if we want to
+	collision shapes on 
+	make new scene add char base make local 
+	the attack system doesnt defult the left up or down attacks based on nutral
+	[attack reference ](https://orso2p2n.github.io/assets/img/posts/portfolio/the-knight/hk_slashes.png)
+	try make an attack if pressing the button doesn't do anything restart Godot 
+	try it get error 1 hitbox data not assigned 
+	2 player stats not assigned
+	good job we made a simple version of the knight form hollow knight repeating these same steps applies to making all attacks weather that is a normal attack or a special move with a motion input.
+	for the more advanced users who are already familiar with Godot to change or add to the inputs i recommend first watching the videos on the rebuild to get an understating of the scripts you'll need to edit in a more condensed version then the full scripts. 
+	you'll need to edit the files input manger.gd and frame by frame mode.gd if yuo would like to add more attacks or to add more attack or speical moves with motion inputs edit the file move list.gd and if you are adding more buttion edit input manger as well. when edit move list an AI prompt is provided use a deep thinking model with it for the best results. if you would like to contribute there is a github where you can post issues and suggestions. if you would like to support me share the tool make your game like the tool if you have a Godot asset store account.
+	lets also put something to stand on by click on the root node adding a new node called a stadic body 2d click onn that node then add a colsion shape. next in the iinspector add a shape of your choising ill just add a rectangle. then ill move it below the player
 - [ ] combo attacks and speical cancels system (target combo)
 	in games like devil may cry, highfi rush, Metal Gear Rising: Revengeance, Beyoneta and many ==(sevral images or clips)== fighting games and more they have what i am calling a combo attack but may be known as  or target combo or rhythm attack or special cancel system 
 	to put it simply it is an attack that is followed by another attack within some time frame 
@@ -563,14 +588,6 @@ should try motion canvas.
 			i emailed you, you one of the following form this list and i may be willing to work with subject to conversations: Veritum, RTgame, Rin Penrose Ch. and Snebby or Zoey the manger of managing Rin's things, brian_f/trash talk, broski, sajam, Diaphone, justan wong, lord kight, a video game development company that will use godot or wants to make a fighting game using my system (may cost my tuition in payment). 
 			companies/games/people i may be okay with colabing/cross overs or stuff with on **my terms when it comes to character clothing. "game core value no sexualization of people ever"** then subject to discussion: Pal world, Terraria, Chaos Zero Nightmare, Path To Nowhere, toby fox, camellia (かめりあ), Lena Ranie, the people behind after image, team cherry, people behind guacamelee 
 			you made a real bug report in the issues or are trying to contribute.
-- [ ] set up with version number let 0.5.0 and Godot version 4.6.3 
-	1.  set up for the project set up on a fresh install
-		- open project > project settings > plugins > fightvainia auto loads. this enables hit stop and shake, partly the frame by frame mode script, and the on hit audio manager, 
-		- next we can set up inputs either *run the add_inputs script to get my default input map that is like this ==image of input maps==* the other option if you have an existing input system  is to edit the 2 following the files input manger and frame_by_frame_mode search them up using the filter files option ==\<image of it==
-		- you can try out an example scene to get a feel for the current default movement (mostly flexible in air and state based on ground) and how default attacking feels (when attacking walking is disabled attacks have customization of animations numbers aren't exact)
-	
-	- a) rember if you want to use the project look up copy left and the gnu3 licnce to before making your decion
-	- b) welcome to my channel subscribe or not see you next summer
 - [ ] dev update 1?
 - [ ] how to experment in code
 - [ ] how to design match ups in video games
