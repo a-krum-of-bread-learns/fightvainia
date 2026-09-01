@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cfjcmtrqew4pw"]
+
+[ext_resource type="PackedScene" uid="uid://cwic4qufw2wug" path="res://new_org/entity_sences_and_resources/entity_parts/bases/base_chars.tscn" id="1_guq8x"]
+[ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new_org/systems/entity_systems/shared/attack_tree_components/attack.gd" id="2_lb1bg"]
+[ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new_org/systems/entity_systems/shared/attack_tree_components/frame.gd" id="3_v3m30"]
+[ext_resource type="Script" uid="uid://c13qe4fn2fxbb" path="res://new_org/systems/entity_systems/shared/attack_tree_components/hitbox_area.gd" id="4_lx0bh"]
+[ext_resource type="Resource" uid="uid://di7m5po0cn0hr" path="res://testings/to be deleted video/my attack data.tres" id="5_lb1bg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3d4vo"]
+size = Vector2(32, 32)
+
+[node name="Node2D" type="Node2D" unique_id=218857999]
+
+[node name="player" parent="." unique_id=2023579452 instance=ExtResource("1_guq8x")]
+
+[node name="folder player UI" parent="player" index="1" unique_id=1649685736]
+visible = false
+
+[node name="attack 1" type="Node2D" parent="player/folder to be scaled/attack manager" parent_id_path=PackedInt32Array(2023579452, 1555584615) index="0" unique_id=2087826285]
+script = ExtResource("2_lb1bg")
+
+[node name="frame # 1-6" type="Node2D" parent="player/folder to be scaled/attack manager/attack 1" unique_id=295119720]
+script = ExtResource("3_v3m30")
+repeat_this_frame = 5
+
+[node name="frame # 7-12" type="Node2D" parent="player/folder to be scaled/attack manager/attack 1" unique_id=1246203421]
+script = ExtResource("3_v3m30")
+repeat_this_frame = 5
+
+[node name="hit_box # 100" type="Area2D" parent="player/folder to be scaled/attack manager/attack 1/frame # 7-12" unique_id=416885239]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_lx0bh")
+attack_data = ExtResource("5_lb1bg")
+
+[node name="hit_box" type="CollisionShape2D" parent="player/folder to be scaled/attack manager/attack 1/frame # 7-12/hit_box # 100" unique_id=159412630]
+position = Vector2(24, 0)
+shape = SubResource("RectangleShape2D_3d4vo")
+disabled = true
+debug_color = Color(1, 0, 0, 0.39215687)
+
+[node name="frame # 13-18" type="Node2D" parent="player/folder to be scaled/attack manager/attack 1" unique_id=329882069]
+script = ExtResource("3_v3m30")
+repeat_this_frame = 5
+
+[editable path="player"]

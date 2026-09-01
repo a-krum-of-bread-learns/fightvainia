@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SAVE" format=3]
+
+[ext_resource type="Script" path="res://addons/simple_save_tool/tool/save.gd" id="1_fdtli"]
+
+[resource]
+script = ExtResource("1_fdtli")
+DATA = {
+"player_global_position": Vector2(-112.75931, -15.56709)
+}

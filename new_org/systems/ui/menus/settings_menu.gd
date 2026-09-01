@@ -1,0 +1,2 @@
+##settings menu
+extends MenuBase

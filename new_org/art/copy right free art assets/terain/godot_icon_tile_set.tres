@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" format=3 uid="uid://c8rfgs3xlqyue"]
 
-[ext_resource type="Texture2D" uid="uid://dxxtu2redxtmm" path="res://new_org/art/icon.svg" id="1_h25k1"]
+[ext_resource type="Texture2D" uid="uid://dxxtu2redxtmm" path="res://icon.svg" id="1_h25k1"]
 [ext_resource type="PackedScene" uid="uid://dm6cdap4mk4e0" path="res://new_org/world/grapple_point.tscn" id="2_s22hb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qtgry"]

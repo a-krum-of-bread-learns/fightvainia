@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://blvhw4jjxe26a"]
+
+[ext_resource type="Script" uid="uid://d1jws7mtubjk4" path="res://new_org/systems/entity_systems/shared/attack_tree_components/attack.gd" id="1_tto1e"]
+[ext_resource type="Script" uid="uid://dls3atlfdqo1s" path="res://new_org/systems/entity_systems/shared/attack_tree_components/frame.gd" id="2_yxj3o"]
+[ext_resource type="Script" uid="uid://c13qe4fn2fxbb" path="res://new_org/systems/entity_systems/shared/attack_tree_components/hitbox_area.gd" id="3_lig3n"]
+[ext_resource type="Resource" uid="uid://di7m5po0cn0hr" path="res://testings/to be deleted video/my attack data.tres" id="4_yxj3o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lig3n"]
+size = Vector2(32, 32)
+
+[node name="up" type="Node2D" unique_id=165771243]
+script = ExtResource("1_tto1e")
+
+[node name="frame # 1-6" type="Node2D" parent="." unique_id=1781834013]
+script = ExtResource("2_yxj3o")
+repeat_this_frame = 5
+
+[node name="frame # 7-12" type="Node2D" parent="." unique_id=360002668]
+script = ExtResource("2_yxj3o")
+repeat_this_frame = 5
+
+[node name="hit_box # 100" type="Area2D" parent="frame # 7-12" unique_id=528666182]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_lig3n")
+attack_data = ExtResource("4_yxj3o")
+
+[node name="hit_box" type="CollisionShape2D" parent="frame # 7-12/hit_box # 100" unique_id=2047252063]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_lig3n")
+disabled = true
+debug_color = Color(1, 0, 0, 0.39215687)
+
+[node name="frame # 13-18" type="Node2D" parent="." unique_id=1352612856]
+script = ExtResource("2_yxj3o")
+repeat_this_frame = 5
