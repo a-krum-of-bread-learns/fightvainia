@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="HitBoxData" format=3 uid="uid://di7m5po0cn0hr"]
+[gd_resource type="Resource" format=3 uid="uid://di7m5po0cn0hr"]
 
 [ext_resource type="Script" uid="uid://bb1wtn63y7sur" path="res://new_org/systems/resource_scripts/hitbox_data_resouce.gd" id="1_immka"]
 

@@ -22,16 +22,10 @@ buses/default_bus_layout="res://addons/fightvainia auto load loader/new org/syst
 [autoload]
 
 SAVE_MANAGER="*uid://ctt30dnwyf7w6"
-<<<<<<< HEAD
 FrameByFrameMode="*uid://cqm7upl72t033"
 HitStopAndShake="*uid://dscfw2cvfrphr"
 OnHitAudioManager="*uid://b7jnflpn70njb"
 MenuControllerRoot="*uid://yaufmskfjxc2"
-=======
-FrameByFrameMode="*uid://c1kvhg0c1hba"
-OnHitAudioManager="*uid://b7jnflpn70njb"
-HitStopAndShake="*uid://dscfw2cvfrphr"
->>>>>>> 32c5fff (improvemnts from core added file renames to snake case needed and exports should be checked)
 
 [display]
 
@@ -49,16 +43,11 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-<<<<<<< HEAD
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/gdscript_refactoring/plugin.cfg")
-=======
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/fightvainia auto load loader/plugin.cfg")
->>>>>>> 32c5fff (improvemnts from core added file renames to snake case needed and exports should be checked)
 
 [file_customization]
 
 folder_colors={
-<<<<<<< HEAD
 "res://addons/": "gray",
 "res://addons/fightvainia/": "pink",
 "res://new_org/": "blue",
@@ -69,14 +58,6 @@ folder_colors={
 "res://new_org/world/": "yellow",
 "res://testings/": "gray",
 "res://testings/to be deleted video/": "red"
-=======
-"res://new org/art/": "purple",
-"res://new org/entites/": "blue",
-"res://new org/systems/": "orange",
-"res://new org/systems/ui/": "green",
-"res://new org/world/": "yellow",
-"res://testings/": "gray"
->>>>>>> 32c5fff (improvemnts from core added file renames to snake case needed and exports should be checked)
 }
 
 [input]

@@ -22,6 +22,17 @@ air_light_punch = NodePath("../../folder to be scaled/attack manager/forward att
 air_down_punch = NodePath("../../folder to be scaled/attack manager/down")
 air_up_punch = NodePath("../../folder to be scaled/attack manager/up")
 
+[node name="gravity" parent="player/folder to not be scaled/dont touch/movement folder" parent_id_path=PackedInt32Array(2023579452, 1037400380) index="1" unique_id=1590230677]
+enabled = null
+
+[node name="scale" parent="player/folder to not be scaled/dont touch" parent_id_path=PackedInt32Array(2023579452, 1032357110) index="2" unique_id=349905362]
+enabled = null
+
+[node name="SelfComboTracker" parent="player/folder to not be scaled/dont touch" parent_id_path=PackedInt32Array(2023579452, 1032357110) index="4" unique_id=1239535944]
+must_be_comboed = null
+must_be_comboed_threshold = null
+enabled = null
+
 [node name="forward attack" parent="player/folder to be scaled/attack manager" parent_id_path=PackedInt32Array(2023579452, 1555584615) index="0" unique_id=431819146 instance=ExtResource("2_qt7fj")]
 
 [node name="up" parent="player/folder to be scaled/attack manager" parent_id_path=PackedInt32Array(2023579452, 1555584615) index="1" unique_id=165771243 instance=ExtResource("3_306ui")]

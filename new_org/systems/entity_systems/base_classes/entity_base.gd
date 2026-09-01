@@ -20,14 +20,9 @@ var is_crouching: bool = false
 @export var stats: EntityStats
 @export_enum("player:4" , "enemy:2") var hurt_box_layer: int = 2 ##eneimes hurt on 2 player hurts on 4 use 6 to hurt both
 @export_enum("player:2" , "enemy:4") var hit_box_mask: int = 4 ##eneimes hit on 4 player hits on 2 use 6 to hit both
-<<<<<<< HEAD:new_org/systems/entity_systems/base_classes/entity_base.gd
 @export var override_primary_boxes_and_sprites: EntityPrimaryHurtBoxesAndSprites
 @export_group("dont touch if you have no idea what these are")
 @export var primary_boxes_and_sprites: EntityPrimaryHurtBoxesAndSprites
-=======
-@export var primary_boxes_and_sprites: EntityPrimaryHurtBoxesAndSprites
-@export_group("dont touch if you have no idea what these are")
->>>>>>> 32c5fff (improvemnts from core added file renames to snake case needed and exports should be checked):new org/systems/base classes/EntityBase.gd
 @export var stun_manager: StunManager
 @export var attack_manager: AttackManager
 @export var scale_component: Scale
@@ -38,10 +33,6 @@ var is_crouching: bool = false
 @export var combo_tracker: SelfComboTracker
 @export var on_screen_combo_tracker: ComboCounterDisplay
 #@export_enum("player_layers:1", "enemy_layers:2") var layers = 2# this didnt work well
-<<<<<<< HEAD:new_org/systems/entity_systems/base_classes/entity_base.gd
-=======
-signal set_enabled(value: bool)
->>>>>>> 32c5fff (improvemnts from core added file renames to snake case needed and exports should be checked):new org/systems/base classes/EntityBase.gd
 @export_enum("error:-1","LOW:1","ALL:2","OVERHEAD:3") var block_type: int = 3
 enum BLOCK_TYPE {LOW=1, ALL=2, OVER=3} ## type of block
 var tween: Tween = null

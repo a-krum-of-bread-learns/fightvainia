@@ -1,0 +1,6 @@
+- [ ] understand the problem 
+- [ ] make prototype constraints for simplicity (5 words for testing)
+- [ ] make vocaliod recording stuff
+- [ ] figure out how to do this on my computer
+- [ ] test it and stuff
+- [ ] or find one for free some where open source
