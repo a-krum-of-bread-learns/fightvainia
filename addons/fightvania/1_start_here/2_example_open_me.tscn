@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://c0nmxx11ohwp"]
 
 [ext_resource type="TileSet" uid="uid://c8rfgs3xlqyue" path="res://new_org/art/copy right free art assets/terain/godot_icon_tile_set.tres" id="1_2gtd7"]
-[ext_resource type="PackedScene" uid="uid://ct8yq6jcoijjq" path="res://addons/fightvainia/1_start_here/example_parts/test of making player .tscn" id="2_kjrkd"]
+[ext_resource type="PackedScene" uid="uid://ct8yq6jcoijjq" path="res://addons/fightvania/1_start_here/example_parts/test of making player .tscn" id="2_kjrkd"]
 [ext_resource type="PackedScene" uid="uid://cnehwxf4aylum" path="res://new_org/entity_sences_and_resources/ready_scenes/zonner.tscn" id="3_45tl1"]
 
 [node name="Node2D" type="Node2D" unique_id=384542713]

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://ct8yq6jcoijjq"]
 
 [ext_resource type="PackedScene" uid="uid://cwic4qufw2wug" path="res://new_org/entity_sences_and_resources/entity_parts/bases/base_chars.tscn" id="1_xpdem"]
-[ext_resource type="PackedScene" uid="uid://casbu3dgbqja0" path="res://addons/fightvainia/1_start_here/example_parts/attack 1 basic.tscn" id="3_8vq4w"]
-[ext_resource type="PackedScene" uid="uid://u8kr6ellcod0" path="res://addons/fightvainia/1_start_here/example_parts/attack 2 movement.tscn" id="4_3ko8b"]
-[ext_resource type="PackedScene" uid="uid://jo6dbskmqngv" path="res://addons/fightvainia/1_start_here/example_parts/attack 3 spawnable object.tscn" id="5_hr4te"]
+[ext_resource type="PackedScene" uid="uid://casbu3dgbqja0" path="res://addons/fightvania/1_start_here/example_parts/attack 1 basic.tscn" id="3_8vq4w"]
+[ext_resource type="PackedScene" uid="uid://u8kr6ellcod0" path="res://addons/fightvania/1_start_here/example_parts/attack 2 movement.tscn" id="4_3ko8b"]
+[ext_resource type="PackedScene" uid="uid://jo6dbskmqngv" path="res://addons/fightvania/1_start_here/example_parts/attack 3 spawnable object.tscn" id="5_hr4te"]
 
 [node name="example player" unique_id=2023579452 instance=ExtResource("1_xpdem")]
 

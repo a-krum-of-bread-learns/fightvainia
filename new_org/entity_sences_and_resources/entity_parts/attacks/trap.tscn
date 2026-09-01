@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://eehghwqfhi3w"]
+[gd_scene format=3 uid="uid://8vbybv5gvkla"]
 
 [ext_resource type="Script" uid="uid://cw1p1ehiwg0gs" path="res://testings/spawnable_projectile.gd" id="1_55bpw"]
 [ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new_org/systems/entity_systems/shared/frame_timer_compnent.gd" id="2_86nvh"]

@@ -49,7 +49,7 @@ enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/
 
 folder_colors={
 "res://addons/": "gray",
-"res://addons/fightvainia/": "pink",
+"res://addons/fightvania/": "pink",
 "res://new_org/": "blue",
 "res://new_org/art/": "purple",
 "res://new_org/entity_sences_and_resources/": "blue",

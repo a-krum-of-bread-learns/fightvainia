@@ -37,8 +37,8 @@ AttackManager
 - [x] combo tracking and must be combed proptery x times
 - [ ] grab/ comand grab
 - [ ] impove cancel systems to allow for custom inputs for follow ups insted of just the attack buttions or jsut the set speical moves
-- [ ] video on how to make an attack
-- [ ] video on how to make attack system
+- [x] video on how to make an attack
+- [x] video on how to make attack system
 - [ ] video on how to make cancel systems
 - [ ] the ablity to set a hit sound per hitbox
 - [ ] save system
@@ -47,8 +47,8 @@ AttackManager
 ## for code review stuff
 - [ ] consider dash and jump to be an "attack"
 - [x] decouple move list and attack manger
-- [ ] clean up and centerialtion of is_proptery like is_facing_right or is_jumping
-- [ ] consider actualy using tool buttions for the tool scripts
+- [x] clean up and centerialtion of is_proptery like is_facing_right or is_jumping
+- [x] consider actualy using tool buttions for the tool scripts not worth 
 
 
 
