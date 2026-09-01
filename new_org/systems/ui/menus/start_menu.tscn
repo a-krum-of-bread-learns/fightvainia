@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://1oaqix4ai7a1"]
+
+[ext_resource type="Script" uid="uid://d38v4bes6g5h7" path="res://new_org/systems/ui/menus/start_menu.gd" id="1_dwvic"]
+[ext_resource type="Texture2D" uid="uid://bjcih6vfqps6" path="res://addons/simple_save_tool/example/icon.svg" id="2_2ixxd"]
+
+[node name="StartMenu" type="Control" unique_id=1047450306 node_paths=PackedStringArray("defult_focus")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dwvic")
+defult_focus = NodePath("BoxContainer/VBoxContainer/new game")
+
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=92178657]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+vertical = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer" unique_id=1467189330]
+layout_mode = 2
+
+[node name="new game" type="Button" parent="BoxContainer/VBoxContainer" unique_id=903472785]
+layout_mode = 2
+text = "new game"
+
+[node name="continue" type="Button" parent="BoxContainer/VBoxContainer" unique_id=1353483337]
+layout_mode = 2
+text = "continue"
+
+[node name="settings" type="Button" parent="BoxContainer/VBoxContainer" unique_id=2076516846]
+layout_mode = 2
+text = "settings"
+
+[node name="exit_game" type="Button" parent="BoxContainer/VBoxContainer" unique_id=729713096]
+layout_mode = 2
+text = "exit "
+icon_alignment = 1
+
+[node name="game name and image logo?" type="TextureRect" parent="." unique_id=1919881089]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 128.0
+offset_right = 64.0
+offset_bottom = 256.0
+grow_horizontal = 2
+texture = ExtResource("2_2ixxd")
+
+[connection signal="pressed" from="BoxContainer/VBoxContainer/new game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer/exit_game" to="." method="_on_exit_game_pressed"]

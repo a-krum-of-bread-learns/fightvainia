@@ -1,0 +1,127 @@
+[gd_scene format=4 uid="uid://c0nmxx11ohwp"]
+
+[ext_resource type="TileSet" uid="uid://c8rfgs3xlqyue" path="res://new_org/art/copy right free art assets/terain/godot_icon_tile_set.tres" id="1_3ss4k"]
+[ext_resource type="PackedScene" uid="uid://bdtelvmkwjuh1" path="res://new_org/entity_sences_and_resources/ready_scenes/player_agent.tscn" id="2_x6qar"]
+[ext_resource type="Script" uid="uid://dj4e3ktxupeu1" path="res://new_org/systems/game_systems_and_auto_loads/cutscene_area.gd" id="3_n47p1"]
+[ext_resource type="Script" uid="uid://jav8ndnndy6" path="res://new_org/systems/game_systems_and_auto_loads/frame_by_frame_mode_hint.gd" id="4_472xy"]
+[ext_resource type="Script" uid="uid://c07awirmkkk7k" path="res://new_org/systems/entity_systems/turret.gd" id="5_tqpnp"]
+[ext_resource type="PackedScene" uid="uid://cxweje6fy3ucg" path="res://testings/auto_moving_projectile.tscn" id="6_a5gii"]
+[ext_resource type="Script" uid="uid://dkek8a7podljt" path="res://new_org/systems/entity_systems/shared/frame_timer_compnent.gd" id="7_7oe43"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qe2i2"]
+normal = Vector2(1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_472xy"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hrpo"]
+size = Vector2(32, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ist0"]
+size = Vector2(32.00006, 64)
+
+[node name="Node2D" type="Node2D" unique_id=384542713]
+
+[node name="walls" type="TileMapLayer" parent="." unique_id=1199560517]
+tile_map_data = PackedByteArray("AACp/wAAAAADAAAAAACq/wAAAAADAAAAAACr/wAAAAADAAAAAACs/wAAAAADAAAAAACt/wAAAAADAAAAAACu/wAAAAADAAAAAACv/wAAAAADAAAAAACw/wAAAAADAAAAAACx/wAAAAADAAAAAACy/wAAAAADAAAAAACz/wAAAAADAAAAAAC0/wAAAAADAAAAAAC1/wAAAAADAAAAAAC2/wAAAAADAAAAAAC3/wAAAAADAAAAAACo/wAAAAADAAAAAAC4/wAAAAADAAAAAAC5/wAAAAADAAAAAAC6/wAAAAADAAAAAAC7/wAAAAADAAAAAAC8/wAAAAADAAAAAAC9/wAAAAADAAAAAAC+/wAAAAADAAAAAAC//wAAAAADAAAAAADA/wAAAAADAAAAAADB/wAAAAADAAAAAADC/wAAAAADAAIAAADD/wAAAAADAAIAAADE/wAAAAADAAIAAADF/wAAAAADAAIAAADG/wAAAAADAAIAAADH/wAAAAADAAIAAADI/wAAAAADAAIAAADJ/wAAAAADAAIAAADK/wAAAAADAAIAAADL/wAAAAADAAIAAADM/wAAAAADAAIAAADN/wAAAAADAAIAAADO/wAAAAADAAIAAADP/wAAAAADAAIAAADQ/wAAAAADAAIAAADR/wAAAAADAAIAAADS/wAAAAADAAIAAADT/wAAAAADAAIAAADU/wAAAAADAAIAAADV/wAAAAADAAIAAADW/wAAAAADAAIAAADX/wAAAAADAAIAAADY/wAAAAADAAIAAADZ/wAAAAADAAIAAADa/wAAAAADAAIAAADb/wAAAAADAAIAAADc/wAAAAADAAIAAADd/wAAAAADAAIAAADe/wAAAAADAAIAAADf/wAAAAADAAIAAADg/wAAAAADAAIAAADh/wAAAAADAAIAAADi/wAAAAADAAIAAADj/wAAAAADAAIAAADk/wAAAAADAAIAAADl/wAAAAADAAIAAADm/wAAAAADAAIAAADn/wAAAAADAAIAAADo/wAAAAADAAIAAADp/wAAAAADAAIAAADq/wAAAAADAAIAAADr/wAAAAADAAIAAADs/wAAAAADAAIAAADt/wAAAAADAAIAAADu/wAAAAADAAIAAADv/wAAAAADAAIAAADw/wAAAAADAAIAAADx/wAAAAADAAIAAADy/wAAAAADAAIAAADz/wAAAAADAAIAAAD0/wAAAAADAAIAAAD1/wAAAAADAAIAAAD2/wAAAAADAAIAAAD3/wAAAAADAAIAAAD4/wAAAAADAAIAAAD5/wAAAAADAAIAAAD6/wAAAAADAAIAAAD7/wAAAAADAAIAAAD8/wAAAAADAAIAAAD9/wAAAAADAAIAAAD+/wAAAAADAAIAAAD//wAAAAADAAIAAAAAAAAAAAADAAAAAAABAAAAAAADAAAAAAACAAAAAAADAAAAAAADAAAAAAADAAAAAAAEAAAAAAADAAAAAAAFAAAAAAADAAAAAAAGAAAAAAADAAAAAAAHAAAAAAADAAAAAAAIAAAAAAADAAAAAAAJAAAAAAADAAAAAAAKAAAAAAADAAAAAAALAAAAAAADAAAAAAAMAAAAAAADAAAAAAANAAAAAAADAAAAAAAOAAAAAAADAAAAAAAPAAAAAAADAAAAAAAQAAAAAAADAAAAAAARAAAAAAADAAAAAAASAAAAAAADAAAAAAATAAAAAAADAAAAAAAUAAAAAAADAAAAAAAVAAAAAAADAAAAAAAWAAAAAAADAAAAAAAXAAAAAAADAAAAAAAYAAAAAAADAAAAAAAZAAAAAAADAAAAAAAaAAAAAAADAAIAAAAbAAAAAAADAAIAAAAcAAAAAAADAAIAAAAdAAAAAAADAAIAAAAeAAAAAAADAAIAAAAfAAAAAAADAAIAAAAgAAAAAAADAAIAAAAhAAAAAAADAAIAAAAiAAAAAAADAAIAAAAjAAAAAAADAAIAAAAkAAAAAAADAAIAAAAlAAAAAAADAAIAAAAmAAAAAAADAAIAAAAnAAAAAAADAAIAAAAoAAAAAAADAAIAAAApAAAAAAADAAIAAAAqAAAAAAADAAIAAAArAAAAAAADAAIAAAAsAAAAAAADAAIAAAAtAAAAAAADAAIAAAAuAAAAAAADAAIAAAAvAAAAAAADAAIAAAAwAAAAAAADAAIAAAAxAAAAAAADAAIAAAAyAAAAAAADAAIAAAAzAAAAAAADAAIAAAA0AAAAAAADAAIAAAA1AAAAAAADAAIAAAA2AAAAAAADAAIAAAA3AAAAAAADAAIAAAA4AAAAAAADAAIAAAA5AAAAAAADAAIAAAA6AAAAAAADAAIAAAA7AAAAAAADAAIAAAA8AAAAAAADAAIAAAA9AAAAAAADAAIAAAA+AAAAAAADAAIAAAA/AAAAAAADAAIAAABAAAAAAAADAAIAAABBAAAAAAADAAIAAABCAAAAAAADAAIAAABDAAAAAAADAAIAAABEAAAAAAADAAIAAABFAAAAAAADAAIAAABGAAAAAAADAAIAAABHAAAAAAADAAIAAABIAAAAAAADAAIAAABJAAAAAAADAAIAAABKAAAAAAADAAIAAABLAAAAAAADAAIAAABMAAAAAAADAAIAAABNAAAAAAADAAIAAABOAAAAAAADAAIAAABPAAAAAAADAAIAAABQAAAAAAADAAIAAABRAAAAAAADAAIAAABSAAAAAAADAAIAAABTAAAAAAADAAIAAABUAAAAAAADAAIAAABVAAAAAAADAAIAAABWAAAAAAADAAIAAABXAAAAAAADAAIAAABYAAAAAAADAAAAAABZAAAAAAADAAAAAABaAAAAAAADAAAAAABbAAAAAAADAAAAAABcAAAAAAADAAAAAABdAAAAAAADAAAAAABeAAAAAAADAAAAAABfAAAAAAADAAAAAABgAAAAAAADAAAAAABhAAAAAAADAAAAAABiAAAAAAADAAAAAABjAAAAAAADAAAAAABkAAAAAAADAAAAAABlAAAAAAADAAAAAABmAAAAAAADAAAAAABnAAAAAAADAAAAAABoAAAAAAADAAAAAABpAAAAAAADAAAAAABqAAAAAAADAAAAAABrAAAAAAADAAAAAABsAAAAAAADAAAAAABtAAAAAAADAAAAAABuAAAAAAADAAAAAABvAAAAAAADAAAAAABwAAAAAAADAAAAAABxAAAAAAADAAAAAADC////AAAFAAUAAADC//7/AAAFAAUAAADD//7/AAAFAAUAAADD//3/AAAFAAUAAADE//3/AAAFAAUAAADE//7/AAAFAAUAAADF//7/AAAFAAUAAADF////AAAFAAUAAADE////AAAFAAUAAADD////AAAFAAUAAADC//3/AAAFAAUAAADF//3/AAAFAAUAAADO////AAAFAAUAAADO//7/AAAFAAUAAADO//3/AAAFAAUAAADP//3/AAAFAAUAAADQ//3/AAAFAAUAAADQ//7/AAAFAAUAAADQ////AAAFAAUAAADP////AAAFAAUAAADP//7/AAAFAAUAAADY////AAAFAAUAAADZ////AAAFAAUAAADZ//7/AAAFAAUAAADa//7/AAAFAAUAAADa////AAAFAAUAAADb////AAAFAAUAAADY//7/AAAFAAUAAADY//3/AAAFAAUAAADZ//3/AAAFAAUAAADa//3/AAAFAAUAAADb//7/AAAFAAUAAADb//3/AAAFAAUAAADZ//z/AAAFAAUAAADZ//v/AAAFAAUAAADa//v/AAAFAAUAAADa//r/AAAFAAUAAADb//r/AAAFAAUAAADb//v/AAAFAAUAAADb//z/AAAFAAUAAADa//z/AAAFAAUAAADZ//r/AAAFAAUAAADc//z/AAAFAAUAAADc//v/AAAFAAUAAADc//r/AAAFAAUAAADc//3/AAAFAAUAAADc//7/AAAFAAUAAADc////AAAFAAUAAADd//3/AAAFAAUAAADe//3/AAAFAAUAAADf//3/AAAFAAUAAADf//7/AAAFAAUAAADf////AAAFAAUAAADe////AAAFAAUAAADd////AAAFAAUAAADd//7/AAAFAAUAAADe//7/AAAFAAUAAADh//j/AAAEAAAAAADi//j/AAAEAAAAAADj//j/AAAEAAAAAADk//j/AAAEAAAAAADl//j/AAAEAAAAAADX//3/AAAFAAUAAADW//3/AAAFAAUAAADW//7/AAAFAAUAAADX//7/AAAFAAUAAADX////AAAFAAUAAADW////AAAFAAUAAADg//n/AAAAAAMAAADg//r/AAAAAAMAAADg//v/AAAAAAMAAADg//z/AAAAAAMAAADg//3/AAAAAAMAAADg//7/AAAAAAMAAADg////AAAAAAMAAADg//j/AAAAAAAAAADh//n/AAABAAEAAADi//n/AAABAAEAAADj//n/AAABAAEAAADk//n/AAABAAEAAADl//n/AAABAAEAAADl//r/AAABAAEAAADl//v/AAABAAEAAADl//z/AAABAAEAAADk//z/AAABAAEAAADk//3/AAABAAEAAADj//z/AAABAAEAAADj//v/AAABAAEAAADi//v/AAABAAEAAADj//r/AAABAAEAAADk//r/AAABAAEAAADk//v/AAABAAEAAADh//v/AAABAAEAAADh//r/AAABAAEAAADi//r/AAABAAEAAADi//z/AAABAAEAAADh//3/AAABAAEAAADh//z/AAABAAEAAADi//3/AAABAAEAAADi//7/AAABAAEAAADh//7/AAABAAEAAADh////AAABAAEAAADi////AAABAAEAAADj//7/AAABAAEAAADj//3/AAABAAEAAADl//3/AAABAAEAAADl//7/AAABAAEAAADl////AAABAAEAAADk////AAABAAEAAADk//7/AAABAAEAAADj////AAABAAEAAADm//j/AAAHAAAAAADm//n/AAAHAAEAAADm//r/AAAHAAEAAADm//v/AAAHAAEAAADm//z/AAAHAAEAAADm//3/AAAHAAEAAADm//7/AAAHAAEAAADm////AAAHAAEAAADn//z/AAAEAAAAAADo//z/AAAEAAAAAADp//z/AAAEAAAAAADq//z/AAAEAAAAAADr//z/AAAEAAAAAADs//z/AAAEAAAAAADt//z/AAAHAAAAAADt//3/AAAHAAEAAADt//7/AAAHAAEAAADt////AAAHAAEAAADn//3/AAABAAEAAADo//3/AAABAAEAAADp//3/AAABAAEAAADq//3/AAABAAEAAADr//3/AAABAAEAAADs//3/AAABAAEAAADs//7/AAABAAEAAADr//7/AAABAAEAAADq//7/AAABAAEAAADp//7/AAABAAEAAADo//7/AAABAAEAAADn//7/AAABAAEAAADn////AAABAAEAAADo////AAABAAEAAADp////AAABAAEAAADq////AAABAAEAAADr////AAABAAEAAADs////AAABAAEAAAA2APz/AAADAAIAAAAgAP//AAADAAIAAAAjAP3/AAADAAIAAAAmAPz/AAADAAIAAAAqAPz/AAADAAIAAAAuAPz/AAADAAIAAAAyAPz/AAADAAIAAAA6APz/AAADAAIAAAA+APz/AAADAAIAAABCAPz/AAADAAIAAABGAPz/AAADAAIAAABKAPz/AAADAAIAAABOAPz/AAADAAIAAABSAPz/AAABAAEAAABSAP3/AAABAAEAAABTAPz/AAABAAEAAABTAP3/AAABAAEAAABUAPz/AAABAAEAAABUAP3/AAABAAEAAABUAP7/AAABAAEAAABUAP//AAABAAEAAABVAPz/AAABAAEAAABVAP3/AAABAAEAAABWAPz/AAABAAEAAABWAP3/AAABAAEAAABWAP7/AAABAAEAAABWAP//AAABAAEAAABXAPz/AAABAAEAAABSAPv/AAABAAEAAABTAPv/AAABAAEAAABUAPv/AAABAAEAAABVAPv/AAABAAEAAABWAPv/AAABAAEAAAAJAPf/AAADAAIAAAAHAPn/AAADAAIAAAAEAPv/AAADAAIAAAACAP3/AAADAAIAAAD+//z/AAADAAIAAAD9//v/AAADAAIAAAD7//n/AAADAAIAAAD5//f/AAADAAIAAAD3//X/AAADAAIAAAAZAPj/AAADAAIAAAAXAPr/AAADAAIAAAAUAPz/AAADAAIAAAASAP7/AAADAAIAAAAPAPz/AAADAAIAAAANAPn/AAADAAIAAAAMAPf/AAADAAIAAABrAPr/AQAAAAAAAQA=")
+tile_set = ExtResource("1_3ss4k")
+physics_quadrant_size = 32
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=2038278013]
+position = Vector2(-1273, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=929029743]
+shape = SubResource("WorldBoundaryShape2D_qe2i2")
+
+[node name="player notes" type="Label" parent="." unique_id=870216371]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "payer movenmt notes in blocks 
+jumps 4 16x16 pix tiles blocks max single jump
+moves at 12.5 bloocks / second maybe
+"
+
+[node name="player" parent="." unique_id=1999747051 instance=ExtResource("2_x6qar")]
+position = Vector2(1360.4114, -136.79416)
+
+[node name="notes folder" type="Control" parent="." unique_id=102110557]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="notes folder" unique_id=1063770418]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -192.0
+offset_right = 413.0
+offset_bottom = -169.0
+text = "some obstical that moves and trys to hit the player forcing crouch and somthing that shoots at the player so they are forced to block "
+
+[node name="Label2" type="Label" parent="notes folder" unique_id=398647653]
+layout_mode = 0
+offset_left = 1568.0
+offset_top = -128.0
+offset_right = 1608.0
+offset_bottom = -105.0
+text = "start cutsecne then start player attack normals stuff (maybe comand nomals too diable movemnt node and dash) then pvp after that is done finlay show player use of grapling hook via animation then in forext intrduce it "
+
+[node name="Label3" type="Label" parent="notes folder" unique_id=307466411]
+layout_mode = 0
+offset_left = -1277.4841
+offset_top = -151.79343
+offset_right = -1237.4841
+offset_bottom = -128.79343
+text = "start of level cut secne "
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=369100050]
+script = ExtResource("4_472xy")
+
+[node name="Label" type="Label" parent="CanvasLayer2" unique_id=1287855778]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "      frame by frame mode enabled press f to diable or the left menu button "
+
+[node name="cutscene folders" type="Node2D" parent="." unique_id=1109898137]
+
+[node name="CutsceneArea" type="Area2D" parent="cutscene folders" unique_id=2031448551]
+position = Vector2(-1392, -24)
+script = ExtResource("3_n47p1")
+text = Array[String](["alright get ready for training", "start by taking a lap around the obstical course", "you can move and jump with the left stick and A or with teh ASD keys and L"])
+metadata/_custom_type_script = "uid://dj4e3ktxupeu1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cutscene folders/CutsceneArea" unique_id=94702798]
+position = Vector2(120, 0)
+shape = SubResource("RectangleShape2D_472xy")
+
+[node name="CutsceneArea2" type="Area2D" parent="cutscene folders" unique_id=526019146]
+position = Vector2(1640, -8)
+script = ExtResource("3_n47p1")
+text = Array[String](["alright next its time for you to go spar with a partern", "this is just training "])
+metadata/_custom_type_script = "uid://dj4e3ktxupeu1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cutscene folders/CutsceneArea2" unique_id=1953468473]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_1hrpo")
+
+[node name="CutsceneArea3" type="Area2D" parent="cutscene folders" unique_id=754848939]
+position = Vector2(1728, -32)
+script = ExtResource("3_n47p1")
+text = Array[String](["alright that was good work every one ", "player your we finaly have a mission for you ", "awsome", "now now its not really a big one but more of a test misson ", "aww", "right affte youll get a real misson ", "okay", "the test is get to this point on your own. if you do you pass and thne the perosn there will give you a new misson", "you no longer be consisders a trainiee after "])
+metadata/_custom_type_script = "uid://dj4e3ktxupeu1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cutscene folders/CutsceneArea3" unique_id=846574487]
+shape = SubResource("RectangleShape2D_0ist0")
+
+[node name="Turret" type="Node2D" parent="." unique_id=966121510 node_paths=PackedStringArray("frame_timer")]
+position = Vector2(1354.7686, -55.419327)
+script = ExtResource("5_tqpnp")
+frame_timer = NodePath("FrameTimer")
+delay = 60
+thing_to_spawn = ExtResource("6_a5gii")
+max_alowed_to_exist = 20
+metadata/_custom_type_script = "uid://c07awirmkkk7k"
+
+[node name="FrameTimer" type="Node" parent="Turret" unique_id=1420753950]
+script = ExtResource("7_7oe43")
+metadata/_custom_type_script = "uid://dkek8a7podljt"

@@ -1,0 +1,15 @@
+training room gym: search for gym parkour
+	[wide shot](https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2Fc9dba6_25c4f92aaab04c6b85fe40cf6cc92e47~mv2.jpg%2Fv1%2Ffill%2Fw_980%2Ch_654%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto%2Fc9dba6_25c4f92aaab04c6b85fe40cf6cc92e47~mv2.jpg&sp=1783540320T7131acc3a4401779d5a6487921880d48889059f6162cfb27fc586243945feb5a) 
+	[blocks](https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fthf.bing.com%2Fth%2Fid%2FOIP.40XWKybZfsDiP_fyqJ9ciwHaE8%3Fr%3D0%26cb%3Dthfc1falcon4%26pid%3DApi&sp=1783540320Te639dadfe964f8bd2163afe4d33d91497b88b9fe581ed0566fb5a57d46bcace5) but different thematic colour
+	[block but difrent](https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fthf.bing.com%2Fth%2Fid%2FOIP.9bnVACsiSMcaFAeLWYRyCAHaE8%3Fr%3D0%26cb%3Dthfc1falcon4%26pid%3DApi&sp=1783540320T8533b4af48c7cc3ee17da0a1e9fdd3d6c83b60b24a410b2bdcb9a23e1b749446) 
+	[metal bars](https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fthf.bing.com%2Fth%2Fid%2FOIP.HaSzcTBVdSEMzgJg3OGAHQHaE8%3Fr%3D0%26cb%3Dthfc1falcon4%26pid%3DApi&sp=1783540320Ta7d5c5f89ae5ade89d6f21f6c6986f0346bf8dae5a6fbeb00b3e3b7d8f97b6b0) 
+	[wide shot 2 with more metal supports](https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fthfvnext.bing.com%2Fth%2Fid%2FOIP.oJLl5wxHH4KVfQS4NiUuiQHaFW%3Fr%3D0%26cb%3Dthfvnextfalcon4%26pid%3DApi&sp=1783540913T855b2e2a51210000079f517b2bce453ad4c16bd4919d466815707db7b8266aba) 
+forest things to reference 
+	![types of trees](https://englishan.com/wp-content/uploads/2024/09/1.jpg)  
+	[a good number of real animals]([https://cdn.wallpapersafari.com/19/52/QtPl2q.png](https://eslforums.com/wp-content/uploads/2019/07/FOREST-ANIMALS.jpg.webp)) 
+wizard tower also terraria as reference is amazing
+	![tower attached by chains](https://i.pinimg.com/originals/7f/a8/71/7fa8715fc60fa652cb118aa7ab4d032f.png) 
+	![tower attached to tower](https://i.pinimg.com/originals/68/3e/bf/683ebf7f35e717805050101991344cee.png) 
+	![broken tower](https://i.pinimg.com/originals/67/52/9a/67529a7ad23d20fa1bad74c78765185a.png) 
+	[mixed use buildings go to page 5](https://www.e3s-conferences.org/articles/e3sconf/pdf/2018/08/e3sconf_hrc2018_01021.pdf) 
+	

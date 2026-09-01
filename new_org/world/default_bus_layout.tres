@@ -1,0 +1,10 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://cpw4otl8x866d"]
+
+[resource]
+bus/0/bypass_fx = true
+bus/1/name = &"SFX"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -11.957565
+bus/1/send = &"Master"

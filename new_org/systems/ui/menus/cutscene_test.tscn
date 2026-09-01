@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bp25vtqkti15t"]
+
+[ext_resource type="PackedScene" uid="uid://1qg7dif81n34" path="res://new_org/systems/ui/menus/cutscene_area.tscn" id="1_3ccw2"]
+[ext_resource type="PackedScene" uid="uid://cca8fe1qvcnch" path="res://new_org/entity_sences_and_resources/ready_scenes/hurtable_player.tscn" id="2_8poas"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ubxx0"]
+distance = -96.0
+
+[node name="Node2D" type="Node2D" unique_id=649885725]
+
+[node name="cutscene node" parent="." unique_id=213002406 instance=ExtResource("1_3ccw2")]
+
+[node name="Camera2D" type="Camera2D" parent="cutscene node" unique_id=904795068]
+zoom = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cutscene node" unique_id=548751600]
+shape = SubResource("WorldBoundaryShape2D_ubxx0")
+
+[node name="hurt able" parent="." unique_id=373821748 instance=ExtResource("2_8poas")]
+collision_layer = 2

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://b8564hciniqu3" path="res://new_org/systems/entity_systems/shared/stun_manager.gd" id="3_efw5k"]
 [ext_resource type="PackedScene" uid="uid://btufeyfuqt18p" path="res://new_org/entity_sences_and_resources/entity_parts/primary_boxes/defult_primary_hurt_boxes.tscn" id="3_m8xwp"]
 [ext_resource type="Script" uid="uid://dd0phg7lcqqps" path="res://new_org/systems/entity_systems/shared/gravity.gd" id="5_wr0em"]
-[ext_resource type="Texture2D" uid="uid://dxxtu2redxtmm" path="res://new_org/art/icon.svg" id="6_lx4nb"]
+[ext_resource type="Texture2D" uid="uid://dxxtu2redxtmm" path="res://icon.svg" id="6_lx4nb"]
 [ext_resource type="Script" uid="uid://bpcoafuum2ks1" path="res://new_org/systems/ui/simple_health_bar.gd" id="7_m8xwp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7li3v"]
