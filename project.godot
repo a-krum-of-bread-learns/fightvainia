@@ -11,9 +11,8 @@ config_version=5
 [application]
 
 config/name="fightingvaina"
-run/main_scene="uid://b51mwlrtfmqd8"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://new_org/art/icon.svg"
 
 [audio]
 
@@ -55,9 +54,7 @@ folder_colors={
 "res://new_org/entity_sences_and_resources/": "blue",
 "res://new_org/systems/": "orange",
 "res://new_org/systems/ui/": "green",
-"res://new_org/world/": "yellow",
-"res://testings/": "gray",
-"res://testings/to be deleted video/": "red"
+"res://new_org/world/": "yellow"
 }
 
 [input]

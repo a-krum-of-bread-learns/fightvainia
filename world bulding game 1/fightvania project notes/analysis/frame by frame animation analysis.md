@@ -1,1 +1,0 @@
-in sf6 some attacks are form bent limbs to strait in a single frame witch makes sense as most of the force in a real attack is about snapping the body correctly (sell sword arts helped with video on limb snapping and structure)

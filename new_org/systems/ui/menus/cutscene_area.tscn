@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://1qg7dif81n34"]
-
-[ext_resource type="Script" uid="uid://dj4e3ktxupeu1" path="res://new_org/systems/game_systems_and_auto_loads/cutscene_area.gd" id="1_0uykw"]
-
-[node name="cutscene node" type="Area2D" unique_id=213002406]
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("1_0uykw")

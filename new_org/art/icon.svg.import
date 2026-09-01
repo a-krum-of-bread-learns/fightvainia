@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw4sdhg56vhpq"
-path="res://.godot/imported/TODO_Manager_Logo.png-e07d7ec75201c66b732ef87ec1bece15.ctex"
+uid="uid://dxxtu2redxtmm"
+path="res://.godot/imported/icon.svg-23e04ba6849bcdf6d824dd72c2e49e4e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Todo_Manager/doc/images/TODO_Manager_Logo.png"
-dest_files=["res://.godot/imported/TODO_Manager_Logo.png-e07d7ec75201c66b732ef87ec1bece15.ctex"]
+source_file="res://new_org/art/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-23e04ba6849bcdf6d824dd72c2e49e4e.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
