@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c56l0wv4lygfr" path="res://new_org/systems/entity_systems/shared/primary_hurt_boxes.gd" id="1_5rncv"]
 [ext_resource type="Script" uid="uid://bmbi4lyfgdixu" path="res://new_org/systems/entity_systems/shared/attack_tree_components/hurtbox_area.gd" id="2_sfb2e"]
-[ext_resource type="Texture2D" uid="uid://dxxtu2redxtmm" path="res://icon.svg" id="3_iikor"]
+[ext_resource type="Texture2D" uid="uid://dxxtu2redxtmm" path="res://new_org/art/icon.svg" id="3_iikor"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_or5bu"]
 size = Vector2(64, 16)
